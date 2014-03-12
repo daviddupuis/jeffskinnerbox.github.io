@@ -445,16 +445,15 @@ git config --global core.editor vim
 git config --global merge.tool vimdiff
 git add --all
 git commit -m "first commit"
-
-```shell
 git remote add origin https://github.com/jeffskinnerbox/jeffskinnerbox.github.io.git
-git push -u origin master
 ```
 
-#### Publishing to GitHub
+#### Publishing to GitHub Page
 [GitHub can create a websites from a repository][29] and this is call GitHub Pages.
 There are [two types of GitHub Pages][30]: Project Pages and User Pages.
 We are using User Pages here.
+Check out [A guide to using Github Pages][33] for more information.
+
 In the case of User Pages, if we create a repository with the name `<username>.github.io`,
 whatever is created in the master branch of `<username>.github.io`, will be published.
 The website will be the same name (you can provide a custom name, more on this below).
@@ -473,14 +472,17 @@ which will import the `pelicanconf.py` file but override anything needed specifi
 ```shell
 pelican content -o output -s publishconf.py
 ghp-import output
-git push git@github.com:jeffskinnerbox/jeffskinnerbox.github.io.git gh-pages:master
+git push origin gh-pages:master
 ```
 
 The `git push` command pushes the local `gh-pages` branch
 (freshly updated by the `ghp-import` command) to the `<username>.github.io`
 repository’s master branch on GitHub.
 
-**Note:** Much of this was lifted from the [Pelican Tips Documentation][32].
+To place the source materials for the websit into GitHub, do the following:
+
+```shell
+```
 
 ##### Custom Domain Name
 To use a custom domain with GitHub Pages,
@@ -571,7 +573,7 @@ you can do so by adding `--upgrade` to the relevant command. For Pelican, that w
 [30]:https://help.github.com/articles/user-organization-and-project-pages
 [31]:https://pypi.python.org/pypi/ghp-import
 [32]:http://docs.getpelican.com/en/3.3.0/tips.html
-[33]:
+[33]:http://www.thinkful.com/learn/a-guide-to-using-github-pages/
 [34]:
 [35]:
 [36]:
