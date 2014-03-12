@@ -1,0 +1,93 @@
+{% if DISPLAY_TAGS_ON_SIDEBAR is not defined %}
+    {% set DISPLAY_TAGS_ON_SIDEBAR = True %}
+{% endif %}
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+            {% if DISPLAY_PICTURE_ON_SIDEBAR %}
+                <div style="text-align: center;">
+                    <h3><a href="{{ SITEURL }}/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">{{ SIDEBAR_TITLE }}</a>
+                    <img class="img-rounded" src="{{ SITEURL }}/{{ SIDEBAR_PICTURE }}" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+            {% endif %}
+
+            <li class="list-group-item"><a href="{{ SITEURL }}/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                {% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
+                <ul class="list-group" id="categories">
+                    {% for cat, null in categories %}
+                        <li class="list-group-item">
+                            <a href="{{ SITEURL }}/{{ cat.url }}">
+                                <i class="fa fa-folder-open fa-lg"></i> {{ cat }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+
+            <li class="list-group-item"><a href="{{ SITEURL }}/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                {% if DISPLAY_TAGS_ON_SIDEBAR %}
+                <ul class="list-group" id="tags">
+                    {% for tag in tag_cloud|sort(attribute='1') %}
+                        <li class="list-group-item tag-{{ tag.1 }}">
+                            <a href="{{ SITEURL }}/{{ tag.0.url }}">
+                                {{ tag.0 }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>    
+
+            <li class="list-group-item"><a href="{{ SITEURL }}/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            {% if DISPLAY_RECENT_POSTS_ON_SIDEBAR %}
+                {% if RECENT_POST_COUNT is not defined %}
+                    {% set RECENT_POST_COUNT = 5 %}
+                {% endif %}
+                    <ul class="list-group" id="recentposts">
+                    {% for article in articles[:RECENT_POST_COUNT] %}
+                        <li class="list-group-item">
+                            <a href="{{ SITEURL }}/{{ article.url }}">
+                                {{ article.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+            {% endif %}
+            </li>
+
+            <li class="list-group-item"><a href="{{ SITEURL }}/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            {% if LINKS %}
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    {% for name, link in LINKS %}
+                    <li class="list-group-item">
+                        <a href="{{ link }}" target="_blank">
+                            {{ name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                </li>
+            {% endif %}
+
+            {% if SOCIAL %}
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    {% for name, link in SOCIAL %}
+                    <li class="list-group-item"><a href="{{ link }}" target="_blank"><i
+                            class="fa fa-{{ name|lower|replace('+','-plus') }}-square fa-lg"></i> {{ name }}
+                    </a></li>
+                    {% endfor %}
+                  </ul>
+            </li>
+            {% endif %}
+
+            <li class="list-group-item"><a href="{{ SITEURL }}/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>
