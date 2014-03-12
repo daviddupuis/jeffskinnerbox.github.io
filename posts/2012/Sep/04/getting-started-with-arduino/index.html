@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Getting Started with Arduino - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Getting Started with Arduino"/>
+            <meta property="og:url" content="/posts/2012/Sep/04/getting-started-with-arduino/"/>
+            <meta property="og:description" content="What is the Arduino, where can you get one, what tools do you need to use it, where can you get specifications, and how can you find out more about the Arduino?"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/2012/Sep/04/getting-started-with-arduino/"
+                       rel="bookmark"
+                       title="Permalink to Getting Started with Arduino">
+                        Getting Started with&nbsp;Arduino
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-09-04T00:01:00"> Tuesday  September 04, 2012</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="/tag/arduino/">Arduino</a>
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <p><a href="http://www.arduino.cc/"><img class="alignright size-medium wp-image-384" title="Ardunio Uno Board" alt="Ardino Uno Board" src="http://jeffskinnerbox.files.wordpress.com/2012/10/arduino-uno-board-on-an-angle.jpg?w=300" width="300" height="300" /></a></p>
+
+<h2>What is an&nbsp;Arduino?</h2>
+
+<p>First things first - Just what is an Arduino? Check out the following links for a brief&nbsp;introduction:</p>
+
+<ul><ul><li><a href="http://www.wired.com/gadgetlab/2008/04/just-what-is-an/">Just What Is An Arduino, And Why Do you Want&nbsp;One?</a></li><li><a href="http://www.pcworld.com/article/239454/geek_101_what_is_arduino.html">Geek 101: What Is&nbsp;Arduino?</a></li><li><a href="http://www.ted.com/talks/massimo_banzi_how_arduino_is_open_sourcing_imagination.html">Massimo Banzi: How Arduino is open-sourcing imagination at TEDGlobal&nbsp;2012</a></li><li><a href="http://redux.com/stream/item/1909904/Arduino-The-Documentary-2010-English-HD">Arduino: The&nbsp;Documentary</a></li></ul></ul>
+
+<p>For a lighter look at the Arduino, check out the <a href="http://arduino.cc/playground/uploads/Main/arduino_comic_v0004.pdf">comic book</a> by Jody&nbsp;Culkin.</p>
+
+<p>To go a bit deeper to understand the Arduino hardware variants and the Arduino’s Interactive Development Environment (<span class="caps">IDE</span>):</p>
+
+<ul><ul><li><a href="http://arduino.cc/en/Guide/Introduction">Ardunio as defined by the&nbsp;source</a></li><li><a href="http://www.howtogeek.com/65963/what-is-arduino/">What is Arduino? Learn About This Open-Source Electronics&nbsp;Platform</a></li></ul></ul>
+
+<p>Arduino also comes in <a href="http://arduino.cc/hu/Main/Hardware">multiple hardware variations</a> to support different types of&nbsp;applications.</p>
+
+<h2>What you Need to&nbsp;Purchase</h2>
+
+<p>For less than $100, Adafruit Industries offers an excellent starter package, <a href="http://www.adafruit.com/products/170">Adafruit <span class="caps">ARDX</span></a>. This package not only includes an Arduino Uno but also all the electronic pieces needed to complete 11 different circuits, along with a experimenter&#8217;s guide booklet <span class="amp">&amp;</span> breadboard layout&nbsp;sheets.</p>
+
+<h2>Installing the <span class="caps">IDE</span></h2>
+
+<p>This is the program used to write code for the Arduino. Install the software for you operating system and type of Arduino. I’m assuming Vista and Arduino Uno&nbsp;R3.</p>
+
+<ul><ul><li><a href="http://www.arduino.cc/en/Main/Software">Download the Arduino <span class="caps">IED</span>&nbsp;Software</a></li><li><a href="http://arduino.cc/en/Guide/Windows">How to connect your Arduino board to the computer (Windows <span class="caps">PC</span>) and upload your first&nbsp;sketch</a></li><li>Note: Within Device Manager, you may have to go to Action &gt; Add Legacy Hardware to see the Arduino and get the driver&nbsp;installed.</li></ul></ul>
+
+<h2>Start Your&nbsp;Education</h2>
+
+<p>Using the experiments guide that comes with the Arduino kit, <a href="http://www.oomlout.com/products/ARDX/ARDX-experimenters-guide-DD.pdf">Arduino Experimenter&#8217;s Guide (<span class="caps">ARDX</span>)</a>, and your off and running! Other sites to check out&nbsp;include:</p>
+
+<ul><ul><li><a href="http://www.oomlout.com/a/products/ardx/"><span class="caps">ARDX</span> Kit&nbsp;Tutorials</a></li><li><a href="http://www.ladyada.net/learn/arduino/index.html">Ladyada&#8217;s Arduino&nbsp;Tutorial</a></li><li><a href="http://arduino.cc/en/Tutorial/HomePage">Official Arduino Example&nbsp;Tutorials</a></li><li><a href="http://www.instructables.com/tag/type-id/category-technology/channel-arduino/">Instructables&#8217; Arduino&nbsp;Section</a></li><li><a href="http://makezine.com/arduino/">Make Magazine&#8217;s Arduino&nbsp;Section</a></li><li><a href="http://www.adafruit.com/tutorials">Adafruit&nbsp;Industries</a></li><li><a href="http://www.sparkfun.com/tutorials">Sparkfun&nbsp;Electronics</a></li><li><a href="http://learn.sparkfun.com/curriculum">Education at SparkFun&nbsp;Electronics</a></li><li><a href="http://www.arduinotutorials.com">Arduino&nbsp;Tutorials</a></li><li><a href="http://letsmakerobots.com/node/28278">Arduino 101: Timers and&nbsp;Interrupts</a></li><li><a href="http://tronixstuff.wordpress.com/tutorials/">Arduino&nbsp;Tutorials</a></li><li><a href="http://guides.machinescience.org/course/view.php?id=29">Machine&nbsp;Science</a></li><li><a href="http://www.arduino.cc/cgi-bin/yabb2/YaBB.pl">Official&nbsp;Forums</a></li></ul></ul>
+
+<h2>Purchasing Arduino Hardware and Supporting&nbsp;Electronics</h2>
+
+<p>There are several online retail stores that sell the bits and pieces to make electronics projects possible. Some of the best&nbsp;are:</p>
+
+<ul><ul><li><a href="http://www.adafruit.com/category/17">Adafruit&nbsp;Industries</a></li><li><a href="http://www.sparkfun.com/">SparkFun&nbsp;Electronics</a></li><li><a href="http://www.parallax.com/">Parallax.com</a></li><li><a href="http://www.makershed.com/category_s/211.htm">Maker&nbsp;Shed</a></li><li><a href="http://www.mouser.com/Arduino/">Mouser&nbsp;Electronics</a></li><li><a href="http://www.goldmine-elec.com/">Electronic&nbsp;Goldmine</a></li><li><a href="http://www.jameco.com">Jameco&nbsp;Electronics</a></li><li><a href="http://www.digikey.com/">Digi-Key</a></li><li><a href="http://www.alliedelec.com/">Allied&nbsp;Electronics</a></li><li><a href="http://www.radioshack.com/category/index.jsp?categoryId=2032058">Radio&nbsp;Shack</a></li><li><a href="http://www.hobbypartz.com/">Hobby&nbsp;Partz</a></li><li><a href="http://www.lynxmotion.com/default.aspx">Lynxmotion</a></li></ul></ul>
+
+<p>Robotics is a popular topic for Arduino and these sites specialize in components and kits especially suited for&nbsp;robots:</p>
+
+<ul><ul><li><a href="http://www.dfrobot.com/"><span class="caps">DF</span>&nbsp;Robot</a></li><li><a href="http://www.machinescience.org/">Machine&nbsp;Science</a></li><li><a href="http://www.trossenrobotics.com/">Trossen&nbsp;Robotics</a></li><li><a href="http://www.robotshop.com/">RobotShop</a></li></ul></ul>
+
+<p>There are many shields available for the Arduino to accommodate many needs and <a href="http://shieldlist.org/">Arduino Shield List</a> keeps a running list of&nbsp;them.</p>
+
+<h2>Arduino&nbsp;Knowledgebases</h2>
+
+<ul><ul><li><a href="http://arduino.cc/en/Reference/HomePage">Arduino Language&nbsp;Reference</a></li><li><a href="http://dlnmh9ip6v2uc.cloudfront.net/learn/materials/8/Arduino_Cheat_Sheet.pdf">Arduino Cheat&nbsp;Sheet</a></li><li><a href="http://www.freeduino.org/">The World Famous Index of Arduino <span class="amp">&amp;</span> Freeduino&nbsp;Knowledge</a></li><li><a href="https://dafd4a86-a-62cb3a1a-s-sites.googlegroups.com/site/mechatronicsguy/arduinocheatsheet/Arduino%20cheat%20sheet%20v02c.png?attachauth=ANoY7cqNlrBTz55OdAqyKZbGYz82HJDLeBlGIbR3oPAe6cBuQc2wNntvNZqgY-_InrvuseNhJa7aa645ZXlgk3fgL6t-obHAcE28IqUFGv3IH8tdOzyC0UYzgTkjoaorrYTiAGi7xTBDk3Niy_E5fGs3oy3nwWHXlR5eF8B1_q83SFxMrg0x9ivR8l8alqMkxpgyJauaLXkH6zfGiADUn_8KT5M-AB5_TSm6K9fPVVX8xgbI0kTBgJjVtIyOICdf28IoYnAL_iBx&amp;attredirects=0">Arduino Cheat&nbsp;Sheet</a></li><li><a href="http://learn.sparkfun.com/resources/Handouts/ProtoSnap/ProtoSnap%20Handout.pdf">Basic Arduino Reference&nbsp;Sheet</a></li></ul></ul>
+
+<p><a href="http://jeffskinnerbox.files.wordpress.com/2012/10/arduinouno_r3_pinouts.png"><img class="aligncenter size-full wp-image-386" title="ArduinoUno_R3_Pinouts" alt="Arduino Pinout" src="http://jeffskinnerbox.files.wordpress.com/2012/10/arduinouno_r3_pinouts.png" width="545" height="419" /></a></p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>

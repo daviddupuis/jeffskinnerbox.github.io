@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Network Backups via Rsync and Rsnapshot - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Network Backups via Rsync and Rsnapshot"/>
+            <meta property="og:url" content="/posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/"/>
+            <meta property="og:description" content="Using a external hard drive, and rsync / rsnapshot as a remote filesystem backup utility, I create scheduled incremental backups of my Linux & Windows filesystems. This light-weight and efficient scheme allows me to create increment backups every 4 hours and keep backups up to three months."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/"
+                       rel="bookmark"
+                       title="Permalink to Network Backups via Rsync and Rsnapshot">
+                        Network Backups via Rsync and&nbsp;Rsnapshot
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-02-08T00:01:00"> Saturday  February 08, 2014</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="/tag/linux/">Linux</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="/tag/rsync/">Rsync</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="/tag/rsnapshot/">Rsnapshot</a>
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <h3>rsync and&nbsp;rsnapshot</h3>
+<p><a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/">
+<img class="img-rounded floatLeft" style="margin: 0px 8px; float: left" title="Seagate Backup Plus" alt="{{ site.author.name }}" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="30%" height="30%" /></a>
+I got a 4 Terabyte <a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/">Seagate Backup Plus</a> hard drive as a Christmas present and
+I plan to put it to use as a central backup for my Linux desktop, multiple Raspberry Pi,
+my laptop, and anything else that my come along.
+My plan is to keep things simple but I wish to do
+regular hourly, daily, weekly, and monthly incremental backups.
+This will give me the ability to recover files from the past,
+but also to recover from a hardware failure or software install that has gone very&nbsp;badly.</p>
+<p>There are <a href="http://www.techrepublic.com/blog/10-things/10-outstanding-linux-backup-utilities/">many backup tools</a> you can pick from but
+I wanted to stick with something basic, widely used, and simple.
+<a href="http://rsync.samba.org/">Rsync</a> is one of the most widely used Linux backup solutions, and in fact,
+it is often used by <a href="http://en.wikipedia.org/wiki/Rsync">other backup tools</a> as a foundational component. 
+Rsync stands for <strong>r</strong>emote <strong>sync</strong>hronization tool.
+Rsync is a <span class="caps">UN</span>*X command line utility, containing a <a href="http://wiki.r1soft.com/display/TP/rsync+Backup">special protocal and algorithm</a>,
+that synchronizes files and directories from one location to another
+while minimizing data transfer by using fast incremental file transfers.
+(rsync has also been ported to Microsoft Windows, Mac, and other operating systems.)
+The first time, rsync sends all the data over the network to your backup machine.
+The benefit comes the next time you backup.
+Instead of sending all the files again, rsync only transfers files that have been changed.
+If no files were changed, no files get transferred.
+And when you want to recover data, you transfer just the specific files that you want back to your machine
+(using rsync or scp or telnet or&nbsp;whatever).</p>
+<p>Rsnapshot is a great little utility for creating easy-to-use backups.
+Using rsnapshot is possible to take snapshots of your file system at different points in time.
+It creates a full-blown snapshot for each run,
+but uses <a href="http://www.linfo.org/hard_link.html">hard links</a><sup id="fnref:A"><a class="footnote-ref" href="#fn:A" rel="footnote">1</a></sup> for files that haven’t&nbsp;changed.</p>
+<p>That means you get efficient, lightweight,
+incremental backups that look like exactly like full-blown copies (in every way).
+This makes Rsnapshot a great choice for server backups.
+This easy-to-use utility is commonly used for backing up data,
+but can synchronize files for any other purpose you choose to use it for.
+Remote sync can be better than other backup methods because of its speed,
+and because it doesn’t require any special permissions to execute an rsync command.
+With just a small knowledge of the command line, you can be backing up in no time with rsync.
+You can also use <a href="http://en.wikipedia.org/wiki/Cron">cron</a> to periodically create backups.
+To top it off, it also hase a graphics frountend tool, call <a href="http://www.opbyte.it/grsync/">grsync</a>,
+and <a href="http://www.rsnapshot.org/">rsnapshot</a> to create scheduled incremental backups, if so&nbsp;desired.</p>
+<h3>Install the Hard&nbsp;Drive</h3>
+<p>The physical install of the extenal <a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/">Seagate Backup Plus</a> drive was simple, just plug it in.
+The only caveat is to use a <a href="http://en.wikipedia.org/wiki/USB_3.0"><span class="caps">USB</span> 3.0</a> port on the Linux box to make sure you
+get the fill speed out of the drive.
+Using the supplied <span class="caps">USB</span> 3.0 cable is a must,
+since a <span class="caps">USB</span> 2.0 cable will force the drive to operate at a slower speed.
+Check out <a href="http://www.diffen.com/difference/USB_2.0_vs_USB_3.0"><span class="caps">USB</span> 2.0 vs <span class="caps">USB</span> 3.0</a> to understand&nbsp;further.</p>
+<p>Under my Ubuntu system, this external disk&#8217;s file system will be automatically mounted
+located at <code>/media/jeff/"Seagate Backup Plus Drive"</code>.
+This nice and easy, but the disk is formated as a <a href="http://en.wikipedia.org/wiki/NTFS"><span class="caps">NTFS</span> (New Technology File System)</a>
+which is a proprietary file system developed by Microsoft.
+For Linux compatibility reasons,
+I want the disk to support a <a href="https://help.ubuntu.com/community/LinuxFilesystemsExplained">Linux ext3 file system</a>.
+This will requiring re-formating and mounting the new disk.
+To do this, I followed the procedures outlined in
+in the artical &#8220;<a href="http://www.itechlounge.net/2012/01/linux-partition-and-format-external-hard-drive-as-ext3-filesystem/">Partition and format external hard drive as ext3 filesystem</a>&#8220;.
+I created a mount point called <code>/mnt/backup</code> for the hard drive and
+place it in the <code>fstab</code> file so its mounted everytime at boot&nbsp;up.</p>
+<h3>Install rsync, grsync, and&nbsp;rsnapshot</h3>
+<p>Rsync should already be installed on most Linux system.
+You can install it, and the <a href="http://www.opbyte.it/grsync/">grsync</a> <span class="amp">&amp;</span> <a href="http://www.rsnapshot.org/">rsnapshot</a> tools, using this&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install rsync grsync rsnapshot
+</pre></div>
+
+
+<h3>Select Backup Storage&nbsp;Location</h3>
+<p>I want to create directory for the backups that are readable by all users, but writable by only root.
+To do this, do the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mkdir /mnt/backup
+chmod a+rwx /mnt/backup
+chmod o-w /mnt/backup
+</pre></div>
+
+
+<h3>Getting Familiar with rsync and Preparatory&nbsp;Work</h3>
+<p>In this section, we&#8217;ll learn about some of rsync&#8217;s features and get some foundational stuff&nbsp;done.</p>
+<h5>Dry Running a rsync&nbsp;Command</h5>
+<p>Rsync has the potential of really messing up things
+and then doing an undo can be a tedious job.
+Rsync can be run in a &#8220;dry run&#8221; mode to show you the output of the command.
+For example, this will make a copy of <code>~/tmp</code>: </p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">rsync -azv --dry-run /home/jeff/tmp/ /home/jeff/tmp/copy-of-tmp
+</pre></div>
+
+
+<p>If the output shows exactly what you want to do,
+then you can remove <code>–dry-run</code> option from your command and re-run it for&nbsp;real. </p>
+<h5>Test rsync on Local&nbsp;System</h5>
+<p>In an effort to try out rsync in the raw,
+I&#8217;ll create some ad hoc backups of my desktop&#8217;s home directory.
+I want to preserves file timestamp, symbolic links, permissions, and owner/group.
+This can be done using the rsync option <code>-a</code>.
+Additional options used are <code>-z</code> to enable compression,
+and <code>-v</code> to provide verbose status&nbsp;output.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv /home/jeff/src/rtl-sdr/ /mnt/backup/rsync-test1
+</pre></div>
+
+
+<p>The <code>sudo</code> is required since I have made <code>/mnt/backup</code> writable only by root.
+The presence or absence of the terminating <code>/</code> within the rsync command line is important.
+The following two commands produce different&nbsp;results:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv /home/jeff/Documents/&quot;My Maps&quot;/ /mnt/backup/rsync-test2
+sudo rsync -azv /home/jeff/Documents/&quot;My Maps&quot; /mnt/backup/rsync-test3
+</pre></div>
+
+
+<p>The first takes the sources files and subdirectories and writes them directly to the destination directory.
+The second does the same but the files and directories go wihin a directory called <code>My Maps</code>.
+This is an important subtlety to&nbsp;remember!</p>
+<h5>Testing rsync on a Remote&nbsp;System</h5>
+<p>In this case, my Linux desktop machine is the local system and RPi is the remote machine.
+The Linux desktop has the external drive used for&nbsp;backups.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv pi@RedRPi:/home/pi/src/nRF24L01 /mnt/backup/rsync-test4
+</pre></div>
+
+
+<p>This will first prompt you for a password for the <code>sudo</code>.
+You will get a subsequent prompt for the login as <code>pi</code> on the <code>RedRPi</code> system,
+and then the data will be transfered to the external drive.
+but when performing beyond your the firewall, you should use ssh, as shown&nbsp;below:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh pi@RedRPi:/home/pi/src/ /mnt/backup/rsync-test5
+</pre></div>
+
+
+<p>To setup ssh with rsync so that it can run automatically without prompting for the pasword,
+checkout &#8220;<a href="http://www.thegeekstuff.com/2011/07/rsync-over-ssh-without-password/">How to Setup Rsync with <span class="caps">SSH</span> on <span class="caps">UNIX</span> / Linux (rsync without password)</a>&#8220;.
+This is sometime you will want to do to support automatic, unattended backups.
+Basicly, your going to do the following on the machine that will store the backups<sup id="fnref:B"><a class="footnote-ref" href="#fn:B" rel="footnote">2</a></sup>:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd $HOME
+mkdir .ssh
+chmod 755 .ssh
+ssh-keygen -N &quot;&quot; -f /$HOME/.ssh/id_rsa
+ssh-copy-id -i /$HOME/.ssh/id_rsa.pub pi@RedRPi
+ssh-copy-id -i /$HOME/.ssh/id_rsa.pub pi@BlackRPi
+sudo bash
+cd /root
+mkdir .ssh
+chmod 755 .ssh
+ssh-keygen -N &quot;&quot; -f /root/.ssh/id_rsa
+ssh-copy-id -i /root/.ssh/id_rsa.pub pi@RedRPi
+ssh-copy-id -i /root/.ssh/id_rsa.pub pi@BlackRPi
+exit
+</pre></div>
+
+
+<p>Now repeat the example&nbsp;above:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh pi@RedRPi:/home/pi/src/ /mnt/backup/rsync-test5a
+</pre></div>
+
+
+<p>You should no longer be promoted for a password, except by the first <code>sudo</code>.
+(Once rsync is run under a root login, this <code>sudo</code> will no longer be&nbsp;required).</p>
+<h5>Exclude Files / Directories from&nbsp;rsync</h5>
+<p>In a typical backup situation,
+you might want to exclude one or more files (or directories) from the backup.
+You might also want to exclude a specific file type from rsync.
+Let&#8217;s run a backup of <code>pi@RedRPi:/home/pi/</code>
+but leave out the <code>tmp</code> and <code>src</code> directories.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh --exclude &#39;tmp&#39; --exclude &#39;src&#39; pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
+</pre></div>
+
+
+<p>You could also create a file that contains the exclude list <code>tmp</code> and <code>src</code>.
+This would look&nbsp;like:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv --exclude-from &#39;exclude-list.txt&#39; pi@RedRPi:/home/pi/ /mnt/backup/rsync-test6
+</pre></div>
+
+
+<h5>Running rsync as&nbsp;Root</h5>
+<p>The above examples works fine as long as the source login (in this case <code>pi</code> on the <code>RedRPi</code> system)
+has the approprate permissions.
+For example, this will&nbsp;fail:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh  pi@RedRPi:/root/ /mnt/backup/rsync-test7
+</pre></div>
+
+
+<p>It fails because the user <code>pi</code> doesn&#8217;t have <code>root</code> permissions
+and the directory <code>/root/</code> can only be entered by the user <code>root</code>.
+You might want to attempt to do the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh root@RedRPi:/root/ /mnt/backup/rsync-test7
+</pre></div>
+
+
+<p>Now your asking to login to the remote system as user root.
+In this case you&#8217;ll be prompted to provide the RedRPi&#8217;s root password,
+but the root login may not have a password<sup id="fnref:C"><a class="footnote-ref" href="#fn:C" rel="footnote">3</a></sup>.</p>
+<p>The way around all this is to use the <code>--rsync-path</code> option for rsync.
+This will&nbsp;work:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh --rsync-path=&quot;sudo rsync&quot; pi@RedRPi:/root /mnt/backup/rsync-test7
+</pre></div>
+
+
+<p>The <code>--rsync-path</code> parameter specifies a path to rsync on the remote machine.
+So <code>rsync</code> will be executed using <code>sudo</code>, giving it root user access privilages,
+and now the use of the <code>pi</code> login will gain access to the <code>/root</code> directory.
+That is, on the remote machine, rsync is being run as root!
+This all requires the proper set-up of ssh with password-less access, discussed&nbsp;earlier.</p>
+<h5>Configuration of ssh to Eliminate Password Prompt and Warning&nbsp;Messages</h5>
+<p>Proper configuration of ssh will be needed to assure routine warning messages<sup id="fnref:D"><a class="footnote-ref" href="#fn:D" rel="footnote">4</a></sup>
+don&#8217;t disrupt the smooth operation of rsync /&nbsp;rsnapshot.</p>
+<p>Specifically, we need to add the approprate parameters to one of the
+<code>ssh</code> configuration files listed&nbsp;below:</p>
+<ul>
+<li><strong>System-wide <span class="caps">SSH</span> client configuration files (i.e. /etc/ssh/ssh_config -</strong> This files set the default configuration for all users of OpenSSH clients on that desktop/laptop and it must be readable by all users on the&nbsp;system.</li>
+<li><strong>User-specific <span class="caps">SSH</span> client configuration files (i.e. $<span class="caps">HOME</span>/.ssh/config -</strong> This is user&#8217;s own configuration file which, overrides the settings in the global client configuration file, <code>/etc/ssh/ssh_config</code>.</li>
+</ul>
+<p>Add this to <code>/etc/ssh/ssh_conf</code> file to disable the host key checking
+and the warnings<sup id="fnref:E"><a class="footnote-ref" href="#fn:E" rel="footnote">5</a></sup> for all users who access systems whos names end in&nbsp;&#8216;RPi&#8217;.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Host *RPi
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+</pre></div>
+
+
+<p>In addition, add the following to the <code>$HOME/.ssh/config</code> file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">UserKnownHostsFile  ~/.ssh/known_hosts
+</pre></div>
+
+
+<p>Make these changes active by restarting the ssh services via the command <code>sudo service ssh restart</code>.</p>
+<p>With ssh properly configured, a command&nbsp;like</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -azv -e ssh --rsync-path=&quot;sudo rsync&quot; pi@BlackRPi:/root/.rpi-firmware/ /mnt/backup/rsync-test8
+</pre></div>
+
+
+<p>should run without requesting passwords, it will run on the remote as the root user,
+and warning messages about differing &#8220;<span class="caps">ECDSA</span> host key&#8221; should not get in your way.
+It will run without user intervention; just what we need for automated&nbsp;backups!</p>
+<h5>Creating Backup Users on Remote&nbsp;Servers</h5>
+<p>On all the remote systems (i.e. RedRPi and BlackRPi) you need to create the login
+and establish its ssh authentication&nbsp;keys.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo adduser backup_user --disabled-password -u 400
+sudo mkdir /home/backup_user/.ssh
+sudo chmod 700 /home/backup_user/.ssh
+</pre></div>
+
+
+<p>Now create a rsync wrapper&nbsp;script:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mkdir /home/backup_user/bin
+sudo vim /home/backup_user/bin/rsync-wrapper.sh
+</pre></div>
+
+
+<p>Enter the following in this file to create the&nbsp;script:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">#!/bin/sh
+
+# This script is a wrapper around rsync, so that rsync can run as root,
+# and at the same time, eliminate any security risks.
+
+# Place in the log file information concerning the execution of this script
+echo -n &quot;rsync wrapper script executed on &quot; &gt;&gt; /home/backup_user/backup.log
+date &gt;&gt; /home/backup_user/backup.log
+echo -n &quot;options passed to rsync: &quot; &gt;&gt; /home/backup_user/backup.log
+echo $@ &gt;&gt; /home/backup_user/backup.log
+echo &quot;---------------------------------------------&quot; &gt;&gt; /home/backup_user/backup.log
+
+# Now execute the script
+/usr/bin/sudo /usr/bin/rsync &quot;$@&quot;;
+</pre></div>
+
+
+<p>Now change the mode and owner of this&nbsp;file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo chown backup_user:backup_user /home/backup_user/*
+sudo chown backup_user:backup_user /home/backup_user/bin/rsync-wrapper.sh
+sudo chmod 754 /home/backup_user/bin/rsync-wrapper.sh
+</pre></div>
+
+
+<p>Now for the <code>backup_user</code>, configure <code>sudo</code> such that it can run the rsync tool
+as root without being being prompted for a password.
+For security reasons, we what only the rsync tool to have <code>sudo</code> privileges.
+Using <a href="http://www.sudo.ws/sudo/sudoers.man.html"><code>visudo</code></a> command, edit the <a href="http://www.sudo.ws/visudo.man.html"><code>/etc/sudoers</code></a><sup id="fnref:F"><a class="footnote-ref" href="#fn:F" rel="footnote">6</a></sup> file by adding the following 
+to the bottom of the&nbsp;file.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># allows this user to not need a password to sudo the specified command(s)
+backup_user    ALL=NOPASSWD:    /usr/bin/rsync
+</pre></div>
+
+
+<h5>Creating Backup Users for Backup&nbsp;Server</h5>
+<p>On the host server (i.e. desktop) you need to create the login
+(with a <span class="caps">UID</span> of less that 500<sup id="fnref:G"><a class="footnote-ref" href="#fn:G" rel="footnote">7</a></sup>)
+which will run the rsync / rsnapshot utilities
+and establish its <code>ssh</code> authentication&nbsp;keys.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo adduser backup_user -u 400
+sudo chown backup_user:backup_user /home/backup_user/*
+sudo su backup_user
+cd ~
+ssh-keygen -N &quot;&quot; -f ~/.ssh/id_rsa
+ssh-copy-id -i ~/.ssh/id_rsa.pub backup_user@RedRPi
+ssh-copy-id -i ~/.ssh/id_rsa.pub backup_user@BlackRPi
+exit
+</pre></div>
+
+
+<h5>Increased&nbsp;Security</h5>
+<p>To increase the security of the overall scheme, 
+on the remote systems and on the local system,
+remove the user password from the <code>backup_user</code> user&nbsp;via</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo passwd --delete backup_user
+</pre></div>
+
+
+<h3>Configuring rsnapshot for Incremental&nbsp;Backups</h3>
+<p>Our mission here is to use rsnapshot to create backups of both normal
+and protected/restricted files from one server to another over <code>ssh</code>
+without enabling remote root access to either server while
+maintaining original file attributes and permissions<sup id="fnref:H"><a class="footnote-ref" href="#fn:H" rel="footnote">8</a></sup>.</p>
+<p>Where rsync does the actual file backups, rsnapshot is responsible for the overall management of the backups.
+In my case, I want it to schedule a nested and rotating series of incremental backups for my systems.
+I want the schedule and the backup increments to&nbsp;be:</p>
+<ul>
+<li>Every 4 hours, create an incremental backup, and store all of them for the past 24&nbsp;hours</li>
+<li>Create a daily incremental backups (from the last hourly backup), and store a daily backup for the past 7&nbsp;days</li>
+<li>Create a weekly incremental backups, and store them for the past 4&nbsp;weeks</li>
+<li>Create monthly incremental backups, and store for the past 3&nbsp;months</li>
+</ul>
+<p>When making the backups, the contents of <code>/dev</code>, <code>/proc</code>, <code>/sys</code>, <code>/tmp</code>, and <code>/run</code> should be excluded
+because they are populated at boot (while the directories themselves are not created).
+The file <code>/lost+found</code> is filesystem-specific and doesn&#8217;t need to be copied.
+(Note: If you plan on backing up your system somewhere other than <code>/mnt</code> or <code>/media</code>
+don&#8217;t forget to add it to the list, to avoid an infinite&nbsp;loop.)</p>
+<p>rsnapshot also provides a non-commandline method for excluding file, which is what I&#8217;m using.
+Specifically, I have defined exclusion files for Linux and Windows based systems.
+For Linix, the file is called <code>rsync-exclude-desktop</code> and <code>rsync-exclude-RPi</code> and look something like&nbsp;this:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">- /var/lib/pacman/sync/*
+- /lost+found
+- /media/*
+- /cdrom/*
+- /proc/*
+- /mnt/*
+- /run/*
+- /tmp/*
+- /sys/*
+- /dev/*
+</pre></div>
+
+
+<p>For Windows, the file is called <code>rsync-exclude-windows</code>:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">- /cygdrive/c/System\ Volume\ Information/*
+- /cygdrive/c/Windows/System32/winevt/*
+- /cygdrive/c/Windows/System32/catroot/*
+- /cygdrive/c/Windows/System32/catroot2/*
+- /cygdrive/c/Windows/System32/config/*
+- /cygdrive/c/Windows/ServiceProfiles/*
+- /cygdrive/c/ProgramData/Microsoft/*
+- /cygdrive/c/Windows/System32/wdi/*
+- /cygdrive/c/Windows/System32/wfp/*
+- /cygdrive/c/Windows/System32/sru/*
+- /cygdrive/c/proc/sys/Device/*
+- /cygdrive/c/proc/registry*
+- /cygdrive/c/Windows/Logs/*
+- /cygdrive/c/hiberfil.sys
+- /cygdrive/c/pagefile.sys
+- /cygdrive/c/swapfile.sys
+- /proc/sys/Sessions/
+- UsrClass.dat
+- ntuser*
+- NTUSER*
+- *Cache*
+- *cache*
+- *Lock*
+- *lock*
+- *LOG*
+- *log*
+- *.tmp
+</pre></div>
+
+
+<p>To implement the above backup rules (and many others),
+you need to edit a configuration file<sup id="fnref:I"><a class="footnote-ref" href="#fn:I" rel="footnote">9</a></sup> located at <code>/etc/rsnapshot.conf</code>.
+The configuration elements I edited are&nbsp;below:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># location where backups will be stored
+snapshot_root   /mnt/backup/
+
+# rsync command executed on the remote system
+cmd_rsync   /usr/bin/rsync
+
+# incremental backup rules
+retain      hourly  6
+retain      daily   7
+retain      weekly  4
+retain      monthly 3
+
+# rsnapshot&#39;s log file
+logfile /var/log/rsnapshot.log
+
+# All rsync commands have at least these options set.
+rsync_short_args    -aev
+rsync_long_args --delete --numeric-ids --relative --delete-excluded
+
+# ssh args passed 
+ssh_args    -i /home/backup_user/.ssh/id_rsa
+
+# systems to be backed up, what high level directory name is to be used
+# and the additional arguments to pass to rsync
+backup  /   desktop/    exclude_file=/home/backup_user/rsync-exclude-desktop
+backup  backup_user@RedRPi:/    RedRPi/ exclude_file=/home/backup_user/rsync-exclude-RPi,+rsync_long_args=--rsync-path=/home/backup_user/bin/rsync-wrapper.sh
+backup  backup_user@BlackRPi:/  BlackRPi/   exclude_file=/home/backup_user/rsync-exclude-RPi,+rsync_long_args=--rsync-path=/home/backup_user/bin/rsync-wrapper.sh
+backup  Sara@SaraPC:/   SaraPC/ exclude_file=/home/backup_user/rsync-exclude-windows,+rsync_long_args=--fake-super
+</pre></div>
+
+
+<p>In my backup scheme, I have several remote systems (i.e. RedRPi, BlackRPi, and SaraPC),
+and a backup server itself (i.e. desktop).
+All system will use a common user called <code>backup_user</code>,
+whos only purpose is to support the backup process.
+From the backup system, we&#8217;ll be able to logon to each remote system using
+the <code>backup_user</code> ssh public key.
+The main trick is to set sudoers on the remote system such that it allow rsync
+root access to <code>backup_user</code>,
+and it tell rsnapshot to use additionnal parameters when calling rsync.
+This all required to maintain the security of the remote systems, and was discussed in the text&nbsp;above.</p>
+<h3>Testing&nbsp;rsnapshot</h3>
+<p>rsnapshot provides an easy way to check that your configuration file doesn’t contain any syntax errors.
+Simply&nbsp;type:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsnapshot configtest
+</pre></div>
+
+
+<p>If all is well, it will say ‘syntax ok’.
+If there is a problem, it will spit errors at you.
+If you get errors, check that you have separated items in the file using tabs
+(spaces are not allowed in the configuration&nbsp;file).</p>
+<p>The final step to test your configuration is to run rsnapshot in test mode, using the <code>-t</code> option:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsnapshot -t hourly
+</pre></div>
+
+
+<p>This tells rsnapshot to simulate an &#8220;hourly&#8221; backup.
+It should print out the commands it will perform when it runs for real.
+If all is well, then remove the <code>-t</code> and run it for real to create the initial backup.
+This initial run is likely to run a long time, and shouldn&#8217;t be do via cron as discussed&nbsp;below.</p>
+<h3>Scheduling (Automating) Backups in&nbsp;crontab</h3>
+<p>Linux <a href="http://en.wikipedia.org/wiki/Cron">cron</a><sup id="fnref:J"><a class="footnote-ref" href="#fn:J" rel="footnote">10</a></sup> is used to schedule commands to be executed periodically.
+You can setup commands or scripts, which will be repeatedly run at a set&nbsp;time.</p>
+<p>For crontab, I created a wrapper script and
+placed it in <code>/home/backup_user/bin/rsnapshot-wrapper.sh</code>:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">#!/bin/sh
+
+# This script is a wrapper around rsnapshot, so status information is logged
+
+# Place in the log file information concerning the execution of this script
+echo -n &quot;rsnapshot wrapper script started at &quot; &gt;&gt; /home/backup_user/backup.log
+date &gt;&gt; /home/backup_user/backup.log
+
+echo -n &quot;options passed to rsnapshot: &quot; &gt;&gt; /home/backup_user/backup.log
+echo $@ &gt;&gt; /home/backup_user/backup.log
+
+# Now execute the script
+/usr/bin/rsnapshot &quot;$@&quot; &gt;&gt; /home/backup_user/backup.log 2&gt;&amp;1;
+
+echo -n &quot;rsnapshot wrapper script completed at &quot; &gt;&gt; /home/backup_user/backup.log
+date &gt;&gt; /home/backup_user/backup.log
+
+echo &quot;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&quot; &gt;&gt; /home/backup_user/backup.log
+</pre></div>
+
+
+<p>Using <code>crontab -e</code>, I enter the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">#   minute  hour  day-of-month  month   day-of-week   command
+      0     */4         *         *         *         /home/backup_user/bin/rsnapshot-wrapper.sh hourly
+      30    2           *         *         *         /home/backup_user/bin/rsnapshot-wrapper.sh daily
+      30    3           *         *         1         /home/backup_user/bin/rsnapshot-wrapper.sh weekly
+      30    4           1         *         *         /home/backup_user/bin/rsnapshot-wrapper.sh monthly
+</pre></div>
+
+
+<p>You can use <code>sudo crontab -l</code> to list the contents of root&#8217;s&nbsp;crontab. </p>
+<h3>Monitoring&nbsp;rsnapshot</h3>
+<p>Monitoring and testing is an essential part of any backup procedure.
+There’s nothing worse than finding out
+that your backup hasn’t been working for six months on the day that your system crashes.
+rsnapshot has a log file that records warnings and error messages.
+You can find/open it here: <code>/var/log/rsnapshot.log</code>
+Inspect this log regularly to make sure your backup jobs are running smoothly.
+You can increase or decrease the level of logging detail in the configuration file <code>/etc/rsnapshot.conf</code>.</p>
+<h3>Backup from Windows Machines to&nbsp;Linux</h3>
+<p>Backing up Windows systems has its own special challages, but utilities exist to help.
+<a href="http://www.cygwin.com/">Cygwin</a> is a a collection of tools that provide a Linux look and feel environment for Windows.
+If you install it, you can use linux commands and services on your Windows.
+Cygwin contains a package with <a href="http://cygwin.com/cgi-bin2/package-cat.cgi?file=x86%2Frsync%2Frsync-3.0.9-1&amp;grep=rsync">its version of rsync</a>
+to make backups from the Windows based computer.
+With Cygwin&#8217;s rsync and the rsnapshot running on the Linux backup server,
+you can set up a remote backup for the Microsoft Windows&nbsp;box.</p>
+<p>To do the install the cygwin <code>rsync</code>, <code>ssh</code>, etc. tools required to support the rsnapshot backup,
+you&#8217;ll follow a similar design pattern used above for the Linux boxes.
+Follow this&nbsp;procedure:</p>
+<h5>Install Cygwin&nbsp;Tools</h5>
+<ul>
+<li>From the <a href="http://www.cygwin.com/">cygwin site</a>, download and run the setup program.  (Make sure to keep the setup program, since it is used to install additional Cygwin packages, if you so&nbsp;desire.)</li>
+<li>Run your cygwin <code>setup.exe</code> and expand the categories to find &#8220;rsync&#8221; and &#8220;ssh&#8221;.  You&#8217;ll find them under the &#8220;Net&#8221;&nbsp;packages.</li>
+<li>When the install is complete, the <code>rsync</code> and <code>ssh</code> programs (and many more) will be located in <code>C:\cygwin64\bin</code>. (This is equivalent to <code>/bin</code> when your running a <code>bash</code> shell in&nbsp;cygwin.)</li>
+<li>In Windows, open a <a href="http://www.howtogeek.com/howto/windows-vista/run-a-command-as-administrator-from-the-windows-vista-run-box/">Command Prompt (Admin) window</a>.  Within this window, get a bash shell via the command <code>C:\cygwin64\bin\bash</code>.  Next execute <code>export Path=/bin:$PATH</code>.</li>
+</ul>
+<h5>Get ssh&nbsp;Operational</h5>
+<ul>
+<li>Now make a home directory for the cygwin user, in my case this was <code>mkdir /home/Sara</code> and then <code>cd /home/Sara</code>.</li>
+<li>Create a <code>ssh</code> public/private keys with the following command: <code>ssh-keygen -t rsa</code>.</li>
+<li>Now start up the <code>ssh</code> services by following the instructions of &#8220;<a href="http://lifehacker.com/205090/geek-to-live--set-up-a-personal-home-ssh-server">Geek to Live: Set up a personal, home <span class="caps">SSH</span> server</a>&#8220;.</li>
+<li>Find out the name of the windows syste via <code>hostname</code> (it&#8217;s&nbsp;SaraPC).</li>
+<li>In order to access the <code>ssh</code> server from the backup Linux box, the <code>ssh</code> port of 22 must be open in the Windows Firewall. You can check ports status by attempting connect via <code>ssh</code> (e.g. <code>ssh Sara@SaraPC</code>).  If this command appears to hang or time out (as it did for me), the port is likely blocked.  You&#8217;ll need to go to your <a href="http://windows.microsoft.com/en-us/windows/open-port-windows-firewall#1TC=windows-7">Windows Firewall</a> and open port&nbsp;22.</li>
+<li>Transfer the public key for the <code>backup_user</code> on the Linux Backup server to <code>/home/Sara/.ssh/authorized_keys</code>.</li>
+<li>Make sure that in the files <code>/etc/ssh/sshd_config</code> and <code>/etc/ssh/ssh_config</code> that you have <code>RSAAuthentication yes</code> and <code>PubKeyAuthentication yes</code>.</li>
+</ul>
+<h5>Test ssh and&nbsp;rsync</h5>
+<ul>
+<li>On the Linux Backup server, login as the <code>backup_user</code> user.</li>
+<li>Test the connection via <code>ssh Sara@SaraPC</code> in a terminal window on the Linux box (note to self: Case is important!).  You should login without a&nbsp;password.</li>
+<li>Test rsync via the command <code>sudo rsync -azv --fake-super Sara@SaraPC:/home/Sara /mnt/backup/rsync-test9</code>. You&#8217;ll want to use the <code>--fake-super</code> option to surpress some i<a href="https://digitaldj.net/blog/2011/04/07/rsync-3-0-8-windows-and-chown/">issues with group ids</a>.</li>
+<li>Test the <code>/etc/rsnapshot.conf</code> given earlier by running <code>rsnapshot hourly</code>.</li>
+</ul>
+<h3>Restore Files with&nbsp;rsnapshot</h3>
+<p>Restoring files are an no brainer because the backups are plain directories.
+You can open a file browser or a terminal, enter a snapshot from a few hours/days/weeks/months ago,
+find a working directory where your files are store, and copy them to where their needed.
+In other words, you can use any regular tools on any snapshot.
+No need to “revert” or “restore” files from backup, or run any special software.
+This is mighty convenient, intuitive, and fool&nbsp;proof.</p>
+<h3>Sources</h3>
+<p>I found these articles useful for writing this post and setting up my rsych / rsnapshot backup&nbsp;scheme. </p>
+<h4>rsync</h4>
+<ul>
+<li><a href="http://www.thegeekstuff.com/2010/09/rsync-command-examples/">How to Backup Linux? 15 rsync Command&nbsp;Examples</a></li>
+<li><a href="http://www.tecmint.com/rsync-local-remote-file-synchronization-commands/">Rsync (Remote Sync): 10 Practical Examples of Rsync Command in&nbsp;Linux</a></li>
+<li><a href="http://www.thegeekstuff.com/2011/01/rsync-exclude-files-and-folders/">6 rsync Examples to Exclude Multiple Files and Directories using&nbsp;exclude-from</a></li>
+<li><a href="http://www.thegeekstuff.com/2011/07/rsync-over-ssh-without-password/">How to Setup Rsync with <span class="caps">SSH</span> on <span class="caps">UNIX</span> / Linux (rsync without&nbsp;password)</a></li>
+<li><a href="http://www.mikerubel.org/computers/rsync_snapshots/">Easy Automated Snapshot-Style Backups with Linux and&nbsp;Rsync</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Full_System_Backup_with_rsync">Full System Backup with&nbsp;rsync</a></li>
+</ul>
+<h4>rsnapshot</h4>
+<ul>
+<li><a href="http://www.cyberciti.biz/faq/linux-rsnapshot-backup-howto/">Debian / Ubuntu Linux Install and Configure Remote Filesystem Snapshot with rsnapshot Incremental Backup&nbsp;Utility</a></li>
+<li><a href="http://www.tecmint.com/rsnapshot-a-file-system-backup-utility-for-linux/">Rsnapshot (Rsync Based) – A Local/Remote File System Backup Utility for&nbsp;Linux</a></li>
+<li><a href="http://www.rsnapshot.org/howto/1.2/rsnapshot-HOWTO.en.html#create_the_config_file">rsnapshot <span class="caps">HOWTO</span></a></li>
+<li><a href="http://www.cyberciti.biz/faq/restoring-backup-files-with-rsnapshot-unix-linux-bsd-appleosx/"><span class="caps">UNIX</span> / Linux: Rsnapshot Restore&nbsp;Backups</a></li>
+<li><a href="https://sites.google.com/site/rsync2u/home/rsync-tutorial/the-exclude-from-option">The &#8220;exclude-from&#8221; and &#8220;recursive&#8221;&nbsp;options</a></li>
+<li><a href="http://www.evbackup.com/support-misc-redundant-backups-with-rsnapshot/">Implementing Redundant Backups with&nbsp;rsnapshot</a></li>
+</ul>
+<h4>rsnapshot with root&nbsp;access</h4>
+<ul>
+<li><a href="http://technokracy.net/2011/01/07/root_sudo_rsnapshot/">Root, Sudo, and&nbsp;Rsnapshot</a></li>
+<li><a href="http://dev.kprod.net/?q=linux-backup-rsnapshot-no-root">Backup remote Linux hosts without root access, using&nbsp;rsnapshot</a></li>
+<li><a href="http://derek.simkowiak.net/backing-up-multiple-servers-with-rsnapshot/">Backing Up Multiple Servers with&nbsp;Rsnapshot</a></li>
+</ul>
+<h4>rsync and rsnapshot with&nbsp;Windows</h4>
+<ul>
+<li><a href="http://www.smellems.com/tiki-read_article.php?articleId=14">Backup from Windows to Linux with Rsync and <span class="caps">SSH</span></a></li>
+<li><a href="http://optics.ph.unimelb.edu.au/help/rsync/rsync_pc1.html">Installing ssh and rsync on a Windows machine: minimalist&nbsp;approach</a></li>
+<li><a href="http://www.trueblade.com/knowledge/using-rsync-and-cygwin-to-sync-files-from-a-linux-server-to-a-windows-notebook-pc">Using rsync and cygwin to Sync Files from a Linux Server to a Windows Notebook <span class="caps">PC</span></a></li>
+<li><a href="http://terokarvinen.com/rsync_from_windows.html">Rsync from&nbsp;Windows</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:A">
+<p><strong><span class="caps">NOTE</span>:</strong>
+<a href="http://www.lostsaloon.com/technology/understanding-file-linking-hard-link-vs-symbolic-link-in-linux/">Hard links are similar to symlinks</a>.
+They are normally created using the <code>ln</code> command but without the <code>-s</code> switch.
+A hard link is when two file entries point to the same <a href="http://en.wikipedia.org/wiki/Inode">inode</a> and <a href="http://en.wikipedia.org/wiki/Block_(data_storage)">disk blocks</a>.
+Unlike <a href="http://en.wikipedia.org/wiki/Symbolic_link">symlinks</a> there isn&#8217;t a file and a pointer to the file, but rather two links to the same file.
+If you delete either entry the other will remain and will still contain the data.&#160;<a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:B">
+<p><strong><span class="caps">NOTE</span>:</strong>
+The command <code>ssh-copy-id</code> may not work if your attempting use the
+root login instand of pi on the remote machine.
+In this case, you&#8217;ll need to manually move the public key to its destination.
+The artical &#8220;<a href="http://www.tecmint.com/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps/">Create <span class="caps">SSH</span> Passwordless Login Using <span class="caps">SSH</span> Keygen</a> can show you how to do this.&#160;<a class="footnote-backref" href="#fnref:B" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:C">
+<p><strong><span class="caps">NOTE</span>:</strong>
+Because of an abundance of paranoia,
+remote root login over <code>ssh</code> session is disabled in some Linux distributions for <a href="http://www.cyberciti.biz/tips/linux-unix-bsd-openssh-server-best-practices.html">security reasons</a>.
+By default, the Root account password is locked in Ubuntu and most other version of Linux.
+The account has no password, even thou it prompts you to provide one.
+This means that you cannot login as Root directly or use the su command to become the Root user.
+However, since the Root account physically exists it is still possible to
+run programs with root-level privileges.
+This is where <a href="https://help.ubuntu.com/community/RootSudo">sudo</a> comes in - it allows authorized users (normally &#8220;Administrative&#8221; users)
+to run certain programs as Root without having to know the root password.&#160;<a class="footnote-backref" href="#fnref:C" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:D">
+<p><strong><span class="caps">NOTE</span>:</strong>
+One of the most common warnings you will likely encounter is a host key error
+which may not happen until long after you have made your first connection to a host.
+If any of several identifying features of the host change,
+a new host key could be created and if that happens your ssh client will let you know
+by refusing to log you into that system without first prompting you to confirm the warning,
+or may even force you to provide the login&#8217;s password.
+It can be confusing on how to clean this up, but these two articals can help:
+<a href="http://xmodulo.com/2013/05/how-to-accept-ssh-host-keys-automatically-on-linux.html">How to accept ssh host keys automatically on Linux</a>
+and <a href="http://stackoverflow.com/questions/9299651/warning-permanently-added-to-the-list-of-known-hosts-message-from-git">“Warning: Permanently added to the list of known hosts” message from Git</a>.&#160;<a class="footnote-backref" href="#fnref:D" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:E">
+<p><strong><span class="caps">NOTE</span>:</strong>
+The suppresion of this warning does reduce the security profile of the system.
+Instead of suppressing the warning for all ssh access to *RPi,
+you could implement this functionality <a href="http://www.garron.me/en/linux/remove-offending-key-ssh.html">solely for the <code>rsync</code> command</a> by using
+the option <code>-e "ssh -o CheckHostIP=no -o StrictHostKeyChecking=no"</code>.
+See <a href="http://security.stackexchange.com/questions/10532/ecdsa-keys-changed-ssh-insecure-now"><span class="caps">ECDSA</span> Keys Changed, <span class="caps">SSH</span> insecure now</a>.&#160;<a class="footnote-backref" href="#fnref:E" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:F">
+<p><strong><span class="caps">NOTE</span>:</strong>
+The sudoers configuration file enables a huge amount of configurability,
+including but not limited to: enabling root commands only from the invoking terminal;
+not requiring a password for certain commands;
+requiring a password per user or group;
+requiring re-entry of a password every time or never requiring a password at all for a particular command line.
+It can also be configured to permit passing arguments or multiple commands,
+and even supports commands with regular expressions.&#160;<a class="footnote-backref" href="#fnref:F" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:G">
+<p><strong><span class="caps">NOTE</span>:</strong>
+I choose a <span class="caps">UID</span> of 400 so that the <code>backup_user</code> would not appear on the Ubuntu login screen list.
+To hide a user from the Ubuntu login screen list,
+you should be able to add the name to the hidden-users
+list in the file <code>/etc/lightdm/users.conf</code>, but there is a <a href="http://www.cyberciti.biz/faq/howto-change-rename-user-name-id/">problem</a>.
+The is an alternative, and that is to choose a <span class="caps">UID</span> value less than 500
+(See the &#8220;minimum-uid&#8221; in <code>/etc/lightdm/users.conf</code>).&#160;<a class="footnote-backref" href="#fnref:G" rev="footnote" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:H">
+<p><strong><span class="caps">NOTE</span>:</strong>
+To automate rsnapshot backup to a remote servers,
+you&#8217;ll also need to set up key-based authentication over <span class="caps">SSH</span> on the remote
+machines that you want to backup,
+so that they can be accessed without need for a password login.
+And you need to make sure this arrangement survives a reboot.
+To accomplish this, you will need to create an <span class="caps">SSH</span> public and private keys to authenticate on the rsnapshot server.
+This was all discussed earlier.&#160;<a class="footnote-backref" href="#fnref:H" rev="footnote" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:I">
+<p><strong><span class="caps">NOTE</span>:</strong>
+The configuration file requires tabs between elements
+and all drectories require a trailing slash.
+Just open config file using a text editor such as vi or gedit but be careful.
+Many editors are set to convert any tabs entered by the user to spaces.
+This can be a source of great confusion and frustration!&#160;<a class="footnote-backref" href="#fnref:I" rev="footnote" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:J">
+<p><strong><span class="caps">NOTE</span>:</strong>
+The cron service (daemon) runs in the background and constantly checks the <code>/etc/crontab</code> file,
+and <code>/etc/cron.*/</code> directories.
+It also checks the <code>/var/spool/cron/</code> directory.
+Review the article <a href="https://help.ubuntu.com/community/CronHowto">CronHowTo</a> to see how you can schedule and run tasks
+in the background automatically at regular intervals using crontab files. 
+Crontab ( <strong>cron</strong> <strong>tab</strong>le ) is a file which contains the schedule of cron entries to be run and at specified times.
+(If the system isn&#8217;t running 24x7, consider using <a href="http://www.thegeekstuff.com/2011/05/anacron-examples/">anacron</a>).&#160;<a class="footnote-backref" href="#fnref:J" rev="footnote" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>

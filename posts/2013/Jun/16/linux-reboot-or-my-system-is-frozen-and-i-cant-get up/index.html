@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Linux Reboot … or … My System is Frozen and I Can’t Get Up! - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Linux Reboot … or … My System is Frozen and I Can’t Get Up!"/>
+            <meta property="og:url" content="/posts/2013/Jun/16/linux-reboot-or-my-system-is-frozen-and-i-cant-get up/"/>
+            <meta property="og:description" content="This posting list the several options you have when you find yourself with a frozen Linux screen. There is no need to do a hard reboot of your system and I show you how this can be done."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/2013/Jun/16/linux-reboot-or-my-system-is-frozen-and-i-cant-get up/"
+                       rel="bookmark"
+                       title="Permalink to Linux Reboot … or … My System is Frozen and I Can’t Get Up!">
+                        Linux Reboot &#8230; or &#8230; My System is Frozen and I Can&#8217;t Get&nbsp;Up!
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-06-16T00:01:00"> Sunday  June 16, 2013</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="/tag/linux/">Linux</a>
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <p><a href="http://jeffskinnerbox.files.wordpress.com/2013/06/sysrq-key.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="sysrq-key" src="/images/sysrq-key.jpg" width="300" height="199" />
+</a>
+While I was building the environment for my Linux box,  I ran into some problems with Ubuntu.  I found myself with frozen screens or booted up into blank screens and other such things.  Seems that Ubuntu 13.04 is currently a bit unstable or I just screwed things up badly &#8230; a little of both I suspect. I managed to get through these problems, but too often I got desperate and I hitting the on/off switch to get the box rebooted.  Doing this can result in corrupted files and other such nasty things.  So this motivated me to research the &#8220;correct&#8221; way to get out of these Linux near&nbsp;death experiences.</p>
+<p>The golden nugget here is actually at the end of this posting, that is the Magic SysRq Key.  This gem can get you out of most any freeze but I provide more here since the alternatives might be less intrusive.
+<h2>Stopping a Running&nbsp;Process</h2>
+While this post&#8217;s focus is on how to reboot Linux, keep in mind that sometimes the problem that your attempting to solve may be handled via a simpler approach.  Specifically, maybe you just need to kill a running&nbsp;process.</p>
+<p>In the Bash shell, you can use job control:
+<ul>
+<ul>
+    <li>Ctrl+C – halts the current&nbsp;command</li>
+    <li>Ctrl+Z – stops the current command, resume with fg in the foreground or bg in the&nbsp;background</li>
+    <li>Ctrl+D – log out of current session, similar to&nbsp;exit</li>
+</ul>
+</ul>
+On a Desktop version of Linux, there are normally six text consoles sessions available and one graphics session.  You could leave a frozen <span class="caps">GUI</span>, and go to a console screen to kill an offending process:
+<ul>
+<ul>
+    <li>You can access the consoles by pressing <span class="caps">CTRL</span> + <span class="caps">ALT</span> + Fx (where Fx is a function key on the keyboard from F1 to&nbsp;F6).</li>
+    <li>Once you enter one of the consoles, you will be prompted for user name and password. Enter them and then you’ll reach a command prompt.  Now you can kill the offending process using the kill&nbsp;command.</li>
+    <li>To switch back to the graphic session, just click <span class="caps">CTRL</span> + <span class="caps">ALT</span> +&nbsp;F7.</li>
+</ul>
+</ul>
+The process &#8220;killing&#8221; could be done via the recommended <code>kill -SIGTERM <em>pid</em></code>  or the more forceful <code>kill -SIGKILL <em>pid</em></code>. There are also versions of these tools, <a href="http://www.thegeekstuff.com/2009/12/4-ways-to-kill-a-process-kill-killall-pkill-xkill/"><code>killall</code> and <code>pkill</code></a>, that use the name of the process as an argument instead of the process <span class="caps">ID</span>.</p>
+<p><code>xkill</code> is a utility for forcing the X server to close connections to clients. Closing an X application that has become unresponsive, or misbehaving in general. Execute <code>xkill</code>, and once it&#8217;s running, you simply click on the window you wish to  kill, and it performs a <code>kill -9</code>.
+<h2>When Kill -9 Does Not&nbsp;Work</h2>
+You are supposed to be able to kill any process with <code>kill -9 <em>pid</em></code>, but you may come across a process that just will not die. Usually this happens when you are trying to kill a <a href="http://en.wikipedia.org/wiki/Zombie_process">zombie process or defunct process</a>. These are processes that are dead and have exited, but they remain as <a href="http://www-cdf.fnal.gov/offline/UNIX_Concepts/concepts.zombies.txt">zombies in the process list</a>. The kernel keeps them in the process list until the parent process retrieves the exit status code by calling the wait() system call. This does not usually happen with daemon processes because they detach themselves from their parent process and are adopted by the init process (<span class="caps">PID</span>=1) which will automatically call wait() to clear them out of the process&nbsp;list.</p>
+<p>You may sometimes see the daemon defunct <span class="caps">PID</span> in the process list for a brief moment before it gets cleaned up by the init process. You don&#8217;t have to worry about these. You can also end up with an unkillable process if a process is stuck waiting for the kernel to finish something. This usually happens when the kernel is waiting for I/O. Where you see this most often is with network filesystems such as <span class="caps">NFS</span> and SaMBa that have disconnected uncleanly. This also happens when a drive fails or if someone unplugs a cable to a mounted drive. If the device had a memmapped file or was used for swap then you may be really screwed. Any kernel calls that flush <span class="caps">IO</span> may hang forever waiting for the device to&nbsp;respond.</p>
+<p>Zombies can be identified in the output from the process status command <code>ps</code> by the presence of a &#8220;Z&#8221; in the &#8220;<span class="caps">STAT</span>&#8221; column. Zombies that exist for more than a short period of time typically indicate a bug in the parent program, or just an uncommon decision to reap children.  A zombie process is not the same as an orphan process. An orphan process is a process that is still executing, but whose parent has died. They do not become zombie processes; instead, they are adopted by init (process <span class="caps">ID</span> 1), which waits on its children.
+<h2>Standard Reboot&nbsp;Commands</h2>
+The vast majority of your systm shut downs or reboots will follow one of these two forms.  The first will halt the system so you can power it off and the second will reboot the system:
+<p style="padding-left:30px;"><code>shutdown -h now
+shutdown -r now</code></p>
+<a href="http://linux.die.net/man/8/shutdown"><code>shutdown</code></a> is the preferred and the safest ways to stop Linux. Never the less, in the tradition of Unix, Linux gives you more than one  way to accomplish this task.   <a href="http://manpages.ubuntu.com/manpages/lucid/man8/reboot.8.html"><code>reboot</code>, <code>halt</code>, and <code>poweroff</code></a> are some additional commands that Linux provides to stop the system.  These commands can be more &#8220;forceful&#8221; than <code>shutdown</code> but <a href="http://askubuntu.com/questions/64995/what-is-the-difference-between-shutdown-and-poweroff-commands">similar to it</a>.</p>
+<p>The simplicity of these commands give the illusion that the system state of Linux is running or not running.  It isn&#8217;t quite that simple.  Linux can operate in several states called runlevels.
+<h2>Linux&nbsp;Runlevels</h2>
+A <a href="http://en.wikipedia.org/wiki/Runlevel">runlevel</a> is a preset operating state for the Linux operating system.  A system can be booted into  any of several runlevels, each of which is represented by a single digit integer. Each runlevel designates a different system configuration and allows access to a different combination of processes and system&nbsp;resources.</p>
+<p>Seven runlevels are supported in the standard Linux kernel. They are:
+<ul>
+<ul>
+    <li><strong>0 - System Halted:</strong>  all system activity is stopped, the system can be safely powered&nbsp;down</li>
+    <li><strong>1 - Single User:</strong>  single superuser is the only active login and no daemons (services) are started. It is mainly used for&nbsp;maintenance.</li>
+    <li><strong>2 - Multiple Users:</strong> multiple users allowed but network filesystem (<span class="caps">HFS</span>) is&nbsp;not.</li>
+    <li><strong>3 - Multiple Users:</strong>  multiple users are allowed command line (i.e., all-text mode); the standard runlevel for most&nbsp;servers</li>
+    <li><strong>4 -&nbsp;User-Definable</strong></li>
+    <li><strong>5 - Multiple Users:</strong> multiple users are allowed graphical user interface; the standard runlevel for most desktop&nbsp;systems</li>
+    <li><strong>6 - Reboot:</strong> just like run level 0 except a reboot is issued, used when restarting the&nbsp;system</li>
+</ul>
+</ul>
+In the interests of completeness, there is also a runlevel &#8216;S&#8217; that the system uses on it&#8217;s way to another runlevel. Read the <a href="http://linux.about.com/od/commands/l/blcmdl8_init.htm">man page for the <code>init</code></a> command for more information, but you can safely skip this for all practical&nbsp;purposes.</p>
+<p>By default Linux boots either to runlevel 3 or to runlevel 5. The former permits the system to run all services except for a <span class="caps">GUI</span>. The latter allows all services including a <span class="caps">GUI</span>.</p>
+<p>Booting into a different runlevel can help solve certain problems. For example, if a change made in the X Window System configuration on a machine that has been set up to boot into a <span class="caps">GUI</span> has rendered the system unusable, it is possible to temporarily boot into a console (i.e., all-text mode) runlevel (i.e., runlevels 3 or 1) in order to repair the error and then reboot into the <span class="caps">GUI</span>.  Likewise, if a machine will not boot due to a damaged configuration file or will not allow logging-in because of a corrupted /etc/passwd file  or because of a forgotten password, the problem can solved by first booting into single-user mode (i.e. runlevel&nbsp;1).</p>
+<p>There are two commands for directly reading or manipulating the Linux rumlevels:
+<ul>
+<ul>
+    <li><strong><code>runlevel</code></strong> - Use the runlevel command to tell you two things: The last run level, and the current run level.  If the first character is &#8217;N&#8217;, it stands for none, meaning there has been no run level change since powering&nbsp;up.</li>
+    <li><strong><code>telinit</code></strong> - The program responsible for altering the runlevel is init, and it can be called using the telinit&nbsp;command.</li>
+</ul>
+</ul>
+The <a href="http://www.debian-administration.org/articles/212">topic of runlevels</a> is actually much richer than what is illustrated here.  It plays a key role in Linux background processes, called services or daemons.  For more, check out this <a href="http://pthree.org/2008/02/26/managing-services-in-ubuntu-part-i-an-introduction-to-runlevels/">Managing Services in Ubuntu, Part I: An Introduction to Runlevels</a> and <a href="http://pthree.org/2008/02/27/managing-services-in-ubuntu-part-ii-managing-runlevels/">Part <span class="caps">II</span></a>.
+<h2>Getting a Login From a Frozen <span class="caps">GUI</span>&nbsp;Screen</h2>
+A not so common problem is when a frozen, full screen X application takes control over your mouse and keyboard and it seems that the only way to regain access to the system is to force a shutdown.  The fact is, if you could get to a some form of terminal session, you might be able to kill the offending process and get out of this frozen state.  This is where accessing a console screen by pressing <span class="caps">CTRL</span> + <span class="caps">ALT</span> + Fx (where Fx is a function key on the keyboard from F1 to F6) can be very&nbsp;handy.</p>
+<p>The X Server can often be the source of these frozen screen situations, so restarting the X Server may be the solution.  This can be done via the key combination Ctrl+Alt+Backspace.  Keep in mind that you will loses any unsaved data in applications.  Also, this capability is turned off by default on may Linux systems (including Ubuntu).  This was done to avoid confusion by  people accustom to <span class="caps">MS</span> Windows.  An alternative key combination is as follows:
+<p style="padding-left:30px;">Press AltGR + SysRQ + K instead (AltGR is the <span class="caps">RIGHT</span> <span class="caps">ALT</span> button and SysRQ is labelled &#8220;Print Screen&#8221; most of the times, and remember to press and hold the keys in the in the right sequence, e.g. starting with ALtGR, and ending with the K(ill)&nbsp;key).</p>
+You can turn back on the Ctrl+Alt+Backspace by following the instructions <a href="https://wiki.ubuntu.com/XorgCtrlAltBackspace">here</a>.
+<h2>Magic SysRq&nbsp;Key</h2>
+If the system is completely locks up, or <a href="http://www.linuxjournal.com/content/rebooting-magic-way">your filesystem fails</a>, there are still alternatives. The &#8220;<a href="http://en.wikipedia.org/wiki/Magic_SysRq_key">magic SysRq key</a>&#8221; provides a way to send commands directly to the kernel through the <a href="http://www.linuxjournal.com/article/8381"><code>/proc</code> filesystem</a>. It is enabled via a kernel compile time option, CONFIG_MAGIC_SYSRQ, which seems to be standard on most distributions.The magic SysRq key (or PrintScrn or Print Screen on some keyboards) is a key combination understood by the Linux kernel, which allows the user to perform various low-level commands regardless of the system&#8217;s state. This is a surprising feature of the kernel but is commonly used to perform a safe reboot of a locked-up Linux computer.  See this post for some <a href="http://royal.pingdom.com/2012/06/26/sysadmin-needs-sysrq-magic/">historical perspective of the SysReq key</a>.</p>
+<p>To check if the CONFIG_MAGIC_SYSRQ option is enable on your Linux kernel, check the configuration file that installed to /boot partition.  Do this via:
+<p style="padding-left:30px;"><code>cat /boot/config-$(uname -r) | grep CONFIG_MAGIC_SYSRQ</code></p>
+If your get &#8220;<code>CONFIG_MAGIC_SYSRQ=y"</code>, then its enabled on&nbsp;your kernel.</p>
+<p>When running a kernel with SysRq compiled in, <code>/proc/sys/kernel/sysrq</code> controls the functions allowed to be invoked via the SysRq key.  If the file contains &#8220;<code>1</code><span class="dquo">&#8220;</span>, that means that every possible SysRq request is allowed. See <a href="http://lxr.linux.no/linux/Documentation/sysrq.txt">here</a> for more on the <code>/proc/sys/kernel/sysrq</code>.</p>
+<p>To actually reboot the machine there is a well know key sequence to follow: <span class="caps">REISUB</span> (or <span class="caps">REISUO</span> if you want to turn off the system instead of reboot).  Basically, if you keep pressed <span class="caps">ALT</span> + SysRq + R and then while you keep pressed <span class="caps">ALT</span> + SysRq you press E, I, S, U, B with about 1 second between each letter (do not type it fast). Your system will reboot. This  is a safer alternative to just cold rebooting the&nbsp;computer.</p>
+<p>Mnemonic for <span class="caps">REISUB</span> is <strong>R</strong>eboot <strong>E</strong>ven <strong>I</strong>f  <strong>S</strong>ystem <strong>U</strong>tterly <strong>B</strong>roken, and the keys pressed do the following:
+<p style="padding-left:60px;">
+<ul>
+<ul>
+    <li><strong>R</strong> - Switch to <a href="http://unix.stackexchange.com/questions/16530/what-does-raw-unraw-keyboard-mode-mean"><span class="caps">XLATE</span>&nbsp;mode</a></li>
+    <li><strong>E</strong> - Send <a href="http://www.gnu.org/software/libc/manual/html_node/Termination-Signals.html">Terminate signal</a> to all processes except for&nbsp;init</li>
+    <li><strong>I</strong> - Send <a href="http://meinit.nl/the-3-most-important-kill-signals-on-the-linux-unix-command-line">Kill signal</a> to all processes except for&nbsp;init</li>
+    <li><strong>S</strong> - <a href="http://linux.die.net/man/1/sync">Sync</a> all mounted&nbsp;filesystems</li>
+    <li><strong>U</strong> - Remount filesystems as&nbsp;read-only</li>
+    <li><strong>B</strong> -&nbsp;Reboot</li>
+</ul>
+</ul>
+The magic SysRq key supports more then just the <span class="caps">REISUB</span> keys.  To see the larger range of thing you can do via Magic SysRq Key&#8217;s direct communications with the kernel, <a href="http://www.isotton.com/devel/docs/sysrq-cheatsheet/">check out here</a>.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>

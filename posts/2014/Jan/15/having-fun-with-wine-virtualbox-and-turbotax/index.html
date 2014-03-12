@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Having Fun with Wine, VirtualBox, and TurboTax - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Having Fun with Wine, VirtualBox, and TurboTax"/>
+            <meta property="og:url" content="/posts/2014/Jan/15/having-fun-with-wine-virtualbox-and-turbotax/"/>
+            <meta property="og:description" content="I discover that getting Microsoft Windows applications working using Wine is a pain! Out of necessity, I turn to VirtualBox. Getting VirtualBox and MS Windows 8.1 working together is simple."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/2014/Jan/15/having-fun-with-wine-virtualbox-and-turbotax/"
+                       rel="bookmark"
+                       title="Permalink to Having Fun with Wine, VirtualBox, and TurboTax">
+                        Having Fun with Wine, VirtualBox, and&nbsp;TurboTax
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-01-15T00:01:00"> Wednesday  January 15, 2014</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="/tag/wine/">Wine</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="/tag/virtualbox/">VirtualBox</a>
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <p>Sometime ago, I committed myself to Linux and <a href="http://www.winehq.org/">Wine</a>,
+with the promise that I would sincerely abandon Microsoft Windows by
+not <a href="http://en.wikipedia.org/wiki/Multi-booting">dual booting</a> my system nor installing any <a href="http://en.wikipedia.org/wiki/Virtualization">virtualization</a> software.
+Well, it is now tax-time and the Federial goverment wants their &#8220;fair share&#8221; of my income.
+Will my prefered tax software package, <a href="https://turbotax.intuit.com/">TurboTax</a>, run with Linux <span class="amp">&amp;</span> Wine?
+All the evidence I have gathered (see <a href="http://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=623">Wine&#8217;s ratings</a> for one data point)
+on the web leads me to believe I will be very disapointed.
+I can&#8217;t find any success stories!
+Never the less, I will use this as a learning opportunity.
+I&#8217;m going to plung forward and try to get TurboTax working with Wine, &#8230;.
+and it it fails me, resort to <a href="https://www.virtualbox.org/">VirtualBox</a>,
+which appears to have at least <a href="https://blogs.oracle.com/wbays/entry/turbotax_on_virtualbox_problem_solved">some success</a>&nbsp;stories.</p>
+<h1>Installing and Configuring&nbsp;Wine</h1>
+<p>Wine can be installed via the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo add-apt-repository ppa:ubuntu-wine/ppa
+sudo apt-get update
+sudo apt-get install wine
+sudo apt-get install cabextract
+sudo apt-get install winetricks
+</pre></div>
+
+
+<p><code>winetricks</code> is a script which automates the installation of various useful packages,
+offering a friendly interface to do so.
+The <code>cabextract</code> package is a native Linux application that extracts Microsoft Cabinet files (<span class="caps">CAB</span>).
+<code>ppa:ubuntu-wine/ppa</code> will get the latest versions for Wine and keep it updated with new releases.
+This is important since the Wine support team is frequently
+fixing and twecking it to get Microsoft Windows software working.
+To test if you got things installed properly<sup id="fnref:A"><a class="footnote-ref" href="#fn:A" rel="footnote">1</a></sup>,
+execute one of the already installed Microsoft Windows packages.
+Try the following: <code>wine notepad.exe</code>.</p>
+<h1>Installing TurboTax with&nbsp;Wine</h1>
+<p>Wine is complex and large.
+I don&#8217;t have the patience for hours of configuring and testing; 
+particularly if in the end I can&#8217;t print or electronically email my tax return.
+I&#8217;m going to plung into installing TurboTax via Wine,
+and see if I can get things running with minimal&nbsp;effort.</p>
+<p>So, I put the <span class="caps">CD</span> in the drive, right clicked on the setup.exe file, picked the menu item
+&#8220;Open With Wine Windows Program Loader&#8221;, and got a error screen titled
+<a href="https://ttlc.intuit.com/questions/1899606-error-we-can-t-install-turbotax-on-your-computer-just-yet">&#8220;We can&#8217;t install TurboTax on your computer just yet&#8230;&#8221;</a>.
+Appears that TurboTax doesn&#8217;t like Wine&#8217;s version of the .<span class="caps">NET</span> Framework.
+A little <a href="http://superuser.com/questions/476872/installing-net-4-0-framework-on-wine-using-winetricks">research</a> surggested that I should install .<span class="caps">NET</span> 4 via this&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">winetricks dotnet40
+</pre></div>
+
+
+<p>After this, I still got a .<span class="caps">NET</span> related error.
+Specifically, the TurboTax installer was looking for the <code>netfx40testapplication.exe</code>.
+Another quick search brought me to these bug report: #<a href="http://www.winehq.org/pipermail/wine-bugs/2012-January/308034.html">1</a> and <a href="http://wine.1045685.n5.nabble.com/Bug-29666-New-TurboTax-2011-fails-to-install-td5161768.html">#2</a>.
+I have had enough &#8230; on to&nbsp;VirtualBox!!</p>
+<h1>Installing TurboTax with&nbsp;VirtualBox</h1>
+<p>VirtualBox is being setup with Microsoft Windows (specifically Windows 8.1)
+as a the Guest <span class="caps">OS</span> and with the native Linux (specifically Ubuntu 13.10) as the Host <span class="caps">OS</span>.
+<a href="http://www.lifehacker.com.au/2013/10/virtualbox-4-3-adds-windows-8-1-support/">VirtualBox version 4.3 has added Windows 8.1 support</a>,
+so that is the version I wish to install.
+I initially installed VirtualBox via Unbuntu&#8217;s software center
+(eqivalent to using <code>sudo apt-get install virtualbox virtualbox-qt</code>),
+which installed version 4.2.16-dfsg-3, and I had to back it out.
+Instead, I install VirtualBox from the Oracle maintained repository,
+following the <a href="https://www.virtualbox.org/wiki/Linux_Downloads">procedures outlined by Oracle</a>.
+I added the following lines (for the approprate linux distribution; mine is saucy)
+to the <code>/etc/apt/sources.list</code> file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Oracle&#39;s software repository for VirtualBox
+deb http://download.virtualbox.org/virtualbox/debian saucy contrib
+</pre></div>
+
+
+<p>Downloaded the Oracle public key for the&nbsp;software:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+</pre></div>
+
+
+<p>Now install VirtualBox version&nbsp;4.3:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get update
+sudo apt-get install dkms virtualbox-4.3
+</pre></div>
+
+
+<h3>Configuring VirtualBox and Installing Windows&nbsp;8.1</h3>
+<p>It appears you can install 32 or 64 bit Windows (assuming you have virtualization suporting processor).
+I choose the 64 bit version.
+As to the installation steps, I was guided by the posting &#8220;<a href="http://www.geekthis.net/blog/95/windows-81-in-virtualbox">Windows 8.1 in VirtualBox</a>&#8220;,
+and the steps are basically the&nbsp;following:</p>
+<p><strong>Configure&nbsp;VirtualBox</strong></p>
+<ul>
+<li>Fired up VirtualBox, clicked the &#8220;New&#8221; button, and used the Wizard to create a virtual partition for&nbsp;Window</li>
+<li>I gave the virtual machine the name &#8220;<span class="caps">MS</span>&nbsp;Windows&#8221;</li>
+<li>I allocated to the virtual machine the maximum amount of <span class="caps">RAM</span>, that being 3.<span class="caps">584GB</span></li>
+<li>I created a <span class="caps">50GB</span> virtual hard drive with a VirtualBox Disk Image (<span class="caps">VDI</span>).  I Choose to have the virtual drive to grow&nbsp;dyanamically.</li>
+<li>I opened up &#8220;Settings&#8221; and under &#8220;System&#8221; &gt; &#8220;Processor&#8221;, enable &#8220;<span class="caps">PAE</span>/<span class="caps">NX</span>&#8221;. I also increased the <span class="caps">CPU</span> Cores to the number supported on my box (i.e.&nbsp;4).</li>
+<li>Under &#8220;Display&#8221; &gt; &#8220;Video&#8221;, I increased the Video Memory as high as I can, disable 3D Acceleration but enabled 2D&nbsp;Acceleration.</li>
+</ul>
+<p><strong>Install Windows&nbsp;8.1</strong></p>
+<ul>
+<li>Still in the &#8220;Settings&#8221; window, go to &#8220;Storage&#8221; and under &#8220;<span class="caps">IDE</span>&#8221; where it shows &#8220;Empty&#8221;, click the disk next to it and installed Windows 8.1 64-bit <span class="caps">DVD</span> into the&nbsp;drive.</li>
+<li>Still with &#8220;Storage&#8221;, click the disk icon right of the &#8220;<span class="caps">CD</span>/<span class="caps">DVD</span> Drive&#8221; and select &#8220;Host Drive &#8230;&#8221;.  Also check &#8220;Passthrough&#8221;. Click &#8220;<span class="caps">OK</span>&#8221;.</li>
+<li>Select the &#8220;Start&#8221; button om the VirtualBox Manager&nbsp;window.</li>
+<li>At this point, a window should pop up and you see the Windows 8.1 install process&nbsp;begin.</li>
+</ul>
+<h3>Installing TurboTax on&nbsp;VirtualBox</h3>
+<p>This is easy.
+Fire up the &#8220;<span class="caps">MS</span> WIndows&#8221; vitual machine, and load TruboTax like you would any other Microsoft Windows&nbsp;application.</p>
+<h1>Conclusion</h1>
+<p>Everything seems to be working perfectly within TurboTax using VirtualBox!
+I believe VirtualBox is destine to stay load on my Linux box.
+As to Wine, &#8230;. we&#8217;ll&nbsp;see.</p>
+<h1>Sources</h1>
+<p>Getting Wine&nbsp;Working</p>
+<ul>
+<li><a href="http://www.tuxarena.com/static/tut_wine_guide.php">A Guide to Wine on Ubuntu for&nbsp;Beginners</a></li>
+<li><a href="http://www.howtogeek.com/105271/how-to-run-windows-software-on-ubuntu-with-wine/">How To Run Windows Software on Ubuntu with&nbsp;Wine</a></li>
+<li><a href="http://www.linuxuser.co.uk/tutorials/use-wine-to-run-windows-software-on-linux">Use Wine to run Windows software on&nbsp;Linux</a></li>
+<li><a href="http://www.tecmint.com/install-wine-on-ubuntu-and-linux-mint/">Wine 1.7.9 Released – Install on Ubuntu 13.04/12.10/12.04/11.10 and Linux Mint&nbsp;16/13</a></li>
+<li><a href="http://www.thegeekstuff.com/2009/08/ubuntu-tips-how-to-use-windows-application-in-linux-desktop-distributions/">Ubuntu Tips: How To Use Windows Applications in Linux Desktop&nbsp;Distributions</a></li>
+<li><a href="http://www.simplehelp.net/2007/05/18/how-to-install-windows-programs-in-linux-using-wine/">How to install Windows programs in Linux using&nbsp;Wine</a></li>
+<li><a href="http://www.yolinux.com/TUTORIALS/LinuxTutorialRunMicrosoftExe.html">Running Microsoft <span class="caps">DOS</span> and Microsoft Windows Software on&nbsp;Linux</a></li>
+<li><a href="http://wiki.winehq.org/winetricks">winetricks</a></li>
+</ul>
+<p>Getting TurboTax or Quicken&nbsp;Working</p>
+<ul>
+<li><a href="http://appdb.winehq.org/objectManager.php?sClass=application&amp;iId=623">History of TurboTax Support via Wine on&nbsp;Linux</a></li>
+<li><a href="http://blog.jdpfu.com/2010/11/29/solved-quicken-2011-working-on-linux">Solved-Quicken 2011 Working on&nbsp;Linux</a></li>
+</ul>
+<p>Getting VitualBox&nbsp;Working</p>
+<ul>
+<li><a href="http://www.linuxjournal.com/content/using-windows-xp-virtualbox-linux">Using Windows <span class="caps">XP</span> in VirtualBox on&nbsp;Linux</a></li>
+<li><a href="http://askubuntu.com/questions/187424/install-windows-7-through-virtual-box-in-ubuntu-12-04">Install windows 7 through virtual box in ubuntu&nbsp;12.04</a></li>
+<li><a href="http://www.wikihow.com/Install-Windows-XP-on-Ubuntu-with-VirtualBox">How to Install Windows <span class="caps">XP</span> on Ubuntu with&nbsp;VirtualBox</a></li>
+<li><a href="http://betanews.com/2013/10/21/install-windows-8-1-on-oracle-virtualbox/">Install Windows 8.1 on Oracle&nbsp;VirtualBox</a></li>
+<li><a href="http://www.geekthis.net/blog/95/windows-81-in-virtualbox">Windows 8.1 in&nbsp;VirtualBox</a></li>
+<li><a href="https://help.ubuntu.com/community/VirtualBox/Installation">VirtualBox/Installation</a></li>
+<li><a href="https://www.virtualbox.org/manual/ch01.html#idp51679504">Starting&nbsp;VirtualBox</a></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:A">
+<p><strong><span class="caps">NOTE</span>:</strong> Use the utility <a href="http://wiki.winehq.org/winecfg"><code>winecfg</code></a> to configure Wine and change settings like
+sound, graphics, Windows version, and so on.&#160;<a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>

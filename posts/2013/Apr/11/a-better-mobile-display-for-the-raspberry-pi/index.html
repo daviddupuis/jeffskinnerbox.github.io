@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>A Better Mobile Display for the Raspberry Pi - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="A Better Mobile Display for the Raspberry Pi"/>
+            <meta property="og:url" content="/posts/2013/Apr/11/a-better-mobile-display-for-the-raspberry-pi/"/>
+            <meta property="og:description" content="I found a comprehensive VT100 / xterm terminal emulator, integrated with a tunneled X server, that gives me a mobile display for the Raspberry Pi via my iPad."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/2013/Apr/11/a-better-mobile-display-for-the-raspberry-pi/"
+                       rel="bookmark"
+                       title="Permalink to A Better Mobile Display for the Raspberry Pi">
+                        A Better Mobile Display for the Raspberry&nbsp;Pi
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-04-11T00:01:00"> Thursday  April 11, 2013</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="/tag/linux/">Linux</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="/tag/raspberry-pi/">Raspberry Pi</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="/tag/x-window-system/">X Window System</a>
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <p><a href="http://jeffskinnerbox.files.wordpress.com/2013/04/2013-04-10-20-37-23.png">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="2013-04-10 20.37.23" src="/images/2013-04-10-20-37-23.png?w=225" width="225" height="300" />
+</a>
+As I described in an <a href="http://jeffskinnerbox.wordpress.com/2012/10/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/">earlier post</a>, I run my Raspberry Pi (RPi) as a <a href="http://en.wikipedia.org/wiki/Headless_system">headless system</a>, using <a href="http://x.cygwin.com/">Cygwin/X</a>&#8216;s xterm for command line interaction with the RPi, with my <span class="caps">PC</span> being my X server to support any X Window applications.  I can move files between the <span class="caps">PC</span> and the RPi via my <a href="http://jeffskinnerbox.wordpress.com/2012/11/11/dropbox-for-the-raspberry-pi-sort-of/">pseudo-Dropbox</a>.  I really recommend this configuration and its working perfectly for&nbsp;me.</p>
+<p>This configuration gives me a great deal of utility but no mobility &#8230;. I&#8217;m still tied to my desktop <span class="caps">PC</span>.  Maybe I should consider replacing the desktop <span class="caps">PC</span> with a laptop but I don&#8217;t want to spend the money.  I have seen some small,  inexpensive <a href="http://www.adafruit.com/products/922">keyboards</a> and <a href="http://www.adafruit.com/products/947">displays</a> that could be connected directly to the RPi, and you could <a href="http://www.raspberrypi.org/archives/2848">cobble together a mobile unit</a>, or the more elegant <a href="http://news.idg.no/cw/art.cfm?id=9662DBB2-013A-069C-759851E179CD3D16">Kindle version</a>, but this still doesn&#8217;t give me the mobility look <span class="amp">&amp;</span> feel I would&nbsp;like.</p>
+<p>iPad to the rescue (assuming you have one &#8230;.)!   I found a great app call <a href="http://www.zinger-soft.com/iSSH_features.html">iSSH</a> by Zingersoft.  Its claims that it is a &#8220;comprehensive <span class="caps">VT100</span>, <span class="caps">VT102</span>, <span class="caps">VT220</span>, <span class="caps">ANSI</span>, xterm, and xterm-color terminal emulator over <span class="caps">SSH</span> and telnet, integrated with a tunneled X server, <span class="caps">RDP</span> and <span class="caps">VNC</span> client. &#8221;   I installed it, configured it quickly, and got  a terminal connection to the RPi without reading the documentation &#8230;. Impressive since successfully configuring ssh, Xserver, etc. can be challenging sometimes.  (Note: The easy of this was largely due to setting up RPi environment properly in the first place. See the <a href="http://jeffskinnerbox.wordpress.com/2012/10/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/">earlier post</a>).  To top it off, iSSH has a slick look <span class="amp">&amp;</span>&nbsp;feel.</p>
+<h2>Configuring&nbsp;iSSH</h2>
+
+<p><a href="http://jeffskinnerbox.files.wordpress.com/2013/04/2013-04-10-20-34-06.png">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="iSSH X Server Session" src="/images//2013-04-10-20-34-06.png?w=225" width="225" height="300" />
+</a>
+Zingersoft&#8217;s <a href="http://www.zinger-soft.com/support1.html">documentation on configuring iSSH</a> is easy to follow and requires just a few steps.  I had no problem getting an terminal session working to the RPi but I did have problems with graphics programs (i.e. X Window client programs).  It appears that iSSH&#8217;s terminal isn&#8217;t really <a href="http://invisible-island.net/xterm/xterm.faq.html">xterm</a> but a terminal emulation (secured via <a href="http://en.wikipedia.org/wiki/Secure_Shell">ssh</a>).  The iSSH terminal doesn&#8217;t use the X server.  In fact, while in the terminal session,  to see the X server display (i.e. to see graphics applications rendered via the RPi X client) you must hit the button at the top right of the iPad&nbsp;display.</p>
+<p>Frankly, the fact that the X application didn&#8217;t work the first time wasn&#8217;t a big surprise to me.  I have been struggling with getting my X Window configuration set up to work reliably for some time.  What I was observing was that X would work fine for sometime but at some point I would get the error message &#8220;couldn&#8217;t connect to&nbsp;display&#8221;.</p>
+<p>This error is very common and nearly every X user has seen some version of this before.  I assume that the right way to solve this was to gain a deeper understanding of X Windows and discover its root cause .  I did gain a deeper understanding of X Windows, but a solution to my problem never jumped out from the &#8220;official&#8221; materials I read.  I found the solution when I happened upon the blog &#8220;<a href="http://b.kl3in.com/2012/01/x11-display-forwarding-fails-after-some-time/">X11 Display Forwarding Fails After Some Time</a>&#8220;.</p>
+<p>The root cause of my error message is the time out of the X Forwarding.  I have been using the -X option when using ssh.  This is the more secure option for X Forwarding, but comes at a price, as shown below.
+<ul>
+<ul>
+    <li>Using <code>ssh -X</code>, X forwarding is enabled in &#8220;Untrusted&#8221; mode, making use of various X security extensions, including a time-limited Xauth&nbsp;cookie.</li>
+    <li>Use <code>ssh -Y</code> to enable &#8220;Trusted&#8221; mode for X, which will enable complete access to your X server. There is no timeout for this&nbsp;option.</li>
+</ul>
+</ul>
+So my Display problem isn&#8217;t really an error, per say, but ssh timing out on me.  To fix this, I added the entry <code>ForwardX11Timeout 596h</code> into my <code>~/.ssh/config</code> file on my <span class="caps">PC</span>.  With this problem solved, I continued my journey into X.
+<h2>My Journey to a Better Understanding of&nbsp;X</h2>
+Using <a href="http://en.wikipedia.org/wiki/X_Window_System">X Windows</a> for the first time can be somewhat of a shock to someone familiar with other graphical environments, such as Microsoft Windows or Mac <span class="caps">OS</span>.  X was designed from the beginning to be network-centric, and uses a “client-server” model. In the X model, the “X server” runs on the computer that has the keyboard, monitor, and mouse attached. The server&#8217;s responsibility includes tasks such as managing the display, handling input from the keyboard and mouse, and other input or output devices (i.e., a “tablet” can be used as an input device, and a video projector can be an output device, etc.). Each X application (such as xterm) is a “client”. A client sends messages to the server requesting things like “Please draw a window at these coordinates”, and the server sends back messages such as “The user just clicked on the <span class="caps">OK</span> button”. These standardized set of messages make up the <a href="https://en.wikipedia.org/wiki/X_Window_System_core_protocol">X Protocol</a>.</p>
+<p>The X server and the X clients commonly run on the same computer. However, it is perfectly possible to run the X server on a less powerful computer (e.g. in my case a <span class="caps">PC</span> or iPad), and run X applications (the clients) on a powerful machine that serves multiple X servers (or it can be a simple RPi, as in my case). In this scenario the communication between the X client and server takes place over the network (WiFi for my iPad), via the X Protocol. There is nothing in the protocol that forces the client and server machines to be running the same operating system, or even to be running on the same type of computer.
+<h2>The&nbsp;Display</h2>
+It is important to remember that the X server is the is the software program which manages the monitor, keyboard, and pointing device. In the X window system, these three devices are collectively referred to as the &#8220;display&#8221;.  Therefore, the X server serves displaying capabilities, via the display, to other programs, called X clients, that connect to  the X server.  All these connections are established via the X&nbsp;protocol.</p>
+<p>The relationship between the X server and the display are tight, in that the X server is engineered to support a specific display (or set of displays).  As a user of X, you don&#8217;t have any control over this relationship, only the software developer who created the server can modify this relationship (generally speaking).  On the other hand, as a user you have free hand in configuring the X protocol connection between the X server and the X&nbsp;clients.</p>
+<p>How do you establish a X Protocol connection between any given server and a client?  This is done via the environment variable &#8220;<span class="caps">DISPLAY</span>&#8221;.  A Linux environment variable <span class="caps">DISPLAY</span> tells all its X clients what display they should use for their windows. Its value is set by default in ordinary circumstances, when you start an X server and run jobs locally. Alternatively, you can specify the display yourself.  One reason to do this is when you want log into another system, and run a X client there, and but have the window displayed at your local terminal.  That is, the <span class="caps">DISPLAY</span> environment variable must point to your local&nbsp;terminal.</p>
+<p>So the environment variable &#8220;<span class="caps">DISPLAY</span>&#8221; stores the address for X clients to connect to. These addresses are in the form: <code>hostname:displaynumber.screennumber</code> where
+<ul>
+<ul>
+    <li><code>hostname</code> is the name of the computer where the X server runs. An omitted <code>hostname</code> means the&nbsp;localhost.</li>
+    <li><code>displaynumber</code> is a sequence number (usually 0). It can be varied if there are multiple displays connected to one&nbsp;computer.</li>
+    <li><code>screennumber</code> is the screen number. A display can actually have multiple screens. Usually there&#8217;s only one screen though where 0 is the&nbsp;default.</li>
+</ul>
+</ul>
+Setting the <span class="caps">DISPLAY</span> variable depends of your shell, but for the Bourne, Bash or Korn shell, you could do the following to connect with the systems local display:
+<p style="padding-left:30px;"><code>export DISPLAY=localhost:0.0</code></p>
+The remote server knows where it have to redirect the X network traffic via the definition of the <span class="caps">DISPLAY</span> <a title="linux:environment_variable" href="http://gerardnico.com/wiki/linux/environment_variable">environment variable</a> which generally points to an X Display server located on your local computer.
+<h2>X&nbsp;Security</h2>
+So you see, as the user, you have full control over where you wish to display the X client window.   So what prevents you from doing something malicious,  like popping up window on someone else  terminal or read their key strokes?  After all, all you really need is their host name.  <a href="http://www.linux-tutorial.info/modules.php?name=Howto&amp;pagename=Remote-X-Apps/Remote-X-Apps-6.html">X servers have three ways of authenticating connections</a> to it: the host list mechanism (xhost) and the magic cookie mechanism (xauth). Then there is ssh, that can forward X connections, providing a protected connection between client and server over a network using a secure <a title="Tunnelling protocol" href="http://en.wikipedia.org/wiki/Tunnelling_protocol">tunnelling protocol</a>.
+<h2>The xhost&nbsp;Command</h2>
+The <a href="http://www.xfree86.org/current/xhost.1.html"><code>xhost</code></a> program is used to add and delete host (computer) names or user names to the list of machines and users that are allowed to make connections to the X server. This provides a rudimentary form of privacy control and security.  A typical use is as follows: Let&#8217;s call the computer you are sitting at the &#8220;local host&#8221; and the computer you want to connect to the &#8220;remote host&#8221;. You first use xhost to specify which computer you want to give permission to connect to the X server of the local host. Then you connect to the remote host using telnet. Next you set the <span class="caps">DISPLAY</span> variable on the remote host. You want to set this <span class="caps">DISPLAY</span> variable to the local host. Now when you start up a program on the remote host, its <span class="caps">GUI</span> will show up on the local host (not on the remote&nbsp;host).</p>
+<p>For example, assume the <span class="caps">IP</span> address of the local host is 128.100.2.16 and the <span class="caps">IP</span> address of the remote host is&nbsp;17.200.10.5.</p>
+<p>On the local host, type the following at the command line:
+<p style="padding-left:30px;"><code>xhost + 17.200.10.5</code></p>
+Log on to the remote host
+<p style="padding-left:30px;"><code>telnet 17.200.10.5</code></p>
+On the remote host (through the telnet connection), instruct the remote host to display windows on the local host by typing:
+<p style="padding-left:30px;"><code>export DISPLAY=128.100.2.16:0.0</code></p>
+Now when you type xterm on the remote host, you should see an xterm window on the local host.  You should remove the remote host from your access control list as follows.
+<p style="padding-left:30px;"><code>xhost - 17.200.10.5</code></p>
+Some additional xhost commands:
+<p style="padding-left:30px;"><code>xhost</code>List all the hosts that have access to the X server
+<code>xhost + hostname</code>Adds hostname to X server access control list.
+<code>xhost - hostname</code>Removes hostname from X server access control list.
+<code>xhost +</code> Turns off access control (all remote hosts will have access to X server &#8230; generally a bad thing to do)
+<code>xhost -</code>Turns access control back on (all remote hosts blocked access to X&nbsp;server)</p>
+Xhost is a very insecure mechanism. It does not distinguish between different users on the remote host. Also, hostnames (addresses actually) can be <a href="http://en.wikipedia.org/wiki/Spoofing_attack">spoofed</a>. This is bad if you&#8217;re on an untrusted network.
+<h2>The xauth&nbsp;Command</h2>
+Xauth allows access to anyone who knows the right secret. Such a secret is called an authorization record, or a <a href="http://en.wikipedia.org/wiki/Magic_cookie">magic cookie</a>. This authorization scheme is formally called <code>MIT-MAGIC-COOKIE-1</code>.  The cookies for different displays are stored together in the file <code>.Xauthority</code> in the user&#8217;s home directory (you can specify a different cookie file with the <code>XAUTHORITY</code> environment variable).  The <code>xauth</code> application is a utility for accessing the <code>.Xauthority</code> file.</p>
+<p>On starting a session, the X server reads a cookie from the<code>.Xauthority</code> file. After that, the server only allows connections from clients that know the same cookie (Note: When the cookie in <code>.Xauthority</code> changes, the server will not pick up the change.).  If you want to use xauth, you must start the X server with the <code>-auth authfile</code> argument.   You can generate a magic cookie for the <code>.Xauthority</code> file using the utility <code>mcookie</code> (typical usage: <code>xauth add :0 . <code>mcookie</code></code>).</p>
+<p>Now that you have started your X session on the server and have your cookie in <code>.Xauthority</code>, you will have to transfer the cookie to the client host. There are a few ways to do this.  The most basic way is to transfer the cookie manually by listing the magic cookie for your display with <code>xauth list</code> and injecting it into the remote hosts <code>.Xauthority</code> via the <code>xauth</code> utility.</p>
+<p>Xauth has a clear security advantage over xhost. You can limit access to specific users on specific computers and it does not suffer from spoofed addresses as xhost does.
+<h2>X Over <span class="caps">SSH</span></h2>
+Even with the <code>xhost</code> and <code>xauth</code> methods, the  the X protocol is transmitted over the network with no encryption.  If you&#8217;re  worried someone might snoop on your connections (and you should worry), use ssh.  <span class="caps">SSH</span>, or the Secure Shell, allows secure (<a href="http://en.wikipedia.org/wiki/Encryption">encrypted</a> and <a href="http://en.wikipedia.org/wiki/Authentication">authenticated</a>) connections between any two devices running <span class="caps">SSH</span>. These connections may include terminal sessions, file transfers, <span class="caps">TCP</span> port forwarding, or X Window System forwarding.  <span class="caps">SSH</span> supports a wide variety of encryption algorithms. It supports various <a href="http://en.wikipedia.org/wiki/Message_authentication_code"><span class="caps">MAC</span></a> algorithms, and it can use <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">public-key cryptography</a> for authentication or the traditional&nbsp;username/password.</p>
+<p><span class="caps">SSH</span> can do something called &#8220;<a href="http://docstore.mik.ua/orelly/networking_2ndEd/ssh/ch09_01.htm#ch09-31407">X Forwarding</a>&#8221; makes the communication secure by &#8220;<a href="http://en.wikipedia.org/wiki/Tunneling_protocol">tunneling</a>&#8221; the X protocol over the <span class="caps">SSH</span> secure link.  Forwarding is a type of interaction with another network application, through a inter-mediator, in this case <span class="caps">SSH</span>. <span class="caps">SSH</span> intercepts a service request from some other program on one side of an <span class="caps">SSH</span> connection, sends it across the encrypted connection, and delivers it to the intended recipient on the other side. This process is mostly transparent to both sides of the connection: each believes it is talking directly to its partner and has no knowledge that forwarding is taking place.  This is called tunneling since X protocol is encapsulated within the a <span class="caps">SSH</span>&nbsp;protocol.</p>
+<p>When setting up an <span class="caps">SSH</span> tunnel for X11, the Xauth key will automatically be copied to the remote system(in a munged form to reduce the risk of forgery) and the <span class="caps">DISPLAY</span> variable will be&nbsp;set.</p>
+<p>To turn on X forwarding over ssh, use the command line switch <code>-X</code> or write the following in your local ssh configuration file:
+<p style="padding-left:30px;"><code>Host remote.host.name
+ForwardX11 yes</code></p>
+The current version of <span class="caps">SSH</span> supports the X11 <span class="caps">SECURITY</span> extension, which provides two classes of clients: trusted clients, which can do anything with the display, and untrusted clients, which cannot inject synthetic events (mouse movement, keypresses) or read data from other windows (e.g., take screenshots). It should be possible to run almost all clients as untrusted, leaving the trusted category for screencapture and screencast programs, macro recorders, and other specialized&nbsp;utilities.</p>
+<p>If you use <code>ssh -X remotemachine</code> the remote machine is treated as an untrusted client and <code>ssh -Y remotemachine</code> the remote machine is treated as trusted client.  &#8217;-X&#8217; is supposedly the safe alternative to &#8216;-Y&#8217;.  However, as a Cygwin/X maintainer says &#8220;this is widely considered to be not useful, because the Security extension uses an arbitrary and limited access control policy, which results in a lot of applications not working correctly and what is really a false sense of&nbsp;security&#8221;.</p>
+<p>You can configuring <span class="caps">SSH</span> via the following files:
+<ul>
+<ul>
+    <li>per-user configuration is in <code>~/.ssh/config</code></li>
+    <li>system-wide client configuration is in <code>/etc/ssh/ssh_config</code></li>
+    <li>system-wide daemon configuration is in <code>/etc/ssh/sshd_config</code></li>
+</ul>
+</ul>
+The ssh server (<code>sshd</code>) at the remote end automatically sets <code>DISPLAY</code> to point to its end of the X forwarding tunnel. The remote tunnel end gets its own cookie; the remote ssh server generates it for you and puts it in<code>~/.Xauthority</code> there. So, X authorization with ssh is fully&nbsp;automatic.</p>
+<p>X over <span class="caps">SSH</span> solves some of the problems inherent to classic X networking. For example, <span class="caps">SSH</span> can tunnel X traffic through firewalls and <span class="caps">NAT</span>, and the X configuration for the session is taken care of automatically. It will also handle compression for low-bandwidth links.  Also, if you&#8217;re using X11 forwarding, you may want to consider setting <span style="font-family:'courier new', courier, monospace;">ForwardX11Trusted no </span>to guard against malicious clients.
+<h2>The Window&nbsp;Manager</h2>
+The X design philosophy is much like the Linux/<span class="caps">UNIX</span> design philosophy, “tools, not policy”.  This philosophy extends to X not dictating what windows should look like on screen, how to move them around with the mouse, what keystrokes should be used to move between windows, what the title bars on each window should look like, etc.  Instead, X delegates this responsibility to an application called a “Window&nbsp;Manager”.</p>
+<p>There are many window managers available for X and each  provides a different look and feel.  Some of them support  highly configurable virtual desktops like, <a href="http://www.kde.org/"><span class="caps">KDE</span></a> and <a href="http://www.gnome.org/"><span class="caps">GNOME</span></a>, some of them are lightweight desktop like <a href="http://lxde.org/"><span class="caps">LXDE</span></a> which comes with the RPi, or you can operate bare bones (like I am on my <span class="caps">PC</span> while using the RPi) and let <span class="caps">MS</span> Windows be your Window Manager via <a href="http://x.cygwin.com/">Cygwin/X.</a>  The iPad&#8217;s iSSH can run without a Window Manager.  In effect, X server uses the display as it sees fit and your unable to control where things loaded. iSSH does have a Window Manage your can use as an option called <a href="http://dwm.suckless.org/">dwm</a>.  Its a <a href="http://en.wikipedia.org/wiki/Tiling_window_manager">tiling window manager</a>, which is a reasonable way to go given that your pointing device is your finger on the iPad.
+<h2>X Display&nbsp;Manager</h2>
+The X Display Manager (<span class="caps">XDM</span>) is an optional part of the X Window System that is used for login session management.  <span class="caps">XDM</span> provides a graphical interface for choosing which display server to connect to, and entering authorization information such as a login <span class="amp">&amp;</span> password.  Like the Linux <a href="http://en.wikipedia.org/wiki/Getty_(Unix)">getty</a> utility, it performs system logins to the display being connected to and then runs a session manager on behalf of the user (usually an X window manager).  <span class="caps">XDM</span> then waits for this program to exit, signaling that the user is done and should be logged out of the display. At this point, <span class="caps">XDM</span> can display the login and display chooser screens for the next user to&nbsp;login.</p>
+<p>In the small world of my RPi&#8217;s, a <span class="caps">PC</span>, and an iPad, I have no need for an <span class="caps">XDM</span> and don&#8217;t use one.
+<h2>Enough of the X Journey &#8230; Now in&nbsp;Conclusion</h2>
+So what does the iSSH give me? I can now sit on the couch, watch <span class="caps">TV</span>, and simultaneously login into the RPi with full X Windows support.  Some would call this Nirvana but I call it just <span class="caps">VERY</span> <span class="caps">NICE</span>.  The iPad/iSSH combination isn&#8217;t the perfect user experience but Zingersoft did a good&nbsp;job.</p>
+<p>By the way &#8230;. the above iPad screen shot of the X Server display with a globe was rendered using the following&nbsp;code:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">#!/usr/bin/env python
+
+&#39;&#39;&#39;
+    Source: http://www.scipy.org/Cookbook/Matplotlib/Maps
+&#39;&#39;&#39;
+
+from mpl_toolkits.basemap import Basemap
+import matplotlib.pyplot as plt
+import numpy as np
+
+Use_NASA_blue_marble_image = False
+
+# set up orthographic map projection with
+# perspective of satellite looking down at 50N, 100W.
+# use low resolution coastlines.
+# don&#39;t plot features that are smaller than 1000 square km.
+map = Basemap(projection=&#39;ortho&#39;, lat_0=50, lon_0=-100, resolution=&#39;l&#39;, area_thresh=1000.)
+
+# draw coastlines, country boundaries, fill continents.
+if Use_NASA_blue_marble_image:
+    map.bluemarble()
+else:
+    map.drawcoastlines()
+    map.drawcountries()
+    map.fillcontinents(color=&#39;coral&#39;)
+
+# draw the edge of the map projection region (the projection limb)
+map.drawmapboundary()
+
+# draw lat/lon grid lines every 30 degrees.
+map.drawmeridians(np.arange(0, 360, 30))
+map.drawparallels(np.arange(-90, 90, 30))
+
+# lat/lon coordinates of five cities.
+lats = [40.02, 32.73, 38.55, 48.25, 17.29]
+lons = [-105.16, -117.16, -77.00, -114.21, -88.10]
+cities = [&#39;Boulder, CO&#39;, &#39;San Diego, CA&#39;, &#39;Washington, DC&#39;, &#39;Whitefish, MT&#39;, &#39;Belize City, Belize&#39;]
+
+# compute the native map projection coordinates for cities.
+x, y = map(lons, lats)
+
+# plot filled circles at the locations of the cities.
+map.plot(x, y, &#39;bo&#39;)
+
+# plot the names of those five cities.
+for name, xpt, ypt in zip(cities, x, y):
+        plt.text(xpt + 50000, ypt + 50000, name)
+
+# make up some data on a regular lat/lon grid.
+nlats = 73
+nlons = 145
+delta = 2. * np.pi / (nlons - 1)
+lats = (0.5 * np.pi - delta * np.indices((nlats, nlons))[0, :, :])
+lons = (delta * np.indices((nlats, nlons))[1, :, :])
+wave = 0.75 * (np.sin(2. * lats) ** 8 * np.cos(4. * lons))
+mean = 0.5 * np.cos(2. * lats) * ((np.sin(2. * lats)) ** 2 + 2.)
+
+# compute native map projection coordinates of lat/lon grid.
+x, y = map(lons * 180. / np.pi, lats * 180. / np.pi)
+
+# contour data over the map.
+CS = map.contour(x, y, wave + mean, 15, linewidths=1.5)
+
+plt.show()
+</pre></div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>

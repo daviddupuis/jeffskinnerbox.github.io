@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Arduino Software Tools - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Arduino Software Tools"/>
+            <meta property="og:url" content="/posts/2012/Sep/04/arduino-software-tools/"/>
+            <meta property="og:description" content="I assemble here a listing of useful tools for the Arduino developer. This includes things like Arduino IDE, Microsoft Visual Studio, Atmel AVR Studio 5, and even Scratch for Arduino."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/2012/Sep/04/arduino-software-tools/"
+                       rel="bookmark"
+                       title="Permalink to Arduino Software Tools">
+                        Arduino Software&nbsp;Tools
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-09-04T00:01:00"> Tuesday  September 04, 2012</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="/tag/arduino/">Arduino</a>
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <h2>Arduino Specific Program&nbsp;Languages</h2>
+
+<p><a href="http://arduino.cc/en/Main/Software">
+    <img class="alignright size-thumbnail wp-image-45" style="margin: 0px 8px; float: left" title="Arduino IDE" alt="arduino IDE" src="/images/arduino-ide.jpg" width="150" height="143" />
+</a>
+Wiring is an open source electronics prototyping platform composed of a programming language, an integrated development environment (<span class="caps">IDE</span>), and a single-board microcontroller.
+<ul>
+<ul>
+    <li><a href="http://wiring.org.co/">Wiring&nbsp;language</a></li>
+    <li><a href="http://arduino.cc/en/Main/Software">Arduino <span class="caps">IDE</span></a></li>
+    <li><a href="http://www.processing.org/">Processing&nbsp;language</a></li>
+    <li><a href="http://www.chipkin.com/using-eclipse-with-arduino-duemilanove/">Using Eclipse with Arduino&nbsp;Duemilanove</a></li>
+</ul>
+</ul>
+<h2>Using Microsoft Visual Studio 2010&nbsp;Professional</h2>
+<a href="http://www.visualmicro.com">
+    <img class="alignright size-medium wp-image-395" style="margin: 0px 8px; float: left" title="Arduino for Visual Studio Demo" alt="Visual Studio Demo" src="/images/arduino-for-visual-studio-demo.png" width="300" height="194" />
+</a>
+The Arduino Playground web site provides some advice and instructions on Using Microsoft Visual Studio 10  and a plugin called Visual Micro to provide a full Arduino development platform.  For more information, check out:
+<ul>
+<ul>
+    <li><a href="http://arduino.cc/playground/Code/VisualStudio">Visual Studio&nbsp;Guide</a></li>
+    <li><a href="http://arduino.cc/playground/Code/VisualMicro">Alternative Arduino <span class="caps">IDE</span> Programming in Microsoft Visual&nbsp;Studio</a></li>
+    <li><a href="http://www.arduinodev.com/arduino-with-visual-studio/">Visual Studio 2008/2010 and&nbsp;Arduino?</a></li>
+</ul>
+</ul></p>
+<p>To install the Microsoft Visual Studio 10, Visual Micro, and set it up for Arduino development, follow these steps:
+<ol>
+<ol>
+    <li>Download and install Microsoft Visual Studio 2010 Professional (For a free copy of Visual Studio, check out <a href="http://www.visualmicro.com/page/Offer-Visual-Studio-Professional-Free-For-3-Years.aspx">http://www.visualmicro.com/page/Offer-Visual-Studio-Professional-Free-For-3-Years.aspx</a>).</li>
+    <li>Download and install Visual Micro from <a href="http://www.visualmicro.com/">http://www.visualmicro.com/</a>.</li>
+    <li>The above reference has a series of links that will take you through setting-up and testing the installation, configuring it, etc.  All well worth&nbsp;reviewing.</li>
+    <li>There are a few things you need to do that were not included in the above&nbsp;reference:</li>
+</ol>
+<ul>
+<ul>
+    <li>Make sure “Upload Using Programmer” is uncheck within Tool &gt;&nbsp;Arduino</li>
+    <li>To make sure you can “include” “.h” files within your source directory, add “$(ProjectDir)” in Properties &gt; Configuration Properties &gt; <span class="caps">VC</span>++ Directories &gt; Include&nbsp;Directories.</li>
+</ul>
+</ul>
+</ol>
+All of this is much easier than setting up and using Microsoft Visual C++ 2010 Express!
+<h2>Atmel <span class="caps">AVR</span> Studio&nbsp;5</h2>
+This is an Integrated Development Environment (<span class="caps">IDE</span>) for developing and debugging embedded Atmel <span class="caps">AVR</span> applications write, build, and debug using C/C++ and assembler code.
+<ul>
+<ul>
+    <li><a href="http://www.atmel.com/microsite/avr_studio_5/">Atmel <span class="caps">AVR</span> Studio&nbsp;5</a></li>
+    <li><a href="http://www.engblaze.com/tutorial-using-avr-studio-5-with-arduino-projects/">Tutorial: Using <span class="caps">AVR</span> Studio 5 with Arduino&nbsp;projects</a></li>
+    <li><a href="http://automation.binarysage.net/?p=1493">Info: Arduino <span class="caps">IDE</span> or Atmel <span class="caps">AVR</span>&nbsp;Studio</a></li>
+    <li><a href="http://www.avrfreaks.net/index.php?name=PNphpBB2&amp;file=viewtopic&amp;p=884538"><span class="caps">AVR</span> Studio 5 support for&nbsp;Arduino</a></li>
+    <li><a href="http://www.normalexception.net/index.php/Projects/setting-up-avrstudio-for-arduino-development"><span class="caps">AVR</span> Studio 5 and&nbsp;Arduino</a></li>
+</ul>
+</ul>
+<h2>Processing and&nbsp;Arduino</h2>
+Processing is an open source programming language and environment for people who want to create images, animations, and interactions. Arduino comes with some basic examples for communicating with Processing (in Examples &gt; Communication). These are useful for when you want to write both Arduino and Processing programs and have them talk to each other.
+<ul>
+<ul>
+    <li><a href="http://processing.org/learning/">Processing&nbsp;Tutorals</a></li>
+    <li><a href="http://luckylarry.co.uk/programming-tutorials/processing/">Lucky&nbsp;Larry</a></li>
+</ul>
+</ul>
+<h2>Arduino and&nbsp;openFrameworks</h2>
+On the surface, openFrameworks seems very similar to Processing. openFrameworks is much better at creating projects that use a lot of 3D Graphics, computer vision libraries like OpenCV or projects that involve the real-time manipulation of video. Also, while Processing requires a Java backend, openFrameworks is simply a set of C++ libraries, meaning that developers comfortable with C++ will be right at home.
+<ul>
+<ul>
+    <li><a href="http://www.sparkfun.com/tutorials/318">What is&nbsp;openFrameworks?</a></li>
+    <li><a href="http://wiki.openframeworks.cc/index.php?title=Main_Page"><span class="caps">OF</span>&nbsp;wiki</a></li>
+</ul>
+</ul>
+<h2>C and&nbsp;Arduino</h2>
+The Arduino language is simply just a small refinement of C, in an effort to make the Arduino easier to code. Moving to C or C++ is very natural step up.
+<ul>
+<ul>
+    <li><a href="http://www.wikihow.com/Write-Arduino-Software-in-C">How to Write Arduino Software in&nbsp;C</a></li>
+    <li><a href="http://arduino.cc/playground/Interfacing/CPPWindows">Arduino and C++ (for&nbsp;Windows)</a></li>
+    <li><a href="http://arduino.cc/playground/Code/VisualCPPExpress">Using Microsoft Visual C++ 2010 Express to write Arduino&nbsp;Sketches/Libraries</a></li>
+    <li><a href="http://pragprog.com/magazines/2011-04/advanced-arduino-hacking">What’s wrong with the Arduino <span class="caps">IDE</span>?</a></li>
+    <li><a href="http://bleaklow.com/2010/06/04/a_makefile_for_arduino_sketches.html">A Makefile for Arduino&nbsp;Sketches</a></li>
+</ul>
+</ul>
+<h2>Scratch for&nbsp;Arduino</h2>
+Scratch is a programming language learning environment enabling beginners to get results without having to learn syntactically correct writing first.
+<ul>
+<ul>
+    <li><a href="http://scratch.mit.edu/">Scratch</a></li>
+    <li><a href="http://seaside.citilab.eu/scratch/arduino">Projecte&nbsp;Scratch</a></li>
+    <li><a href="http://cs.harvard.edu/malan/scratch/printer.php">Scratch for Budding Computer&nbsp;Scientists</a></li>
+    <li><a href="http://mentalarcade.com/visa/scratch.html">Exploring Programming with&nbsp;Scratch</a></li>
+    <li><a href="http://www.worcpublib.org/pdf/scratch/Scratch%20Reference%20Guide%20&amp;%20Dictionary.pdf">Scratch Reference&nbsp;Guide</a></li>
+</ul>
+</ul>
+Scratch is evolving into a more powerful platform.
+<ul>
+<ul>
+    <li><a href="http://wiki.scratch.mit.edu/wiki/Scratch_2.0">Scratch&nbsp;2.0</a></li>
+    <li><a href="http://www.modk.it/">Modkit&nbsp;Micro</a></li>
+</ul>
+</ul></p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>

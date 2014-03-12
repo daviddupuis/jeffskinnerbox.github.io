@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Testing: Images and Footnotes - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Testing: Images and Footnotes"/>
+            <meta property="og:url" content="/posts/2100/Jan/01/testing-images-and-footnotes/"/>
+            <meta property="og:description" content="This page is for testing purposes only."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/2100/Jan/01/testing-images-and-footnotes/"
+                       rel="bookmark"
+                       title="Permalink to Testing: Images and Footnotes">
+                        Testing: Images and&nbsp;Footnotes
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00"> Friday  January 01, 2100</time>
+    </span>
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <h2>The Back&nbsp;Story</h2>
+<p>Python Markdown comes with several <a href="http://docs.getpelican.com/en/3.3.0/">extras</a>, and one of the extension supported is called <a href="http://jeffskinnerbox.wordpress.com/">CodeHilite</a>.
+To get this all to work, you must include something like this in your <code>pelicanconf.py</code> file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># List of the extensions that the Markdown processor will use.
+MD_EXTENSIONS = [&#39;extra&#39;, &#39;codehilite(noclasses=True, pygments_style=manni, guess_lang=False)&#39;]
+</pre></div>
+
+
+<h2>Image&nbsp;Formatting</h2>
+<p>Markdown uses a syntax like <code>[text](link-URL)</code> to support hyperlinks in text.
+It uses a similar syntax for images,&nbsp;like</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">![alt text](image-URL &quot;hover text&quot;)
+[![alt text](image-URL &quot;hover text&quot;)](link-URL)
+</pre></div>
+
+
+<p>Here is an example when using a file stored within the pelican directory structure
+(also hover the mouse over the image to see the&nbsp;text):</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">![Wolf Trap]({filename}/images/wolf_trap.jpg &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;)
+</pre></div>
+
+
+<p><img alt="Wolf Trap" src="/images/wolf_trap.jpg" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" /></p>
+<p>Here is an another example using a file from the web
+(also hover the mouse over the image to see the&nbsp;text):</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Full image is placed here
+![alt text](http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg &quot;Skinner Box:  operant conditioning cage&quot;)
+Lorem ipsum dolor sit amet, ....
+</pre></div>
+
+
+<p><em>Full image is placed here</em>
+<img alt="alt text" src="http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg" title="Skinner Box: operant conditioning cage" />
+<em><a href="http://www.lipsum.com/">Lorem ipsum</a> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
+<p>You can also use standard <span class="caps">HTML</span> image syntax, which allows you to scale the width and height of the&nbsp;image.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">100 x 100 pixel image is here
+<span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Some text for you&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;100&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;100&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+Lorem ipsum dolor sit amet, ....
+</pre></div>
+
+
+<p><em>100 x 100 pixel image is here</em>
+<img src="http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg" title="Some text for you" width="100" height="100">
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
+<p>By using some more <span class="caps">HTML</span> mojo, you float the image left or&nbsp;right.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;float: left&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;200&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/div&gt;</span>
+Lorem ipsum dolor sit amet, ....
+</pre></div>
+
+
+<div style="float: left">
+    <img src="http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg" width="200" height="200">
+</div>
+
+<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
+<p>And using a little more <span class="caps">HTML</span> mojo, you can make the image take you to a <span class="caps">URL</span> (select the image below with the&nbsp;mouse):</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;float: right&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;http://webspace.ship.edu/cgboer/skinner.html&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+        <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;200&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;/a&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/div&gt;</span>
+Lorem ipsum dolor sit amet, ....
+</pre></div>
+
+
+<div style="float: right">
+    <a href="http://webspace.ship.edu/cgboer/skinner.html">
+        <img src="http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg" width="200" height="200">
+    </a>
+</div>
+
+<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
+<p>You can also add additional features to the image, like rounded&nbsp;corners</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;div</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;float: right&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+        <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Seagate Backup Plus&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Backup Plus Pic&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;200&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;&lt;/a&gt;</span>
+<span style="color: #330099; font-weight: bold">&lt;/div&gt;</span>
+Lorem ipsum dolor sit amet, ....
+</pre></div>
+
+
+<div style="float: right">
+    <a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/">
+        <img class="img-rounded" title="Seagate Backup Plus" alt="Backup Plus Pic" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="200" height="200" /></a>
+</div>
+
+<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
+<p>Now lets place somes border space around the image so the text isn&#8217;t touching&nbsp;it.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;a</span> <span style="color: #330099">href=</span><span style="color: #CC3300">&quot;http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/&quot;</span><span style="color: #330099; font-weight: bold">&gt;</span>
+    <span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Seagate Backup Plus&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Backup Plus Pic&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;&lt;/a&gt;</span>
+Lorem ipsum dolor sit amet, ....
+</pre></div>
+
+
+<p><a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="Seagate Backup Plus" alt="Backup Plus Pic" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="150" height="150" /></a>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
+<p>Now lets do a image that is stored within <code>content/images</code>:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #330099; font-weight: bold">&lt;img</span> <span style="color: #330099">class=</span><span style="color: #CC3300">&quot;img-rounded&quot;</span> <span style="color: #330099">style=</span><span style="color: #CC3300">&quot;margin: 0px 8px; float: left&quot;</span> <span style="color: #330099">title=</span><span style="color: #CC3300">&quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;</span> <span style="color: #330099">alt=</span><span style="color: #CC3300">&quot;Wolf Trap&quot;</span> <span style="color: #330099">src=</span><span style="color: #CC3300">&quot;/images/wolf_trap.jpg&quot;</span> <span style="color: #330099">width=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099">height=</span><span style="color: #CC3300">&quot;150&quot;</span> <span style="color: #330099; font-weight: bold">/&gt;</span>
+Lorem ipsum dolor sit amet, ....
+</pre></div>
+
+
+<p><img class="img-rounded" style="margin: 0px 8px; float: left" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" alt="Wolf Trap" src="/images/wolf_trap.jpg" width="150" height="150" />
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
+<p>Now trying some tricks from the&nbsp;web:</p>
+<p><img alt="Wolf Trap" src="/images/wolf_trap.jpg" title="=200x200 &quot;Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182&quot;" />
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
+<p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+<p><img alt="Wolf Trap" src="/images/wolf_trap.jpg" title="Wolf Trap, 1645 Trap Road Vienna, Virginia, 22182" /> { margin: 0px 8px; float: left; width: 200px height: 200px; }
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</em>
+<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est&nbsp;laborum.</em></p>
+<p><span class="caps">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span></p>
+<p><a href="http://google.com.au/"><img src="http://www.google.com.au/images/nav_logo7.png"></a></p>
+<p><span class="caps">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span></p>
+<p><a href="http://google.com.au/"><img alt="Foo" src="http://www.google.com.au/images/nav_logo7.png" /></a></p>
+<h2>Footnote&nbsp;Formatting</h2>
+<p>Python-Markdown’s Footnote syntax generally follows the community at large version of
+Markdown but provides some extra‘s such as footnotes. 
+For&nbsp;example:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">[^a]: This is a footnote content.
+[^@#$%]: A footnote on the label: &quot;@#$%&quot;.
+[^2]: 
+    The first paragraph of the definition.
+
+    Paragraph two of the definition.
+
+    &gt; A blockquote with
+    &gt; multiple lines.
+
+        a code block
+
+    A final paragraph.
+</pre></div>
+
+
+<p>Footnotes<sup id="fnref:a"><a class="footnote-ref" href="#fn:a" rel="footnote">1</a></sup> have a label<sup id="fnref:@#$%"><a class="footnote-ref" href="#fn:@#$%" rel="footnote">2</a></sup> and the footnote&#8217;s content.
+And you can have formating within the footnote<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">3</a></sup>.
+The text to create the footnotes can appear anywhere in the Markdown file,
+but by default, they will be rendered at the end of the page or article.
+See <a href="http://pythonhosted.org/Markdown/extensions/footnotes.html">here</a> if you wish to control the footnotes&nbsp;location.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:a">
+<p>This is a footnote content.&#160;<a class="footnote-backref" href="#fnref:a" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:@#$%">
+<p>A footnote on the label: &#8220;@#$%&#8221;.&#160;<a class="footnote-backref" href="#fnref:@#$%" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>The first paragraph of the&nbsp;definition.</p>
+<p>Paragraph two of the&nbsp;definition.</p>
+<blockquote>
+<p>A blockquote with
+multiple&nbsp;lines.</p>
+</blockquote>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">a code block
+</pre></div>
+
+
+<p>A final paragraph.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>

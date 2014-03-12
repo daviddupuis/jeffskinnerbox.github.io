@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>RTL-SDR Software Defined Radio (SDR) for $20 - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="RTL-SDR Software Defined Radio (SDR) for $20"/>
+            <meta property="og:url" content="/posts/2013/May/26/rtl-sdr-software-defined-radio-SDR-for-20/"/>
+            <meta property="og:description" content="RTL-SDR is a very cheap software defined radio that uses a TV tuner dongle based on the RTL2832U chipset. Essentially, this means that a cheap $20 TV tuner can be used as a computer based radio scanner. A scanner capability that would have cost hundreds of dollars just a few years ago."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/2013/May/26/rtl-sdr-software-defined-radio-SDR-for-20/"
+                       rel="bookmark"
+                       title="Permalink to RTL-SDR Software Defined Radio (SDR) for $20">
+                        <span class="caps">RTL</span>-<span class="caps">SDR</span> Software Defined Radio (<span class="caps">SDR</span>) for&nbsp;$20
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-05-26T00:01:00"> Sunday  May 26, 2013</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="/tag/rtl-sdr/">RTL-SDR</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="/tag/software-defined-radio/">Software Defined Radio</a>
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <p>While researching the <span class="caps">GNU</span> Radio project, I came upon references to the <a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/Hardware"><span class="caps">RTL2832</span> <span class="caps">TV</span> tuners</a>. These dongle are made to receive and decode the European standard digital television, <a href="http://en.wikipedia.org/wiki/DVB-T">Digital Video Broadcasting — Terrestrial (<span class="caps">DVB</span>-T)</a>. (By the way, the North American standard is <a href="http://en.wikipedia.org/wiki/ATSC_tuner">Advanced Television Systems Committee (<span class="caps">ATSC</span>)</a>, and not  compatible with <span class="caps">DVB</span>-T, so this will not work in North America for <span class="caps">TV</span> reception.)  In 2012, <a href="http://thread.gmane.org/gmane.linux.drivers.video-input-infrastructure/44461/focus=44461">Antii Palosaari</a>, discovered that there is a device mode for the Realtek <span class="caps">DVB</span>-T device chip (<a href="http://www.realtek.com.tw/products/productsView.aspx?Langid=1&amp;PFid=35&amp;Level=4&amp;Conn=3&amp;ProdID=257"><span class="caps">RTL2832U</span></a>) in which raw samples can be captured and transferred to a host computer. This feature enables this device to be used as an inexpensive &#8220;front end&#8221;  for a <a href="http://en.wikipedia.org/wiki/Software-defined_radio">Software Defined Radio (<span class="caps">SDR</span>)</a> that could be implemented on a <span class="caps">PC</span> or other&nbsp;device.</p>
+<p>A <span class="caps">SDR</span> provide the ability to sample and record the electromagnetic energy (or <a href="http://en.wikipedia.org/wiki/Radio_frequency">radio frequency</a>, called &#8220;<span class="caps">RF</span>&#8221; for short) with no preconceived idea as to the structure of the <span class="caps">RF</span> <a href="http://en.wikipedia.org/wiki/Signal_(information_theory)">signal</a>.  In a sense, you can interact with the <span class="caps">RF</span> signal in its must fundamental form.  In addition, a <span class="caps">SDR</span> allows you to implement, by means of software, a radio communication system where components that have been typically implemented in&nbsp;hardware.</p>
+<p><span class="caps">SDR</span> solutions for the professional-grade applications and amateur radio have been around for some time, but the appearance of cheap solutions for the hacker is new.  There are general purpose <span class="caps">SDR</span> platforms for over $1000, like the Ettus Research <a href="http://www.ettus.com/">Universal Software Radio Peripheral (<span class="caps">USRP</span>)</a>, the $525 <a href="http://www.rfspace.com/RFSPACE/SDR-IQ.html"><span class="caps">SDR</span>-<span class="caps">IQ</span> Receiver</a>, to the $450 <a href="http://nuand.com/bladeRF">bladeRF</a> from the Kickstarter Nuand or Great Scott&#8217;s <a href="http://www.forbes.com/sites/andygreenberg/2012/10/19/darpa-funded-radio-hackrf-aims-to-be-a-300-wireless-swiss-army-knife-for-hackers/"><span class="caps">DARPA</span>-Funded</a> <a href="http://ossmann.blogspot.com/2012/06/introducing-hackrf.html">HackRF</a> for an estimate $300, and now the $20 hacker grade dongle discussed here.  But unlike most of the other referenced solutions,  the dongle  requires a <span class="caps">PC</span>, or some sort of attached processor, to provide the signal&nbsp;processing.</p>
+<p>In all <span class="caps">SDR</span> solutions, a significant amounts of the <a href="http://en.wikipedia.org/wiki/Signal_processing">signal processing</a> is handed over to a numerical processor, rather than being done in special-purpose <span class="caps">RF</span> hardware. Such a design produces a radio which can receive and transmit widely different radio protocols (referred to as a waveform) based solely on the software used.  So in a <span class="caps">SDR</span> solution, the electromagnetic waveform is rapidly sampled, the sample values are converted to numerical values, and these numbers are manipulated via a discipline called <a href="http://en.wikipedia.org/wiki/Digital_signal_processing">digital signal processing (<span class="caps">DSP</span>)</a>.  Ultimately, the resulting <span class="caps">DSP</span> numerical values produced are converted to an analog signal that goes to a speaker, <span class="caps">TV</span>, or other such output&nbsp;device.</p>
+<p>The <span class="caps">DVB</span>-T dongles can provide a critical component of a cheap <span class="caps">SDR</span>, since the chip allows transferring the raw I/Q samples to the host. What <a href="http://www.ni.com/white-paper/4805/en">I/Q samples</a> are is well beyond what I wish to describe here, but let it be said that practical hardware design concerns make I/Q data the critical for signal processing.  So the fact the dongle does the digital sampling, called a <a href="http://en.wikipedia.org/wiki/Analog-to-digital_converter">analog-to-digital converter (<span class="caps">ADC</span>)</a>, and outputs I/Q samples, makes it a valuable asset for a <span class="caps">SDR</span>&nbsp;solution.</p>
+<p>So how does one get your <span class="caps">PC</span> configured to take the dongles I/Q output and create a <span class="caps">SDR</span>?  There is <a href="http://gnuradio.org/redmine/projects/gnuradio/wiki"><span class="caps">GNU</span> Radio</a> (where this post first begun), but a simpler starting point would be the popular, easy, and open source <a href="http://sdrsharp.com/"><span class="caps">SDR</span>#</a>.  <span class="caps">SDR</span># can perform the required signal processing in an intuitive user interface (if your into Ham Radio, or bit of a <span class="caps">RF</span> hacker, and such).  Unfortunately, I couldn&#8217;t get <span class="caps">SDR</span># (a <span class="caps">MS</span> Windows application) to operate under  Linux and I had to resorted to some simpler utilities.
+<h2>The&nbsp;Dongle</h2>
+All this sounds exciting to me (what a geek!) so I <a href="http://www.amazon.com/gp/product/B008S7AVTC/ref=oh_details_o00_s00_i00?ie=UTF8&amp;psc=1">purchased from Amazon</a> one of the dongles, specifically the NooElec <span class="caps">TV28T</span> v2 <span class="caps">USB</span> <span class="caps">DVB</span>-T,  <span class="caps">FM</span>+<span class="caps">DAB</span> &amp; <span class="caps">RTL</span>-<span class="caps">SDR</span> Receiver, <span class="caps">RTL2832U</span> <span class="amp">&amp;</span> <span class="caps">R820T</span> Tuner, <span class="caps">MCX</span> Input.
+<ul>
+<ul>
+    <li><strong>NooElec <span class="caps">TV28T</span></strong> - This is the <a href="http://www.nooelec.com/store/software-defined-radio/sdr-receivers/tv28tv2.html#.UZQmefH_5k8">manufacture</a> and model name for the&nbsp;device</li>
+    <li><strong><span class="caps">DVB</span>-T</strong> - This device is made to receive and decode the European standard digital television, <a href="http://en.wikipedia.org/wiki/DVB-T">Digital Video Broadcasting — Terrestrial (<span class="caps">DVB</span>-T)</a></li>
+    <li><strong><span class="caps">FM</span>+<span class="caps">DAB</span> <span class="amp">&amp;</span> <span class="caps">RTL</span>-<span class="caps">SDR</span> Receiver</strong> - The device can also receive <span class="caps">FM</span> radio and <a href="http://en.wikipedia.org/wiki/Digital_Audio_Broadcasting">Digital Audio Broadcasting (<span class="caps">DAB</span>)</a> used in several countries, particularly in Europe. <a href="http://www.rtlsdr.org/"><span class="caps">RTLSDR</span></a> is the popular name give to this class of device, which contain the <span class="caps">RTL2832U</span> chip, which can be hacked for <span class="caps">SDR</span>&nbsp;use.</li>
+    <li><strong><span class="caps">RTL2832U</span> <span class="amp">&amp;</span> <span class="caps">R820T</span> Tuner</strong> - These are the <a href="http://www.realtek.com.tw/products/productsView.aspx?Langid=1&amp;PFid=35&amp;Level=4&amp;Conn=3&amp;ProdID=257"><span class="caps">DVB</span>-T demodulator</a> and <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;ved=0CCwQFjAA&amp;url=http%3A%2F%2Fsuperkuh.com%2Fgnuradio%2FR820T_datasheet-Non_R-20111130_unlocked.pdf&amp;ei=PCuUUbnGI-e80QHfwoDwDw&amp;usg=AFQjCNFUMXBDm9QvhzhIzJGckOLi8n5gaQ&amp;sig2=FA2mXxtZhkdokBQ3oegvdQ&amp;bvm=bv.46471029,d.dmQ"><span class="caps">TV</span> Tuner</a> chips used in the&nbsp;device.</li>
+    <li> <strong><span class="caps">MCX</span> Input</strong> – Is a 3.6 millimeter (0.14 in) micro coaxial (<span class="caps">MCX</span>) coaxial <span class="caps">RF</span> connector 30% smaller that Sub-Miniature version B (<span class="caps">SMB</span>) connectors that are typically used in the <span class="caps">USA</span>.  <span class="caps">MCX</span> is a standard in Europe. It provides broadband capability from <span class="caps">DC</span> to 6&nbsp;GHz.</li>
+</ul>
+</ul>
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/05/71ratxr2wjl-_sl1500_.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="71RaTxr2WJL._SL1500_" src="/images/NooElec_TV28T.jpg" width="180" height="180" />
+</a>
+ NooElec <span class="caps">TV28T</span>
+From the research I have done, I have found that the NooElec <span class="caps">TV28T</span> dongle provides an approximate tuning range of 25MHz-1700MHz for the <span class="caps">SDR</span>.  It has been demonstrated to be compatible with most <span class="caps">SDR</span> software, including <span class="caps">SDR</span>#.  You can pick up <span class="caps">FM</span> radio but  don&#8217;t expect to pick up long-wave or <span class="caps">AM</span> broadcasts since their spectrum lies below 25MHz. You can listen to the 12m 10m 6m 2m 1.25m 70cm 33cm and 23cm ham band, as well as <span class="caps">CB</span>, Marine <span class="caps">VHF</span>, <span class="caps">RC</span> Band, <span class="caps">FRS</span>, <span class="caps">GMRS</span>, and Airband&nbsp;(Aviation).</p>
+<p>The dongle will not provide the desired <span class="caps">SDR</span> function out of the box.  It must first be configured (aka hacked) to stream the I/Q samples to the <span class="caps">USB</span> output.  This is where <a href="http://sdr.osmocom.org/trac/wiki/rtl-sdr">Antii Palosaari&#8217;s</a> discovery comes into play.  The wiki&#8217;s <a href="http://rtlsdr.org/">rtlsdr.org</a> and <a href="http://sdr.osmocom.org/trac/">OsmoSDR</a> are good sources for disparate information concerning <span class="caps">RTL2832U</span> based <span class="caps">SDR</span>, typically called <span class="caps">RTL</span>-<span class="caps">SDR</span>.  For my purposes, I wanted to get something initially working on my <span class="caps">PC</span> (Linux <span class="caps">OS</span>) but ultimately I wanted to have the dongle attached to a Raspberry Pi (RPi) and have the RPi be a server or archive of I/Q samples (sort of a intelligent wide band scanner as done in <a href="http://www.jpmeijers.com/drupal/node/15">Raspberry Pi and <span class="caps">DVB</span>-T receivers</a> and here <a href="http://www.hamradioscience.com/raspberry-pi-as-remote-server-for-rtl2832u-sdr/">Raspberry Pi as Remote Server for RTL2832u <span class="caps">SDR</span></a> and here <a href="http://www.jpmeijers.com/drupal/node/15"><span class="caps">SDR</span> with Raspberry Pi and <span class="caps">DVB</span>-T receivers</a>) that could be processed by my <span class="caps">PC</span>.  Therefore, the first step is to get the dongle and a good <span class="caps">SDR</span> processor working on my <span class="caps">PC</span>.
+<h2>Building rtl-sdr Library and Capture&nbsp;Tools</h2>
+The  OsmoSDR wiki has some good instructions on <a href="http://sdr.osmocom.org/trac/wiki/rtl-sdr#Buildingthesoftware">how to build the rtl-sdr software</a>. I basically followed the wiki&#8217;s instructions but I had to first install <a href="http://www.cmake.org/">cmake</a> (<code>sudo apt-get install cmake</code>) and <a href="http://www.libusb.org/">libusb</a> (<code>sudo apt-get install libusb-1.0-0-dev</code>) to get a successful make.  I then using the following&nbsp;commands:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~/src
+git clone git://git.osmocom.org/rtl-sdr.git
+cd rtl-sdr/
+mkdir build
+cd build
+cmake ../
+make
+sudo make install
+sudo ldconfig
+cmake ../ -DINSTALL_UDEV_RULES=ON
+</pre></div>
+
+
+<p>The result is source code placed in <code>~/src/rtl-sdr/build/src</code> and the executables are placed in <code>/usr/local/bin</code>: rtl_adsb, rtl_eeprom, rtl_fm, rtl_sdr, rtl_tcp, rtl_test.  The documentation for these utilities is nearly non-existent.  The only documentation I could fine is for the rtl_fm, a posting called <a href="http://kmkeen.com/rtl-demod-guide/index.html">Rtl_fm Guide: The long lost documentation</a>.  If you use the command line option <code>--help</code>, you will get some description for each of the tools (see the very end of this post for some screen captures).  Here is a short description and some example usages:
+<ul>
+<ul>
+    <li><strong>rtl_sdr</strong> - This is an I/Q recorder for <span class="caps">RTL2832</span> based <span class="caps">DVB</span>-T receivers. To send 10 samples to stdout, and sampled at 1.8Ms/s with frequency tuned to 392MHz: <code>rtl_sdr -s1.8e6 -f392e6 -n10 -.</code></li>
+    <li><strong>rtl_test</strong> - Bench-marking tool for <span class="caps">RTL2832</span> based <span class="caps">DVB</span>-T receivers.  The <code>-t</code> option only works for Elonics E4000 tuners (Therefore, on non-E4000 tuners, you can not test for the tuning range).  To check the possible tuning range: <code>rtl_test -t</code>.  To check the maximum sample-rate possible on your machine (change the rate down until no sample loss occurs): <code>rtl_test -s 2.5e6</code></li>
+    <li><strong>rtl_fm</strong> - A simple narrow band <span class="caps">FM</span> demodulator for <span class="caps">RTL2832</span> based <span class="caps">DVB</span>-T receivers.  Rtl_fm is a general purpose analog demodulator. It can handle <span class="caps">FM</span>, <span class="caps">AM</span> and <span class="caps">SSB</span>. It can scan more than a hundred frequencies a second. Make sure <code>rtl_fm</code> and the player are both set to use the same data rate.  Tune into a local <span class="caps">FM</span> radio station : <code>rtl_fm -W -f 99.5M | play -r 32k -t raw -e signed-integer -b 16 -c 1 -V1 -</code></li>
+    <li><strong>rtl_tcp</strong> -  An I/Q sample server for <span class="caps">RTL2832</span> based <span class="caps">DVB</span>-T receivers.  I/Q samples are streamed to a specified <span class="caps">IP</span> address and&nbsp;port.</li>
+    <li><strong>rtl_adsb</strong> - A simple Automatic dependent surveillance-broadcast (<span class="caps">ADS</span>-B) decoder.  <span class="caps">ADS</span>-B is a surveillance technology for tracking aircraft as part of the Next Generation Air Transportation System&nbsp;(NextGen).</li>
+    <li><strong>rtl_eeprom</strong> - An <span class="caps">EEPROM</span> programming tool for <span class="caps">RTL2832</span> based <span class="caps">DVB</span>-T&nbsp;receivers.</li>
+</ul>
+</ul>
+<h2>First Run of the&nbsp;Dongle</h2>
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/05/sdrsharp.png">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="sdrsharp" src="/images/sdrsharp.png?w=150" width="150" height="107" />
+</a>
+The first thing to do is to plug in the dongle and run the test <code>rtl_test -t</code>.  It gave me an error statement expressing &#8220;installing the udev rules file rtl-sdr.rules&#8221;.  The site &#8220;<a href="http://www.instructables.com/id/rtl-sdr-on-Ubuntu/step3/Setup-udev-rules/">rtl-sdr on Ubuntu</a>&#8221; provides some instructions on how to fix this.  The command <code>lsusb | grep Realtek</code> gives me the information I need to create the following entry into <code>/etc/udev/rules.d</code>:
+<p style="padding-left:30px;"><code>SUBSYSTEM=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2838", GROUP="adm", MODE="0666", SYMLINK+="rtl_sdr"</code></p>
+After another try, I got a successful test.  Next, I sent ten I/O samples to stdout and then tuned into a local <span class="caps">FM</span> radio station using these commands:
+<p style="padding-left:30px;"><code>rtl_sdr -s1.8e6 -f392e6 -n10 -
+rtl_fm -W -f 99.5M | play -r 32k -t raw -e signed-integer -b 16 -c 1 -V1 -</code></p>
+<h2>Getting <span class="caps">SDR</span># Running in Linux (didn&#8217;t&nbsp;work)</h2>
+The  rtlsdr.org wiki has some instructions on <a href="http://rtlsdr.org/softwarelinux">how to get <span class="caps">SDR</span># working within Linux</a>.  Also, the <a href="http://sdrsharp.com/"><span class="caps">SDR</span># home page</a> has a link called <a href="http://pastebin.com/tgYwRBQt">One shot install script for Linux</a>. Both these sites require you to build the software from source code. Mono is able to run Microsoft .<span class="caps">NET</span> applications in Linux.  I attempted this and got errors that I could not figure out (I&#8217;m not a <span class="caps">MS</span> Windows developer type and I&#8217;m not interested becoming&nbsp;one!).</p>
+<p>Given this, I chose a different path. I found another posting that claim to <a href="http://opensource.telkomspeedy.com/wiki/index.php/SDR:_SDRSharp_Ubuntu_12.04">get <span class="caps">SDR</span># running in Linux</a>. In this case, only executable will be loaded, not source code that needs to be compiled. You can download <span class="caps">SDR</span># executable from this <a href="http://sdrsharp.com/index.php/downloads">posting</a>.  You&#8217;ll also need to install <a href="http://www.mono-project.com/Main_Page">mono</a> and <a href="http://www.portaudio.com/">PortAudio</a>.  Here is how I did&nbsp;it:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install mono-complete monodevelop
+sudo apt-get install libportaudio2
+cd ~/src
+mkdir sdrsharp
+cd sdrsharp
+</pre></div>
+
+
+<p>Within <code>~/src/sdrsharp</code>, install the downloaded <span class="caps">SDR</span># zip file and unzip&nbsp;it.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd sdr-nightly
+ln -s /usr/local/lib/librtlsdr.so librtlsdr.dll
+ln -s /usr/lib/i386-linux-gnu/libportaudio.so.2 libportaudio.so
+</pre></div>
+
+
+<p>Note, for the above link, you may need to use <code>locate libportaudio.so.2</code> to find the&nbsp;PortAudio library.</p>
+<p>To test things out, I ran the application using mono sdrsharp.exe and got a core dump.  I attempted this again using the stable version of <span class="caps">SDR</span># instead of the nightly build and got the same results.  After the typical thrashing about, I found a <a href="https://lists.ubuntu.com/archives/ubuntu-mono/2013-February/041580.html">bug report for this problem</a>.  Also see &#8220;<a href="http://epic.geek.nz/page/2012/12/29/sdr-software-good-bad-and-ugly/"><span class="caps">SDR</span> Software – Good, bad and very ugly</a>&#8220;.  Also, there seems to be some sort of <a href="http://dangerousprototypes.com/2012/08/05/confusion-over-sdr-vs-opensdrsharp/">dispute between <span class="caps">SDR</span># and a new group calling itself Open <span class="caps">SDR</span>#</a>.  I&#8217;m not sure, but what appears to be at the heart of this is the level of support of <span class="caps">SDR</span># within Linux.  All this is disappointing since <span class="caps">SDR</span># is a very popular tool and I wish I could find away to make use of it within&nbsp;Linux.</p>
+<p>The next logical <span class="caps">SDR</span> tool to try would be the Linux-based <a href="http://www.oz9aec.net/index.php/gnu-radio/gqrx-sdr">Gqrx <span class="caps">SDR</span> receiver</a>, but in this case, it is dependent on <a href="http://gnuradio.org/redmine/projects/gnuradio/wiki"><span class="caps">GNU</span> Radio</a>.  I&#8217;m attempting to delay my conquest of <span class="caps">GNU</span> Radio until I do some experimenting with the dongle.  So lets turn our attention to a much simpler tool.
+<h2>Getting <span class="caps">RTL</span>-<span class="caps">SDR</span> Scanner&nbsp;Running</h2>
+<a href="http://eartoearoak.com/software/rtlsdr-scanner"><span class="caps">RTLSDR</span> Scanner</a> is a simple frequency scanning <span class="caps">GUI</span> using the OsmoSDR rtl-sdr library.  I more or less followed the <a href="http://eartoearoak.com/software/rtlsdr-scanner/rtlsdr-scanner-installation">installation instructions</a> but they are confusing/out-of-date and you&#8217;ll needed to do some adjustments.  The OsmoSDR rtlsdr library has already been installed earlier in the text, so its not listed here.  To get the required files for <span class="caps">RTLSDR</span>&nbsp;Scanner:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install python python-wxgtk2.8 python-matplotlib python-numpy
+cd ~/src
+git clone git://github.com/roger-/pyrtlsdr.git
+cd pyrtlsdr
+sudo setup.py
+cd ~/src
+git clone git://github.com/EarToEarOak/RTLSDR-Scanner.git
+</pre></div>
+
+
+<p><a href="http://jeffskinnerbox.files.wordpress.com/2013/05/demo_waterfall.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="demo_waterfall.py" src="/images/demo_waterfall.jpg" width="250" height="140" />
+</a>
+With this, I found I could run <code>~/src/pyrtlsdr/demo_waterfall.py</code>.  Make sure to read the comments in the file to understand how to change the center frequency, gain, etc.  The image below is <code>demo_waterfall.py</code> tuned to the amateur radio <a href="http://en.wikipedia.org/wiki/6-meter_band">6 meters band</a>.  The image is called a <a href="http://en.wikipedia.org/wiki/Spectrogram">spectrogram</a> (sometimes call spectral waterfall) is a dynamic, visual representation of the spectrum of frequencies in the <span class="caps">RF</span> signal.  Blue is low signal strength, where yellow, and red are higher&nbsp;strengths.</p>
+<p>To get
+<code>~/src/RTLSDR-Scanner/src/rtlsdr_scan.py</code> to work, I had to do some coping of files as shown&nbsp;below:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cp ~/src/pyrtlsdr/rtlsdr/rtlsdr.py  ~/src/RTLSDR-Scanner/src/rtlsdr.py
+cp ~/src/pyrtlsdr/rtlsdr/librtlsdr.py  ~/src/RTLSDR-Scanner/src/librtlsdr.py
+</pre></div>
+
+
+<p><a href="http://jeffskinnerbox.files.wordpress.com/2013/05/rtlsdr-scanner.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: right" alt="rtlsdr_scan.py" src="/images//rtlsdr-scanner.jpg" width="250" height="145" />
+</a>
+The image below is from <code>rtlsdr_scan.py</code>, again tuned to the amateur radio 6 meters band.  Here again you see the signal strength of the individual amateur radios as vertical spikes.
+So we now have auditory and visual proof the dongle is doing its job. Now its on to <a href="http://jeffskinnerbox.wordpress.com/2013/07/08/gnu-radio-and-gqrx-sdr-receiver/"><span class="caps">GNU</span> Radio</a>!
+<h2>Command-Line Options for <span class="caps">RTLSDR</span> Capture&nbsp;Tools</h2>
+For reference purposes, below are screen shots of the <span class="caps">RTLSDR</span> capture tool&#8217;s command line options.
+<p>
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_test-s.jpg"><img class="float" alt="rtl_test -s" src="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_test-s.jpg?w=150" width="150" height="118" /></a> rtl_test -s
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_test1.jpg"><img class="float" alt="rtl_test" src="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_test1.jpg?w=150" width="150" height="138" /></a>&nbsp;rtl_test</p>
+<p><a href="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_tcp.jpg"><img class="float" alt="rtl_tcp" src="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_tcp.jpg?w=150" width="150" height="118" /></a> rtl_tcp
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_sdr1.jpg"><img class="float" alt="rtl_sdr" src="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_sdr1.jpg?w=150" width="150" height="110" /></a>&nbsp;rtl_sdr </p>
+<p><a href="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_adsb.jpg"><img class="float" alt="rtl_adsb" src="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_adsb.jpg?w=150" width="150" height="88" /></a> rtl_adsb
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_fm.jpg"><img class="float" alt="rtl_fm" src="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_fm.jpg?w=150" width="150" height="138" /></a>&nbsp;rtl_fm</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>

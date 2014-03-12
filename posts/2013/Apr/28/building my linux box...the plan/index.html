@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Building My Linux Box…The Plan - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Building My Linux Box…The Plan"/>
+            <meta property="og:url" content="/posts/2013/Apr/28/building my linux box...the plan/"/>
+            <meta property="og:description" content="In this post, I outline my logic, and some time my pasions, concerning the building of my Linux system. I list all the compoents selected and why I made that choice."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/2013/Apr/28/building my linux box...the plan/"
+                       rel="bookmark"
+                       title="Permalink to Building My Linux Box…The Plan">
+                        Building My Linux Box&#8230;The&nbsp;Plan
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-04-28T00:01:00"> Sunday  April 28, 2013</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="/tag/linux/">Linux</a>
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <p>I concluded it was time to retire my current <span class="caps">PC</span> (a <a href="http://reviews.cnet.com/desktops/dell-xps-400-desktop/4505-3118_7-31530074.html">Dell Dimension <span class="caps">XPS</span> 400</a>, Intel Pentium D 820, 2.8GHz w/Dual Core Technology, 2G of memory, purchased in January 2006 for  <a href="http://www.pcmag.com/article2/0,2817,1864262,00.asp">~ $2,500</a>) and replace it with something better, aka faster.  It&#8217;s performing poorly, but most of all, I want to do some experimenting with <a href="http://ipython.org/">iPython</a> &amp; <a href="http://matplotlib.org/">matplotlib</a>, as well as, <a href="http://gnuradio.org/redmine/projects/gnuradio/wiki"><span class="caps">GNU</span> Radio</a> <span class="amp">&amp;</span> <a href="http://en.wikipedia.org/wiki/Digital_signal_processing">digital signal processing</a>.  To do this justice, I need a faster box and ideally loaded with Linux and X&nbsp;Windows.</p>
+<p>I also think its time for me to <a href="http://www.linuxplanet.com/linuxplanet/tutorials/6824/1">build my own box</a>, instead of purchase it already<a href="http://www.berkeleylug.com/?p=168"> packaged and assembled</a>.  They say you get more for your dollar, or at least you can invest the same money into things that will make a better system (instead of some more crappy speakers, mice, keyboards, etc.).  Given I&#8217;m building it, I want to pay special attention to getting the performance up.  I don&#8217;t need the top of the line <span class="caps">CPU</span> (I don&#8217;t believe you get sufficient value for your money), but I would invest in improving the predominate enemy of computer performance, that is I/O.  Also, I want the graphics to be fast and smooth.  The work on matplotlib and signal processing is likely to be graphically intensive.  I&#8217;m not going to be playing games on the system, but I&#8217;m going to keep an eye on the gaming communities hardware preferences.   I&#8217;m willing to go with a good (but not super, and therefore expensive) graphics&nbsp;board.</p>
+<p>A fancy sound system isn&#8217;t a priority for me.  While my interest in <span class="caps">GNU</span> Radio <span class="amp">&amp;</span> digital signal processing may have some use for a good sound system, I think I could live with the integrated sound system that will come on the motherboard.  Like graphics, if  it proves unacceptable, I&#8217;ll make the investment on&nbsp;another occasion.</p>
+<p>Since I&#8217;m buying components and assembling it, I want to do some cherry picking.  When a vendor sells you an assembled box, they are often using cheaper / less functional components to save them cost.  I&#8217;m picking an Intel Core i5 <span class="caps">CPU</span> (I believe it has the best value for me).  Also, I&#8217;m going to get a -K Series Intel <span class="caps">CPU</span> and motherboard designed for overclocking and provide optimal performance for gamers and high-power users.  While I&#8217;m not doing gaming, I like the option to tuning the hardware and I have found the -K Series to be only slightly more expensive.  For a small amount of additional cash, I get some cool&nbsp;capabilities.</p>
+<p>To get the better <a href="http://en.wikipedia.org/wiki/Input/output">I/O</a> that I want, I&#8217;m going to purchase one <a href="http://en.wikipedia.org/wiki/Solid-state_drive">solid-state drive (<span class="caps">SSD</span>)</a> from which I plan to boot Linux.  <span class="caps">SSD</span>&#8217;s are very much more expensive byte-for-byte when compared to a standard hard drive but boy<a href="http://www.zdnet.com/blog/bott/windows-7-and-ssds-just-how-fast-are-they/2902"> they can fly</a>!  Faster <span class="caps">CPU</span> and faster drives are my most valuable investment.  With the  financial investment in the <span class="caps">SSD</span>, I&#8217;m not going to purchase new hard drives but reuse the ones I have in my current <span class="caps">PC</span> (I&#8217;ll need them since the <span class="caps">SSD</span> I can budget for will not be large).  They are newer then the original Dell box, and besides  the hard drive has over 6 years of stuff on it, including a <span class="caps">MS</span> Windows environment that I have grown dependent on.  That brings me to the next&nbsp;point.</p>
+<p>I want to dual boot the system with both <span class="caps">MS</span> Windows and Linux.  The Linux will be on the <span class="caps">SSD</span>, and it is here that I plan to spend much of my time.  I want to pick a Linux distribution that is well supported, popular, and a good graphic desktop environment.   I grew up on the Linux command line (then it was Unix) and I feel at home there, but I would like to try out the X Windows desktop.  If at all possible  I want the <span class="caps">MS</span> Windows to boot from my current hard drive.  I don&#8217;t want to have to reload software or copy an image &#8230; you never can get it to be the same again.  If I must, I&#8217;ll make the <span class="caps">MS</span> windows drive the default boot as it is now (and Microsoft seems to insist on being default).  If I can do this, moving into my new <span class="caps">PC</span> will be&nbsp;painless.</p>
+<p>With my objectives and priorities fully articulated, lets explore what I intend to build.
+<h2>Central Processing Unit (<span class="caps">CPU</span>)</h2>
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/04/intel_core-i5-3570k_retail.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="intel core i5 3570k with stock cooler" src="/images/intel_core-i5-3570k_retail.jpg" width="30%" height="30%" />
+</a>
+For my <span class="caps">CPU</span> I have picked the Intel Core i5-3570K Ivy Bridge 3.4GHz (3.8GHz Turbo Boost and 6M Cache) <span class="caps">LGA</span> 1155 77W Quad-Core Desktop Processor which includes Virtualization Technology (<span class="caps">VT</span>-x), and Intel <span class="caps">HD</span> Graphics 4000.  What a mouth full &#8230;. here is what this all means:
+<ul>
+<ul>
+    <li><a href="http://www.intel.com/content/www/us/en/processors/core/core-processor-family.html">Intel Core</a> - Intel Core (sometimes refereed to as<a href="http://en.wikipedia.org/wiki/Core_2"> Core 2</a>) is a brand name that Intel uses for various mid-range to high-end consumer and business microprocessors. In general, processors sold as Core are more powerful variants of the same processors marketed as entry-level Celeron and Pentium. Similarly, identical or more capable versions of Core processors are also sold as Xeon processors for the server and workstation&nbsp;market.</li>
+    <li><a href="http://ark.intel.com/products/65520">i5-3570K</a> - The very first question after you concluded that your going with the Intel Core line, is <a href="http://www.pugetsystems.com/blog/2012/08/17/core-i3-core-i5-and-core-i7-which-one-is-right-for-you/">Core i3 vs. i5 vs. i7 – Which one is right for me</a>?   I&#8217;m driven to the i5 since the current Intel Core i5 models are generally considered the best price/performance choice for a gaming system and the i7  do <span class="caps">NOT</span> have built-in graphics capability (this would force me to buy a graphics card). Why K versions you ask? Well, the default Ivy Bridge processors are much harder to overclock, where the K series are unlocked and come with<a href="http://www.intel.com/content/www/us/en/motherboards/desktop-motherboards/desktop-boards-software-extreme-tuning-utility.html"> tools for overclocking</a>.  This processor has overclocked <a href="http://www.guru3d.com/articles_pages/core_i5_3570k_review,1.html">test results</a> running at a stable&nbsp;4.7GHz.</li>
+    <li><a href="http://software.intel.com/sites/billboard/article/gdc-2012-ivy-bridge-impresses-optimized-visual-functionality-power-and-efficiency?wapkw=ivy+bridge">Ivy Bridge</a> -  Ivy Bridge is the <a href="http://ark.intel.com/">latest generation of processors</a> within the <a href="http://www.intel.com/content/www/us/en/silicon-innovations/intel-tick-tock-model-general.html">Intel Tick-Tock Development Model</a>.   Intel introduced its Sandy Bridge desktop and laptop processors at the start of 2011 as there new micro-architecture &#8230;the tock.  Intel introduced Ivy Bridge in April 2012 new processor technology &#8230; the tick.  There is a school of thought that says you shouldn&#8217;t buy the last generation <span class="caps">CPU</span> because you can get more value (aka performance/dollar) from the previous generation.  But the prices I have seen and the <a href="http://www.pcmag.com/article2/0,2817,2405317,00.asp">comparative reviews</a> have given me the courage to go with the latest generation.  Also check out this review with a <a href="http://www.phoronix.com/scan.php?page=article&amp;item=intel_corei7_3770k&amp;num=1">description of Ivy Bridge</a>.</li>
+    <li><a href="http://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html">Turbo Boost</a> - This feature increases performance of both multi-threaded and single-threaded workloads.  Intel Turbo Boost Technology 2.0 allows the processor core to opportunistically and automatically run faster than its rated operating frequency/graphic render clock if it is operating below power, temperature, and current limits. It can boost the frequency up to&nbsp;3.8GHz.</li>
+    <li><a href="http://en.wikipedia.org/wiki/CPU_cache">6M Cache</a> - This refers to <a href="http://en.wikipedia.org/wiki/Cache_(computing)">cache</a> used by the central processing unit of a computer to reduce the average<a href="http://arstechnica.com/gadgets/2002/07/caching/"> time to access memory</a>. The cache is a smaller, faster memory which stores copies of the data from the most frequently used main memory locations.  It comes it three types: L1, L2, and L3. L1 cache (sometimes called primary cashe) is the fastest cache and it usually comes within the processor chip itself.  L2 cache comes between L1 and <span class="caps">RAM</span> (processor-L1-L2-<span class="caps">RAM</span>) and is bigger than the primary cache. The L1 and L2 cache is per core but the last-level cache (L3), is shared among all cores and sometimes call <a href="http://en.wikipedia.org/wiki/Smart_Cache">Smart Cache </a>since cache can be dynamically assigned to a core as it needs it. The &#8220;6M&#8221; refers to the number of bytes of data that the L3 cache can&nbsp;hold.</li>
+    <li><a href="http://en.wikipedia.org/wiki/LGA_1155"><span class="caps">LGA</span> 1155</a> - <span class="caps">LGA</span> 1155, also called Socket H2, is an Intel microprocessor compatible 1155 pin socket which supports Intel Sandy Bridge and Ivy Bridge&nbsp;microprocessors.</li>
+    <li><a href="http://www.tomshardware.com/news/core-i7-Ivy-Bridge-77w-tdp-processors,13733.html">77W</a> - This is the  <a href="http://www.geeks3d.com/20090611/tutorial-what-is-the-thermal-design-power-tdp/">Thermal Design Power (<span class="caps">TDP</span>)</a> is the maximum power consumed by the <span class="caps">CPU</span> under normal / regular use. In other words, the <span class="caps">TDP</span> is the max power a device will dissipate when running real applications. What’s more the <span class="caps">TDP</span> is given for graphics card default clocks.  <span class="caps">TDP</span> is a manufacturer’s data, and thanks to this information, CPUcooler manufactures can size their <span class="caps">CPU</span>&nbsp;coolers.</li>
+    <li><a href="http://www.intel.com/products/processor/core2quad/">Quad-Core Desktop Processor</a> - This is a <a href="http://en.wikipedia.org/wiki/Quad-Core">multi-core processor</a> (in fact a quad or 4 core)  computing component with four independent actual central processing units (called &#8220;cores&#8221;).  Intel manufacturers the four cores onto a single integrated circuit die (known as a chip multiprocessor or <span class="caps">CMP</span>), or onto multiple dies in a single chip package.  The proximity of multiple <span class="caps">CPU</span> cores on the same die allows it to operation at a much higher clock-rate than is possible if the signals have to travel&nbsp;off-chip.</li>
+    <li><a href="http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/hardware-assist-virtualization-technology.html">Virtualization Technology</a> - <span class="caps">VT</span>-x  (i.e. x86 virtualization or Vanderpool) is the facility that allows multiple operating systems to simultaneously share x86 processor resources in a safe and efficient manner, a facility generically known as hardware virtualization. With virtualization, you can have several operating systems running in parallel, each one with several programs running.  Each operating system runs on a &#8220;virtual machine&#8221;, i.e. each operating system thinks it is running on a completely independent computer. Note that on the Intel Core technology, the virtual machines are not assigned specific CPUs among the multiple CPUs but are shared by&nbsp;all.</li>
+    <li><a href="http://www.intel.com/content/www/us/en/architecture-and-technology/hd-graphics/hd-graphics-developer.html">Intel <span class="caps">HD</span> Graphics 4000</a> - Before the introduction of Intel <span class="caps">HD</span> Graphics, Intel integrated graphics were built into the motherboard&#8217;s northbridge.  <span class="caps">HD</span> Graphics 4000 is Intel&#8217;s 3rd generation of this integrated <span class="caps">GPU</span> technology.  The <span class="caps">HD</span> 4000 was completely redesigned and offers many improvement. The <span class="caps">IPC</span> (instructions per clock) can therefore be even 2x as fast  and <a href="http://www.notebookcheck.net/Intel-HD-Graphics-4000.69168.0.html">overall up to 60% more performance should be possible</a>.</li>
+</ul>
+</ul>
+One highly desirable feature missing from the Intel i5 line is <a href="http://www.intel.com.au/content/www/au/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html">Hyper-Threading Technology</a>.  Hyper-Threading (<span class="caps">HT</span>) is a means for improving processor performance by supporting the execution of multiple threads (two is the current limit) on the same processor at once: the threads share the various on-chip execution units.  <span class="caps">HT</span> is available on the i7 line of processors but I just can&#8217;t justify the cost of this additional functionality.
+<h2>Motherboard&nbsp;(Mobo)</h2>
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/04/intel-desktop-board-dz77ga-70k.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Intel Desktop Board DZ77GA-70K" src="/images/intel-desktop-board-dz77ga-70k.jpg" width="300" height="200" />
+</a>
+I need to match the <span class="caps">CPU</span> to a -K Series motherboard and I picked the <a href="http://www.intel.com/content/www/us/en/motherboards/desktop-motherboards/desktop-board-dz77ga-70k.html">Intel Desktop Board <span class="caps">DZ77GA</span>-70K</a> with <a href="http://www.intel.com/content/www/us/en/chipsets/performance-chipsets/z77-express-chipset.html">Intel Z77 Express Chipset</a> family which includes <a href="http://www.intel.com/content/www/us/en/chipsets/high-definition-audio.html">Intel High Definition Audio</a>.
+The Intel high-definition audio chip allows you to use your computer to send digital audio signals to speakers, headphones, telephones and other audio equipment. Early computer audio systems could only produce simple stereo sound reproduction. The Intel <span class="caps">HD</span> audio system supports surround sound up to Dolby 7.1.  It supports the  usual <span class="caps">32GB</span> of <span class="caps">RAM</span>, <a href="http://www.intel.com/content/www/us/en/solid-state-drives/ssd-smart-response-video.html">Smart Response Technology</a>, <a href="http://www.intel.com/support/services/smartconnect/sb/CS-033108.htm">Smart Connect Technology</a>, Intel <a href="http://www.intel.com/support/chipsets/imsm/sb/CS-020784.htm">Rapid Storage Technology</a> (Intel <span class="caps">RST</span>) for <a href="http://en.wikipedia.org/wiki/RAID"><span class="caps">RAID</span></a> 0, 1, 5, and 10. The &#8220;<span class="caps">GA</span>&#8221; in the motherboard&#8217;s name means that it contains Bluetooth/WiFi and the a front panel <span class="caps">USB</span> 3.0 module  (&#8220;<span class="caps">GAL</span>&#8221; means it has no Bluetooth/WiFi). The board supports Intel&#8217;s <a href="http://www.intel.com/content/www/us/en/intelligent-systems/intel-boot-loader-development-kit/boot-loader-technology-brief.html">Fast Boot Technology</a> which can dramatically reduce the time to boot the system. Support for high end graphics boards. It has eight  <a href="http://www.intel.com/content/www/us/en/io/universal-serial-bus/universal-serial-bus.html"><span class="caps">USB</span> 3.0</a> ports (4 external/4 header), ten <a href="http://www.intel.com/content/www/us/en/io/universal-serial-bus/universal-serial-bus.html"><span class="caps">USB</span> 2.0</a> ports (4 external (2 Hi-Current/Fast Charging) / 6 internal), four Serial <span class="caps">ATA</span> 6.0 Gb/s ports, one eSATA 6.0 Gb/s, four <a href="http://www.intel.com/content/www/us/en/io/serial-ata/serial-ata-developer.html">Serial <span class="caps">ATA</span></a> 3.0 Gb/s ports and many other&nbsp;features.</p>
+<p>The Mobo comes with the <a href="http://www.intel.com/content/www/us/en/motherboards/desktop-motherboards/desktop-boards-software-visual-bios.html">Intel Visual <span class="caps">BIOS</span></a> graphical interface and animated controls, which allow you to configure settings faster and take full advantage of your Intel -K processors. The Visual <span class="caps">BIOS</span> uses the <a href="http://whatis.techtarget.com/definition/Unified-Extensible-Firmware-Interface-UEFI">Unified Extensible Firmware Interface (<span class="caps">UEFI</span>)</a> which defines a software interface between an operating system and Mobo firmware. <a href="http://h30565.www3.hp.com/t5/Feature-Articles/The-30-year-long-Reign-of-BIOS-is-Over-Why-UEFI-Will-Rock-Your/ba-p/198"><span class="caps">UEFI</span> is meant to replace</a> the <a href="http://en.wikipedia.org/wiki/BIOS">Basic Input/Output System (<span class="caps">BIOS</span>)</a> firmware interface, present in all <span class="caps">IBM</span> <span class="caps">PC</span>-compatible personal&nbsp;computers.</p>
+<p>The form factor for this Mobo is <span class="caps">ATX</span>.  <a href="http://www.pcmag.com/encyclopedia/term/38148/atx-motherboard"><span class="caps">ATX</span> (Advanced Technology eXtended)</a> is a motherboard form factor specification developed by Intel in 1995 to improve on previous de facto standards like the <span class="caps">AT</span> form factor.  There are <a href="http://www.youtube.com/watch?v=3_t7sZs8XBs">different form factor of motherboards</a> including microATX, Standard <span class="caps">ATX</span> and <span class="caps">XL</span>-<span class="caps">ATX</span>.  This is important to keep in mind when picking a&nbsp;case.</p>
+<p>The selling feature for me was that its an Intel product (motherboards are new to me and I need the emotional support), seems easy to setup, it has gotten <a href="http://www.pcmag.com/article2/0,2817,2405934,00.asp">reasonable reviews</a> (and<a href="http://www.hardocp.com/article/2012/08/06/intel_dz77ga70k_lga_1155_motherboard_review/1#.UX1AQKLCZ8E"> here is another</a>), and reasonable price.  It isn&#8217;t most feature full Mobo nor what a die-hard overclocker would buy but it seems a solid, stable product that will not give me any troubles or support problems and will perform well.
+<h2>Memory (<span class="caps">RAM</span>)</h2>
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/04/corsair-vengeance.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Corsair Vengeance" src="/images/corsair-vengeance.jpg" width="300" height="172" />
+</a>
+I&#8217;m going with <span class="caps">8GB</span> of <span class="caps">RAM</span> in an effort to assure good I/O and <span class="caps">12GB</span> or <span class="caps">16GB</span> just seems like more than I will need.  That amount of memory seems <a href="http://blog.betaforcepc.com/computer-memory/2012/01/">sufficient for you average gamer</a> and should work for me.  And the reviews I have seen also claim they have successively <a href="http://www.hardwaresecrets.com/article/152">overclocked this memory</a>.
+According to the September 2011 <a href="http://store.steampowered.com/hwsurvey">Steam hardware survey</a>, <span class="caps">4GB</span> of <span class="caps">RAM</span> is currently the most popular configuration among gaming PCs. This may be sufficient for a light home user, however, many power users and enthusiasts find <span class="caps">4GB</span> to be insufficient. Many recommend at least <span class="caps">6GB</span> for any enthusiast <span class="caps">PC</span>, especially in light of the&nbsp;relatively</p>
+<p>I also want to keep open the option to do some overclocking, so I need to consider memory based on Intel&#8217;s  <a href="http://www.intel.com/content/www/us/en/gaming/gaming-computers/intel-extreme-memory-profile-xmp.html?wapkw=(xmp).">Extreme Memory Profile (<span class="caps">XMP</span>)</a>.  I also want a memory provider with a solid reparation.  The Intel Core i5-3570K processor <a href="http://ark.intel.com/products/65520">requires <span class="caps">DDR3</span>-1333/1600</a> memory.  With all this in mind, I choose the <a href="http://www.corsair.com/en/vengeance-8gb-dual-channel-ddr3-memory-kit-cmz8gx3m2a1600c9b.html"><span class="caps">8GB</span> (2X4 <span class="caps">GB</span>) Corsair Vengeance Blue, 9-9-9-24, 1.5V  <span class="caps">PC3</span>-12800 1600MHz <span class="caps">DDR3</span> 240-Pin <span class="caps">SDRAM</span> Dual Channel Memory</a>.   They are not top of the line memory but seem a good fit for my needs and have gotten <a href="http://www.legitreviews.com/article/1740/1/">solid reviews</a>.</p>
+<p><span class="caps">DDR3</span> or <span class="caps">DDR3</span> <span class="caps">SDRAM</span>, an abbreviation for <a href="http://en.wikipedia.org/wiki/DDR3_SDRAM">double data rate type three synchronous dynamic random access memory</a>, is a modern kind of dynamic random access memory (<span class="caps">DRAM</span>) with a high bandwidth interface, and has been in use since 2007.  The primary benefit of <span class="caps">DDR3</span>  over its immediate predecessor (i.e. <span class="caps">DDR2</span>), is its ability to transfer data at twice the rate (eight times the speed of its internal memory arrays), enabling higher bandwidth or peak data rates. The next generation,  <span class="caps">DDR4</span> expected to be released to the market sometime in 2013.  Its primary benefits compared to <span class="caps">DDR3</span> is the higher range of clock frequencies (200MHz vs 166MHz) and data transfer rates (<span class="caps">400MT</span>/s vs <span class="caps">333MT</span>/s).</p>
+<p><span class="caps">DDR3</span> memory is classified according to the maximum speed at which it can work, as well as their timings. Timing are numbers such as 3-4-4-8, 5-5-5-15, 7-7-7-21, 9-9-9-24 where lower is better. Memory speed is specified via a number like this: <span class="caps">DDR3</span>-xxx / <span class="caps">PC3</span>-yyy or <span class="caps">DDR3</span>-xxx/yyy. The xxx number indicates the maximum clock speed that the memory chip supports. Therefore, <span class="caps">DDR3</span>-1333 can work up to 1,333MHz. Note this isn&#8217;t the real clock speed but twice that speed. So the real clock speed of <span class="caps">DDR3</span>-1333 is 666MHz. The yyy indicates the maximum transfer rate that the memory can reach. So memory labeled as <span class="caps">DDR3</span>-1333/10664 has a transfer rate of 10,<span class="caps">664MB</span>/s or 21,328 <span class="caps">MB</span>/s if they are running under <a href="http://www.hardwaresecrets.com/article/133">dual channel mode</a>. Most current boards have dual with the Intel socket 1336 has triple&nbsp;channel.</p>
+<p>The memory timings x-x-x-x indicates the number of clock cycles that it takes for the memory to perform something. The smaller the number, the faster the memory. These set of four numerical parameters are called <span class="caps">CL</span>, tRCD, tRP, and tRAS. Sometimes there a fifth value which is voltage. Check out <a href="http://www.hardwaresecrets.com/article/Understanding-RAM-Timings/26/1">Understanding <span class="caps">RAM</span> Timings</a> for more&nbsp;information.</p>
+<p>Memory is sold in “kits” which are simply multiple single, similar (identical as possible) <span class="caps">RAM</span> modules packaged together. The intention is for them to be used in motherboards that have dual and triple (etc.) <span class="caps">RAM</span> channel capabilities.
+<h2>Graphics Processing Unit (<span class="caps">GPU</span>)</h2>
+I&#8217;m going to try and live with the on-board <a href="http://en.wikipedia.org/wiki/Graphics_processing_unit">graphics processing unit (<span class="caps">GPU</span>)</a> integrated with the <span class="caps">CPU</span> and invest that money elsewhere.   The <a href="http://www.notebookcheck.net/Intel-HD-Graphics-4000-Benchmarked.73567.0.html">reviews of  Intel&#8217;s newest integrated <span class="caps">GPU</span></a> that comes with the i5-3570K (<a href="http://www.pcworld.com/article/254178/ivy_bridge_graphics_entry_level_cards_are_dead.html"><span class="caps">HD</span> Graphics 4000</a> or <span class="caps">HD</span> 4000) have been favorable (also see <a href="http://reviews.cnet.com/8301-33642_7-57418061-292/at-long-last-a-credible-3d-gaming-chip-from-intel/">this</a>).   This is the  third and latest generation of <span class="caps">HD</span> Graphics (now with 16 <a href="http://en.wikipedia.org/wiki/Execution_unit">execution units</a>) and appears to be a real contender to low end graphics cards.  If it proves less than acceptable, I&#8217;m invest in a graphics board another day.
+<h2>Sound&nbsp;Card</h2>
+Here again, I&#8217;m not buying a separate card but using the <a href="http://www.intel.com/content/www/us/en/chipsets/high-definition-audio.html">Intel High Definition Audio</a> integrated into the motherboard.  Frankly, I&#8217;m not sure if this will limit my <span class="caps">GNU</span> Radio <span class="amp">&amp;</span> digital signal processing objectives but I&#8217;ll take the risk.  If I&#8217;m unhappy for any reason, I&#8217;ll buy myself a sound board.
+<h2>Solid State Drive (<span class="caps">SSD</span>)</h2>
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/04/samsung-ssd-840-pro.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Samsung-SSD-840-Pro" src="/images/samsung-ssd-840-pro.jpg" width="30%" height="30%" />
+</a>
+I have chosen the <a href="http://www.samsung.com/us/computer/memory-storage/MZ-7TD120BW">Samsung Electronics 840 Pro Series 2.5-Inch <span class="caps">128GB</span> <span class="caps">SATA</span> <span class="caps">6GB</span>/s </a>for my <a href="http://en.wikipedia.org/wiki/Solid-state_drive">Solid State Drive (<span class="caps">SSD</span>)</a>.  Samsung has a great repatriation in this space and it has gotten <a href="http://www.tomshardware.com/reviews/ssd-recommendation-benchmark,3269.html">solid reviews</a>.</p>
+<p>What most people who use SSDs do (and what I plan to do) is to buy one large enough to hold the <span class="caps">OS</span> and applications, and also buy a hard drive to hold the rest of your documents, photos, videos, etc. That&#8217;s a good compromise which puts the most performance-critical files on the fastest drive and has the cheapest cost-per-byte for your voluminous data files which typically have much lower performance requirements.  But keep in mind that as soon as the amount of data written reaches the stated capacity of the device, the write bandwidth immediately drops.  In fact, <a href="http://www.velobit.com/storage-performance-blog/bid/112643/Warning-Bark-Write-Performance-Speed-Drops-On-All-SSDs">write bandwidth reduced by up to 70-80% once fully loaded</a> with data and continued to operate under those conditions.  Therefore, don’t fill the <span class="caps">SSD</span>&nbsp;drive.</p>
+<p>Also, one of the most publicized downsides of SSDs is that they have a limited number of writes before they wear out—however, with most newer SSDs, this isn&#8217;t actually a problem. Most modern SSDs will become outdated before they die, and you&#8217;ll probably have upgraded by then, so there&#8217;s not really a huge need to worry about writing to the drive too many&nbsp;times.</p>
+<p>Because of the high speed of the <span class="caps">SSD</span>, your going to want to use the <span class="caps">6GB</span>/s <span class="caps">SATA</span> ports on the motherboard.  The standard <span class="caps">3GB</span>/s <span class="caps">SATA</span> ports don&#8217;t have the throughput, never the less, <a href="http://www.tomshardware.com/reviews/ssd-upgrade-sata-3gbps,3469.html">studies show</a> the <span class="caps">SSD</span> still give you benefits.
+<h2>Power Supply Unit (<span class="caps">PSU</span>)</h2>
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/04/corsair-650w-psu.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Corsair 650W PSU" src="/images//corsair-650w-psu.jpg" width="25%" height="25%" />
+</a>
+I choose the popular  <a href="http://www.corsair.com/us/power-supply-units/tx-series-power-supply-units/tx-series-tx650-80-plus-bronze-certified-650-watt-high-performance-power-supply.html">Corsair <span class="caps">TX650</span> 650-Watt Power Supply</a> as my <span class="caps">PSU</span>. Most computers only consume around 150W, and even a high end computer might consume maybe 200W. That&#8217;s why most <span class="caps">OEM</span> computer manufacturers put small 250-350W PSUs in their systems. If you look at online reviews of highly overclocked systems with multiple video cards (<span class="caps">SLI</span>/Crossfire) they consume at most about 500-600W.   I don&#8217;t believe I&#8217;ll ever approach these levels so this <span class="caps">PSU</span> will give me much head room.  The <a href="http://www.silentpcreview.com/article813-page1.html">review I have read</a> seem to claim that he best way to take advantage of the <span class="caps">TX650W</span>&#8217;s quiet qualities is  to ensure that the <span class="caps">PSU</span> intake air does not exceed 30°C often, nor demand more than ~350W <span class="caps">DC</span> output.  I believe my usage will fit in this sweat spot.
+<h2>Networking</h2>
+Networking capabilities are built into the motherboard.  The Mobo comes with two Gigabit (10/100/1000 Mb/s) <span class="caps">LAN</span> subsystems using the <a href="http://www.intel.com/content/www/us/en/ethernet-controllers/82579-gigabit-ethernet-connection-family.html">Intel 82579V Gigabit Ethernet Controller</a>. It also has a <a href="http://whatis.techtarget.com/definition/Bluetooth-20EDR">Bluetooth 2.1</a> <span class="amp">&amp;</span> WiFi 802.11b/g/n module. There appears to have been some <a href="http://communities.intel.com/thread/32882">troubles with WiFi and Bluetooth module for <span class="caps">DZ77GA</span>-70K</a> in 2012, but it has been reported to Intel and hopefully this has been worked out by now.  I&#8217;ll have to make sure I update the firmware on the board when I get it.
+<h2><span class="caps">CD</span>-<span class="caps">ROM</span> / <span class="caps">DVD</span> Drive / Hard&nbsp;Drives</h2>
+I&#8217;m not going to worry about this now.  I anticipate loading all my software / data from the Web or transferring from my existing hard drives.  Also, I&#8217;ll reuse my existing hard drives in this box.
+<h2>Cooler&nbsp;Case</h2>
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/04/cooler-master-haf-912-mid-tower-computer-case.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Cooler Master HAF 912 - Mid Tower Computer Case" src="/images/cooler-master-haf-912-mid-tower-computer-case.jpg?w=300" width="300" height="139" />
+</a>
+The Intel Core i5-3570K comes with a <a href="http://www.youtube.com/watch?v=D2gOhPMaOgg">stock cooler</a>.  If do over clock the <span class="caps">CPU</span>, I&#8217;m likely to need a better cooler, but this is fine for now.
+Picking a case has been the hardest thing for me to select.  I guess this is because its not as much a technical decision but an aesthetic choice.  I have narrowed my choose to the<a href="http://www.coolermaster-usa.com/landing/haf912/home.php"> Cooler Master <span class="caps">HAF</span> 912 - Mid Tower Computer Case with High Airflow Design</a> (19.5 x 9.1 x 18.9 inches ; 17.8 pounds).  It has gotten <a href="http://www.overclockersclub.com/reviews/cooler_master_haf_912/">good reviews</a> with the main complaint being that it needs more fans (much room for more installation but only two are provided).  The front panel comes with the older <span class="caps">USB</span> 2.0 ports but the Mobo comes with a <span class="caps">USB</span> 3.0 panel that could be install if desired.  The case isn&#8217;t expensive but still has a sharp look and seems very versatile in its use and cooling.
+<h2>Monitor</h2>
+The Dell <span class="caps">LCD</span> monitor I presently have dates back to 2006 and isn&#8217;t equipped with <a href="http://en.wikipedia.org/wiki/HDMI"><span class="caps">HDMI</span></a>, which is the only way to interface with the Mobo.  I presently use my monitor via its <a href="http://www.pcmag.com/encyclopedia/term/42144/dvi">Digital Video Interface Digital (<span class="caps">DVI</span>-D)</a>, but it also has <a href="http://www.pcmag.com/encyclopedia/term/53801/vga">Video Graphics Array (<span class="caps">VGA</span>)</a> and <a href="http://www.pcmag.com/encyclopedia/term/40120/composite-video">Composite Video</a> inputs.  So if I wish to continue to use the monitor, I&#8217;ll need a converter of some type.  I found that the <span class="caps">DVI</span>-D to <span class="caps">HDMI</span> can be done via an inexpensive cable, so that is the way I&#8217;m going.  I specifically need a <span class="caps">HDMI</span> Type A to <span class="caps">DVI</span>-D Dual Link Male to Male cable.
+<h2>Operating System (<span class="caps">OS</span>)</h2>
+I plan to install <a href="http://www.ubuntu.com/">Ubuntu Linux</a> on the <span class="caps">SSD</span> drive.  Picking the <a href="http://en.wikipedia.org/wiki/Linux_distribution">Linux distribution</a> was nearly as hard as picking the case.  I choose Ubuntu because of its popularity and I wanted to experience its desktop environment once again, <span class="caps">GNOME</span>.  I used <span class="caps">GNOME</span> many years ago when it was very young, I saw potential, and I would like to see how it has grown. I plan to spend the vast majority of my time within Xterm at the command prompt, but I also want to get familiar with Ubuntu/<span class="caps">GNOME</span>.  I&#8217;ll also do most of my systems administration at the command prompt, but again, getting familiarity with Ubuntu would be good to&nbsp;know.</p>
+<p>How do I plan to installing Ubuntu, given that I will not have a <span class="caps">OS</span> already installed and I will not have a <span class="caps">CD</span>-<span class="caps">ROM</span>/<span class="caps">DVD</span>?  Ubuntu does have an ability to be<a href="https://help.ubuntu.com/community/Installation/FromUSBStickQuick"> installed via an <span class="caps">USB</span> stick</a>.</p>
+<p>I&#8217;m not going to abandon <span class="caps">MS</span> Windows.  I have many tools that I use in Windows and its not practical to just abandon them for something else, at least not right now.  I would like to<a href="http://en.wikipedia.org/wiki/Multi_boot"> dual boot</a> the system with Linux and <span class="caps">MS</span> Windows.  Ideally, I&#8217;ll keep my old Windows image on my current <span class="caps">PC</span>&#8217;s hard drive, put that drive in my new system, and have the hard drive be my second <span class="caps">OS</span> on the <a href="http://en.wikipedia.org/wiki/Booting">bootloader&#8217;s</a> chain of operating systems.  I know this could be done if I choose to re-install <span class="caps">MS</span> Windows and all my applications but I don&#8217;t know the challenges I&#8217;ll face given I&#8217;m using an establish image &#8230;. it will be a&nbsp;learning opportunity!</p>
+<p>If I&#8217;m forces to do a re-install of <span class="caps">MS</span> Windows, I might us <a href="https://www.virtualbox.org/">Oracle <span class="caps">VM</span> VirtualBox</a>, which is a x86 virtualization software package. VirtualBox can be installed on an existing host operating system as an application; this host application allows additional guest operating systems, each known as a Guest <span class="caps">OS</span>, to be loaded and run, each with its own virtual environment.  The typical way of installing a guest operating system is to install it from the ground up. In general, you don’t see VirtualBox running a guest operating system from an existing drive or partition.  Never the less, a search of the Web does show evidence that people have made it work this way (<a href="http://en.gentoo-wiki.com/wiki/Running_a_VirtualBox_Guest_from_a_Real_Partition">1</a>, <a href="https://www.virtualbox.org/wiki/Migrate_Windows">2</a>, <a href="http://unix.stackexchange.com/questions/31260/booting-the-already-installed-windows-from-the-virtualbox-installed-in-ubuntu">3</a>, <a href="http://www.virtualbox.org/manual/ch09.html#rawdisk">4</a>, <a href="http://geekery.amhill.net/2010/01/27/virtualbox-with-existing-windows-partition/">5</a>, <a href="http://serverfault.com/questions/241678/booting-a-native-windows-install-in-virtualbox-is-it-possible">6</a>, <a href="http://askubuntu.com/questions/168156/how-to-use-a-real-partition-with-windows-7-installed-in-a-virtualbox-vm">7</a>).</p>
+<p>The last, and least desirable approach (for my needs) is to use Windows applications is via <a href="http://en.wikipedia.org/wiki/Wine_(software)">Wine</a>.  Wine (originally an acronym for &#8220;Wine Is Not an Emulator&#8221;) is a compatibility layer capable of running Windows applications on Linux. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows <span class="caps">API</span> calls into Linux calls on-the-fly, eliminating the performance and memory penalties of other methods and allowing you to cleanly integrate Windows applications into your desktop.  Since it doesn&#8217;t create a virtual machine programs perform faster than in a <span class="caps">VM</span>.  However, you&#8217;ll need to test it with your application since it doesn&#8217;t support all programs.  Also, you’re not running <span class="caps">MS</span> Windows, just the <span class="caps">MS</span> Windows compatible applications.  This is fine if your interest in running Excel standalone, but you can’t perform anything that requires the <span class="caps">MS</span> operating system.
+<h2>Boot&nbsp;Loader</h2>
+A boot loader is the first software program that runs when a computer starts. It is responsible for loading and transferring control to the operating system kernel software. The kernel, in turn, initializes the rest of the operating system.  <a href="http://www.gnu.org/software/grub/"><span class="caps">GRUB</span> (GRand Unified Bootloader)</a> is a boot loader package developed to support multiple operating systems and allow the user to select among them during boot-up.  <span class="caps">GRUB</span> is often the default boot loader for Linux and is preferred to <span class="caps">MS</span> Windows since it makes up for numerous deficiencies while providing full-featured command line and graphical interfaces.  <span class="caps">GRUB</span> is the default boot loader for Ubuntu, making it an easy choose.  <span class="caps">GRUB</span> is powerful and complex so check out <a href="http://www.zdnet.com/my-experiments-with-multi-boot-selection-with-uefi-boot-manager-7000013627/">How I configured grub as the default bootloader on a <span class="caps">UEFI</span> Boot systems</a>.
+<h2>What does it&nbsp;Cost</h2>
+Now that I have a plan, what will all this cost?  I estimate it will be $765, less than one-third the cost of my present system.  Granted I&#8217;ll be reusing the monitor, key board, mouse, and some drives but this is a substantial price difference for what will be a much more capable&nbsp;machine.</p>
+<p><a href="http://jeffskinnerbox.files.wordpress.com/2013/04/cost1.jpg">
+    <img class="aligncenter size-full wp-image-1477" alt="cost" src="http://jeffskinnerbox.files.wordpress.com/2013/04/cost1.jpg" width="500" height="447" />
+</a></p>
+<p>To see what I finally implemented, check out <a href="http://jeffskinnerbox.wordpress.com/2013/08/01/building-my-linux-box-the-implementation/">Building My Linux Box&#8230;The Implementation</a>.</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>

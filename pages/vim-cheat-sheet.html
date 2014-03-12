@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Vim Cheat&nbsp;Sheet - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Vim Cheat&nbsp;Sheet"/>
+            <meta property="og:url" content="/pages/vim-cheat-sheet.html"/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content" class="body">
+        <h1 class="entry-title">Vim Cheat&nbsp;Sheet</h1>
+        
+        <div class="entry-content">
+            <p><a href="http://www.glump.net/howto/desktop/vim-graphical-cheat-sheet-and-tutorial">Graphical vi-vim Cheat Sheet and&nbsp;Tutorial</a></p>
+<p>Using Vim&#8217;s scripting language (and a great deal of insight and tools from others), I have setup Vim on my local machine to be an effective development environment for my needs.  Also, using GitHub, I can replicate this Vim environment across the multiple systems I&#8217;m presently&nbsp;use.</p>
+<h2>Working with&nbsp;files</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="caps">NERD</span> Commenter Command</td>
+<td align="center">Open a new file. You can use the Tab key for automatic file name completion, just like at the shell command prompt.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:w filename</td>
+<td align="center">Save changes to a file. If you don&#8217;t specify a file name, Vim saves as the file name you were editing. For saving the file under a different name, specify the file name.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:q</td>
+<td align="center">Quit Vim. If you have unsaved changes, Vim refuses to exit.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:q!</td>
+<td align="center">Exit Vim without saving changes.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:qa</td>
+<td align="center">quit all (close Vim, but not if there are unsaved changes)</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:qa!</td>
+<td align="center">quit all (close Vim without saving—discard any changes)</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:wq</td>
+<td align="center">Write the file and exit.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:wa</td>
+<td align="center">write all changed files (save all changes), and keep working</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:<span class="caps">ZZ</span></td>
+<td align="center">write current file, if modified, and exit.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:1,10 w outfile</td>
+<td align="center">Saves lines 1 to 10 in outfile</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:1,10 w &gt;&gt; outfile</td>
+<td align="center">Appends lines 1 to 10 to outfile</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:r infile</td>
+<td align="center">Insert the content of infile</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:23r infile</td>
+<td align="center">Insert the content of infile under line 23</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:x</td>
+<td align="center">Almost the same as :wq, write the file and exit if you&#8217;ve made changes to the file. If you haven&#8217;t made any changes to the file, Vim exits without writing the file.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="caps">CTRL</span>-Z</td>
+<td align="center">Suspend Vim, like &#8220;:stop&#8221;.  Works in Normal and in Visual mode.  In Insert and Command-line mode, the <span class="caps">CTRL</span>-Z is inserted as a normal character.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Moving around in the&nbsp;file</h2>
+<p>These Vim commands and keys work both in command mode and visual&nbsp;mode.</p>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>j or Up Arrow</td>
+<td align="center">Move the cursor up one line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>k or Down Arrow</td>
+<td align="center">Down one line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>h or Left Arrow</td>
+<td align="center">Left one character.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>l or Right Arrow</td>
+<td align="center">Right one character.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>w</td>
+<td align="center">Move to next word</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>W</td>
+<td align="center">Move to next blank delimited word</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>e</td>
+<td align="center">To the end of a word.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>E</td>
+<td align="center">To the end of a whitespace-delimited word.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>b</td>
+<td align="center">To the beginning of a word.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>B</td>
+<td align="center">To the beginning of a whitespace-delimited word.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>(</td>
+<td align="center">Move a sentence back</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>)</td>
+<td align="center">Move a sentence forward</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>{</td>
+<td align="center">Move a paragraph back</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>}</td>
+<td align="center">Move a paragraph forward</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>0</td>
+<td align="center">To the beginning of a line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>^</td>
+<td align="center">To the first non-whitespace character of a line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>$</td>
+<td align="center">To the end of a line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>1G</td>
+<td align="center">Move to the first line of the file</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>G</td>
+<td align="center">Move to the last line of the file</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>nG</td>
+<td align="center">Move to nth line of the file</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>fc</td>
+<td align="center">Move forward to c</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>Fc</td>
+<td align="center">Move back to c</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:n</td>
+<td align="center">Jump to line number n. For example, to jump to line 42, you&#8217;d type :42</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>H</td>
+<td align="center">To the first line of the screen.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>M</td>
+<td align="center">To the middle line of the screen.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>L</td>
+<td align="center">To the last line of the screen.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>%</td>
+<td align="center">Move to associated ( ), </td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Inserting and overwriting&nbsp;text</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td align="center">Insert before cursor.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>I</td>
+<td align="center">Insert to the start of the current line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>a</td>
+<td align="center">Append after cursor.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>A</td>
+<td align="center">Append to the end of the current line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>o</td>
+<td align="center">Open a new line below and insert.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>O</td>
+<td align="center">Open a new line above and insert.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>C</td>
+<td align="center">Change the rest of the current line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>r</td>
+<td align="center">Overwrite one character. After overwriting the single character, go back to command mode.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>R</td>
+<td align="center">Enter insert mode but replace characters rather than inserting.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td><Esc></td>
+<td align="center">Exit insert/overwrite mode and go back to command mode.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Deleting&nbsp;text</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><Del></td>
+<td align="center">Delete characters under the cursor.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>x</td>
+<td align="center">Delete characters under the cursor.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>X</td>
+<td align="center">Delete characters before the cursor.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>dd or :d</td>
+<td align="center">Delete the current line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>dw</td>
+<td align="center">Delete the word under the cursor.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>d$</td>
+<td align="center">Delete to the end of the line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td motion="motion">d</td>
+<td align="center" motion="motion">Delete text that </td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Yanking&nbsp;Text</h2>
+<p>Note that &#8221;<em> and &#8221;+ work both ways. So if you have selected some text in another application, you can paste it into vim using &#8221;</em>p and if you have copied some text (using, say, Ctrl-C) then you can paste it into vim&nbsp;using &#8221;+p.</p>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yy</td>
+<td align="center">Yank the current line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:y</td>
+<td align="center">Yank the current line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>nyy</td>
+<td align="center">Yank n lines from current down</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>yw</td>
+<td align="center">Yank the word under the cursor</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>y$</td>
+<td align="center">Yank to the end of the line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>&#8220;+y</td>
+<td align="center">copies to the &#8220;usual&#8221; clipboard buffer (so you can paste using Ctrl+V, right click and select &#8220;Paste&#8221; etc)</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>&#8220;*y</td>
+<td align="center">copies to the X11 selection - you can paste from this buffer using middle click</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Putting&nbsp;Text</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>p</td>
+<td align="center">Put after the position or after the line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>P</td>
+<td align="center">Put before the poition or before the line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Changing&nbsp;Text</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C</td>
+<td align="center">Change to the end of the line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>cc</td>
+<td align="center">Change the whole line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>cw</td>
+<td align="center">Change the word under the cursor</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Other</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>J</td>
+<td align="center">Join lines</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>.</td>
+<td align="center">Repeat last text-changing command</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>u</td>
+<td align="center">Undo last change</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>U</td>
+<td align="center">Undo all changes to line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Entering visual&nbsp;mode</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td align="center">Start highlighting characters. Use the normal movement keys and commands to select text for highlighting.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>V</td>
+<td align="center">Start highlighting lines.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>The <span class="caps">ESC</span> key</td>
+<td align="center">Exit visual mode and return to command mode.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Editing blocks of&nbsp;text</h2>
+<p>Note: the Vim commands marked with (V) work in visual mode, when you&#8217;ve selected some text. The other commands work in the command mode, when you haven&#8217;t selected any&nbsp;text.</p>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>~</td>
+<td align="center">Change the case of characters. This works both in visual and command mode. In visual mode, change the case of highlighted characters. In command mode, change the case of the character under cursor.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>&gt; (V)</td>
+<td align="center">Shift right (indent).</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>&lt; (V)</td>
+<td align="center">Shift left (de-indent).</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>c (V)</td>
+<td align="center">Change the highlighted text.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>y (V)</td>
+<td align="center">Yank the highlighted text. In Windows terms, &#8220;copy the selected text to clipboard.&#8221;</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>d (V)</td>
+<td align="center">Delete the highlighted text. In Windows terms, &#8220;cut the selected text to clipboard.&#8221;</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>yy or :y or Y</td>
+<td align="center">Yank the current line. You don&#8217;t need to highlight it first.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>dd or :d</td>
+<td align="center">Delete the current line. Again, you don&#8217;t need to highlight it first.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>p</td>
+<td align="center">Put the text you yanked or deleted. In Windows terms, &#8220;paste the contents of the clipboard&#8221;. Put characters after the cursor. Put lines below the current line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>P</td>
+<td align="center">Put characters before the cursor. Put lines above the current line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Spelling</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>]s</td>
+<td align="center">move to the next misspelled word</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>[s</td>
+<td align="center">move to the previous misspelled word</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zg</td>
+<td align="center">add a word to the dictionary</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zug</td>
+<td align="center">undo the addition of a word to the dictionary</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>z=</td>
+<td align="center">view spelling suggestions for a misspelled word</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Alignment</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:%!fmt</td>
+<td align="center">Align all lines</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>!}fmt</td>
+<td align="center">Align all lines at the current position</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>5!!fmt</td>
+<td align="center">Align the next 5 lines</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Undo and&nbsp;redo</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u</td>
+<td align="center">Undo the last action.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>U</td>
+<td align="center">Undo all the latest changes that were made to the current line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl + r</td>
+<td align="center">Redo.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Search</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/pattern</td>
+<td align="center">Search the file for pattern.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>n</td>
+<td align="center">Scan for next search match in the same direction.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>N</td>
+<td align="center">Scan for next search match but opposite direction.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/word</td>
+<td align="center">Search word from top to bottom</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>?word</td>
+<td align="center">Search word from bottom to top</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/jo[ha]n</td>
+<td align="center">Search john or joan</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/\&lt; the</td>
+<td align="center">Search the, theatre or then</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/the></td>
+<td align="center">Search the or breathe</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/\&lt; the></td>
+<td align="center">Search the</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/\&lt; ¦.></td>
+<td align="center">Search all words of 4 letters</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/\/</td>
+<td align="center">Search fred but not alfred or frederick</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/fred\</td>
+<td align="center">joe</td>
+<td align="left">Search fred or joe</td>
+<td></td>
+</tr>
+<tr>
+<td>/\&lt;\d\d\d\d></td>
+<td align="center">Search exactly 4 digits</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/^\n{3}</td>
+<td align="center">Find 3 empty lines</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:bufdo /searchstr/</td>
+<td align="center">Search in all open files</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Replace</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:rs/foo/bar/a</td>
+<td align="center">Substitute foo with bar. r determines the range and a determines the arguments.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>The range (r) can be</td>
+<td align="center"></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>nothing</td>
+<td align="center">Work on current line only.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>number</td>
+<td align="center">Work on the line whose number you give.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>%</td>
+<td align="center">The whole file.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>Arguments (a) can be</td>
+<td align="center"></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>g</td>
+<td align="center">Replace all occurrences in the line. Without this, Vim replaces only the first occurrences in each line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>i</td>
+<td align="center">Ignore case for the search pattern.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>I</td>
+<td align="center">Don&#8217;t ignore case.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>c</td>
+<td align="center">Confirm each substitution. You can type y to substitute this match, n to skip this match, a to substitute this and all the remaining matches (&#8220;Yes to all&#8221;), and q to quit substitution.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>Examples</td>
+<td align="center"></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:452s/foo/bar/</td>
+<td align="center">Replace the first occurrence of the word foo with bar on line number 452.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:s/foo/bar/g</td>
+<td align="center">Replace every occurrence of the word foo with bar on current line.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/foo/bar/g</td>
+<td align="center">Replace every occurrence of the word foo with bar in the whole file.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/foo/bar/gi</td>
+<td align="center">The same as above, but ignore the case of the pattern you want to substitute. This replaces foo, <span class="caps">FOO</span>, Foo, and so on.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/foo/bar/gc</td>
+<td align="center">Confirm every substitution.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/foo/bar/c</td>
+<td align="center">For each line on the file, replace the first occurrence of foo with bar and confirm every substitution.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/old/new/g</td>
+<td align="center">Replace all occurrences of old by new in file</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/old/new/gw</td>
+<td align="center">Replace all occurrences with confirmation</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:2,35s/old/new/g</td>
+<td align="center">Replace all occurrences between lines 2 and 35</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:5,$s/old/new/g</td>
+<td align="center">Replace all occurrences from line 5 to <span class="caps">EOF</span></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/^/hello/g</td>
+<td align="center">Replace the beginning of each line by hello</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/$/Harry/g</td>
+<td align="center">Replace the end of each line by Harry</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/onward/forward/gi</td>
+<td align="center">Replace onward by forward, case insensitive</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/ *$//g</td>
+<td align="center">Delete all white spaces</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:g/string/d</td>
+<td align="center">Delete all lines containing string</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:v/string/d</td>
+<td align="center">Delete all lines containing which didn’t contain string</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:s/Bill/Steve/</td>
+<td align="center">Replace the first occurrence of Bill by Steve in current line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:s/Bill/Steve/g</td>
+<td align="center">Replace Bill by Steve in current line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/Bill/Steve/g</td>
+<td align="center">Replace Bill by Steve in all the file</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/\r//g</td>
+<td align="center">Delete <span class="caps">DOS</span> carriage returns (^M)</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/\r/\r/g</td>
+<td align="center">Transform <span class="caps">DOS</span> carriage returns in returns</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s#&lt;[^&gt;]+&gt;##g</td>
+<td align="center">Delete <span class="caps">HTML</span> tags but keeps text</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/^(.*)\n\1$/\1/</td>
+<td align="center">Delete lines which appears twice</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl+a</td>
+<td align="center">Increment number under the cursor</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl+x</td>
+<td align="center">Decrement number under cursor</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>Regular Expressions</td>
+<td align="center"></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>. (dot)</td>
+<td align="center">Any single character except newline</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>*</td>
+<td align="center">zero or more occurances of any character</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>[&#8230;]</td>
+<td align="center">Any single character specified in the set</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>[^&#8230;]</td>
+<td align="center">Any single character not specified in the set</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>^</td>
+<td align="center">Anchor - beginning of the line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>$</td>
+<td align="center">Anchor - end of line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>\&lt;</td>
+<td align="center">Anchor - begining of word</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>></td>
+<td align="center">Anchor - end of word</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>(&#8230;)</td>
+<td align="center">Grouping - usually used to group conditions</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>\n</td>
+<td align="center">Contents of nth grouping</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>[&#8230;] - Set Examples</td>
+<td align="center"></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>[A-Z]</td>
+<td align="center">The <span class="caps">SET</span> from Capital A to Capital Z</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>[a-z]</td>
+<td align="center">The <span class="caps">SET</span> from lowercase a to lowercase z</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>[0-9]</td>
+<td align="center">The <span class="caps">SET</span> from 0 to 9 (All numerals)</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>[./=+]</td>
+<td align="center">The <span class="caps">SET</span> containing . (dot), / (slash), =, and +</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>[-A-F]</td>
+<td align="center">The <span class="caps">SET</span> from Capital A to Capital F and the dash (dashes must be specified first)</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>[0-9 A-Z]</td>
+<td align="center">The <span class="caps">SET</span> containing all capital letters and digits and a space</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>[A-Z][a-zA-Z]</td>
+<td align="center">In the first position, the <span class="caps">SET</span> from Capital A to Capital Z.  In the second character position, the <span class="caps">SET</span> containing all letters</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>Regular Expression Examples</td>
+<td align="center"></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/Hello/</td>
+<td align="center">Matches if the line contains the value Hello</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/^<span class="caps">TEST</span>$/</td>
+<td align="center">Matches if the line contains <span class="caps">TEST</span> by itself</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/^[a-zA-Z]/</td>
+<td align="center">Matches if the line starts with any letter</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/^[a-z].*/</td>
+<td align="center">Matches if the first character of the line is a-z and there is at least one more of any character following it</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/2134$/</td>
+<td align="center">Matches if line ends with 2134</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/(21</td>
+<td align="center">35)/</td>
+<td align="left">Matches is the line contains 21 or 35. Note the use of ( ) with the pipe symbol to specify the &#8216;or&#8217; condition</td>
+<td></td>
+</tr>
+<tr>
+<td>/[0-9]*/</td>
+<td align="center">Matches if there are zero or more numbers in the line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>/^[^#]/</td>
+<td align="center">Matches if the first character is not a # in the line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Case</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vu</td>
+<td align="center">Lowercase line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td><span class="caps">VU</span></td>
+<td align="center">Uppercase line</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>g~~</td>
+<td align="center">Invert case</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>vEU</td>
+<td align="center">Switch word to uppercase</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>vE~</td>
+<td align="center">Modify word case</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>ggguG</td>
+<td align="center">Set all text to lowercase</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:set ignorecase</td>
+<td align="center">Ignore case in searches</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:set smartcase</td>
+<td align="center">Ignore case in searches excepted if an uppercase letter is used</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/\&lt;./\u&amp;/g</td>
+<td align="center">Sets first letter of each word to uppercase</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/\&lt;./\l&amp;/g</td>
+<td align="center">Sets first letter of each word to lowercase</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/.*/\u&amp;</td>
+<td align="center">Sets first letter of each line to uppercase</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:%s/.*/\l&amp;</td>
+<td align="center">Sets first letter of each line to lowercase</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Tabs</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:tabnew</td>
+<td align="center">Creates a new tab</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>gt</td>
+<td align="center">Show next tab</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:tabfirst</td>
+<td align="center">Show first tab</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:tablast</td>
+<td align="center">Show last tab</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:tabm n(position)</td>
+<td align="center">Rearrange tabs</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:tabdo %s/foo/bar/g</td>
+<td align="center">Execute a command in all tabs</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:tab ball</td>
+<td align="center">Puts all open files in tabs</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Window&nbsp;Splitting</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:e filename</td>
+<td align="center">Edit filename in current window</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:split filename</td>
+<td align="center">Split the window and open filename</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>ctrl-w up arrow</td>
+<td align="center">Puts cursor in top window</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>ctrl-w ctrl-w</td>
+<td align="center">Puts cursor in next window</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>ctrl-w_</td>
+<td align="center">Maximize current window</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>ctrl-w=</td>
+<td align="center">Gives the same size to all windows</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>10 ctrl-w+</td>
+<td align="center">Add 10 lines to current window</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:vsplit file</td>
+<td align="center">Split window vertically</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:sview file</td>
+<td align="center">Same as :split in read-only mode</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:hide</td>
+<td align="center">Close current window</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:­nly</td>
+<td align="center">Close all windows, excepted current</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>:b 2</td>
+<td align="center">Open #2 in this window</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Marks</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mk</td>
+<td align="center">Marks current position as k</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>˜k</td>
+<td align="center">Moves cursor to mark k</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>dk</td>
+<td align="center">Delete all until mark k</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Recording&nbsp;Macros</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td 0-9a-zA-Z_="0-9a-zA-Z&quot;">q</td>
+<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="center">Record typed characters into register </td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>q</td>
+<td align="center">Stops recording.  (Implementation note: The &#8216;q&#8217; that stops recording is not stored in the register, unless it was the result of a mapping)</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>qq</td>
+<td align="center">Start recording a new macro to the register q.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Play Back&nbsp;Macros</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td 0-9a-zA-Z_="0-9a-zA-Z&quot;">@q</td>
+<td align="center">Play back the macro.</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td 0-9="0-9"></td>
+<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="center">Play back the macro q</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>@@</td>
+<td align="center">Repeat the last macro played</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Folding</h2>
+<table>
+<thead>
+<tr>
+<th>Vim Command</th>
+<th align="center">Action</th>
+<th align="left"></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zf#j</td>
+<td align="center">creates a fold from the cursor down # lines</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zf/</td>
+<td align="center">string creates a fold from the cursor to string</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td motion="motion">zf</td>
+<td align="center">operator to create a fold</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zf&#8217;a</td>
+<td align="center">fold to mark</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zn</td>
+<td align="center">fold none: reset &#8216;foldenable&#8217;. All folds will be open</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zN</td>
+<td align="center">fold normal: set &#8216;foldenable&#8217;. All folds will be as they were before</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zi</td>
+<td align="center">invert &#8216;foldenable&#8217;</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zj</td>
+<td align="center">moves the cursor to the next fold</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zk</td>
+<td align="center">moves the cursor to the previous fold</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zo</td>
+<td align="center">opens a fold at the cursor</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zO</td>
+<td align="center">opens all folds at the cursor</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zm</td>
+<td align="center">increases the fold-level by one</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zM</td>
+<td align="center">closes all open folds</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zr</td>
+<td align="center">decreases the fold-level by one</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zR</td>
+<td align="center">decreases the fold-level to zero &#8212; all folds will be open</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zd</td>
+<td align="center">deletes the fold at the cursor</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>zE</td>
+<td align="center">deletes all folds</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>[z</td>
+<td align="center">move to start of open fold</td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td>]z</td>
+<td align="center">move to end of open fold</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Sources</h2>
+<ul>
+<li><a href="http://www.catswhocode.com/blog/100-vim-commands-every-programmer-should-know">100 Vim commands every programmer should&nbsp;know</a></li>
+<li><a href="http://tips.webdesign10.com/vim/how-use-vims-spellchecker">How to Use Vim&#8217;s&nbsp;Spellchecker</a></li>
+<li><a href="http://usevim.com/2012/08/10/macros/">Vim 101: A Gentle Introduction to&nbsp;Macros</a></li>
+<li><a href="https://sites.google.com/site/linuxpebbles/cool-tricks/some-of-my-favorite-vim-tips/vim-folding-commands"><span class="caps">VIM</span> folding&nbsp;commands</a></li>
+<li><a href="http://www.lagmonster.org/docs/vi.html">Vi Cheat&nbsp;Sheet</a></li>
+<li><a href="http://bullium.com/support/vim.html">Vim Commands Cheat&nbsp;Sheet</a></li>
+<li><a href="http://unix.stackexchange.com/questions/12535/how-to-copy-text-from-vim-to-an-external-program">How to copy text from vim to an external&nbsp;program?</a></li>
+</ul>
+<h2>Requires More&nbsp;Research</h2>
+<ul>
+<li><a href="http://amix.dk/blog/post/19334">Vim tips: Visual&nbsp;Search</a></li>
+<li><a href="https://github.com/amix/vimrc">The Ultimate&nbsp;vimrc</a></li>
+<li><a href="https://github.com/davidhalter/jedi-vim">check out Jedi for auto&nbsp;completion</a></li>
+<li><a href="http://jaredforsyth.com/projects/vim-debug/"><span class="caps">NERD</span> Commenter&nbsp;Command</a></li>
+<li><a href="http://j605.wordpress.com/2011/10/08/a-python-debugger-for-vim/">A python debugger for&nbsp;vim</a></li>
+<li><a href="http://www.terminally-incoherent.com/blog/reference/vim-cheat-sheet/">Another Vim Cheat&nbsp;Sheet</a></li>
+<li><a href="http://www.terminally-incoherent.com/blog/2008/10/27/vim-cheatsheet/">Vim&nbsp;Cheatsheet</a></li>
+<li><a href="http://files.swaroopch.com/vim/byte_of_vim_v051.pdf">A Byte of&nbsp;Vim</a></li>
+<li><a href="http://lepture.com/work/vundle-vs-pathogen">Vundle vs&nbsp;Pathogen</a></li>
+<li><a href="http://rmitc.org/2013/04/modern-vim-plugin-management-pathogen-vs-vundle/">Modern vim plugin management – Pathogen vs&nbsp;Vundle</a></li>
+<li><a href="http://jon.oxer.com.au/cheatsheet/vim">Jonathan Oxer&#8217;s Cheat&nbsp;Sheets</a></li>
+</ul>
+        </div>
+    </section>
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>

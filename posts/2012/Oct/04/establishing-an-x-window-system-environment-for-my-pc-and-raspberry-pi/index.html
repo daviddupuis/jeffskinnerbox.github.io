@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Establishing an X Window System Environment for my PC and Raspberry Pi - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Establishing an X Window System Environment for my PC and Raspberry Pi"/>
+            <meta property="og:url" content="/posts/2012/Oct/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/"/>
+            <meta property="og:description" content="I show here how to configure your Raspberry Pi and your Microsoft Windows based PC, so they share the same display monitor. Using the powers of X Window, the Raspberry Pi Linux applications and MS Windows programs can work side-by-side."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/2012/Oct/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/"
+                       rel="bookmark"
+                       title="Permalink to Establishing an X Window System Environment for my PC and Raspberry Pi">
+                        Establishing an X Window System Environment for my <span class="caps">PC</span> and Raspberry&nbsp;Pi
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-10-04T00:01:00"> Thursday  October 04, 2012</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="/tag/raspberry-pi/">Raspberry Pi</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="/tag/linux/">Linux</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="/tag/x-window-system/">X Window System</a>
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <p>As stated in an <a href="http://jeffskinnerbox.wordpress.com/2012/09/09/raspberry-pi-has-arrived/">earlier post</a>, I plan to run my Raspberry Pi (RPi) as an attached device to my homes <span class="caps">LAN</span> and use my <span class="caps">MS</span> Windows <span class="caps">PC</span> to access the RPi.  The RPi will use my <span class="caps">PC</span> for display output and key board / mouse as input.  With the X Window System on the RPi, I can transmit an entire RPi desktop if I wish (using <a href="http://lxde.org/"><span class="caps">LXDE</span></a> and it would look and feel much like <a href="http://en.wikipedia.org/wiki/Virtual_Network_Computing"><span class="caps">VNC</span></a>).  I find this cumbersome since now your dealing with two desktop environments: <span class="caps">MS</span> Windows desktop and  X Window System based desktop all one&nbsp;display.</p>
+<p>There is an alternative way. One of the cool things about the X architecture is that it can use <span class="caps">MS</span> Windows as your window manager (at least with the tools like <a href="http://x.cygwin.com/">Cygwin/X</a>, <a href="http://sourceforge.net/projects/xming/">Xming</a>, and <a href="http://www.microimages.com/mix/"><span class="caps">MI</span>/X</a>) but the application within the window frame can be the RPi based X Window System application.  Now you have a single desktop (<span class="caps">MS</span> Windows) but your running RPi application within a <span class="caps">MS</span> Windows window.  And with this configuration, you can run both Linux programs within a standard terminal window and graphic  X Window System applications in another&nbsp;window.</p>
+<p>For me this is clearly the way to go.  It will allow me to hop on my <span class="caps">PC</span>, and with a double-click on a desktop icon, get me to a password prompt on the RPi.  Enter the password, and I can immediately run both command line and X graphics application on the RPi, along side <span class="caps">MS</span> Windows applications, all concurrently on a single&nbsp;desktop.</p>
+<p>How I did this, along with some background information, is provide below.
+<h2>X Window&nbsp;System</h2>
+<img class="img-rounded" style="margin: 0px 8px; float: left" title="X Windows Client Server Architecture" alt="X architecture" src="/images/x-windows-client-server-architecture.png" width="210" height="356" />
+The X Window System (commonly referred to as X Windows or just X or X11) is a software system and network protocol that provides a basis for graphical user interfaces (GUIs) and rich input device capability for networked computers.
+X uses a client/server model, but appears backwards when you first learn of X.  In X, it&#8217;s the server that runs on the local machine (the <span class="caps">PC</span>), providing its services to the display based on requests from client programs that may be running remotely (the RPi). Within a X Window System, a client can also run locally. The server also manages the input devices (your keyboard and mouse), and it manages the display of colors and fonts on the screen, all based on requests from a&nbsp;client.</p>
+<p>One of the most significant features of X is that it was specifically designed to work across a network. The client and the server communicate via the X Protocol, a network protocol that can run locally or across a network. Regardless of whether a client program is local or remote, it communicates with the server through the X Protocol.
+<h2>X Window&nbsp;System Components</h2>
+A X Window System consist of several components which work together.  They are:
+<ul>
+<ul>
+    <li><strong>X Server</strong> - manages the display, based on requests from the window&nbsp;manager.</li>
+    <li><strong>Window Manager</strong> - is an application that is itself an X client, with responsibility for managing the appearance and placement of the windows on the screen.   The window manager takes care of the appearance and placement of the windows; it doesn&#8217;t determine what goes on&nbsp;inside.</li>
+    <li><strong>Windows</strong> - are the X clients, typically providing user functionality.  Windows are fully in control of the application but their placement, geometry  etc. are controlled by the window&nbsp;manager.</li>
+    <li><strong>Display Manager</strong> - runs as a program that allows the starting of a session on an X server from the same local or remote computer A <a href="http://en.wikipedia.org/wiki/X_display_manager_(program_type)">display manager</a> presents the user with a login screen which prompts for a username and password. A session starts when the user successfully enters a valid combination of username and&nbsp;password.</li>
+</ul>
+<ul>
+<ul>
+<ul>
+    <li>When the display manager runs on the user&#8217;s computer, it starts the X server before presenting the user the login screen, optionally repeating when the user logs&nbsp;out.</li>
+    <li>When the display manager runs on a remote computer, it acts like a telnet server, requesting username and password and starting a remote&nbsp;session.</li>
+</ul>
+</ul>
+</ul>
+<ul>
+    <li> <strong>Desktop Environment</strong> - go further than a window manager in providing an integrated graphical environment where all applications and windows have a common look and feel. The desktop environments also include session management, for saving and restoring your work&nbsp;sessions.</li>
+</ul>
+</ul>
+In the spirit of user-friendliness and security, the desktop and display manager hides much of the X Window System and its&#8217; subtleties.  If you want to really explore X (and light its load on the RPi), it&#8217;s helpful to run with just a window manager for a while (even if you plan to go back to the desktop).  That is what I plan to do.
+<h2>Cygwin&#8217;s X Server and Window&nbsp;Manager</h2>
+Before you can run a X client, you need to start the X server.  You can run the X server in two ways: it will automatically start if your Linux is configured with a X Display Manager (<span class="caps">XDM</span>), and if not, at the Linux command line you can start X manually.  It is the latter that I want to do on my <span class="caps">PC</span> / RPi combination (and the way my RPi distribution <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview">Occidentalis</a> is pre-configured).   Also, in my configuration, I&#8217;ll be using the Cygwin  X server on the <span class="caps">PC</span>, and no server will be running on the RPi, only X&nbsp;clients.</p>
+<p>Now there are some important capabilities within the Cygwin X server.  Cygwin/X can work with <a href="http://x.cygwin.com/docs/ug/using-window-managers.html">its window managers</a>  in several different ways.
+<ul>
+<ul>
+    <li><strong>Internal window manager</strong> - The internal window manager creates a <span class="caps">MS</span> Windows window for each top-level X window.  This window manage is &#8220;internal&#8221; to the Cygwin X&nbsp;server.</li>
+    <li><strong>External local window managers</strong> -  These local window managers must be installed on Cygwin and runs on the <span class="caps">PC</span> (e.g. twm, mwm, fvwm2, openbox, aewm++, WindowMaker).</li>
+    <li><strong>Remote window managers</strong> - This would be a situation where the window manager is on the RPi and would connect via a remote sessions using <span class="caps">XDMCP</span> (X Display Manager Control&nbsp;Protocol).</li>
+</ul>
+</ul>
+I plan to keep things simple and use the Cygwin internal window&nbsp;manage.</p>
+<p>XWin is the X Server for the X Window System on the Cygwin environment running on Microsoft Windows. It can operate in <a href="http://x.cygwin.com/docs/man1/XWin.1.html">three different modes</a>:
+<ul>
+<ul>
+    <li><strong>Single Window</strong> - This is the default mode. Each X screen appears as a single <span class="caps">MS</span> Windows window and all X windows are contained within this window. (In X terminology, the <span class="caps">MS</span> Windows window contains the <a href="http://en.wikipedia.org/wiki/Root_window">root window</a> for the&nbsp;screen.)</li>
+    <li><strong>Multi-Window</strong><em> - </em>In this mode XWin uses its own integrated window manager in order to handle the top-level X windows, in such a way that they appear as normal <span class="caps">MS</span> Windows windows.</li>
+    <li><strong>Rootless<em> -</em></strong> In this mode the X server works in a window containing the whole screen but this root window (traditionally covered with an X hatch pattern) is hidden from view, so only top-level X windows are&nbsp;seen.</li>
+</ul>
+</ul>
+To get a better idea on what the different modes can provide you from a user experience perspective, check out some <a href="http://x.cygwin.com/screenshots/">Cygwin/X screen shots</a>.   Again, my objectives are to keep things simple and clean, so I will be using the multi-window mode.
+<h2>Configuring&nbsp;Cygwin/X</h2>
+To operate Cygwin/X in multi-window mode you use the command <code>startxwin</code> (You use <code>startx</code> for window mode.  <code>startxwin</code> is a specialized version of <code>startx </code>with a few differences appropriate to running in multi-window mode, rather than windowed mode).  The <code>startxwin</code> program has a resource file called <code>.startxwinrc</code>.  You can create a <code>~/.startxwinrc</code> script to start client programs, such as mintty or xterm. An example <code>.startxwinrc</code> file is:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mintty --position 150,150 --size 80,50
+mintty --position 600,500 --size 80,25 --exec ssh -X pi@raspberrypi.local
+</pre></div>
+
+
+<p>This will open up two xterm windows for your in the left hand corner of the screen and a thrid xterm window in the center of the screen.  This third screen is automatically logging in to the RPi as user pi and will wait four you to enter the&nbsp;password.</p>
+<p>Also make sure that you export your <code>DISPLAY</code> for the X server on your <span class="caps">PC</span>.  You can do this by placing the following in your <code>.bashrc</code> file:
+<p style="padding-left:30px;"><code># environment variables required by X Window System
+export DISPLAY=:0.0
+</code></p></p>
+<h2>Configuring&nbsp;RPi</h2>
+
+<p>Not much needs to be done to the RPi to prepare for the X applications.  You may wish to launch some X Window System application upon logging in.  You can do this by adding the X applications to your .bash_profile.  For example, add the following line to launch the <span class="caps">LXDE</span> file manager:
+<p style="padding-left:30px;"><code># execute X Window System programs
+pcmanfm &amp;</code></p></p>
+<h2>Starting and Stopping the Cygwin X&nbsp;Server</h2>
+
+<p>The environments are now set.  Time to start the X Server. The easiest way for <a href="http://x.cygwin.com/docs/ug/using.html#using-starting">starting Cygwin/X</a> is using the &#8220;XWin Server&#8221; shortcut under &#8220;Cygwin-X&#8221; on the Start Menu or on the <span class="caps">MS</span> Windows desktop. You could also type <code>startxwin</code> on the Cygwin command&nbsp;line.</p>
+<p>As to stopping the X Server, for the window mode I&#8217;m working in (multi-window), <a href="http://x.cygwin.com/docs/ug/using-stopping.html">stopping Cygwin/X</a> can be done by  Selecting the &#8220;Exit&#8230;&#8221; option from the notification area icon menu.
+<h2>How Does It&nbsp;Look</h2>
+So given the configuration discussed above, your get a nice clean display with <span class="caps">MS</span> Windows, Cygwin, RPi command line, and RPi X Window application running in a single windows management environment.  Picture provided&nbsp;below:</p>
+<p><a href="http://jeffskinnerbox.files.wordpress.com/2012/10/x-window-system-screen-shot1.jpg"><img class="aligncenter size-large wp-image-367" title="X Window System Screen Shot" alt="screen shot 1" src="/images/x-window-system-screen-shot1.jpg" width="1024" height="640" /></a></p>
+<p>You thought the Raspberry Pi was a simple little hardware hackers computer &#8230;. but its running like a big dog now!
+<h2>References</h2>
+Much of what is provided here was lifted from the following sources:
+<ul>
+<ul>
+    <li><a href="http://linuxdevcenter.com/pub/a/linux/2005/08/25/whatisXwindow.html">What Is the X Window&nbsp;System</a></li>
+    <li><a href="http://www.comptechdoc.org/os/linux/howlinuxworks/linux_hlxwindows.html">How Linux X&nbsp;Works</a></li>
+    <li><a href="http://www.physionet.org/physiotools/cygwin/#using-x">Using&nbsp;Cygwin/X</a></li>
+    <li><a href="http://unicorn.mcmaster.ca/teaching/cygwin/cygwin-x-user_guide.pdf">Cygwin/X User’s&nbsp;Guide</a></li>
+    <li><a href="https://secweb.cs.odu.edu/~zeil/cs252/website/Lectures/xwinlaunch/page/xwinlaunch.html">The X Window&nbsp;System</a></li>
+</ul>
+</ul></p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>

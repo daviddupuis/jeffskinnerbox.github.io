@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Arduino Memory - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Arduino Memory"/>
+            <meta property="og:url" content="/posts/2012/Sep/10/arduino-memory/"/>
+            <meta property="og:description" content="I explore here the Flash, SRAM, and EEPROM memory options available for the Arduino, and several useful links. This table of information will be useful for later referance."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/2012/Sep/10/arduino-memory/"
+                       rel="bookmark"
+                       title="Permalink to Arduino Memory">
+                        Arduino&nbsp;Memory
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2012-09-10T00:01:00"> Monday  September 10, 2012</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="/tag/arduino/">Arduino</a>
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <p>As I have been exploring the Arduino hardware platforms for my <span class="caps">TBD</span> project, I find myself forgetting the memory options available.  I&#8217;m recording here my findings so I can reference it later.
+<center>
+<table border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top" width="115">
+<p align="center"><strong>Arduino</strong></p>
+</td>
+<td valign="top" width="139">
+<p align="center"><strong>Chip</strong></p>
+</td>
+<td valign="top" width="126">
+<p align="center"><strong>Flash</strong></p>
+</td>
+<td valign="top" width="127">
+<p align="center"><strong><span class="caps">SRAM</span></strong></p>
+</td>
+<td valign="top" width="133">
+<p align="center"><strong><span class="caps">EEPROM</span></strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="115">
+<p align="center"><strong>Nano&nbsp;2.3</strong></p>
+</td>
+<td valign="top" width="139">
+<p align="center">ATmega168</p>
+</td>
+<td valign="top" width="126">
+<p align="center">16K&nbsp;bytes</p>
+</td>
+<td valign="top" width="127">
+<p align="center">1024&nbsp;bytes</p>
+</td>
+<td valign="top" width="133">
+<p align="center">512&nbsp;bytes</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="115">
+<p align="center"><strong>Nano&nbsp;3.0</strong></p>
+</td>
+<td valign="top" width="139">
+<p align="center">ATmega328</p>
+</td>
+<td valign="top" width="126">
+<p align="center">32K&nbsp;bytes</p>
+</td>
+<td valign="top" width="127">
+<p align="center">2048&nbsp;bytes</p>
+</td>
+<td valign="top" width="133">
+<p align="center">1024&nbsp;bytes</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="115">
+<p align="center"><strong>Uno</strong></p>
+</td>
+<td valign="top" width="139">
+<p align="center">ATmega328</p>
+</td>
+<td valign="top" width="126">
+<p align="center">32K&nbsp;bytes</p>
+</td>
+<td valign="top" width="127">
+<p align="center">2048&nbsp;bytes</p>
+</td>
+<td valign="top" width="133">
+<p align="center">1024&nbsp;bytes</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="115">
+<p align="center"><strong>Mega&nbsp;2560</strong></p>
+</td>
+<td valign="top" width="139">
+<p align="center">ATmega2560</p>
+</td>
+<td valign="top" width="126">
+<p align="center">256K&nbsp;bytes</p>
+</td>
+<td valign="top" width="127">
+<p align="center">8192&nbsp;bytes</p>
+</td>
+<td valign="top" width="133">
+<p align="center">4096&nbsp;bytes</p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<ul>
+</center>
+    <li><span class="caps">SRAM</span> (Static Random Access Memory) is where the sketch creates and manipulates variables when it&nbsp;runs.</li>
+    <li><span class="caps">EEPROM</span> (Electrically Erasable Programmable Read-Only Memory) is memory space that programmers can use to store long-term&nbsp;information.</li>
+    <li>Flash memory is where the Arduino sketch is stored (program space).  The bootloader takes about 2 <span class="caps">KB</span> of flash memory and remaining space is for the&nbsp;sketch.</li>
+</ul>
+</ul>
+The Arduino <span class="caps">IDE</span> will tell you exactly how much Flash is being used after each compile/upload.  <span class="caps">EEPROM</span> is an older, more reliable technology. It is somewhat slower than Flash.  In Flash, a large block is erased all at once, much faster than the <span class="caps">EEPROM</span> method of going&nbsp;cell-by-cell.</p>
+<p>If you don&#8217;t need to modify the strings or data while your sketch is running, you can store them in Flash (program) memory instead of <span class="caps">SRAM</span>; to do this, use the <span class="caps">PROGMEM</span>&nbsp;keyword.</p>
+<p>Part of my interest in the Arduino&#8217;s memory is my concern about how much memory a sketch uses.  Here are some sites that provide insight and algorithms for calculating the memory:
+<ul>
+<ul>
+    <li><a href="http://jeelabs.org/2011/05/22/atmega-memory-use/">ATmega memory&nbsp;use</a></li>
+    <li><a href="http://www.nongnu.org/avr-libc/user-manual/malloc.html">Memory Areas and Using&nbsp;malloc()</a></li>
+    <li><a href="http://code.google.com/p/cec-arduino/source/browse/branches/anc/MemoryFree.c?r=15">MemoryFree.c</a></li>
+</ul>
+</ul></p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>

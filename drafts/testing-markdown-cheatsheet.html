@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Testing: Markdown Cheatsheet - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Testing: Markdown Cheatsheet"/>
+            <meta property="og:url" content="/posts/2100/Jan/01/testing-markdown-cheatsheet/"/>
+            <meta property="og:description" content="This page is for testing purposes only."/>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+        <link href="/theme/css/typogrify.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-me.html">
+                             About&nbsp;Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.com" target="_blank">
+            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+        </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/posts/2100/Jan/01/testing-markdown-cheatsheet/"
+                       rel="bookmark"
+                       title="Permalink to Testing: Markdown Cheatsheet">
+                        Testing: Markdown&nbsp;Cheatsheet
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00"> Friday  January 01, 2100</time>
+    </span>
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <h2>The Back&nbsp;Story</h2>
+<p>This is intended as a quick reference and showcase. For more complete info, see <a href="http://daringfireball.net/projects/markdown/">John Gruber&#8217;s original spec</a> and the <a href="http://github.github.com/github-flavored-markdown/">Github-flavored Markdown info page</a>.</p>
+<p>This cheatsheet is specifically <em>Markdown Here&#8217;s</em> version of Github-flavored Markdown. This differs slightly in styling and syntax from what Github uses, so what you see below might vary a little from what you get in a <em>Markdown Here</em> email, but it should be pretty&nbsp;close.</p>
+<p>You can play around with Markdown on our <a href="http://www.markdown-here.com/livedemo.html">live demo page</a>.</p>
+<p>(If you&#8217;re not a Markdown Here user, check out the <a href="./Markdown-Cheatsheet">Markdown Cheatsheet</a> that is not specific to <span class="caps">MDH</span>. But, really, you should also use Markdown Here, because it&#8217;s awesome.&nbsp;http://markdown-here.com)</p>
+<h5>Table of&nbsp;Contents</h5>
+<p><a href="#headers">Headers</a><br />
+<a href="#emphasis">Emphasis</a><br />
+<a href="#lists">Lists</a><br />
+<a href="#links">Links</a><br />
+<a href="#images">Images</a><br />
+<a href="#code">Code and Syntax Highlighting</a><br />
+<a href="#tables">Tables</a><br />
+<a href="#blockquotes">Blockquotes</a><br />
+<a href="#html">Inline <span class="caps">HTML</span></a><br />
+<a href="#hr">Horizontal Rule</a><br />
+<a href="#lines">Line Breaks</a><br />
+<a href="#videos">Youtube&nbsp;videos</a>  </p>
+<h2>Headers</h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
+
+Alternatively, for H1 and H2, an underline-ish style:
+
+Alt-H1
+======
+
+Alt-H2
+------
+</pre></div>
+
+
+<h1>H1</h1>
+<h2>H2</h2>
+<h3>H3</h3>
+<h4>H4</h4>
+<h5>H5</h5>
+<h6>H6</h6>
+<p>Alternatively, for H1 and H2, an underline-ish&nbsp;style:</p>
+<h1>Alt-H1</h1>
+<h2>Alt-H2</h2>
+<h2>Emphasis</h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Emphasis, aka italics, with *asterisks* or _underscores_.
+
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
+
+Combined emphasis with **asterisks and _underscores_**.
+
+Strikethrough uses two tildes. ~~Scratch this.~~
+</pre></div>
+
+
+<p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>
+<p>Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.</p>
+<p>Combined emphasis with <strong>asterisks and <em>underscores</em></strong>.</p>
+<p>Strikethrough uses two tildes. ~~Scratch&nbsp;this.~~</p>
+<h2>Lists</h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">1. First ordered list item
+2. Another item
+  * Unordered sub-list. 
+1. Actual numbers don&#39;t matter, just that it&#39;s a number
+  1. Ordered sub-list
+4. And another item.  
+
+   Some text that should be aligned with the above item.
+
+* Unordered list can use asterisks
+- Or minuses
++ Or pluses
+</pre></div>
+
+
+<ol>
+<li>First ordered list&nbsp;item</li>
+<li>Another&nbsp;item</li>
+<li>Unordered&nbsp;sub-list. </li>
+<li>Actual numbers don&#8217;t matter, just that it&#8217;s a&nbsp;number</li>
+<li>Ordered&nbsp;sub-list</li>
+<li>And another&nbsp;item.  </li>
+</ol>
+<p>Some text that should be aligned with the above&nbsp;item.</p>
+<ul>
+<li>Unordered list can use&nbsp;asterisks</li>
+<li>Or&nbsp;minuses</li>
+<li>Or&nbsp;pluses</li>
+</ul>
+<h2>Links</h2>
+<p>There are two ways to create&nbsp;links.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">[I&#39;m an inline-style link](https://www.google.com)
+
+[I&#39;m a reference-style link][Arbitrary case-insensitive reference text]
+
+[You can use numbers for reference-style link definitions][1]
+
+Or leave it empty and use the [link text itself]
+
+Some text to show that the reference links can follow later.
+
+[arbitrary case-insensitive reference text]: https://www.mozilla.org
+[1]: http://slashdot.org
+[link text itself]: http://www.reddit.com
+</pre></div>
+
+
+<p><a href="https://www.google.com">I&#8217;m an inline-style&nbsp;link</a></p>
+<p><a href="https://www.mozilla.org">I&#8217;m a reference-style&nbsp;link</a></p>
+<p><a href="http://slashdot.org">You can use numbers for reference-style link&nbsp;definitions</a></p>
+<p>Or leave it empty and use the <a href="http://www.reddit.com">link text&nbsp;itself</a></p>
+<p>Some text to show that the reference links can follow&nbsp;later.</p>
+<h2>Images <a name="images"></a></h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Here&#39;s our logo (hover to see the title text):
+
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png &quot;Logo Title Text 1&quot;)
+
+Reference-style: 
+![alt text][logo]
+
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png &quot;Logo Title Text 2&quot;
+</pre></div>
+
+
+<p>Here&#8217;s our logo (hover to see the title&nbsp;text):</p>
+<p>Inline-style: 
+<img alt="alt text" src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" title="Logo Title Text 1" /></p>
+<p>Reference-style: 
+<img alt="alt text" src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" title="Logo Title Text 2" /></p>
+<h2>Code and Syntax&nbsp;Highlighting</h2>
+<p>Code blocks are part of the Markdown spec, but syntax highlighting isn&#8217;t. However, many renderers &#8212; like Github&#8217;s and <em>Markdown Here</em> &#8212; support syntax highlighting. <em>Markdown Here</em> supports highlighting for dozens of languages (and not-really-languages, like diffs and <span class="caps">HTTP</span> headers); to see the complete list, and how to write the language names, see the <a href="http://softwaremaniacs.org/media/soft/highlight/test.html">highlight.js demo page</a>.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Inline `code` has `back-ticks around` it.
+</pre></div>
+
+
+<p>Inline <code>code</code> has <code>back-ticks around</code> it.</p>
+<p>Blocks of code are either fenced by lines with three back-ticks <code>```</code>, or are indented with four spaces. I recommend only using the fenced code blocks &#8212; they&#8217;re easier and only they support syntax&nbsp;highlighting.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"> ```javascript
+ var s = &quot;JavaScript syntax highlighting&quot;;
+ alert(s);
+ ```
+
+ ```python
+ s = &quot;Python syntax highlighting&quot;
+ print s
+ ```
+
+ ```
+ No language indicated, so no syntax highlighting. 
+ But let&#39;s throw in a &lt;b&gt;tag&lt;/b&gt;.
+ ```
+</pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #006699; font-weight: bold">var</span> s <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;JavaScript syntax highlighting&quot;</span>;
+alert(s);
+</pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">s <span style="color: #555555">=</span> <span style="color: #CC3300">&quot;Python syntax highlighting&quot;</span>
+<span style="color: #006699; font-weight: bold">print</span> s
+</pre></div>
+
+
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">No language indicated, so no syntax highlighting in Markdown Here (varies on Github). 
+But let&#39;s throw in a &lt;b&gt;tag&lt;/b&gt;.
+</pre></div>
+
+
+<p>(Github Wiki pages don&#8217;t seem to support syntax highlighting, so the above won&#8217;t be colourful (the strings are not red, for example). Try it out in a <em>Markdown Here</em> email or a Github Markdown <span class="caps">README</span> or Github Issue &#8212; you can preview a new Issue without submitting&nbsp;it.)</p>
+<p>Again, to see what languages are available for highlighting, and how to write those language names, see the <a href="http://softwaremaniacs.org/media/soft/highlight/test.html">highlight.js demo page</a>.</p>
+<h2>Tables</h2>
+<p>Tables aren&#8217;t part of the core Markdown spec, but they are part of <span class="caps">GFM</span> and <em>Markdown Here</em> supports them. They are an easy way of adding tables to your email &#8212; a task that would otherwise require copy-pasting from another&nbsp;application.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Colons can be used to align columns.
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+The outer pipes (|) are optional, and you don&#39;t need to make the raw Markdown line up prettily. You can also use inline Markdown.
+
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3
+</pre></div>
+
+
+<p>Colons can be used to align&nbsp;columns.</p>
+<table>
+<thead>
+<tr>
+<th>Tables</th>
+<th align="center">Are</th>
+<th align="right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>col 3 is</td>
+<td align="center">right-aligned</td>
+<td align="right">$1600</td>
+</tr>
+<tr>
+<td>col 2 is</td>
+<td align="center">centered</td>
+<td align="right">$12</td>
+</tr>
+<tr>
+<td>zebra stripes</td>
+<td align="center">are neat</td>
+<td align="right">$1</td>
+</tr>
+</tbody>
+</table>
+<p>The outer pipes (|) are optional, and you don&#8217;t need to make the raw Markdown line up prettily. You can also use inline&nbsp;Markdown.</p>
+<table>
+<thead>
+<tr>
+<th>Markdown</th>
+<th>Less</th>
+<th>Pretty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Still</em></td>
+<td><code>renders</code></td>
+<td><strong>nicely</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2>Blockquotes</h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&gt; Blockquotes are very handy in email to emulate reply text.
+&gt; This line is part of the same quote.
+&gt; &gt; Nested quote
+&gt;
+&gt; Back to the first level
+
+Quote break.
+
+&gt; This is a very long line that will still be quoted properly when it wraps. Oh boy let&#39;s keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
+</pre></div>
+
+
+<blockquote>
+<p>Blockquotes are very handy in email to emulate reply text.
+This line is part of the same&nbsp;quote.</p>
+<blockquote>
+<p>Nested&nbsp;quote</p>
+</blockquote>
+<p>Back to the first&nbsp;level</p>
+</blockquote>
+<p>Quote&nbsp;break.</p>
+<blockquote>
+<p>This is a very long line that will still be quoted properly when it wraps. Oh boy let&#8217;s keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can <em>put</em> <strong>Markdown</strong> into a&nbsp;blockquote. </p>
+</blockquote>
+<h2>Inline <span class="caps">HTML</span></h2>
+<p>You can also use raw <span class="caps">HTML</span> in your Markdown, and it&#8217;ll mostly work pretty&nbsp;well. </p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&lt;dl&gt;
+  &lt;dt&gt;Definition list&lt;/dt&gt;
+  &lt;dd&gt;Is something people use sometimes.&lt;/dd&gt;
+
+  &lt;dt&gt;Markdown in HTML&lt;/dt&gt;
+  &lt;dd&gt;Does *not* work **very** well. Use HTML &lt;em&gt;tags&lt;/em&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+</pre></div>
+
+
+<dl>
+  <dt>Definition&nbsp;list</dt>
+  <dd>Is something people use&nbsp;sometimes.</dd>
+
+  <dt>Markdown in <span class="caps">HTML</span></dt>
+  <dd>Does *not* work **very** well. Use <span class="caps">HTML</span> <em>tags</em>.</dd>
+</dl>
+
+<h2>Horizontal&nbsp;Rule</h2>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Three or more...
+
+---
+
+Hyphens
+
+***
+
+Asterisks
+
+___
+
+Underscores
+</pre></div>
+
+
+<p>Three or&nbsp;more&#8230;</p>
+<hr />
+<p>Hyphens</p>
+<hr />
+<p>Asterisks</p>
+<hr />
+<p>Underscores</p>
+<h2>Line&nbsp;Breaks</h2>
+<p>My basic recommendation for learning how line breaks work is to experiment and discover &#8212; hit &lt;Enter&gt; once (i.e., insert one newline), then hit it twice (i.e., insert two newlines), see what happens. You&#8217;ll soon learn to get what you want. &#8220;Markdown Toggle&#8221; is your&nbsp;friend. </p>
+<p>Here are some things to try&nbsp;out:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Here&#39;s a line for us to start with.
+
+This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
+
+This line is also a separate paragraph, but...
+This line is only separated by a single newline, so it&#39;s a separate line in the *same paragraph*.
+</pre></div>
+
+
+<p>Here&#8217;s a line for us to start&nbsp;with.</p>
+<p>This line is separated from the one above by two newlines, so it will be a <em>separate paragraph</em>.</p>
+<p>This line is also begins a separate paragraph, but&#8230;<br />
+This line is only separated by a single newline, so it&#8217;s a separate line in the <em>same paragraph</em>.</p>
+<p>(Technical note: <em>Markdown Here</em> uses <span class="caps">GFM</span> line breaks, so there&#8217;s no need to use <span class="caps">MD</span>&#8217;s two-space line&nbsp;breaks.)</p>
+<h2>Youtube&nbsp;videos</h2>
+<p>They can&#8217;t be added directly but you can add an image with a link to the video like&nbsp;this:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&lt;a href=&quot;http://www.youtube.com/watch?feature=player_embedded&amp;v=YOUTUBE_VIDEO_ID_HERE
+&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg&quot; 
+alt=&quot;IMAGE ALT TEXT HERE&quot; width=&quot;240&quot; height=&quot;180&quot; border=&quot;10&quot; /&gt;&lt;/a&gt;
+</pre></div>
+
+
+<p>Or, in pure Markdown, but losing the image sizing and&nbsp;border:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+</pre></div>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
+                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
+                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><a href="/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+</body>
+</html>
