@@ -55,13 +55,11 @@ DISPLAY_CATEGORIES_ON_SIDEBAR = False
 DISPLAY_TAGS_ON_SIDEBAR = False
 RECENT_POST_COUNT = 5
 
-# can be useful in development, but set to False when you're ready to publish
-RELATIVE_URLS = False
-
 # Comment out SITEURL during development, which will essentially give you
 # root-relative URLs. Preview the site locally via python -m SimpleHTTPServer.
 # When deploying to production, uncomment SITEURL, generate, and deploy.
-#SITEURL = 'http://jeffskinnerbox.me'
+SITEURL = ''
+RELATIVE_URLS = True        # set to False when you're ready to publish
 
 # Specify the Pelican theme to be used
 #THEME = '/home/jeff/blogging/pelican-themes/pelican-bootstrap3'
@@ -72,7 +70,6 @@ THEME = '/home/jeff/blogging/theme'
 BOOTSTRAP_THEME = 'flatly'
 
 GITHUB_RIBBON = True
-GITHUB_SKIP_FORK = True
 GITHUB_USER = 'jeffskinnerbox'
 GITHUB_URL = 'https://github.com/jeffskinnerbox/\
 jeffskinnerbox.github.io/tree/source'
@@ -87,10 +84,10 @@ MENUITEMS = (('Blog', '/index.html'),
             ('Open Notebook', '/pages/open-notebook.html'),)
 
 # Provide Google Analytics Tracking ID (i.e. ‘UA-XXXX-YYYY’)
-#GOOGLE_ANALYTICS = 'UA-43272292-1'
+GOOGLE_ANALYTICS = 'UA-43272292-1'
 
 # Specify the Disqus short name identifier for comments
-#DISQUS_SITENAME = 'jeffskinnerbox'
+DISQUS_SITENAME = 'jeffskinnerbox'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None                    # Relative URL to output the Atom feed
