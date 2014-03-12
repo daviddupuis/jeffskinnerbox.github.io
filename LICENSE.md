@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ---
 
-Note: The primary candidates for licensing appear to be the following:
+**Note:** The primary candidates for licensing appear to be the following:
 
 * [Unlicense][un]
 * [Creative Commons][cc]

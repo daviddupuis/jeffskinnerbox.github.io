@@ -74,7 +74,8 @@ BOOTSTRAP_THEME = 'flatly'
 GITHUB_RIBBON = True
 GITHUB_SKIP_FORK = True
 GITHUB_USER = 'jeffskinnerbox'
-GITHUB_URL = 'https://github.com/jeffskinnerbox/jeffskinnerbox.github.com'
+GITHUB_URL = 'https://github.com/jeffskinnerbox/\
+jeffskinnerbox.github.io/tree/source'
 
 # your GitHub URL for a GitHub ribbon
 

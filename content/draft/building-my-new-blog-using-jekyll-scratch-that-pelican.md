@@ -482,6 +482,9 @@ repository’s master branch on GitHub.
 To place the source materials for the websit into GitHub, do the following:
 
 ```shell
+git add --all
+git commit -m "<comment>"
+git push origin master:source
 ```
 
 ##### Custom Domain Name
