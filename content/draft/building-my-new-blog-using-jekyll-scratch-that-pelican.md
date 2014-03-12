@@ -435,6 +435,22 @@ Deploying the Website
 #### Setup Google Analytics and Disqus
 http://terriyu.info/blog/posts/2013/07/pelican-setup/#fn:2
 
+#### Git and GitHub Setup
+
+```shell
+git init
+git config --global user.name "jeffskinnerbox"
+git config --global user.email jeff.irland@verizon.net
+git config --global core.editor vim
+git config --global merge.tool vimdiff
+git add --all
+git commit -m "first commit"
+
+```shell
+git remote add origin https://github.com/jeffskinnerbox/jeffskinnerbox.github.io.git
+git push -u origin master
+```
+
 #### Publishing to GitHub
 [GitHub can create a websites from a repository][29] and this is call GitHub Pages.
 There are [two types of GitHub Pages][30]: Project Pages and User Pages.
@@ -457,7 +473,7 @@ which will import the `pelicanconf.py` file but override anything needed specifi
 ```shell
 pelican content -o output -s publishconf.py
 ghp-import output
-git push git@github.com:<username>/<username>.github.io.git gh-pages:master
+git push git@github.com:jeffskinnerbox/jeffskinnerbox.github.io.git gh-pages:master
 ```
 
 The `git push` command pushes the local `gh-pages` branch
