@@ -43,6 +43,12 @@
         {% endif %}
     {% endif %}
 
+    {# Repost Button Support #}
+    {% if DISPLAY_REPOST_BUTTON %}
+        <meta content='4b4ba976784eb9a97125d9e26149a667' name='RepostUsAPIKey' />
+        <script src='http://1.rp-api.com/rjs/repostus.js' type='text/javascript'></script>
+    {% endif %}
+
     <!-- Bootstrap -->
     {% if BOOTSTRAP_THEME %}
         <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.{{ BOOTSTRAP_THEME }}.min.css" type="text/css"/>
@@ -118,10 +124,7 @@
         <!-- /.navbar-collapse -->
     </div>
     {% if GITHUB_RIBBON %}
-        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
-        <a href="{{ GITHUB_URL }}" target="_blank">
-            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
-        </a>
+        {% include 'includes/github_ribbon.html' %}       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
     {% endif %}
 </div> <!-- /.navbar -->
 
