@@ -17,6 +17,9 @@
             <meta property="og:url" content="http://jeffskinnerbox.me/posts/2012/Sep/25/installing-packages-into-the-raspberry-pis-linux/"/>
             <meta property="og:description" content="At some point its time to build the software foundation that you'll need to make it an effective development environment on the Raspberry Pi. These are the packages that I loaded to get myself up and running."/>
 
+        <meta content='4b4ba976784eb9a97125d9e26149a667' name='RepostUsAPIKey' />
+        <script src='http://1.rp-api.com/rjs/repostus.js' type='text/javascript'></script>
+
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" type="text/css"/>
 
@@ -57,10 +60,10 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <!-- /.navbar-collapse -->
     </div>
-        <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
-        <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
-            <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
-        </a>
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+    <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
+</a>       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 </div> <!-- /.navbar -->
 
 <div class="container">
@@ -277,7 +280,7 @@ sudo apt-get install vim-gtk</code></p></p>
             github.showRepos({
                 user: 'jeffskinnerbox',
                 count: 5,
-                skip_forks: true,
+                skip_forks: false,
                 target: '#gh_repos'
             });
         });
