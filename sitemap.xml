@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2014/Jan/15/having-fun-with-wine-virtualbox-and-turbotax/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2013/Oct/06/ipython-notebook-in-virtualenv/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2013/Sep/01/im-moving-so-i-can-blog-with-ipython-notebook/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2013/Aug/01/building-my-linux-box-the-implementation/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2013/Jun/16/linux-reboot-or-my-system-is-frozen-and-i-cant-get up/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2013/May/26/rtl-sdr-software-defined-radio-SDR-for-20/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2013/Apr/28/building my linux box...the plan/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2013/Apr/11/a-better-mobile-display-for-the-raspberry-pi/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2013/Mar/20/the-simplest-xbee-network/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2013/Jan/30/configuration-utilities-for-xbee-radios/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Dec/22/selecting-xbee-radios-and-supporting-software-tools/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Dec/05/raspberry-pi-serial-communication-what-why-and-a-touch-of-how/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Nov/26/speech-synthesis-on-the-raspberry-pi/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Nov/15/getting-audio-out-working-on-the-raspberry-pi/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Nov/11/dropbox-for-the-raspberry-pi-sort-of/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Nov/10/sendemail-as-a-messaging-tool-for-the-raspberry-pi/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Nov/05/wifi-with-wep-security-on-raspberry-pi/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Nov/02/conky-for-the-raspberry-pi/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Oct/19/controlling-and-viewing-the-raspberry-pi-gpio-via-pc-browser/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Oct/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Sep/28/setting-up-git-for-arduino-and-raspberry-pi development/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Sep/25/installing-packages-into-the-raspberry-pis-linux/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Sep/17/raspberry-pi-hardware/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Sep/10/arduino-electronic-design-automation/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Sep/10/arduino-memory/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Sep/09/raspberry-pi-has-arrived/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Sep/08/getting-started-with-the-raspberry-pi/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Sep/04/arduino-software-tools/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Sep/04/getting-started-with-arduino/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>http://jeffskinnerbox.me/posts/2012/Sep/02/my-test-post/</loc>
+        <priority>0.8</priority>
+    </url>
+
+
+    <url>
+        <loc>http://jeffskinnerbox.me/pages/about-me.html</loc>
+        <priority>1.0</priority>
+    </url>
+
+
+
+</urlset>
