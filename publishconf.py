@@ -13,7 +13,16 @@ from pelicanconf import *
 SITEURL = 'http://jeffskinnerbox.me'
 RELATIVE_URLS = False
 
-#FEED_ALL_ATOM = 'feeds/all.atom.xml'
-#CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
+FEED_DOMAIN = SITEURL
+FEED_ALL_ATOM = 'feeds/all.atom.xml'
+#TAG_FEED_ATOM = 'feeds/%s.tag.atom.xml'
+#CATEGORY_FEED_ATOM = 'feeds/%s.category.atom.xml'
+
+# List of templates that are used directly to render content.
+DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'sitemap')
+SITEMAP_SAVE_AS = 'sitemap.xml'
 
 DELETE_OUTPUT_DIRECTORY = True
+DISPLAY_REPOST_BUTTON = True
+GOOGLE_ANALYTICS_ON = True
+DISQUS_ON = True

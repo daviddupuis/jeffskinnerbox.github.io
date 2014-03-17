@@ -15,7 +15,11 @@
 from __future__ import unicode_literals
 
 # Default language to be used in articles
-DEFAULT_LANG = u'en'
+#DEFAULT_LANG = u'en'
+
+DATE_FORMATS = {'en': '%A  %B %d, %Y'}
+TIMEZONE = 'America/New_York'
+#DEFAULT_DATE = (2012, 3, 2, 14, 1, 1)
 
 # Default author of articles
 AUTHOR = u'Jeff Irland'
@@ -36,7 +40,7 @@ SITELOGO = 'favicon.ico'
 SITELOGO_SIZE = '32px'
 
 # Display the Repost button (you need an account for your site)
-DISPLAY_REPOST_BUTTON = True
+DISPLAY_REPOST_BUTTON = False
 
 # A subtitle to appear in the header
 DISPLAY_PICTURE_ON_SIDEBAR = True
@@ -58,8 +62,8 @@ RECENT_POST_COUNT = 5
 # Comment out SITEURL during development, which will essentially give you
 # root-relative URLs. Preview the site locally via python -m SimpleHTTPServer.
 # When deploying to production, uncomment SITEURL, generate, and deploy.
-SITEURL = ''
-RELATIVE_URLS = True        # set to False when you're ready to publish
+#SITEURL = ''
+RELATIVE_URLS = True        # always set to False when you're ready to publish
 
 # Specify the Pelican theme to be used
 #THEME = '/home/jeff/blogging/pelican-themes/pelican-bootstrap3'
@@ -84,38 +88,48 @@ MENUITEMS = (('Blog', '/index.html'),
             ('Open Notebook', '/pages/open-notebook.html'),)
 
 # Provide Google Analytics Tracking ID (i.e. ‘UA-XXXX-YYYY’)
-GOOGLE_ANALYTICS = 'UA-43272292-1'
+GOOGLE_ANALYTICS_ON = False
+GOOGLE_ANALYTICS_ID = 'UA-43272292-1'
 
 # Specify the Disqus short name identifier for comments
+DISQUS_ON = False
 DISQUS_SITENAME = 'jeffskinnerbox'
+DISQUS_DISPLAY_COUNTS = True
 
 # Feed generation is usually not desired when developing
-FEED_ALL_ATOM = None                    # Relative URL to output the Atom feed
-FEED_ALL_RSS = None                     # Relative URL to output the RSS feed
-CATEGORY_FEED_ATOM = None               # Where to put the category Atom feeds
+FEED_DOMAIN = None
+FEED_ATOM = None
+FEED_ALL_ATOM = None
+TAG_FEED_ATOM = None
+CATEGORY_FEED_ATOM = None
+FEED_RSS = None
+FEED_ALL_RSS = None
+TAG_FEED_RSS = None
+CATEGORY_FEED_RSS = None
 TRANSLATION_FEED_ATOM = None
-#FEED_ALL_RSS = 'feeds/all.rss.xml'
-#CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
+
+# Feeds
+#FEEDS = (('All posts', 'feeds/all.atom.xml'),
+#        ('Category', 'feeds/category'),
+#        ('OPW', 'feeds/tag/opw.atom.xml'),)
 
 # static paths will be copied without parsing their contents
 STATIC_PATHS = ['images', 'extra', 'notebooks', ]
 
-# path-specific metadata, files will be copied to your web root
+# path-specific metadata,
+# files will be moved to web site root (and some renamed)
 EXTRA_PATH_METADATA = {
     'extra/robots.txt': {'path': 'robots.txt'},
     'extra/CNAME': {'path': 'CNAME'},
+    'extra/htaccess': {'path': '.htaccess'},
+    'extra/404.html': {'path': '404.html'},
     'extra/jeffskinnerbox-favicon-(32x32).ico': {'path': 'favicon.ico'}, }
-#    'extra/htaccess': {'path': '.htaccess'},
-
-# Feeds
-FEEDS = (('All posts', 'feeds/all.atom.xml'),
-        ('Category', 'feeds/category'),
-        ('OPW', 'feeds/tag/opw.atom.xml'),)
 
 # Links to appear in the “social” section
 SOCIAL = (('Github', 'https://github.com/jeffskinnerbox'),
           ('Twitter', 'https://twitter.com/jeffskinnerbox'),
-          ('Linkedin', 'https://linkedin.com/in/jeffreyirland'),)
+          ('Linkedin', 'https://linkedin.com/in/jeffreyirland'),
+          ('RSS', 'http://jeffskinnerbox.me/feeds/all.atom.xml'),)
 TWITTER_USERNAME = 'jeffskinnerbox'
 
 # links to appear on the header (aka Blogroll)
@@ -124,10 +138,6 @@ LINKS = (('Scratch Pad', '/pages/scratch-pad.html'),
             '/pages/linux-python-packages-for-my-raspberry-pi.html'),
         ('Reference Page', '/pages/reference-page.html'),
         ('Vim Cheat Sheet', '/pages/vim-cheat-sheet.html'),)
-
-DATE_FORMATS = {'en': '%A  %B %d, %Y'}
-TIMEZONE = 'America/Washington'
-#DEFAULT_DATE = (2012, 3, 2, 14, 1, 1)
 
 # When you don’t specify a category in your post metadata,
 # set this setting to True, and organize your articles in subfolders,

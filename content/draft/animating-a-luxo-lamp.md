@@ -19,6 +19,9 @@ This iconic lamp
 #### Word Recognition
 * [Update: Whistled platform upgraded for simple word recognition](http://hackaday.com/2013/08/22/update-whistled-platform-upgraded-for-simple-word-recognition/)
 
+#### Tracking Objects
+* [Project Sentry Gun](http://psg.rudolphlabs.com/)
+
 
 [01]:http://glamox.com/ie/the-l-1-story
 [02]:http://www.luxous.com/

@@ -6,45 +6,24 @@ Slug: building-my-new-blog-using-jekyll-scratch-that-pelican
 Author: Jeff Irland
 Summary: This Jekyll introduction outlines specifically how I set up my Jekyll blog, as well as, explains how Jekyll does what it does.
 
+#General
 * [Migrating from Octopress to Pelican](http://jakevdp.github.io/blog/2013/05/07/migrating-from-octopress-to-pelican/)
 
-* Disquis
-    * [Jekyll Installation Instructions](http://help.disqus.com/customer/portal/articles/472138-jekyll-installation-instructions)
-    * [How I Built This Blog: Jekyll + Disqus](http://erictang.org/blog/2012/01/21/how-I-built-this-blog%3A-jekyll-%2B-disqus/)
-    * [Migrate Custom Blog to Jekyll and Disqus](http://blog.huangzhimin.com/2011/01/20/migrate-custom-blog-to-jekyll-and-disqus/)
-* [Learning Jekyll By Example](https://learn.andrewmunsell.com/learn/jekyll-by-example)
-* [Building a blog using Jekyll, Bootstrap and Github pages. A beginners guide!](http://in-the-attic.com/2013/01/04/building-a-blog-using-jekyll-bootstrap-and-github-pages-a-beginners-guide/)
-* [How I built my blog in one day](http://erjjones.github.io/blog/How-I-built-my-blog-in-one-day/)
-* [Part two on how I built my blog](http://erjjones.github.io/blog/Part-two-how-I-built-my-blog/)
-* [Migrating from WordPress to Jekyll – Part 1: Why I gave up on WordPress](http://vitobotta.com/migrating-from-wordpress-to-jekyll-part-one-why-i-gave-up-on-wordpress/#sthash.1ysfNdU6.dpbs)
-* [Migrating from WordPress to Jekyll – Part 2: **Everything** you need to know about Jekyll](http://vitobotta.com/how-to-migrate-from-wordpress-to-jekyll/#converting-to-markdown)
-* [Zero to Hosted Jekyll Blog in 3 Minutes](http://jekyllbootstrap.com/)
-* [Building Sites with Jekyll](http://www.spintoapp.com/documentation/building_websites_with_jekyll#pre-processors)
-* [Blogging With Jekyll Quickstart](http://hellarobots.com/2012/01/06/blogging-with-jekyll-quickstart.html)
-* [Getting Started with Jekyll Plugins](http://tech.pro/tutorial/1299/getting-started-with-jekyll-plugins)
+# Customizing Bootstrap
+1. Forking/cloning will let you fetch the new upcoming versions of Bootstrap easily
+2. Do not modify the bootstrap.css file
+3. Create your own css file and overwrite whenever you want original bootstrap stuff
 
-* [How to use Twitter Bootstrap to Create a Responsive Website Design](http://www.onextrapixel.com/2012/11/12/how-to-use-twitter-bootstrap-to-create-a-responsive-website-design/)
-* [Twitter Bootstrap Tutorial](http://www.w3resource.com/twitter-bootstrap/tutorial.php.)
+* ["best practices" for customizing Bootstrap css template](http://stackoverflow.com/questions/8596794/customizing-bootstrap-css-template)
 * [Customizing Bootstrap](http://coding.smashingmagazine.com/2013/03/12/customizing-bootstrap/)
-* [Twitter Bootstrap 101: Introduction](http://webdesign.tutsplus.com/tutorials/complete-websites/twitter-bootstrap-101-introduction/)
-* [Customizing Bootstrap](http://coding.smashingmagazine.com/2013/03/12/customizing-bootstrap/)
-* [Introducing Bootswatch](http://thomaspark.me/2012/02/introducing-bootswatch/)
+* [How to customize Twitter Bootstrap to fit your web design](http://www.codeproject.com/Articles/594098/How-to-customize-Twitter-Bootstrap-to-fit-your-web)
+* [Less Like Bootstrap – 5 Ways To Customize Your Designs](http://blog.jetstrap.com/2013/07/less-like-bootstrap/)
+* [How to modify Bootstrap simply and effectively](http://www.webdesignerdepot.com/2013/07/how-to-modify-bootstrap-simply-and-effectively/)
+* [Bootstrap ThemeRoller](http://www.bootstrapthemeroller.com/)
+* [Free themes for Bootstrap](http://bootswatch.com/#gallery)
+* [Shine Your Boots! Customizing Twitter Bootstrap](http://www.cognizo.com/2012/04/twitter-bootstrap-customization/)
+* [Twitter Bootstrap 101](http://webdesign.tutsplus.com/series/twitter-bootstrap-101/)
 
-* [User, Organization, and Project Pages](https://help.github.com/articles/user-organization-and-project-pages)
-*[Setting up a custom domain with Pages](https://help.github.com/articles/setting-up-a-custom-domain-with-pages)
-* [Publishing to GitHub](http://docs.getpelican.com/en/3.0/tips.html)
-* [GitHub-pages-like publishing](http://www.hackzine.org/github-pages-like-publishing.html)
-
-* Site Search
-    * [http://alexpearce.me/2012/04/simple-jekyll-searching/](http://alexpearce.me/2012/04/simple-jekyll-searching/)
-    * [http://developmentseed.org/blog/2011/09/09/jekyll-github-pages/](http://developmentseed.org/blog/2011/09/09/jekyll-github-pages/)
-
-* [The Web Robots Pages](http://www.robotstxt.org/)
-* [What are Sitemaps?](http://www.sitemaps.org/)
-* [Generating a sitemap.xml in Pelican](https://github.com/getpelican/pelican/wiki/Tips-n-Tricks#wiki-generate-sitemapxml)
-*
-* [How to setup error pages with Pelican](http://bertelsen.ca/setup/how-to-setup-error-pages-with-pelican/)
-* [.htaccess Tutorial](http://www.freewebmasterhelp.com/tutorials/htaccess/)
 
 # Pelican
 My orginal plan was to port [my WordPress blog][11] to GitHub and use [Jekyll][06].
@@ -195,6 +174,12 @@ In these templates, you should have access to all variables from `pelicanconf.py
 as well as template-specific variables (See “[Template and Variables][16]”
 section of the Pelican documentation).
 
+Thinking of Pelican's two primary modes of operation:
+local development and production deployment (i.e., pelicanconf.py and publishconf.py, respectively).
+When developing locally, settings for things like Google Analytics and Disqus are deliberately left out of pelicanconf.py by design. Including those settings in local testing can have adverse effects: inaccurate site statistics, spurious comment threads, and other unanticipated side effects.
+
+When it is time to publish your site, then of course you want those settings to be included. The way to do that is to ensure your publishconf.py is being referenced at publish time: `pelican content -s publishconf.py`.
+
 My `pelicanconf.py` file looks like this:
 
     must add pelicanconf.py here  XXXX FINISH THIS XXXX
@@ -300,7 +285,13 @@ Pelican makes it easy to make your own themes but clearly it is easiest when
 you start with a theme that is close to what you want.
 I started with [pelican-bootstrap3][27] to creat my theme.
 This theme makes use of [Bootstrap 3][28],
-a front-end framework for developing responsive web sites.
+a front-end framework for developing [responsive web sites][34].
+
+Bootstrap is a popular web framework, and as a result of its growing popularity,
+it has created uniformity between many websites.
+[Bootswatch][35] was created to somewhat combate this trend,
+enable developers, still using Bootstrap to try on a new look,
+without investing much time or energy.
 
 ```
 ├── static
@@ -432,7 +423,57 @@ Generating Post in `_site` Directory
 Deploying the Website
     : If you use GitHub Pages for your website, here again, you can use some very farmilar tools.  You simply need to push the code to GitHub.
 
-#### Setup Google Analytics and Disqus
+#### Atom and RSS Feeds
+Web [content syndication][40] is the process of pushing your blog, site, or
+video content out into third-party sites, either as a full article, snippet, link, or thumbnail.
+Two popular syndication XML-based file format are [Atom][42], which was
+developed as an alternative to [RSS][41] because of its perceived shortcomings.
+When you put content into RSS or Atom and send that content to other people or websites,
+it's called a [feed][43].
+
+#### Web Robots.txt and Sitemap Files
+Some obsure [Pelican documentation][46] gives a bit of guidance on Web Robots and Sitemaps.
+[Web Robots][45] (also known as Web Crawlers or Web Spiders),
+are programs that traverse the Web automatically.
+Search engines, such as Google, use them to index the web content.
+Web site owners use the `robots.txt` file to give instructions about their site to web robots.
+This is called The [Robots Exclusion Protocol][44].
+Before a web robot visits a we bsite, it firsts checks for `robots.txt`
+in the top-level directory of your web server.
+
+I put the following in `robot.txt`:
+
+```
+User-agent: *
+Disallow: /drafts/
+```
+
+The `User-agent: *` means this section applies to all robots.
+The `Disallow: /draft/` tells the robot that it should not
+visit any pages within the `drafts` directory.
+There are also two important considerations when using `robots.txt`:
+
+* robots can ignore your /robots.txt
+* the /robots.txt file is a publicly readable file
+
+Sitemaps are a way to inform search engines about pages on your sites that are available for crawling.
+In its simplest form, a Sitemap is an XML file that lists URLs
+for a site along with additional metadata about each URL
+(when it was last updated, how often it usually changes, and how important it is,
+relative to other URLs in the site) so that search engines can more intelligently crawl the site.
+
+#### Setting Up Error Pages
+Pelican's documentation does not provide much insight on implement we [error pages][36],
+but I did fine the posting "[How to setup error pages with Pelican][37]".
+This involves the creation of a `.htaccess` file in the root directory of you web site.
+To better understand what this is all about, check out "[.htaccess Tutorial][38]"
+and "[How to Set Up A Custom 404 File Not Found Page][39]".
+I placed both htaccess and the error files in the Pelcian `content/extra` directory
+and used the `pelicanconfig.py` configuration file
+to move them to there proper destination for publishing
+(see `EXTRA_PATH_METADATA` in the `pelicancong.py` file).
+
+#### Setting Up Google Analytics and Disqus
 http://terriyu.info/blog/posts/2013/07/pelican-setup/#fn:2
 
 #### Git and GitHub Setup
@@ -593,10 +634,30 @@ you can do so by adding `--upgrade` to the relevant command. For Pelican, that w
 [31]:https://pypi.python.org/pypi/ghp-import
 [32]:http://docs.getpelican.com/en/3.3.0/tips.html
 [33]:http://www.thinkful.com/learn/a-guide-to-using-github-pages/
-[34]:
-[35]:
-[36]:
-[37]:
-[38]:
-[39]:
-[40]:
+[34]:http://www.onextrapixel.com/2012/11/12/how-to-use-twitter-bootstrap-to-create-a-responsive-website-design/
+[35]:http://bootswatch.com/
+[36]:https://en.wikipedia.org/wiki/Http_404
+[37]:http://bertelsen.ca/setup/how-to-setup-error-pages-with-pelican/
+[38]:http://www.freewebmasterhelp.com/tutorials/htaccess/
+[39]:http://www.thesitewizard.com/archive/custom404.shtml
+[40]:http://en.wikipedia.org/wiki/Web_syndication
+[41]:http://en.wikipedia.org/wiki/RSS
+[42]:http://atomenabled.org/
+[43]:http://www.press-feed.com/howitworks/rss_tutorial.php
+[44]:http://www.robotstxt.org/orig.html
+[45]:http://en.wikipedia.org/wiki/Internet_bot
+[46]:https://github.com/getpelican/pelican/wiki/Tips-n-Tricks#generate-sitemapxml
+[47]:
+[48]:
+[49]:
+[50]:
+[51]:
+[52]:
+[53]:
+[54]:
+[55]:
+[56]:
+[57]:
+[58]:
+[59]:
+[60]:

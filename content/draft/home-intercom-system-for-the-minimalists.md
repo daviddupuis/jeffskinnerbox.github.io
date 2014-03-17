@@ -60,11 +60,18 @@ Digital Acoustics is all IP based,
 and [myintercom][26] is a VoIP intercom,
 but these appears to be a commercial system scaled down for reidential and still pricy and complex.
 
+As to building an intercom from seperately purchased omponents,
+I did come across a press release stating that
+[Arcturus Networks launches the industry’s first dedicated VoIP microcontroller solution for intercoms, telephony and IP audio distribution][29].
+The press release states development kits are available for $495 ... not very encouraging.
+Arcturus does offer several [embedded VoIP boards and modules][30]
+but the all appear to be $150 or greate in small quanities.
+
 ## Alternatives
 Of course there are [wireless intercom systems][27] working within the [ISM bands][28]. 
 So have kindof eliminated the posibility of just buying a VoIP based intercom,
 but what about alternative technologies like a cell phone or some type of radio.
-As I hinted earlier, a cell phone is a simple solution, IF YOU HAVE IT ON YOUR PERSON AT ALL TIMES.
+As I hinted earlier, a cell phone is a simple solution, if you have it on your person at all times.
 I must admit, I generally only carry my cell when out of the house.
 
 Battery operated radios are another alternative, such as,
@@ -297,5 +304,13 @@ E.164
 [26]:http://www.myintercom.de/en/funktionsweise
 [27]:http://www.gadgetshack.com/wiin.html
 [28]:http://en.wikipedia.org/wiki/ISM_band
-[29]:
-[30]:
+[29]:http://www.arcturusnetworks.com/2013/11/13/arcturus-launches-industry%E2%80%99s-first-dedicated-voip-microcontroller-solution-for-intercoms-telephony-and-ip-audio-distribution/
+[30]:http://www.arcturusnetworks.com/products/
+[31]:
+[32]:
+[33]:
+[34]:
+[35]:
+[36]:
+[37]:
+[38]:

@@ -97,23 +97,6 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 
 ---
 
-#### Customizing Bootstrap
-1. Forking/cloning will let you fetch the new upcoming versions of Bootstrap easily
-2. Do not modify the bootstrap.css file
-3. Create your own css file and overwrite whenever you want original bootstrap stuff
-
-* ["best practices" for customizing Bootstrap css template](http://stackoverflow.com/questions/8596794/customizing-bootstrap-css-template)
-* [Customizing Bootstrap](http://coding.smashingmagazine.com/2013/03/12/customizing-bootstrap/)
-* [How to customize Twitter Bootstrap to fit your web design](http://www.codeproject.com/Articles/594098/How-to-customize-Twitter-Bootstrap-to-fit-your-web)
-* [Less Like Bootstrap – 5 Ways To Customize Your Designs](http://blog.jetstrap.com/2013/07/less-like-bootstrap/)
-* [How to modify Bootstrap simply and effectively](http://www.webdesignerdepot.com/2013/07/how-to-modify-bootstrap-simply-and-effectively/)
-* [Bootstrap ThemeRoller](http://www.bootstrapthemeroller.com/)
-* [Free themes for Bootstrap](http://bootswatch.com/#gallery)
-* [Shine Your Boots! Customizing Twitter Bootstrap](http://www.cognizo.com/2012/04/twitter-bootstrap-customization/)
-* [Twitter Bootstrap 101](http://webdesign.tutsplus.com/series/twitter-bootstrap-101/)
-
----
-
 #### RPi as a Penetration testing Tool
 * [Raspberry Pwn: A Pentesting Release for the Raspberry Pi](http://pwnieexpress.com/blogs/pwnie/7977353-raspberry-pwn-a-pentesting-release-for-the-raspberry-pi)
 * [Raspberry Pi as a Network Monitoring Node](http://www.networkworld.com/community/node/84143)
@@ -155,13 +138,9 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 
 ---
 
-#### A gallery of interesting IPython Notebooks
+#### A gallery of interesting IPython Notebooks and Questions
 * https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks
 * http://nbviewer.ipython.org/
-
----
-
-#### Highest Voted 'ipython-notebook' Questions
 * http://stackoverflow.com/questions/tagged/ipython-notebook?sort=votes&amp;pagesize=50
 
 ---
@@ -193,6 +172,11 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 #### Open Source Seismometer
 * [Classroom seismometers could monitor earthquakes worldwide](http://physicsworld.com/cws/article/news/2014/jan/28/classroom-seismometers-could-monitor-earthquakes-worldwide)
 * [TC1 Seismometers for Schools and Others on a Budget!](http://tc1seismometer.wordpress.com/)
+
+---
+
+#### Open Source Magnetometer
+* [Magnetometer - DIY geomagnetic storm monitoring](http://avtanski.net/projects/magnetometer/index.html)
 
 ---
 
