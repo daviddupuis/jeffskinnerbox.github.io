@@ -3319,32 +3319,45 @@ Much of what is provided here was lifted from the following sources:
 The first thing I did was to set up git within my &lt;span class="caps"&gt;MS&lt;/span&gt; Windows &lt;span class="caps"&gt;PC&lt;/span&gt;.  Given that &lt;a href="http://jeffskinnerbox.wordpress.com/2012/09/09/raspberry-pi-has-arrived/"&gt;I installed Cygwin&lt;/a&gt; when setting up the RPi, that is where I returned to install git.  Therefore, I plan to use git within the Cygwin environment on my &lt;span class="caps"&gt;PC&lt;/span&gt; and not within &lt;span class="caps"&gt;MS&lt;/span&gt; Windows per say.  &lt;a href="http://git-scm.com/downloads"&gt;This could be done&lt;/a&gt;, but my approach allows me to learn git commands once since, Cygwin is a Linux-like environment, everything should look and operate the&amp;nbsp;same.&lt;/p&gt;
 &lt;p&gt;To accomplish this I follow the instructions outline in &lt;a href="http://www.celinio.net/techblog/?p=818"&gt;Installing Git on Cygwin&lt;/a&gt;.  These instructions are very straight forward.  The challenge was in initializing git for my first project, at least it was a challenge for me since git is new tool for me and Cygwin didn&amp;#8217;t always cooperate.  I had to address this the old fashion way &amp;#8230;. read the documentation and trouble logs (vs. doing a web search for someones web post with instructions).  All the important secrets of git can be found widely dispersed and buried deep withing these web sites: &lt;a href="http://git-scm.com/documentation"&gt;Git Documentation&lt;/a&gt; and &lt;a href="http://gitref.org/index.html"&gt;Git Reference&lt;/a&gt;.  Source information from trouble logs will be listed&amp;nbsp;below.&lt;/p&gt;
 &lt;p&gt;So how did I do it?  It&amp;#8217;s easy once you successively done it once.  First let me state the context; for the exercise I&amp;#8217;m doing, I&amp;#8217;m attempting to place my &lt;code&gt;.bashrc, .profile, .vimrc&lt;/code&gt;, and a few other configuration files under gits control.  The basic sequence of operation is to initialize the git environment, configure some parameters, and then add the files.  It goes like this (I&amp;#8217;ll let you research the git documentation, just like I did, to understand the command.  Trust me, this is good for you!):
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;git init
-git config --global user.name "jeffskinnerbox"
+&lt;p style="padding-left:30px;"&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;git init
+git config --global user.name &amp;quot;jeffskinnerbox&amp;quot;
 git config --global user.email jeff.irland@verizon.net
 git config --global core.editor vim
 git config --global merge.tool vimdiff
-git add .bashrc .profile .vimrc .bash_profile .minttyrc .inputrc .gitconfig .gitignore&lt;/code&gt;&lt;/p&gt;
-To see what you got, use the &lt;code&gt;git status&lt;/code&gt; command.  This will tell you the files got staged but not committed. The commit will come later.  First we need to set up our communal repository within &lt;a href="https://github.com/"&gt;github&lt;/a&gt;.
+git add .bashrc .profile .vimrc .bash_profile .minttyrc .inputrc .gitconfig .gitignore
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To see what you got, use the &lt;code&gt;git status&lt;/code&gt; command.  This will tell you the files got staged but not committed. The commit will come later.  First we need to set up our communal repository within &lt;a href="https://github.com/"&gt;github&lt;/a&gt;.
 &lt;h2&gt;Setting Up&amp;nbsp;GitHub&lt;/h2&gt;
 You may be asking,&lt;a href="http://techcrunch.com/2012/07/14/what-exactly-is-github-anyway/"&gt; What Exactly Is GitHub Anyway?&lt;/a&gt;  Well, in a few words, github is a web-based hosting service for software development projects that use git. The next step is to go to &lt;a href="https://github.com/"&gt;github&lt;/a&gt;, set up your free login, and then set up a repository.  In my case, I set up a github repository called &lt;a href="https://github.com/jeffskinnerbox/Cygwin-Configuration-Files"&gt;Cygwin-Configuration-Files&lt;/a&gt; to store my configuration files established earlier under git control.  It will be empty at this point, and that&amp;#8217;s all for now, loading it with files comes&amp;nbsp;later.&lt;/p&gt;
 &lt;p&gt;I didn&amp;#8217;t say much about how to set up github, but trust me, it is as simple as outlined above.  It&amp;#8217;s via git that all the real work takes place.  GitHub is all about giving you an off-site, web-access-able, complete version controlled historical record of your code that can be shared with others.
 &lt;h2&gt;Back to Git within&amp;nbsp;Cygwin&lt;/h2&gt;
-Now that we have established github and initialized, configured, and added files to the Cygwin environment  we can associated the &lt;span class="caps"&gt;PC&lt;/span&gt; and github environments.  It wasn&amp;#8217;t clear to me, from the git documentation, how to best do this association.  Using  &lt;code&gt;git clone&lt;/code&gt; isn&amp;#8217;t intuitive to me, but it seems to work.  This is how I did it:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;git clone https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git&lt;/code&gt;&lt;/p&gt;
-&lt;em&gt;&lt;span style="text-decoration:underline;"&gt;Warning&lt;/span&gt; &amp;#8230;&lt;/em&gt; You may, as I did, get the following error:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;Cloning into 'Cygwin-Configuration-Files'...
+Now that we have established github and initialized, configured, and added files to the Cygwin environment  we can associated the &lt;span class="caps"&gt;PC&lt;/span&gt; and github environments.  It wasn&amp;#8217;t clear to me, from the git documentation, how to best do this association.  Using  &lt;code&gt;git clone&lt;/code&gt; isn&amp;#8217;t intuitive to me, but it seems to work.  This is how I did&amp;nbsp;it:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;git clone https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;&lt;span style="text-decoration:underline;"&gt;Warning&lt;/span&gt; &amp;#8230;&lt;/em&gt; You may, as I did, get the following&amp;nbsp;error:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;Cloning into &amp;#39;Cygwin-Configuration-Files&amp;#39;...
 error: error setting certificate verify locations:
 CAfile: /usr/ssl/certs/ca-bundle.crt
 CApath: none while accessing https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git/info/refs
-fatal: HTTP request failed&lt;/code&gt;&lt;/p&gt;
-If you get the above error, &lt;a href="http://codeforthesoul.blogspot.com/2012/09/git-error-about-missing-certificates-on.html"&gt;the problem&lt;/a&gt; is that Cygwin hasn&amp;#8217;t installed the ca-certificates package.  Run the &lt;a href="http://www.cygwin.com/install.html"&gt;Cygwin installer&lt;/a&gt; again, and add that package; after that &lt;code&gt;git clone&lt;/code&gt; should start&amp;nbsp;working.&lt;/p&gt;
+fatal: HTTP request failed
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you get the above error, &lt;a href="http://codeforthesoul.blogspot.com/2012/09/git-error-about-missing-certificates-on.html"&gt;the problem&lt;/a&gt; is that Cygwin hasn&amp;#8217;t installed the ca-certificates package.  Run the &lt;a href="http://www.cygwin.com/install.html"&gt;Cygwin installer&lt;/a&gt; again, and add that package; after that &lt;code&gt;git clone&lt;/code&gt; should start&amp;nbsp;working.&lt;/p&gt;
 &lt;p&gt;The next step is to commit your files to the git local repository within the &lt;span class="caps"&gt;PC&lt;/span&gt; under Cygwin.  To do this, execute the following command:
 &lt;p style="padding-left:30px;"&gt;&lt;code&gt;git commit&lt;/code&gt;&lt;/p&gt;
 You will be put into vim to provide a comment that will be posted with the git version.  Why vim?  Because you executed the command &lt;code&gt;git config --global core.editor vim&lt;/code&gt;  earlier.  If you don&amp;#8217;t want to use vim for adding comments under git, supply another editor when you do the configuration&amp;nbsp;step.&lt;/p&gt;
-&lt;p&gt;The next step, which strictly isn&amp;#8217;t required but a nice to have, is to associate a descriptive identifier with the github repository.  The descriptor I used is &amp;#8220;Cygwin-Configuration-Files&amp;#8221;.  The command I used is:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;git remote add Cygwin-Configuration-Files https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git&lt;/code&gt;&lt;/p&gt;
-The final step is to push your local files to the github repository,
+&lt;p&gt;The next step, which strictly isn&amp;#8217;t required but a nice to have, is to associate a descriptive identifier with the github repository.  The descriptor I used is &amp;#8220;Cygwin-Configuration-Files&amp;#8221;.  The command I used&amp;nbsp;is:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;git remote add Cygwin-Configuration-Files https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The final step is to push your local files to the github repository,
 &lt;p style="padding-left:30px;"&gt;&lt;code&gt;git push Cygwin-Configuration-Files&lt;/code&gt;&lt;/p&gt;
 &lt;em&gt;Warning &amp;#8230; &lt;/em&gt; It was during the &lt;code&gt;git push&lt;/code&gt; that I ran into another problem, but it could happen nearly any time.  I discovered that sometimes, after multiple Cygwin updating or installing packages, you&amp;#8217;ll start to get strange errors related to &amp;#8220;fork()&amp;#8221; or .dll loading. After some research, I discoved these errors are usually solved by &lt;a href="http://cygwin.wikia.com/wiki/Rebaseall"&gt;rebasing your packages&lt;/a&gt;.  While rebasing, which is executed using the Cygwin &lt;code&gt;rebaseall&lt;/code&gt; command, is is a bit of a mystery, it does appear to work
 &lt;h2&gt;Rebasing&amp;nbsp;Cygwin&lt;/h2&gt;
