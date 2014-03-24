@@ -14,12 +14,17 @@ The first thing I did was to set up git within my MS Windows PC.  Given that <
 To accomplish this I follow the instructions outline in <a href="http://www.celinio.net/techblog/?p=818">Installing Git on Cygwin</a>.  These instructions are very straight forward.  The challenge was in initializing git for my first project, at least it was a challenge for me since git is new tool for me and Cygwin didn't always cooperate.  I had to address this the old fashion way .... read the documentation and trouble logs (vs. doing a web search for someones web post with instructions).  All the important secrets of git can be found widely dispersed and buried deep withing these web sites: <a href="http://git-scm.com/documentation">Git Documentation</a> and <a href="http://gitref.org/index.html">Git Reference</a>.  Source information from trouble logs will be listed below.
 
 So how did I do it?  It's easy once you successively done it once.  First let me state the context; for the exercise I'm doing, I'm attempting to place my <code>.bashrc, .profile, .vimrc</code>, and a few other configuration files under gits control.  The basic sequence of operation is to initialize the git environment, configure some parameters, and then add the files.  It goes like this (I'll let you research the git documentation, just like I did, to understand the command.  Trust me, this is good for you!):
-<p style="padding-left:30px;"><code>git init
+<p style="padding-left:30px;">
+
+```shell
+git init
 git config --global user.name "jeffskinnerbox"
 git config --global user.email jeff.irland@verizon.net
 git config --global core.editor vim
 git config --global merge.tool vimdiff
-git add .bashrc .profile .vimrc .bash_profile .minttyrc .inputrc .gitconfig .gitignore</code></p>
+git add .bashrc .profile .vimrc .bash_profile .minttyrc .inputrc .gitconfig .gitignore
+```
+
 To see what you got, use the <code>git status</code> command.  This will tell you the files got staged but not committed. The commit will come later.  First we need to set up our communal repository within <a href="https://github.com/">github</a>.
 <h2>Setting Up GitHub</h2>
 You may be asking,<a href="http://techcrunch.com/2012/07/14/what-exactly-is-github-anyway/"> What Exactly Is GitHub Anyway?</a>  Well, in a few words, github is a web-based hosting service for software development projects that use git. The next step is to go to <a href="https://github.com/">github</a>, set up your free login, and then set up a repository.  In my case, I set up a github repository called <a href="https://github.com/jeffskinnerbox/Cygwin-Configuration-Files">Cygwin-Configuration-Files</a> to store my configuration files established earlier under git control.  It will be empty at this point, and that's all for now, loading it with files comes later.
@@ -27,13 +32,21 @@ You may be asking,<a href="http://techcrunch.com/2012/07/14/what-exactly-is-gith
 I didn't say much about how to set up github, but trust me, it is as simple as outlined above.  It's via git that all the real work takes place.  GitHub is all about giving you an off-site, web-access-able, complete version controlled historical record of your code that can be shared with others.
 <h2>Back to Git within Cygwin</h2>
 Now that we have established github and initialized, configured, and added files to the Cygwin environment  we can associated the PC and github environments.  It wasn't clear to me, from the git documentation, how to best do this association.  Using  <code>git clone</code> isn't intuitive to me, but it seems to work.  This is how I did it:
-<p style="padding-left:30px;"><code>git clone https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git</code></p>
+
+```shell
+git clone https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git
+```
+
 <em><span style="text-decoration:underline;">Warning</span> ...</em> You may, as I did, get the following error:
-<p style="padding-left:30px;"><code>Cloning into 'Cygwin-Configuration-Files'...
+
+```
+Cloning into 'Cygwin-Configuration-Files'...
 error: error setting certificate verify locations:
 CAfile: /usr/ssl/certs/ca-bundle.crt
 CApath: none while accessing https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git/info/refs
-fatal: HTTP request failed</code></p>
+fatal: HTTP request failed
+```
+
 If you get the above error, <a href="http://codeforthesoul.blogspot.com/2012/09/git-error-about-missing-certificates-on.html">the problem</a> is that Cygwin hasn't installed the ca-certificates package.  Run the <a href="http://www.cygwin.com/install.html">Cygwin installer</a> again, and add that package; after that <code>git clone</code> should start working.
 
 The next step is to commit your files to the git local repository within the PC under Cygwin.  To do this, execute the following command:
@@ -41,7 +54,11 @@ The next step is to commit your files to the git local repository within the P
 You will be put into vim to provide a comment that will be posted with the git version.  Why vim?  Because you executed the command <code>git config --global core.editor vim</code>  earlier.  If you don't want to use vim for adding comments under git, supply another editor when you do the configuration step.
 
 The next step, which strictly isn't required but a nice to have, is to associate a descriptive identifier with the github repository.  The descriptor I used is "Cygwin-Configuration-Files".  The command I used is:
-<p style="padding-left:30px;"><code>git remote add Cygwin-Configuration-Files https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git</code></p>
+
+```shell
+git remote add Cygwin-Configuration-Files https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git
+```
+
 The final step is to push your local files to the github repository,
 <p style="padding-left:30px;"><code>git push Cygwin-Configuration-Files</code></p>
 <em>Warning ... </em> It was during the <code>git push</code> that I ran into another problem, but it could happen nearly any time.  I discovered that sometimes, after multiple Cygwin updating or installing packages, you'll start to get strange errors related to "fork()" or .dll loading. After some research, I discoved these errors are usually solved by <a href="http://cygwin.wikia.com/wiki/Rebaseall">rebasing your packages</a>.  While rebasing, which is executed using the Cygwin <code>rebaseall</code> command, is is a bit of a mystery, it does appear to work
