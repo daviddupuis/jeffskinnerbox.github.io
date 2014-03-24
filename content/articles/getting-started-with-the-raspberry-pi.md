@@ -5,7 +5,7 @@ Tags: Raspberry Pi
 Slug: getting-started-with-the-raspberry-pi
 Author: Jeff Irland
 Image: raspberry-pi-image-from-adafruit.jpg
-Summary: bla bla bla
+Summary: This article provides a listing of online resources you can leverage to get started with your Raspberry Pi.  It take you through what is a RPi, how to set it up, and some basic tutorals.
 
 As I have been doing for the Arduino, I have been doing some research on the Raspberry Pi.  This post will help get you going.
 <h2>What is a Raspberry Pi?</h2>

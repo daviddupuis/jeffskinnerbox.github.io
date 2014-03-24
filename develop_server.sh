@@ -15,14 +15,14 @@ CONFFILE=$BASEDIR/pelicanconf.py
 # Don't change stuff below here unless you are sure
 ###
 
-SRV_PID=$BASEDIR/srv.pid
-PELICAN_PID=$BASEDIR/pelican.pid
+SRV_PID=$BASEDIR/.srv.pid
+PELICAN_PID=$BASEDIR/.pelican.pid
 
 function usage(){
   echo "usage: $0 (stop) (start) (restart) [port]"
   echo "This starts pelican in debug and reload mode and then launches"
   echo "A pelican.server to help site development. It doesn't read"
-  echo "your pelican options so you edit any paths in your Makefile"
+  echo "your Pelican options so you edit any paths in your Makefile"
   echo "you will need to edit it as well"
   exit 3
 }

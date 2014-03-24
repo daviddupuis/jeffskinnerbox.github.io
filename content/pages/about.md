@@ -1,10 +1,5 @@
 Title: About Me
-Date: 2014-02-21 18:20
-Category: Pages
-Tags: 
 Slug: about-me
-Author: Jeff Irland
-Summary: Short description of who I am
 
 ### Welcome to my Skinner Box!
 <a href="http://webspace.ship.edu/cgboer/skinner.html">

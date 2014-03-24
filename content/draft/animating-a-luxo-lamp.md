@@ -13,6 +13,15 @@ This iconic lamp
 * [Anglepoise lamp](http://en.wikipedia.org/wiki/Anglepoise_lamp)
 * [Balanced-arm lamp](http://en.wikipedia.org/wiki/Balanced-arm_lamp)
 
+#### Pinokio
+* [Pinokio - lamp, robot, friend?](http://www.behance.net/gallery/Pinokio/5914541)
+* [Pinokio, The Animatronic Lamp That Is Aware of Its Environment](http://www.creativeapplications.net/processing/pinokio-the-animatronic-lamp-that-is-aware-of-its-environment/)
+* [Vincent & Emily](http://newgrids.fr/2013/05/13/vincent-emily/)
+
+#### Touch
+* [Mug Music Is Good to the Last Drop](http://hackaday.com/2014/03/19/mug-music-is-good-to-the-last-drop/#more-117602)
+* [Touché: Touch and Gesture Sensing for the Real World](http://www.disneyresearch.com/project/touche-touch-and-gesture-sensing-for-the-real-world/)
+
 #### Light Tracking
 * [Myra, an intelligent robotic lighting system for your living room](http://kawalabo.blogspot.jp/2014/01/myra-intelligent-robotic-lighting.html)
 

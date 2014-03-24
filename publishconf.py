@@ -15,8 +15,10 @@ RELATIVE_URLS = False
 
 FEED_DOMAIN = SITEURL
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
+FEED_ALL_RSS = 'feeds/all.rss.xml'
 #TAG_FEED_ATOM = 'feeds/%s.tag.atom.xml'
 #CATEGORY_FEED_ATOM = 'feeds/%s.category.atom.xml'
+FEED_MAX_ITEMS = 100
 
 # List of templates that are used directly to render content.
 DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'sitemap')

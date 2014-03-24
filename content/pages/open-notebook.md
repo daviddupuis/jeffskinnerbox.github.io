@@ -1,10 +1,5 @@
 Title: Open Notebook
-Date: 2014-02-21 18:20
-Category: Pages
-Tags: 
 Slug: open-notebook
-Author: Jeff Irland
-Summary: bla bla bla
 Status: hidden
 
 Your standard web page is woefully unprepared to capture complex technical concepts

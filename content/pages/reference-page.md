@@ -1,10 +1,5 @@
 Title: Reference Page
-Date: 2014-02-21 18:20
-Category: Pages
-Tags: 
 Slug: reference-page
-Author: Jeff Irland
-Summary: bla bla bla
 Status: hidden
 
 ### Resistor Calculator

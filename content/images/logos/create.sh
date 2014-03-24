@@ -12,7 +12,7 @@
 
 IMAGESRC="."
 IMAGEDES="thumbnail"
-IMAGESIZE="120x120"
+IMAGESIZE="80x80"
 
 for file in $( ls $IMAGESRC/*.jpg $IMAGESRC/*.png )
 do

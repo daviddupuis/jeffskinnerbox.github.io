@@ -6,6 +6,8 @@ Slug: making-a-discone-antenna-for-rtl-sdr
 Author: Jeff Irland
 Summary: bla bla bla
 
+Need a SMA Panel Jack connector
+
 [understanding antennas](http://www.antenna-theory.com/)
 [The Electromagnetic Spectrum](http://cnx.org/content/m42444/latest/?collection=col11406/1.7)
 
@@ -13,7 +15,7 @@ Like all radio devices, to make optimal use of the RTL-SDR, a good antenna is ne
 The 145mm [monopole antenna][41] that comes with my [NooElec R820T SDR & DVB-T][40] dongle
 is not at all appropriate for the wide range of things I wish to do with this device.
 A [discone antenna][42] is a good general antenna for the RTL-SDR as they are extremely wideband,
-and should be useful over most of RTL-SDR's tuneable range.
+and can be engineered to be useful over most of RTL-SDR's tuneable range.
 There are several good sources for designing a discone antenna, some of better are listed below:
 
 * [Home Made Coat Hanger Discone](http://www.rtl-sdr.com/home-made-coat-hanger-discone/)

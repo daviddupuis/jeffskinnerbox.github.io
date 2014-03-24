@@ -1,10 +1,5 @@
 Title: Vim Cheat Sheet
-Date: 2014-02-21 18:20
-Category: Pages
-Tags: vim
 Slug: vim-cheat-sheet
-Author: Jeff Irland
-Summary: abla bla bla
 Status: hidden
 
 <a href="http://www.glump.net/howto/desktop/vim-graphical-cheat-sheet-and-tutorial">Graphical vi-vim Cheat Sheet and Tutorial</a>

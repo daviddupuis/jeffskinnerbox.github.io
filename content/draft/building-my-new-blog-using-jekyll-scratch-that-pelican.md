@@ -4,28 +4,23 @@ Category: Blogging
 Tags: Jekyll, Pelican, Blog, Bootstrap
 Slug: building-my-new-blog-using-jekyll-scratch-that-pelican
 Author: Jeff Irland
-Summary: This Jekyll introduction outlines specifically how I set up my Jekyll blog, as well as, explains how Jekyll does what it does.
+Summary: This article give a "how I setup Pelican" outline from start to finish. It shows you how to install Pelican, add supporting tools like Markdown, Disqus, Google Analytics, Bootstrap, etc.  It also show you how to use tools Make and GitHub to create a easy to maintain workflow.
 
-#General
 * [Migrating from Octopress to Pelican](http://jakevdp.github.io/blog/2013/05/07/migrating-from-octopress-to-pelican/)
+* [How I setup Pelican](http://terriyu.info/blog/posts/2013/07/pelican-setup/)
 
-# Customizing Bootstrap
-1. Forking/cloning will let you fetch the new upcoming versions of Bootstrap easily
-2. Do not modify the bootstrap.css file
-3. Create your own css file and overwrite whenever you want original bootstrap stuff
+Prior to setting up this blog, I initially started with [WordPress][47],
+I felt limited by it and then  I discovered that many tech-savvy people were
+using static site generators like [Jekyll][06] or [Pelican][10].
+Static web site don't generate web pages upon request, like WordPress.
+Instead, software on your local machine creates webpages and then these pages are uploaded to the webhost.
+The webpages have fixed content, hence the description "static site."
+For a personal blog, a static site can makes a lot of sense because it more secure, 
+there is no maintenance of web server software,
+your can write the blog in friendly language like [Markdown][19],
+you can easily control versioning of you content with tools like Git,
+and you blog is easily ported to any other site.
 
-* ["best practices" for customizing Bootstrap css template](http://stackoverflow.com/questions/8596794/customizing-bootstrap-css-template)
-* [Customizing Bootstrap](http://coding.smashingmagazine.com/2013/03/12/customizing-bootstrap/)
-* [How to customize Twitter Bootstrap to fit your web design](http://www.codeproject.com/Articles/594098/How-to-customize-Twitter-Bootstrap-to-fit-your-web)
-* [Less Like Bootstrap – 5 Ways To Customize Your Designs](http://blog.jetstrap.com/2013/07/less-like-bootstrap/)
-* [How to modify Bootstrap simply and effectively](http://www.webdesignerdepot.com/2013/07/how-to-modify-bootstrap-simply-and-effectively/)
-* [Bootstrap ThemeRoller](http://www.bootstrapthemeroller.com/)
-* [Free themes for Bootstrap](http://bootswatch.com/#gallery)
-* [Shine Your Boots! Customizing Twitter Bootstrap](http://www.cognizo.com/2012/04/twitter-bootstrap-customization/)
-* [Twitter Bootstrap 101](http://webdesign.tutsplus.com/series/twitter-bootstrap-101/)
-
-
-# Pelican
 My orginal plan was to port [my WordPress blog][11] to GitHub and use [Jekyll][06].
 I did this, and I used it for several months, but felt less and less satisfied with my choose.
 I then read the post "[Moving Blogs to Pelican][01]" and I resounated with nearly ever word.
@@ -34,69 +29,35 @@ Like Jekyll, Pelican is a static site generator requiring no database or server-
 but it makes use of Python, Make, and Shell, not Ruby.
 This was an important factor, I never had a need to use Ruby and why should my blog force the issue?
 
-The [Pelican Development Blog][02] will provide the detail documentation needed
+The contents of a Pelican  blog is either a post (in Pelican terminalogy, an article) or a page.
+The raw, unprocessed content (e.g. pages, articles, drafts, images, etc.)
+is contained in a directory called `content`.
+Both articles and pages can be written in
+[Markdown][19], [reStructuredText][20], [AsciiDoc][21], or even raw [HTML][25].
+Both articles and pages can have meta-data at the top of the document containing such things as
+title, publication date, tags, etc. and even arbitrary custom meta-data.
+
+The processed, ready to be published materials are contained in a directory called `output`.
+It is this directory that will be pushed to your web server.
+Their are other things that make up a Pelican blog,
+such as plugins, themes, make files, and other publishing tools.
+More on this later.
+
+To create this posting, I leveraged the [Pelican Development Blog][02],
+which provide much of the detail documentation needed
 but to get started I followed the advice of the [Tutorial: Generating Static Sites with Pelican][07],
 [Pelican Getting Started Guide][03], and [Pelican and Github Pages][04] very useful.
 Also, reading [Creating a Blog with Python Pelican][17] and [How I setup Pelican][18] prove very helpful.
 You can find the latest Pelican code, along with its [themes and plugins on GitHub][05].
 You might find more information on [Pelican's GetHub][23] and [Pelican's Tips & Tricks][24].
 
-##### Contents of Pelican Blog
-The contents of a Pelican  blog is either a post (in Pelican terminalogy, an article) or a page.
-The raw, unprocessed content is contained (pages, articles, drafts, images, etc.) in a directory called `content`.
-Both articles and pages are be written in
-[Markdown][19], [reStructuredText][20], [AsciiDoc][21], or even raw [HTML][25].
-markdown, textile, or HTML and may also contain Liquid templating syntax.
-Both articles and pages can have meta-data at the top of the document containing things like such as
-title, publication date, tags, etc. and even arbitrary custom meta-data.
-
-The processed, ready to be published materials are contained in a directory called `output`.
-It is this directory that will be pushed to your web server.
-Their are other things that make up a Pelican blog, such as plugins, themes, make files, and other publishing tools.
-More on this later.
-
-##### Pelican's File Structure
-Jekyll expects your website directory to be laid out like so:
-
-    # not correct .... XXXX FINISH THIS XXXX
-    |-- _config.yml
-    |-- _includes
-    |-- _layouts
-    |   |-- default.html
-    |   |-- post.html
-    |-- _posts
-    |   |-- 20011-10-25-open-source-is-good.markdown
-    |   |-- 20011-04-26-hello-world.markdown
-    |-- _site
-    |-- index.html
-    |-- assets
-        |-- css
-            |-- style.css
-        |-- javascripts
-
-Theme
-    : xxx
-static
-    : contains all the static assets, which will be copied to the output theme folder. I’ve put the CSS and image folders here, but they are just examples. Put what you need here.
-templates
-    :contains all the templates that will be used to generate the content. I’ve just put the mandatory templates here; you can define your own if it helps you keep things organized while creating your theme.
-
-index.html
-    : This is the home page of your blog, generated at output/index.html.
-author.html
-    : This template will be processed for each of the existing authors, with output generated at output/author/author_name.html.
-category.html
-    : This template will be processed for each of the existing categories, with output generated at output/category/category_name.html.
-article.html
-    : This template will be processed for each article, with .html files saved as output/article_name.html. Here are the specific variables it gets.
-page.html
-    : This template will be processed for each page, with corresponding .html files saved as output/page_name.html.
-tag.html
-    : This template will be processed for each tag, with corresponding .html files saved as output/tag/tag_name.html.
-
-##### Create a virtualenv
-To assure I have a clean Python envirnment to work in and it doesn't conflict with other Python work,
-create a virtual environment for your Project.
+##### Installing Pelican and Creating a Python Virtualenv
+Pelican is a [Python][48] based tool.
+To assure I have a clean Python envirnment to work in, that doesn't conflict with other Python work,
+create a virtual environment using `virtualenv[49]`.
+To install Pelican and other Python package dependencies in a virtual environment,
+I roughly followed the instructions in the [official Pelican documentation][50].
+See below:
 
 ```shell
 cd ~
@@ -107,22 +68,33 @@ pip install Pelican==3.3
 pip install Markdown
 pip install typogrify
 pip install ghp-import
+deactivate
 ```
 
-#### Quickstart Pelican
+**Note:** Don't use `sudo` when installing these Python packages in a virtual environment,
+otherwise you'll end up installing them globally,
+which defeats the purpose of using virtual environments.
+
+#### Run Quickstart Pelican
 Pelican now comes with a quickstart command that will create a skeleton directory structure for your project.
 When running the command will ask you a series of questions.
+See the posting [How I setup Pelican][18] for recommendations on how to answer the questions.
+I (more or less) followed what was done in this article.
 
-    pelican-quickstart
+```shell
+pelican-quickstart
+```
 
-At this point, running the command `pelican -s pelican.conf.py` in the `blogging`
+At this point, running the command `pelican -s pelicanconf.py` in the `blogging`
 directory would generate all static files for the blog using the
-default theme `notmyidea` into the `output/` directory.
+default Pelican theme `notmyidea` into the `output/` directory.
 You can no serve this directory as you would any other static html files.
 You can test this out by doing the following:
 
-    make html
-    make serve
+```shell
+make html
+make serve
+```
 
 Then using a browser, enter `localhost:8000`.
 Nothing much will be there since not content has been created but you see the shell for
@@ -130,8 +102,10 @@ your `notmyidea` themed blog.
 
 #### Fork & Clone Pelican Themes and Plugins
 I wanted to leverage the official [Pelican themes][12] and [Pelican plugins][13],
-and have them under version control, so I performed the standard procedure of [forking/cloning the GitHub][14].
-First step is to fork these repositories on GitHub then do the following:
+and have them under version control,
+so I performed the standard procedure of [forking/cloning the GitHub][14].
+First step is to fork these repositories on GitHub.
+I did the following:
 
 ```shell
 cd ~/blogging/pelican-plugins
@@ -148,7 +122,7 @@ git fetch upstream
 #### Set Up Git
 With what has been done so far,
 you have the beginings of a project structure and you should initiate a Git repository to control it.
-Do the `git init` and create a `.gitignore` file:
+Do the `git init` and create a rudimentary `.gitignore` file:
 
 ```shell
 git init
@@ -162,28 +136,31 @@ output/
 ```
 
 More work needs to be done, so updates will be required.
-I have posted a final and more complete version of `.gitignore` on Gist. XXXX FINISH THIS XXXX
+I have posted a final and more complete version of `.gitignore` [on Gist][51].
 
 #### Pelican Configuration File
 Pelican is configurable via setting is a Python module called `pelicanconf.py`.
-The settings you define in this configuration file will be used within templates that are part of the themes.
-The basic idea is that Pelican will be using the template files in your
+The settings you define in this configuration file will be used within the Pewlican
+templates that are part of the themes and to control Pelican processing.
+The basic idea is that you can point Pelican at the template files in your
 `pelican-themes/<theme>/templates/` directory to generate all static html files.
 Pelican uses [Jinja][15] for its templating language.
 In these templates, you should have access to all variables from `pelicanconf.py`
 as well as template-specific variables (See “[Template and Variables][16]”
 section of the Pelican documentation).
 
-Thinking of Pelican's two primary modes of operation:
-local development and production deployment (i.e., pelicanconf.py and publishconf.py, respectively).
-When developing locally, settings for things like Google Analytics and Disqus are deliberately left out of pelicanconf.py by design. Including those settings in local testing can have adverse effects: inaccurate site statistics, spurious comment threads, and other unanticipated side effects.
+Think of Pelican as having two primary modes of operation:
+local development and production deployment (i.e., `pelicanconf.py` and `publishconf.py`, respectively).
+When developing locally, settings for things like Google Analytics and Disqus
+are deliberately left out of `pelicanconf.py` by design.
+Including those settings in local testing can have adverse effects:
+inaccurate site statistics, spurious comment threads, and other unanticipated side effects.
 
-When it is time to publish your site, then of course you want those settings to be included. The way to do that is to ensure your publishconf.py is being referenced at publish time: `pelican content -s publishconf.py`.
-
-My `pelicanconf.py` file looks like this:
-
-    must add pelicanconf.py here  XXXX FINISH THIS XXXX
-
+When it is time to publish your site,
+then of course you want those settings to be included.
+The way to do that is to ensure your `publishconf.py` is being referenced at publish time:
+`pelican content -s publishconf.py`.
+I posted my `pelicanconf.py` and `publishconf.py` files on Gist here and here.  XXXX FINISH THIS XXXX
 
 #### Pelican's Markdown
 Pelican will support [Markdown][19], [reStructuredText][20], and [AsciiDoc][21]
@@ -196,7 +173,7 @@ I especially like using the footnotes extension......
 Pelican considers “articles” to be chronological content, such as posts on a blog,
 and thus associated with a date (e.g. a web posting about some project underway).
 Pelican also supports “pages” that are usually not temporal in nature
-and are used for content that does not change very often (e.g., “About” page).
+and are used for content that does not change very often (e.g., “About Me” page).
 Also like Jekyll, each of the content files contain metadata about the file.
 When using Markdown, that metadata looks like:
 
@@ -262,9 +239,10 @@ Once you are done testing your changes, you should stop the development server v
     ./develop_server.sh stop
 
 When you’re ready to publish your site, you can upload it via the method(s)
-you chose during the pelican-quickstart questionnaire. For this example, we’ll use rsync over ssh:
+you chose during the pelican-quickstart questionnaire.
+I modified the `Makefile` to include the following:
 
-    make rsync_upload
+    make github
 
 #### Adding Content
 The next step is to begin to adding content to the content folder that has been created for you.
@@ -287,11 +265,66 @@ I started with [pelican-bootstrap3][27] to creat my theme.
 This theme makes use of [Bootstrap 3][28],
 a front-end framework for developing [responsive web sites][34].
 
+# Customizing Bootstrap
+1. Forking/cloning will let you fetch the new upcoming versions of Bootstrap easily
+2. Do not modify the bootstrap.css file
+3. Create your own css file and overwrite whenever you want original bootstrap stuff
+
+* ["best practices" for customizing Bootstrap css template](http://stackoverflow.com/questions/8596794/customizing-bootstrap-css-template)
+* [Customizing Bootstrap](http://coding.smashingmagazine.com/2013/03/12/customizing-bootstrap/)
+* [How to customize Twitter Bootstrap to fit your web design](http://www.codeproject.com/Articles/594098/How-to-customize-Twitter-Bootstrap-to-fit-your-web)
+* [Less Like Bootstrap – 5 Ways To Customize Your Designs](http://blog.jetstrap.com/2013/07/less-like-bootstrap/)
+* [How to modify Bootstrap simply and effectively](http://www.webdesignerdepot.com/2013/07/how-to-modify-bootstrap-simply-and-effectively/)
+* [Bootstrap ThemeRoller](http://www.bootstrapthemeroller.com/)
+* [Free themes for Bootstrap](http://bootswatch.com/#gallery)
+* [Shine Your Boots! Customizing Twitter Bootstrap](http://www.cognizo.com/2012/04/twitter-bootstrap-customization/)
+* [Twitter Bootstrap 101](http://webdesign.tutsplus.com/series/twitter-bootstrap-101/)
+
+
 Bootstrap is a popular web framework, and as a result of its growing popularity,
 it has created uniformity between many websites.
 [Bootswatch][35] was created to somewhat combate this trend,
 enable developers, still using Bootstrap to try on a new look,
 without investing much time or energy.
+
+##### Pelican's File Structure
+Jekyll expects your website directory to be laid out like so:
+
+    # not correct .... XXXX FINISH THIS XXXX
+    |-- _config.yml
+    |-- _includes
+    |-- _layouts
+    |   |-- default.html
+    |   |-- post.html
+    |-- _posts
+    |   |-- 20011-10-25-open-source-is-good.markdown
+    |   |-- 20011-04-26-hello-world.markdown
+    |-- _site
+    |-- index.html
+    |-- assets
+        |-- css
+            |-- style.css
+        |-- javascripts
+
+Theme
+    : xxx
+static
+    : contains all the static assets, which will be copied to the output theme folder. I’ve put the CSS and image folders here, but they are just examples. Put what you need here.
+templates
+    :contains all the templates that will be used to generate the content. I’ve just put the mandatory templates here; you can define your own if it helps you keep things organized while creating your theme.
+
+index.html
+    : This is the home page of your blog, generated at output/index.html.
+author.html
+    : This template will be processed for each of the existing authors, with output generated at output/author/author_name.html.
+category.html
+    : This template will be processed for each of the existing categories, with output generated at output/category/category_name.html.
+article.html
+    : This template will be processed for each article, with .html files saved as output/article_name.html. Here are the specific variables it gets.
+page.html
+    : This template will be processed for each page, with corresponding .html files saved as output/page_name.html.
+tag.html
+    : This template will be processed for each tag, with corresponding .html files saved as output/tag/tag_name.html.
 
 ```
 ├── static
@@ -423,6 +456,9 @@ Generating Post in `_site` Directory
 Deploying the Website
     : If you use GitHub Pages for your website, here again, you can use some very farmilar tools.  You simply need to push the code to GitHub.
 
+#### Search Function
+Check out what this Pelican web site might have used: http://terriyu.info/blog/search.html
+
 #### Atom and RSS Feeds
 Web [content syndication][40] is the process of pushing your blog, site, or
 video content out into third-party sites, either as a full article, snippet, link, or thumbnail.
@@ -474,7 +510,8 @@ to move them to there proper destination for publishing
 (see `EXTRA_PATH_METADATA` in the `pelicancong.py` file).
 
 #### Setting Up Google Analytics and Disqus
-http://terriyu.info/blog/posts/2013/07/pelican-setup/#fn:2
+* [Setup Google Analytics/Piwik and Disqus](http://terriyu.info/blog/posts/2013/07/pelican-setup/#fn:2)
+* [54 Google Analytics Resources – The 2013 Edition](http://blog.kissmetrics.com/google-analytics-resources-2013/)
 
 #### Git and GitHub Setup
 
@@ -647,11 +684,11 @@ you can do so by adding `--upgrade` to the relevant command. For Pelican, that w
 [44]:http://www.robotstxt.org/orig.html
 [45]:http://en.wikipedia.org/wiki/Internet_bot
 [46]:https://github.com/getpelican/pelican/wiki/Tips-n-Tricks#generate-sitemapxml
-[47]:
-[48]:
-[49]:
-[50]:
-[51]:
+[47]:https://wordpress.org/
+[48]:https://www.python.org/
+[49]:http://www.virtualenv.org/en/latest/
+[50]:http://docs.getpelican.com/en/3.2/getting_started.html#installing-pelican
+[51]:https://gist.github.com/jeffskinnerbox/9612119
 [52]:
 [53]:
 [54]:

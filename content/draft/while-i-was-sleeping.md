@@ -36,7 +36,6 @@ Digital repositories are especially useful where data is used to directly reprod
 * [The 10 Minute Robot](http://alphalem.com/pages/the-10-minute-robot)
 * [Maker Education Initiative](http://www.makered.org/)
 * []()
-* []()
 
 #### Student Events
 * [StudentRND](http://studentrnd.org/)
@@ -47,8 +46,16 @@ Digital repositories are especially useful where data is used to directly reprod
 #### Local Maker Spaces
 * [Reverse Space](http://sphereroute.com/) - 13505 Dulles Technology Drive #3 Herndon, VA 
 * [Nova Labs](http://www.nova-labs.org/blog/) - 1881-F Metro Center Drive, Reston, VA
+    * [Hackaday Visits NOVA Labs And Small Batch Assembly](http://hackaday.com/2014/03/21/hackaday-visits-nova-labs-and-small-batch-assembly/)
 * [HOT ROD MAKERTRUCK Project](http://hotrodbus.blogspot.com/) - Manassas, VA
-* []()
+* [Club125 - The Greenbelt Community Makerspace](http://club125.com/) - 125 Centerway, Greenbelt, MD
+* [FredericksWerken](http://frederickswerken.org/)
+
+#### Local Maker Events
+* [NOVA Mini Maker Faire](http://makerfairenova.com/)
+* [ModevUX - Masters of Mobile UX](http://ux14.gomodev.com/)
+* [GE Garages](http://istrategylabs.com/2014/03/ge-garages-dc-opens-remake-the-capital-with-your-fellow-innovators/)
+* [Pilot - hands-on educational events for high school students](http://gopilot.org/)
 
 #### Online Tools
 * [Meetup](http://www.meetup.com/)
@@ -63,6 +70,7 @@ Digital repositories are especially useful where data is used to directly reprod
 * []()
 
 #### Massive Open Online Courses (MOOC)
+* [Richard Baraniuk: The birth of the open-source learning revolution](http://www.ted.com/talks/richard_baraniuk_on_open_source_learning)
 * [Anant Agarwal: Why massive open online courses (still) matter](http://www.ted.com/talks/anant_agarwal_why_massively_open_online_courses_still_matter.html?utm_source=newsletter_weekly_2014-02-01&utm_campaign=newsletter_weekly&utm_medium=email&utm_content=talk_of_the_week_image)
 * [MOOC List](http://www.mooc-list.com/)
 * [MOOCs 101](http://www.ted.com/playlists/141/moocs_101.html)

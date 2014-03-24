@@ -1,7 +1,5 @@
 Title: Scratch Pad
-Date: 2014-02-21 18:20
 Slug: scratch-pad
-Author: Jeff Irland
 Status: hidden
 
 #### Introductions to CAD Tools
@@ -19,9 +17,17 @@ Status: hidden
 
 ---
 
+#### Ultrasonic Distance Sensors
+* [Making a better HC-SR04 Echo Locator](http://uglyduck.ath.cx/ep/archive/2014/01/Making_a_better_HC_SR04_Echo_Locator.html)
+
+---
+
 #### Radar
+* [Radar Imaging in your Garage: Synthetic Aperture Radar](http://hackaday.com/2014/03/17/radar-imaging-in-your-garage-synthetic-aperture-radar/#more-115727)
 * [Try Radar for Your Next Project](http://hackaday.com/2014/02/24/guest-post-try-radar-for-your-next-project/#more-115551)
 * [RADARduino Prototype Testing and Revision 2 Details](http://reactancelabs.com/?p=293)
+* [The $240 High Resolution X-Band Linear Rail SAR Imaging System](http://glcharvat.com/Dr._Gregory_L._Charvat_Projects/$240_High_Res_Rail_SAR.html)
+* [Homebuilt Ultra Wideband Impulse Radar](http://hackaday.com/2013/10/05/homebuilt-ultra-wideband-impulse-radar/)
 * Coffee Can Radar
     * [How to build a synthetic-aperture imaging system with tin cans and AA batteries](http://spectrum.ieee.org/geek-life/hands-on/coffeecan-radar)
     * [Build a Small Radar System Capable of Sensing Range, Doppler, and Synthetic Aperture Radar Imaging](http://ocw.mit.edu/resources/res-ll-003-build-a-small-radar-system-capable-of-sensing-range-doppler-and-synthetic-aperture-radar-imaging-january-iap-2011/)
@@ -69,14 +75,6 @@ Laser Writing
 * [SpectraBeat: LaserRumbler projector](http://spectrabeat.com/)
 * [DIY pillbox laser projector](http://makezine.com/2010/09/16/diy-pillbox-laser-projector/)
 * [RGB laser projector is a jaw-dropping build](http://www.edaboard.com/thread230353.html)
-
----
-
-#### Aircraft Transponders / ADS-B
-* [Build a Cheap Airplane ADS-B Radio Receiving Tracking Station](http://hackaday.com/2014/01/16/build-a-cheap-airplane-ads-b-radio-receiving-tracking-station/#more-112602)
-* [ADS-B Sniffing with the Raspberry Pi and the NooElec 820T Dongle](http://corq.co/?p=1865)
-* [Listening to aircraft transponders with a Raspberry Pi](http://hackaday.com/2013/05/23/listening-to-aircraft-transponders-with-a-raspberry-pi/)
-* [Dump1090 for the Raspberry Pi](http://www.satsignal.eu/raspberry-pi/dump1090.html)
 
 ---
 
@@ -316,7 +314,22 @@ In the August 2009  Aclara Technologies white paper [Metering and More: How 
 ###### Police & Fire Scanner
 * [How to Make a $19 Police Scanner](https://sites.google.com/site/policescannerhowto/)
 
+###### Aircraft Monitoring
+* [RTL-SDR Tutorial: Receiving Airplane Data with ACARS ](http://www.rtl-sdr.com/rtl-sdr-radio-scanner-tutorial-receiving-airplane-data-with-acars/)
+* [ACARS decoder](http://acarsdec.sourceforge.net/)
+* [PlanePlotter](http://www.nicstorey.co.uk/planeplotter/sdrscanner)
+* [acarsd - ACARS Decoder for Linux & Windows](http://www.acarsd.org/)
+
+##### Aircraft Transponders / ADS-B
+* [Build a Cheap Airplane ADS-B Radio Receiving Tracking Station](http://hackaday.com/2014/01/16/build-a-cheap-airplane-ads-b-radio-receiving-tracking-station/#more-112602)
+* [ADS-B Sniffing with the Raspberry Pi and the NooElec 820T Dongle](http://corq.co/?p=1865)
+* [Listening to aircraft transponders with a Raspberry Pi](http://hackaday.com/2013/05/23/listening-to-aircraft-transponders-with-a-raspberry-pi/)
+* [Dump1090 for the Raspberry Pi](http://www.satsignal.eu/raspberry-pi/dump1090.html)
+
+---
+
 ###### Satellite Broadcasts
+*[How to take NOAA satellite pictures using RTL-SDR for under $50](http://tutorialphotoshop.me/fopnIkYnFPI/How-to-take-NOAA-satellite-pictures-using-RTL-SDR-for)
 * [Receiving photos from NOAA satellites with RTL SDR](http://sq7obj.wordpress.com/2012/07/22/receiving-photos-from-noaa-satellites-with-rtl-sdr/)
 * [Satellite Tools](http://www.satsignal.eu/)
 * [PyEphem provides scientific-grade astronomical computations](http://rhodesmill.org/pyephem/)

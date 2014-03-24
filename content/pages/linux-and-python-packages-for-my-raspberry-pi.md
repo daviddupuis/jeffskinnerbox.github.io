@@ -1,16 +1,14 @@
-Title: Linux & Python Packages for My Raspberry Pi
-Date: 2014-02-21 18:20
-Category: Pages
-Tags: Linux, Python, Raspberry Pi
-Slug: linux-python-packages-for-my-raspberry-pi
-Author: Jeff Irland
-Summary: bla bla bla
+Title: Linux and Python Packages for My Raspberry Pi
+Slug: linux-and-python-packages-for-my-raspberry-pi
 Status: hidden
 
-<a href="http://jeffskinnerbox.wordpress.com/linux-python-packages-for-my-raspberry-pi/raspberry-pi-python-logo-rpi-logo/" rel="attachment wp-att-992"><img class="img-rounded floatLeft" alt="Raspberry Pi + Python Logo + RPi Logo" src="http://jeffskinnerbox.files.wordpress.com/2012/12/raspberry-pi-python-logo-rpi-logo.jpg" width="10%" height="10%" /></a>
+<a href="/images/raspberry-pi-python-logo-rpi-logo.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Raspberry Pi + Python Logo + RPi Logo" src="/images/raspberry-pi-python-logo-rpi-logo.jpg" width="150" height="150" />
+</a>
 I have two Raspberry Pi's (RPi) and will likely have more as I proceed deeper into the projects I have identified.
 Not all the RPi's will be configured the same
 and I'm using this page to document what Linux and Python packages I have loaded.
+
 ### My Raspberry Patch
 RPi Broad | Linux Packages
 |:-------:|:----------------|
