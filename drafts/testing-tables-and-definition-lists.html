@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Testing: Tables and Definition Lists - Jeff's Skinner Box</title>
+    <title>Testing: Tables and Definition Lists - Jeff's Skinner Box</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
 
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Testing: Tables and Definition Lists"/>
+            <meta property="og:title" content="Testing: Tables and Definition Lists"/>
             <meta property="og:url" content="http://jeffskinnerbox.me/posts/2100/Jan/01/testing-tables-and-definition-lists/"/>
             <meta property="og:description" content="This page is for testing purposes only."/>
 
@@ -27,12 +27,14 @@
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
-    <link href="http://jeffskinnerbox.me/theme/css/pygments/native.css" rel="stylesheet">
-        <link href="http://jeffskinnerbox.me/theme/css/typogrify.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
     <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
 </head>
 
 <body>
@@ -51,21 +53,22 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                          <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About&nbsp;Me
+                             About Me
                           </a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://jeffskinnerbox.me/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
-<a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
-    <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
-</a>       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 </div> <!-- /.navbar -->
 
 <div class="container">
@@ -78,8 +81,8 @@ Jeff's Skinner Box&nbsp;            </a>
                 <h1>
                     <a href="http://jeffskinnerbox.me/posts/2100/Jan/01/testing-tables-and-definition-lists/"
                        rel="bookmark"
-                       title="Permalink to Testing: Tables and Definition Lists">
-                        Testing: Tables and Definition&nbsp;Lists
+                       title="Permalink to Testing: Tables and Definition Lists">
+                        Testing: Tables and Definition Lists
                     </a>
                 </h1>
             </header>
@@ -88,7 +91,7 @@ Jeff's Skinner Box&nbsp;            </a>
                     <div class="panel-body">
 <footer class="post-info">
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00"> Friday  January 01, 2100</time>
+        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00"> Friday&nbsp;&nbsp;&nbsp;&nbsp;January 01, 2100</time>
     </span>
 
 
@@ -101,10 +104,43 @@ Jeff's Skinner Box&nbsp;            </a>
     <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
 </a>                </div>
                 <h2>The Back&nbsp;Story</h2>
+<p>Out of the box, the table formating of Python Markdown sucks!
+It has no borders, no header formating, no padding in cells, etc.
+This can be fixed with a little custom <span class="caps">CSS</span>.
+My fix is in <code>content/extra/custom.css</code> and is listed&nbsp;blow:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">/* This will provide some visual improvements to Markdown&#39;s formatted tables */
+table, th, td {
+    margin-left: auto; 
+    margin-right: auto;
+    border: 1px solid black;
+}
+
+th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #B8B8B8;
+    color: black;
+}
+
+td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: #FFFFFF;
+    color: black;
+}
+</pre></div>
+
+
 <h2>Tables</h2>
-<p>Tables aren&#8217;t part of the core Markdown spec, but are by Pyhton / Pelican.
+<p>Tables aren&#8217;t part of the core Markdown spec, but are part of Python / Pelican
+implementation.
 This posting gives you some idea on how <a href="http://stackoverflow.com/questions/16099153/table-not-render-when-use-redcarpet-in-jekyll-github-pages">tables should be supported</a>
-and see the <a href="http://pythonhosted.org//Markdown/extensions/tables.html">Python Table extension</a>.  For&nbsp;example:</p>
+and see the <a href="http://pythonhosted.org//Markdown/extensions/tables.html">Python Table extension</a>.
+You combine this, with the <code>custom.css</code> discussed above, and you can get the&nbsp;following:</p>
 <table>
 <thead>
 <tr>
@@ -123,14 +159,14 @@ and see the <a href="http://pythonhosted.org//Markdown/extensions/tables.html">P
 </tr>
 <tr>
 <td>row 2, col 1</td>
-<td align="left"><strong>this Should be bold</strong></td>
+<td align="left"><strong>this should be bold</strong></td>
 <td align="right">row 2, col 3</td>
 <td align="center">row 2, col 4</td>
 </tr>
 <tr>
 <td>row 3, col 1</td>
 <td align="left">row 3, col 2</td>
-<td align="right">row 3, col 3</td>
+<td 1="1" align="right"><mathjax>$\frac</td>
 <td align="center">row 3, col 4</td>
 </tr>
 <tr>
@@ -147,6 +183,7 @@ and see the <a href="http://pythonhosted.org//Markdown/extensions/tables.html">P
 </tr>
 </tbody>
 </table>
+<p>Test of inline MathJax: $</mathjax>\frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25&nbsp;\pi}}$</p>
 <h2>Definition&nbsp;Lists</h2>
 <p>The <a href="http://pythonhosted.org/Markdown/extensions/definition_lists.html">Definition Lists</a> extension adds the ability to create definition lists in Markdown documents.
 For example, here are defintions of two&nbsp;fruits:</p>
@@ -165,7 +202,37 @@ the family&nbsp;Rosaceae.</dd>
 <dd>An American computer&nbsp;company.</dd>
 <dt>Orange</dt>
 <dd>The fruit of an evergreen tree of the genus&nbsp;Citrus.</dd>
-</dl>
+</dl><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -220,7 +287,7 @@ the family&nbsp;Rosaceae.</dd>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
-            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+            <li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">Links</span></h4>
                 <ul class="list-group" id="links">
                     <li class="list-group-item">
                         <a href="/pages/scratch-pad.html" target="_blank">
@@ -228,7 +295,7 @@ the family&nbsp;Rosaceae.</dd>
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                        <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
                             RPi Packages
                         </a>
                     </li>
@@ -247,20 +314,32 @@ the family&nbsp;Rosaceae.</dd>
 
                 <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
                   <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
-                            class="fa fa-github-square fa-lg"></i> Github
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-github-square fa-lg"></i> Github
                     </a></li>
-                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
-                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-twitter-square fa-lg"></i> Twitter
                     </a></li>
-                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
-                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
-                    </a></li>
-                    <li class="list-group-item"><a href="http://jeffskinnerbox.me/feeds/all.atom.xml" target="_blank"><i
-                            class="fa fa-rss-square fa-lg"></i> RSS
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+                        <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
                     </a></li>
                   </ul>
             </li>
+
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 

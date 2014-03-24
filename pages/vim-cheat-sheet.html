@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Vim Cheat&nbsp;Sheet - Jeff's Skinner Box</title>
+    <title>Vim Cheat Sheet - Jeff's Skinner Box</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
 
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Vim Cheat&nbsp;Sheet"/>
+            <meta property="og:title" content="Vim Cheat Sheet"/>
             <meta property="og:url" content="http://jeffskinnerbox.me/pages/vim-cheat-sheet.html"/>
 
         <meta content='4b4ba976784eb9a97125d9e26149a667' name='RepostUsAPIKey' />
@@ -26,12 +26,14 @@
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
-    <link href="http://jeffskinnerbox.me/theme/css/pygments/native.css" rel="stylesheet">
-        <link href="http://jeffskinnerbox.me/theme/css/typogrify.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
     <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
 </head>
 
 <body>
@@ -50,21 +52,22 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                          <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About&nbsp;Me
+                             About Me
                           </a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://jeffskinnerbox.me/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
-<a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
-    <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
-</a>       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 </div> <!-- /.navbar -->
 
 <div class="container">
@@ -72,7 +75,7 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="col-sm-9">
 
     <section id="content" class="body">
-        <h1 class="entry-title">Vim Cheat&nbsp;Sheet</h1>
+        <h1 class="entry-title">Vim Cheat Sheet</h1>
         
         <div class="entry-content">
             <p><a href="http://www.glump.net/howto/desktop/vim-graphical-cheat-sheet-and-tutorial">Graphical vi-vim Cheat Sheet and&nbsp;Tutorial</a></p>
@@ -289,7 +292,7 @@ Jeff's Skinner Box&nbsp;            </a>
 <td></td>
 </tr>
 <tr>
-<td>$</td>
+<td><mathjax>$</td>
 <td align="center">To the end of a line.</td>
 <td align="left"></td>
 <td></td>
@@ -326,7 +329,7 @@ Jeff's Skinner Box&nbsp;            </a>
 </tr>
 <tr>
 <td>:n</td>
-<td align="center">Jump to line number n. For example, to jump to line 42, you&#8217;d type :42</td>
+<td align="center">Jump to line number n. For example, to jump to line 42, you'd type :42</td>
 <td align="left"></td>
 <td></td>
 </tr>
@@ -471,7 +474,7 @@ Jeff's Skinner Box&nbsp;            </a>
 <td></td>
 </tr>
 <tr>
-<td>d$</td>
+<td>d$</mathjax></td>
 <td align="center">Delete to the end of the line.</td>
 <td align="left"></td>
 <td></td>
@@ -521,19 +524,19 @@ Jeff's Skinner Box&nbsp;            </a>
 <td></td>
 </tr>
 <tr>
-<td>y$</td>
+<td>y<mathjax>$</td>
 <td align="center">Yank to the end of the line</td>
 <td align="left"></td>
 <td></td>
 </tr>
 <tr>
-<td>&#8220;+y</td>
-<td align="center">copies to the &#8220;usual&#8221; clipboard buffer (so you can paste using Ctrl+V, right click and select &#8220;Paste&#8221; etc)</td>
+<td>"+y</td>
+<td align="center">copies to the "usual" clipboard buffer (so you can paste using Ctrl+V, right click and select "Paste" etc)</td>
 <td align="left"></td>
 <td></td>
 </tr>
 <tr>
-<td>&#8220;*y</td>
+<td>"*y</td>
 <td align="center">copies to the X11 selection - you can paste from this buffer using middle click</td>
 <td align="left"></td>
 <td></td>
@@ -657,7 +660,7 @@ Jeff's Skinner Box&nbsp;            </a>
 <td></td>
 </tr>
 <tr>
-<td>The <span class="caps">ESC</span> key</td>
+<td>The ESC key</td>
 <td align="center">Exit visual mode and return to command mode.</td>
 <td align="left"></td>
 <td></td>
@@ -665,7 +668,7 @@ Jeff's Skinner Box&nbsp;            </a>
 </tbody>
 </table>
 <h2>Editing blocks of&nbsp;text</h2>
-<p>Note: the Vim commands marked with (V) work in visual mode, when you&#8217;ve selected some text. The other commands work in the command mode, when you haven&#8217;t selected any&nbsp;text.</p>
+<p>Note: the Vim commands marked with (V) work in visual mode, when you've selected some text. The other commands work in the command mode, when you haven't selected any&nbsp;text.</p>
 <table>
 <thead>
 <tr>
@@ -702,31 +705,31 @@ Jeff's Skinner Box&nbsp;            </a>
 </tr>
 <tr>
 <td>y (V)</td>
-<td align="center">Yank the highlighted text. In Windows terms, &#8220;copy the selected text to clipboard.&#8221;</td>
+<td align="center">Yank the highlighted text. In Windows terms, "copy the selected text to clipboard."</td>
 <td align="left"></td>
 <td></td>
 </tr>
 <tr>
 <td>d (V)</td>
-<td align="center">Delete the highlighted text. In Windows terms, &#8220;cut the selected text to clipboard.&#8221;</td>
+<td align="center">Delete the highlighted text. In Windows terms, "cut the selected text to clipboard."</td>
 <td align="left"></td>
 <td></td>
 </tr>
 <tr>
 <td>yy or :y or Y</td>
-<td align="center">Yank the current line. You don&#8217;t need to highlight it first.</td>
+<td align="center">Yank the current line. You don't need to highlight it first.</td>
 <td align="left"></td>
 <td></td>
 </tr>
 <tr>
 <td>dd or :d</td>
-<td align="center">Delete the current line. Again, you don&#8217;t need to highlight it first.</td>
+<td align="center">Delete the current line. Again, you don't need to highlight it first.</td>
 <td align="left"></td>
 <td></td>
 </tr>
 <tr>
 <td>p</td>
-<td align="center">Put the text you yanked or deleted. In Windows terms, &#8220;paste the contents of the clipboard&#8221;. Put characters after the cursor. Put lines below the current line.</td>
+<td align="center">Put the text you yanked or deleted. In Windows terms, "paste the contents of the clipboard". Put characters after the cursor. Put lines below the current line.</td>
 <td align="left"></td>
 <td></td>
 </tr>
@@ -1007,13 +1010,13 @@ Jeff's Skinner Box&nbsp;            </a>
 </tr>
 <tr>
 <td>I</td>
-<td align="center">Don&#8217;t ignore case.</td>
+<td align="center">Don't ignore case.</td>
 <td align="left"></td>
 <td></td>
 </tr>
 <tr>
 <td>c</td>
-<td align="center">Confirm each substitution. You can type y to substitute this match, n to skip this match, a to substitute this and all the remaining matches (&#8220;Yes to all&#8221;), and q to quit substitution.</td>
+<td align="center">Confirm each substitution. You can type y to substitute this match, n to skip this match, a to substitute this and all the remaining matches ("Yes to all"), and q to quit substitution.</td>
 <td align="left"></td>
 <td></td>
 </tr>
@@ -1043,7 +1046,7 @@ Jeff's Skinner Box&nbsp;            </a>
 </tr>
 <tr>
 <td>:%s/foo/bar/gi</td>
-<td align="center">The same as above, but ignore the case of the pattern you want to substitute. This replaces foo, <span class="caps">FOO</span>, Foo, and so on.</td>
+<td align="center">The same as above, but ignore the case of the pattern you want to substitute. This replaces foo, FOO, Foo, and so on.</td>
 <td align="left"></td>
 <td></td>
 </tr>
@@ -1078,7 +1081,7 @@ Jeff's Skinner Box&nbsp;            </a>
 <td></td>
 </tr>
 <tr>
-<td>:5,$s/old/new/g</td>
+<td>:5,$</mathjax>s/old/new/g</td>
 <td align="center">Replace all occurrences from line 5 to <span class="caps">EOF</span></td>
 <td align="left"></td>
 <td></td>
@@ -1090,7 +1093,7 @@ Jeff's Skinner Box&nbsp;            </a>
 <td></td>
 </tr>
 <tr>
-<td>:%s/$/Harry/g</td>
+<td>:%s/<mathjax>$/Harry/g</td>
 <td align="center">Replace the end of each line by Harry</td>
 <td align="left"></td>
 <td></td>
@@ -1102,7 +1105,7 @@ Jeff's Skinner Box&nbsp;            </a>
 <td></td>
 </tr>
 <tr>
-<td>:%s/ *$//g</td>
+<td>:%s/ *$</mathjax>//g</td>
 <td align="center">Delete all white spaces</td>
 <td align="left"></td>
 <td></td>
@@ -1156,7 +1159,7 @@ Jeff's Skinner Box&nbsp;            </a>
 <td></td>
 </tr>
 <tr>
-<td>:%s/^(.*)\n\1$/\1/</td>
+<td>:%s/^(.*)\n\1<mathjax>$/\1/</td>
 <td align="center">Delete lines which appears twice</td>
 <td align="left"></td>
 <td></td>
@@ -1192,13 +1195,13 @@ Jeff's Skinner Box&nbsp;            </a>
 <td></td>
 </tr>
 <tr>
-<td>[&#8230;]</td>
+<td>[...]</td>
 <td align="center">Any single character specified in the set</td>
 <td align="left"></td>
 <td></td>
 </tr>
 <tr>
-<td>[^&#8230;]</td>
+<td>[^...]</td>
 <td align="center">Any single character not specified in the set</td>
 <td align="left"></td>
 <td></td>
@@ -1210,7 +1213,7 @@ Jeff's Skinner Box&nbsp;            </a>
 <td></td>
 </tr>
 <tr>
-<td>$</td>
+<td>$</mathjax></td>
 <td align="center">Anchor - end of line</td>
 <td align="left"></td>
 <td></td>
@@ -1300,8 +1303,8 @@ Jeff's Skinner Box&nbsp;            </a>
 <td></td>
 </tr>
 <tr>
-<td>/^<span class="caps">TEST</span>$/</td>
-<td align="center">Matches if the line contains <span class="caps">TEST</span> by itself</td>
+<td>/^<span class="caps">TEST</span><mathjax>$/</td>
+<td align="center">Matches if the line contains TEST by itself</td>
 <td align="left"></td>
 <td></td>
 </tr>
@@ -1318,7 +1321,7 @@ Jeff's Skinner Box&nbsp;            </a>
 <td></td>
 </tr>
 <tr>
-<td>/2134$/</td>
+<td>/2134$</mathjax>/</td>
 <td align="center">Matches if line ends with 2134</td>
 <td align="left"></td>
 <td></td>
@@ -1811,7 +1814,37 @@ Jeff's Skinner Box&nbsp;            </a>
 <li><a href="http://lepture.com/work/vundle-vs-pathogen">Vundle vs&nbsp;Pathogen</a></li>
 <li><a href="http://rmitc.org/2013/04/modern-vim-plugin-management-pathogen-vs-vundle/">Modern vim plugin management – Pathogen vs&nbsp;Vundle</a></li>
 <li><a href="http://jon.oxer.com.au/cheatsheet/vim">Jonathan Oxer&#8217;s Cheat&nbsp;Sheets</a></li>
-</ul>
+</ul><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
         </div>
     </section>
         </div>
@@ -1836,7 +1869,7 @@ Jeff's Skinner Box&nbsp;            </a>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
-            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+            <li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">Links</span></h4>
                 <ul class="list-group" id="links">
                     <li class="list-group-item">
                         <a href="/pages/scratch-pad.html" target="_blank">
@@ -1844,7 +1877,7 @@ Jeff's Skinner Box&nbsp;            </a>
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                        <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
                             RPi Packages
                         </a>
                     </li>
@@ -1863,20 +1896,32 @@ Jeff's Skinner Box&nbsp;            </a>
 
                 <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
                   <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
-                            class="fa fa-github-square fa-lg"></i> Github
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-github-square fa-lg"></i> Github
                     </a></li>
-                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
-                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-twitter-square fa-lg"></i> Twitter
                     </a></li>
-                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
-                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
-                    </a></li>
-                    <li class="list-group-item"><a href="http://jeffskinnerbox.me/feeds/all.atom.xml" target="_blank"><i
-                            class="fa fa-rss-square fa-lg"></i> RSS
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+                        <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
                     </a></li>
                   </ul>
             </li>
+
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 

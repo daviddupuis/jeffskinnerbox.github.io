@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Building My Linux Box…The Implementation - Jeff's Skinner Box</title>
+    <title>Building My Linux Box...The Implementation - Jeff's Skinner Box</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
 
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Building My Linux Box…The Implementation"/>
+            <meta property="og:title" content="Building My Linux Box...The Implementation"/>
             <meta property="og:url" content="http://jeffskinnerbox.me/posts/2013/Aug/01/building-my-linux-box-the-implementation/"/>
             <meta property="og:description" content="In this posting, I show how I implemented my plans to build my custom made Linux system. I review where I deviated from my plans, and give some of the details on software configration."/>
 
@@ -27,12 +27,14 @@
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
-    <link href="http://jeffskinnerbox.me/theme/css/pygments/native.css" rel="stylesheet">
-        <link href="http://jeffskinnerbox.me/theme/css/typogrify.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
     <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
 </head>
 
 <body>
@@ -51,21 +53,22 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                          <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About&nbsp;Me
+                             About Me
                           </a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://jeffskinnerbox.me/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
-<a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
-    <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
-</a>       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 </div> <!-- /.navbar -->
 
 <div class="container">
@@ -78,8 +81,8 @@ Jeff's Skinner Box&nbsp;            </a>
                 <h1>
                     <a href="http://jeffskinnerbox.me/posts/2013/Aug/01/building-my-linux-box-the-implementation/"
                        rel="bookmark"
-                       title="Permalink to Building My Linux Box…The Implementation">
-                        Building My Linux Box&#8230;The&nbsp;Implementation
+                       title="Permalink to Building My Linux Box...The Implementation">
+                        Building My Linux Box...The Implementation
                     </a>
                 </h1>
             </header>
@@ -88,7 +91,7 @@ Jeff's Skinner Box&nbsp;            </a>
                     <div class="panel-body">
 <footer class="post-info">
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-08-01T00:01:00"> Thursday  August 01, 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-08-01T00:01:00"> Thursday&nbsp;&nbsp;&nbsp;&nbsp;August 01, 2013</time>
     </span>
 
 
@@ -123,8 +126,8 @@ Jeff's Skinner Box&nbsp;            </a>
 In an earlier post, I outlined <a href="http://jeffskinnerbox.wordpress.com/2013/04/28/building-my-linux-box-the-plan/">my plan for building a Linux Box</a>.  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
 <ul>
 <ul>
-    <li>After ordering all the hardware, it came to me that it was dumb to attempt to reuse my old semi-reliable, slow <span class="caps">CD</span> drive.  So I purchase the <span class="caps">HP</span> 24X Multiformat <span class="caps">DVD</span>/<span class="caps">CD</span> Writer (dvd1260i) at Best Buy for&nbsp;$40.</li>
-    <li>I discovered that the my old <span class="caps">PC</span> had <a href="http://www.webopedia.com/TERM/A/ATA.html"><span class="caps">ATA</span></a> hard drives (commonly called an <span class="caps">IDE</span> drive) and my new Mobo only supports <a href="http://www.webopedia.com/TERM/S/Serial_ATA.html"><span class="caps">SATA</span></a> (<span class="caps">SATA</span> 3Gb/s <span class="amp">&amp;</span> <span class="caps">6GB</span>/s and it includes an external eSATA port).   This blows my plan to reuse my existing hard drives &#8230; stupid me, I should have checked.  I did a quick scan for <span class="caps">ATA</span> controller cards and found a few (not many) for $15 to $30.  I could buy the card and make this work but it doesn&#8217;t seem like a good investment.  The drives are 400G drives and has a maximum data transfer rate of about <span class="caps">133MB</span>/s (i.e. <span class="caps">ATA</span>/66).  The maximum data transfer rates of <span class="caps">SATA</span> <span class="caps">II</span> and <span class="caps">SATA</span> <span class="caps">III</span> are 300 <span class="caps">MB</span>/s and 600 <span class="caps">MB</span>/s, respectively.  I can buy a Seagate - Barracuda <span class="caps">500GB</span> <span class="caps">SATA</span> <span class="caps">II</span> Internal Hard Drive for $70.  Given my objective to increase the performance of my computing experience, buying a new <span class="caps">SATA</span> <span class="caps">III</span> hard drive should have been part of&nbsp;the original plan.</li>
+    <li>After ordering all the hardware, it came to me that it was dumb to attempt to reuse my old semi-reliable, slow <span class="caps">CD</span> drive.  So I purchase the <span class="caps">HP</span> 24X Multiformat <span class="caps">DVD</span>/<span class="caps">CD</span> Writer (dvd1260i) at Best Buy for <mathjax>$40.</li>
+    <li>I discovered that the my old PC had <a href="http://www.webopedia.com/TERM/A/ATA.html">ATA</a> hard drives (commonly called an IDE drive) and my new Mobo only supports <a href="http://www.webopedia.com/TERM/S/Serial_ATA.html">SATA</a> (SATA 3Gb/s &amp; 6GB/s and it includes an external eSATA port).   This blows my plan to reuse my existing hard drives ... stupid me, I should have checked.  I did a quick scan for ATA controller cards and found a few (not many) for $</mathjax>15 to <mathjax>$30.  I could buy the card and make this work but it doesn't seem like a good investment.  The drives are 400G drives and has a maximum data transfer rate of about 133MB/s (i.e. ATA/66).  The maximum data transfer rates of SATA II and SATA III are 300 MB/s and 600 MB/s, respectively.  I can buy a Seagate - Barracuda 500GB SATA II Internal Hard Drive for $</mathjax>70.  Given my objective to increase the performance of my computing experience, buying a new <span class="caps">SATA</span> <span class="caps">III</span> hard drive should have been part of&nbsp;the original plan.</li>
     <li>After <a href="http://www.cyberciti.biz/tips/raid-hardware-vs-raid-software.html">reading up on <span class="caps">RAID</span></a> and the Intel Rapid Storage Technology (<span class="caps">RST</span>), I concluded that it would be best to do a Software Raid and not use <span class="caps">RST</span>.</li>
     <li>While I assumed in my original plan that I would dual boot the box with Linux and <span class="caps">MS</span> Windows, the <a href="http://jeffskinnerbox.wordpress.com/2013/04/28/building-my-linux-box-the-plan/">comment from armahillo@gmail.com </a>convinced me of what I suspected I should do; and that was to make <a href="http://www.winehq.org/">wine</a>, <a href="http://www.mono-project.com/Main_Page">mono</a>, and <a href="http://www.playonlinux.com/">PlayOnLinux</a> work for me.  While I haven&#8217;t stressed them, so far so good.  I have not installed VirtualBox and I suspect I will not &#8230; unless I get&nbsp;desperate.</li>
     <li>I was planning to reuse my old keyboard and mouse, but you know, I hated that keyboard and the mouse was already acting badly and about to die on me.  So I ended up replacing them with sometime worthy of my new&nbsp;system.</li>
@@ -422,7 +425,37 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo cp /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf_backup
 sudo mdadm --detail --scan &amp;gt;&amp;gt; /etc/mdadm/mdadm.conf
-</pre></div>
+</pre></div><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -477,7 +510,7 @@ sudo mdadm --detail --scan &amp;gt;&amp;gt; /etc/mdadm/mdadm.conf
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
-            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+            <li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">Links</span></h4>
                 <ul class="list-group" id="links">
                     <li class="list-group-item">
                         <a href="/pages/scratch-pad.html" target="_blank">
@@ -485,7 +518,7 @@ sudo mdadm --detail --scan &amp;gt;&amp;gt; /etc/mdadm/mdadm.conf
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                        <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
                             RPi Packages
                         </a>
                     </li>
@@ -504,20 +537,32 @@ sudo mdadm --detail --scan &amp;gt;&amp;gt; /etc/mdadm/mdadm.conf
 
                 <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
                   <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
-                            class="fa fa-github-square fa-lg"></i> Github
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-github-square fa-lg"></i> Github
                     </a></li>
-                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
-                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-twitter-square fa-lg"></i> Twitter
                     </a></li>
-                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
-                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
-                    </a></li>
-                    <li class="list-group-item"><a href="http://jeffskinnerbox.me/feeds/all.atom.xml" target="_blank"><i
-                            class="fa fa-rss-square fa-lg"></i> RSS
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+                        <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
                     </a></li>
                   </ul>
             </li>
+
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 

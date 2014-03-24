@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Testing: Tag Cloud - Jeff's Skinner Box</title>
+    <title>Testing: Tag Cloud - Jeff's Skinner Box</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
 
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Testing: Tag Cloud"/>
+            <meta property="og:title" content="Testing: Tag Cloud"/>
             <meta property="og:url" content="http://jeffskinnerbox.me/posts/2100/Jan/01/testing-tag-cloud/"/>
             <meta property="og:description" content="This page is for testing purposes only."/>
 
@@ -27,12 +27,14 @@
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
-    <link href="http://jeffskinnerbox.me/theme/css/pygments/native.css" rel="stylesheet">
-        <link href="http://jeffskinnerbox.me/theme/css/typogrify.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
     <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
 </head>
 
 <body>
@@ -51,21 +53,22 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                          <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About&nbsp;Me
+                             About Me
                           </a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://jeffskinnerbox.me/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
-<a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
-    <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
-</a>       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 </div> <!-- /.navbar -->
 
 <div class="container">
@@ -78,8 +81,8 @@ Jeff's Skinner Box&nbsp;            </a>
                 <h1>
                     <a href="http://jeffskinnerbox.me/posts/2100/Jan/01/testing-tag-cloud/"
                        rel="bookmark"
-                       title="Permalink to Testing: Tag Cloud">
-                        Testing: Tag&nbsp;Cloud
+                       title="Permalink to Testing: Tag Cloud">
+                        Testing: Tag Cloud
                     </a>
                 </h1>
             </header>
@@ -88,7 +91,7 @@ Jeff's Skinner Box&nbsp;            </a>
                     <div class="panel-body">
 <footer class="post-info">
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00"> Friday  January 01, 2100</time>
+        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00"> Friday&nbsp;&nbsp;&nbsp;&nbsp;January 01, 2100</time>
     </span>
 
 
@@ -102,16 +105,51 @@ Jeff's Skinner Box&nbsp;            </a>
 </a>                </div>
                 <h2>The Back&nbsp;Story</h2>
 <p>To sort tags in alphabetical order,&nbsp;use</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{% for tag, articles in tags|sort %}
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{% for tag in tag_cloud|sort) %}
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-xs&quot;&gt;
+    &lt;a class=&quot;tag-{{ tag.1 }}&quot; href=&quot;{{ SITEURL }}/{{ tag.0.url }}&quot;&gt;
+        {{ tag.0 }}
+    &lt;/a&gt;
+    &lt;/button&gt;
+    {% if not loop.last %}
+        &amp;nbsp;
+    {% endif %}
+{% endfor %}
 </pre></div>
 
 
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">&lt;ul class=&quot;tagcloud&quot;&gt;
-    {% for tag in tag_cloud %}
-        &lt;li class=&quot;tag-{{ tag.1 }}&quot;&gt;&lt;a href=&quot;{{ SITEURL }}/{{ tag.0.url }}&quot;&gt;{{ tag.0 }}&lt;/a&gt;&lt;/li&gt;
-    {% endfor %}
-&lt;/ul&gt;
+<p _="%" endfor="endfor">{% for tag in tag_cloud|sort) %}
+    <button type="button" class="btn btn-primary btn-xs">
+    <a class="tag-{{ tag.1 }}" href="{{ SITEURL }}/{{ tag.0.url }}">
+        {{ tag.0 }}
+    </a>
+    </button>
+    {% if not loop.last %}
+        &nbsp;
+    {% endif&nbsp;%}</p>
+<p>To sort by number of articles in&nbsp;tag</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{% for tag in tag_cloud|sort(attribute=&#39;1&#39;) %}
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-xs&quot;&gt;
+    &lt;a class=&quot;tag-{{ tag.1 }}&quot; href=&quot;{{ SITEURL }}/{{ tag.0.url }}&quot;&gt;
+        {{ tag.0 }}
+    &lt;/a&gt;
+    &lt;/button&gt;
+    {% if not loop.last %}
+        &amp;nbsp;
+    {% endif %}
+{% endfor %}
 </pre></div>
+
+
+<p _="%" endfor="endfor">{% for tag in tag_cloud|sort(attribute=&#8216;1&#8217;) %}
+    <button type="button" class="btn btn-primary btn-xs">
+    <a class="tag-{{ tag.1 }}" href="{{ SITEURL }}/{{ tag.0.url }}">
+        {{ tag.0 }}
+    </a>
+    </button>
+    {% if not loop.last %}
+        &nbsp;
+    {% endif&nbsp;%}</p>
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -166,7 +204,7 @@ Jeff's Skinner Box&nbsp;            </a>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
-            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+            <li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">Links</span></h4>
                 <ul class="list-group" id="links">
                     <li class="list-group-item">
                         <a href="/pages/scratch-pad.html" target="_blank">
@@ -174,7 +212,7 @@ Jeff's Skinner Box&nbsp;            </a>
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                        <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
                             RPi Packages
                         </a>
                     </li>
@@ -193,20 +231,32 @@ Jeff's Skinner Box&nbsp;            </a>
 
                 <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
                   <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
-                            class="fa fa-github-square fa-lg"></i> Github
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-github-square fa-lg"></i> Github
                     </a></li>
-                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
-                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-twitter-square fa-lg"></i> Twitter
                     </a></li>
-                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
-                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
-                    </a></li>
-                    <li class="list-group-item"><a href="http://jeffskinnerbox.me/feeds/all.atom.xml" target="_blank"><i
-                            class="fa fa-rss-square fa-lg"></i> RSS
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+                        <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
                     </a></li>
                   </ul>
             </li>
+
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 

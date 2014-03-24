@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>Selecting XBee Radios and Supporting Software Tools - Jeff's Skinner Box</title>
+    <title>Selecting XBee Radios and Supporting Software Tools - Jeff's Skinner Box</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
 
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="Selecting XBee Radios and Supporting Software Tools"/>
+            <meta property="og:title" content="Selecting XBee Radios and Supporting Software Tools"/>
             <meta property="og:url" content="http://jeffskinnerbox.me/posts/2012/Dec/22/selecting-xbee-radios-and-supporting-software-tools/"/>
             <meta property="og:description" content="In this article, I explore the different XBee Series 1 & 2 radios and illuminate the options of using each. A major point of consideration is the availability of software libraries for devloping code."/>
 
@@ -27,12 +27,14 @@
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
-    <link href="http://jeffskinnerbox.me/theme/css/pygments/native.css" rel="stylesheet">
-        <link href="http://jeffskinnerbox.me/theme/css/typogrify.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
     <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
 </head>
 
 <body>
@@ -51,21 +53,22 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                          <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About&nbsp;Me
+                             About Me
                           </a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://jeffskinnerbox.me/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
-<a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
-    <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
-</a>       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 </div> <!-- /.navbar -->
 
 <div class="container">
@@ -78,8 +81,8 @@ Jeff's Skinner Box&nbsp;            </a>
                 <h1>
                     <a href="http://jeffskinnerbox.me/posts/2012/Dec/22/selecting-xbee-radios-and-supporting-software-tools/"
                        rel="bookmark"
-                       title="Permalink to Selecting XBee Radios and Supporting Software Tools">
-                        Selecting XBee Radios and Supporting Software&nbsp;Tools
+                       title="Permalink to Selecting XBee Radios and Supporting Software Tools">
+                        Selecting XBee Radios and Supporting Software Tools
                     </a>
                 </h1>
             </header>
@@ -88,7 +91,7 @@ Jeff's Skinner Box&nbsp;            </a>
                     <div class="panel-body">
 <footer class="post-info">
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2012-12-22T00:01:00"> Saturday  December 22, 2012</time>
+        <i class="fa fa-calendar"></i><time datetime="2012-12-22T00:01:00"> Saturday&nbsp;&nbsp;&nbsp;&nbsp;December 22, 2012</time>
     </span>
 
 
@@ -141,10 +144,10 @@ Jeff's Skinner Box&nbsp;            </a>
 <p align="center"><b>Price</b></p>
 </td>
 <td width="135">
-<p align="center">~&nbsp;$23</p>
+<p align="center">~ <mathjax>$23</p>
 </td>
 <td width="135">
-<p align="center">~&nbsp;$26</p>
+<p align="center">~ $</mathjax>26</p>
 </td>
 <td width="181">
 <p align="center">Price shouldn’t be a driver but If you are looking for a simple point-to-point configuration, you should go with the Series 1. The Series 2 requires considerable setup and&nbsp;configuration.</p>
@@ -309,7 +312,37 @@ Other Sources
     <li><a href="http://www.mesh-networks.org/index.php?language=english&amp;page=the_group">mesh networks research group</a> - informative topics focused in the mesh networks&nbsp;field</li>
     <li><a href="http://dsnet.tu-plovdiv.bg/wiki/Wiki.jsp?page=Driver%20Module%20for%20XBee%20Device">Driver Module for XBee Device</a> - Linux kernel driver for&nbsp;XBee</li>
 </ul>
-</ul></p>
+</ul></p><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -364,7 +397,7 @@ Other Sources
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
-            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+            <li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">Links</span></h4>
                 <ul class="list-group" id="links">
                     <li class="list-group-item">
                         <a href="/pages/scratch-pad.html" target="_blank">
@@ -372,7 +405,7 @@ Other Sources
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                        <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
                             RPi Packages
                         </a>
                     </li>
@@ -391,20 +424,32 @@ Other Sources
 
                 <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
                   <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
-                            class="fa fa-github-square fa-lg"></i> Github
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-github-square fa-lg"></i> Github
                     </a></li>
-                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
-                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-twitter-square fa-lg"></i> Twitter
                     </a></li>
-                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
-                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
-                    </a></li>
-                    <li class="list-group-item"><a href="http://jeffskinnerbox.me/feeds/all.atom.xml" target="_blank"><i
-                            class="fa fa-rss-square fa-lg"></i> RSS
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+                        <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
                     </a></li>
                   </ul>
             </li>
+
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 

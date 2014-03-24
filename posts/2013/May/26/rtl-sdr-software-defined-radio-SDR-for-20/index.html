@@ -3,7 +3,7 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-    <title>RTL-SDR Software Defined Radio (SDR) for $20 - Jeff's Skinner Box</title>
+    <title>RTL-SDR Software Defined Radio (SDR) for $20 - Jeff's Skinner Box</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,7 +13,7 @@
 
     <!-- Open Graph tags -->
             <meta property="og:type" content="article"/>
-            <meta property="og:title" content="RTL-SDR Software Defined Radio (SDR) for $20"/>
+            <meta property="og:title" content="RTL-SDR Software Defined Radio (SDR) for $20"/>
             <meta property="og:url" content="http://jeffskinnerbox.me/posts/2013/May/26/rtl-sdr-software-defined-radio-SDR-for-20/"/>
             <meta property="og:description" content="RTL-SDR is a very cheap software defined radio that uses a TV tuner dongle based on the RTL2832U chipset. Essentially, this means that a cheap $20 TV tuner can be used as a computer based radio scanner. A scanner capability that would have cost hundreds of dollars just a few years ago."/>
 
@@ -27,12 +27,14 @@
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
-    <link href="http://jeffskinnerbox.me/theme/css/pygments/native.css" rel="stylesheet">
-        <link href="http://jeffskinnerbox.me/theme/css/typogrify.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
     <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
 </head>
 
 <body>
@@ -51,21 +53,22 @@ Jeff's Skinner Box&nbsp;            </a>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                          <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About&nbsp;Me
+                             About Me
                           </a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://jeffskinnerbox.me/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
-<a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
-    <img style="position: absolute; top: 0; left: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png">
-</a>       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 </div> <!-- /.navbar -->
 
 <div class="container">
@@ -78,8 +81,8 @@ Jeff's Skinner Box&nbsp;            </a>
                 <h1>
                     <a href="http://jeffskinnerbox.me/posts/2013/May/26/rtl-sdr-software-defined-radio-SDR-for-20/"
                        rel="bookmark"
-                       title="Permalink to RTL-SDR Software Defined Radio (SDR) for $20">
-                        <span class="caps">RTL</span>-<span class="caps">SDR</span> Software Defined Radio (<span class="caps">SDR</span>) for&nbsp;$20
+                       title="Permalink to RTL-SDR Software Defined Radio (SDR) for $20">
+                        RTL-SDR Software Defined Radio (SDR) for $20
                     </a>
                 </h1>
             </header>
@@ -88,7 +91,7 @@ Jeff's Skinner Box&nbsp;            </a>
                     <div class="panel-body">
 <footer class="post-info">
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-05-26T00:01:00"> Sunday  May 26, 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-05-26T00:01:00"> Sunday&nbsp;&nbsp;&nbsp;&nbsp;May 26, 2013</time>
     </span>
 
 
@@ -107,7 +110,7 @@ Jeff's Skinner Box&nbsp;            </a>
 </a>                </div>
                 <p>While researching the <span class="caps">GNU</span> Radio project, I came upon references to the <a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/Hardware"><span class="caps">RTL2832</span> <span class="caps">TV</span> tuners</a>. These dongle are made to receive and decode the European standard digital television, <a href="http://en.wikipedia.org/wiki/DVB-T">Digital Video Broadcasting — Terrestrial (<span class="caps">DVB</span>-T)</a>. (By the way, the North American standard is <a href="http://en.wikipedia.org/wiki/ATSC_tuner">Advanced Television Systems Committee (<span class="caps">ATSC</span>)</a>, and not  compatible with <span class="caps">DVB</span>-T, so this will not work in North America for <span class="caps">TV</span> reception.)  In 2012, <a href="http://thread.gmane.org/gmane.linux.drivers.video-input-infrastructure/44461/focus=44461">Antii Palosaari</a>, discovered that there is a device mode for the Realtek <span class="caps">DVB</span>-T device chip (<a href="http://www.realtek.com.tw/products/productsView.aspx?Langid=1&amp;PFid=35&amp;Level=4&amp;Conn=3&amp;ProdID=257"><span class="caps">RTL2832U</span></a>) in which raw samples can be captured and transferred to a host computer. This feature enables this device to be used as an inexpensive &#8220;front end&#8221;  for a <a href="http://en.wikipedia.org/wiki/Software-defined_radio">Software Defined Radio (<span class="caps">SDR</span>)</a> that could be implemented on a <span class="caps">PC</span> or other&nbsp;device.</p>
 <p>A <span class="caps">SDR</span> provide the ability to sample and record the electromagnetic energy (or <a href="http://en.wikipedia.org/wiki/Radio_frequency">radio frequency</a>, called &#8220;<span class="caps">RF</span>&#8221; for short) with no preconceived idea as to the structure of the <span class="caps">RF</span> <a href="http://en.wikipedia.org/wiki/Signal_(information_theory)">signal</a>.  In a sense, you can interact with the <span class="caps">RF</span> signal in its must fundamental form.  In addition, a <span class="caps">SDR</span> allows you to implement, by means of software, a radio communication system where components that have been typically implemented in&nbsp;hardware.</p>
-<p><span class="caps">SDR</span> solutions for the professional-grade applications and amateur radio have been around for some time, but the appearance of cheap solutions for the hacker is new.  There are general purpose <span class="caps">SDR</span> platforms for over $1000, like the Ettus Research <a href="http://www.ettus.com/">Universal Software Radio Peripheral (<span class="caps">USRP</span>)</a>, the $525 <a href="http://www.rfspace.com/RFSPACE/SDR-IQ.html"><span class="caps">SDR</span>-<span class="caps">IQ</span> Receiver</a>, to the $450 <a href="http://nuand.com/bladeRF">bladeRF</a> from the Kickstarter Nuand or Great Scott&#8217;s <a href="http://www.forbes.com/sites/andygreenberg/2012/10/19/darpa-funded-radio-hackrf-aims-to-be-a-300-wireless-swiss-army-knife-for-hackers/"><span class="caps">DARPA</span>-Funded</a> <a href="http://ossmann.blogspot.com/2012/06/introducing-hackrf.html">HackRF</a> for an estimate $300, and now the $20 hacker grade dongle discussed here.  But unlike most of the other referenced solutions,  the dongle  requires a <span class="caps">PC</span>, or some sort of attached processor, to provide the signal&nbsp;processing.</p>
+<p><span class="caps">SDR</span> solutions for the professional-grade applications and amateur radio have been around for some time, but the appearance of cheap solutions for the hacker is new.  There are general purpose <span class="caps">SDR</span> platforms for over <mathjax>$1000, like the Ettus Research <a href="http://www.ettus.com/">Universal Software Radio Peripheral (USRP)</a>, the $</mathjax>525 <a href="http://www.rfspace.com/RFSPACE/SDR-IQ.html"><span class="caps">SDR</span>-<span class="caps">IQ</span> Receiver</a>, to the <mathjax>$450 <a href="http://nuand.com/bladeRF">bladeRF</a> from the Kickstarter Nuand or Great Scott's <a href="http://www.forbes.com/sites/andygreenberg/2012/10/19/darpa-funded-radio-hackrf-aims-to-be-a-300-wireless-swiss-army-knife-for-hackers/">DARPA-Funded</a> <a href="http://ossmann.blogspot.com/2012/06/introducing-hackrf.html">HackRF</a> for an estimate $</mathjax>300, and now the $20 hacker grade dongle discussed here.  But unlike most of the other referenced solutions,  the dongle  requires a <span class="caps">PC</span>, or some sort of attached processor, to provide the signal&nbsp;processing.</p>
 <p>In all <span class="caps">SDR</span> solutions, a significant amounts of the <a href="http://en.wikipedia.org/wiki/Signal_processing">signal processing</a> is handed over to a numerical processor, rather than being done in special-purpose <span class="caps">RF</span> hardware. Such a design produces a radio which can receive and transmit widely different radio protocols (referred to as a waveform) based solely on the software used.  So in a <span class="caps">SDR</span> solution, the electromagnetic waveform is rapidly sampled, the sample values are converted to numerical values, and these numbers are manipulated via a discipline called <a href="http://en.wikipedia.org/wiki/Digital_signal_processing">digital signal processing (<span class="caps">DSP</span>)</a>.  Ultimately, the resulting <span class="caps">DSP</span> numerical values produced are converted to an analog signal that goes to a speaker, <span class="caps">TV</span>, or other such output&nbsp;device.</p>
 <p>The <span class="caps">DVB</span>-T dongles can provide a critical component of a cheap <span class="caps">SDR</span>, since the chip allows transferring the raw I/Q samples to the host. What <a href="http://www.ni.com/white-paper/4805/en">I/Q samples</a> are is well beyond what I wish to describe here, but let it be said that practical hardware design concerns make I/Q data the critical for signal processing.  So the fact the dongle does the digital sampling, called a <a href="http://en.wikipedia.org/wiki/Analog-to-digital_converter">analog-to-digital converter (<span class="caps">ADC</span>)</a>, and outputs I/Q samples, makes it a valuable asset for a <span class="caps">SDR</span>&nbsp;solution.</p>
 <p>So how does one get your <span class="caps">PC</span> configured to take the dongles I/Q output and create a <span class="caps">SDR</span>?  There is <a href="http://gnuradio.org/redmine/projects/gnuradio/wiki"><span class="caps">GNU</span> Radio</a> (where this post first begun), but a simpler starting point would be the popular, easy, and open source <a href="http://sdrsharp.com/"><span class="caps">SDR</span>#</a>.  <span class="caps">SDR</span># can perform the required signal processing in an intuitive user interface (if your into Ham Radio, or bit of a <span class="caps">RF</span> hacker, and such).  Unfortunately, I couldn&#8217;t get <span class="caps">SDR</span># (a <span class="caps">MS</span> Windows application) to operate under  Linux and I had to resorted to some simpler utilities.
@@ -220,7 +223,37 @@ For reference purposes, below are screen shots of the <span class="caps">RTLSDR<
 <p><a href="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_tcp.jpg"><img class="float" alt="rtl_tcp" src="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_tcp.jpg?w=150" width="150" height="118" /></a> rtl_tcp
 <a href="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_sdr1.jpg"><img class="float" alt="rtl_sdr" src="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_sdr1.jpg?w=150" width="150" height="110" /></a>&nbsp;rtl_sdr </p>
 <p><a href="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_adsb.jpg"><img class="float" alt="rtl_adsb" src="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_adsb.jpg?w=150" width="150" height="88" /></a> rtl_adsb
-<a href="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_fm.jpg"><img class="float" alt="rtl_fm" src="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_fm.jpg?w=150" width="150" height="138" /></a>&nbsp;rtl_fm</p>
+<a href="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_fm.jpg"><img class="float" alt="rtl_fm" src="http://jeffskinnerbox.files.wordpress.com/2013/05/rtl_fm.jpg?w=150" width="150" height="138" /></a>&nbsp;rtl_fm</p><script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
+		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    config: ['MMLorHTML.js']," +
+            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+            "    displayAlign: 'center'," +
+            "    displayIndent: '0em'," +
+            "    showMathMenu: true," +
+            "    tex2jax: { " +
+            "        inlineMath: [ ['$','$'] ], " +
+            "        displayMath: [ ['$$','$$'] ]," +
+            "        processEscapes: true," +
+            "        preview: 'TeX'," +
+            "    }, " +
+            "    'HTML-CSS': { " +
+            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+            "    } " +
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+
             </div>
             <!-- /.entry-content -->
     <hr />
@@ -275,7 +308,7 @@ For reference purposes, below are screen shots of the <span class="caps">RTLSDR<
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
 
-            <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+            <li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">Links</span></h4>
                 <ul class="list-group" id="links">
                     <li class="list-group-item">
                         <a href="/pages/scratch-pad.html" target="_blank">
@@ -283,7 +316,7 @@ For reference purposes, below are screen shots of the <span class="caps">RTLSDR<
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/pages/linux-python-packages-for-my-raspberry-pi.html" target="_blank">
+                        <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
                             RPi Packages
                         </a>
                     </li>
@@ -302,20 +335,32 @@ For reference purposes, below are screen shots of the <span class="caps">RTLSDR<
 
                 <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
                   <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank"><i
-                            class="fa fa-github-square fa-lg"></i> Github
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-github-square fa-lg"></i> Github
                     </a></li>
-                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank"><i
-                            class="fa fa-twitter-square fa-lg"></i> Twitter
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-twitter-square fa-lg"></i> Twitter
                     </a></li>
-                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank"><i
-                            class="fa fa-linkedin-square fa-lg"></i> Linkedin
-                    </a></li>
-                    <li class="list-group-item"><a href="http://jeffskinnerbox.me/feeds/all.atom.xml" target="_blank"><i
-                            class="fa fa-rss-square fa-lg"></i> RSS
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+                        <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
                     </a></li>
                   </ul>
             </li>
+
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
 
             <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
 
