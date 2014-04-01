@@ -38,7 +38,7 @@
 </head>
 
 <body>
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -64,11 +64,11 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <!-- /.navbar-collapse -->
     </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
     <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
         <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
     </a>
-       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 </div> <!-- /.navbar -->
 
 <div class="container">
@@ -108,29 +108,33 @@ Jeff's Skinner Box&nbsp;            </a>
 It has no borders, no header formating, no padding in cells, etc.
 This can be fixed with a little custom <span class="caps">CSS</span>.
 My fix is in <code>content/extra/custom.css</code> and is listed&nbsp;blow:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">/* This will provide some visual improvements to Markdown&#39;s formatted tables */
-table, th, td {
-    margin-left: auto; 
-    margin-right: auto;
-    border: 1px solid black;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">/* This will provide some visual improvements to Markdown&#39;s formating of tables */</span>
+<span style="color: #330099; font-weight: bold">table</span><span style="color: #555555">,</span> <span style="color: #330099; font-weight: bold">th</span><span style="color: #555555">,</span> <span style="color: #330099; font-weight: bold">td</span> {
+    <span style="color: #006699; font-weight: bold">margin-left</span><span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">auto</span>; 
+    <span style="color: #006699; font-weight: bold">margin-right</span><span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">auto</span>;
+    <span style="color: #006699; font-weight: bold">border</span><span style="color: #555555">:</span> <span style="color: #FF6600">1px</span> <span style="color: #006699; font-weight: bold">solid</span> <span style="color: #336666">black</span>;
 }
 
-th {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 15px;
-    padding-left: 15px;
-    background-color: #B8B8B8;
-    color: black;
+<span style="color: #330099; font-weight: bold">table</span> {
+    box<span style="color: #555555">-</span>shadow<span style="color: #555555">:</span> <span style="color: #FF6600">5px</span> <span style="color: #FF6600">5px</span> <span style="color: #FF6600">10px</span> <span style="color: #FF6600">#888888</span>;
 }
 
-td {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 15px;
-    padding-left: 15px;
-    background-color: #FFFFFF;
-    color: black;
+<span style="color: #330099; font-weight: bold">th</span> {
+    <span style="color: #006699; font-weight: bold">padding-top</span><span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
+    <span style="color: #006699; font-weight: bold">padding-bottom</span><span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
+    <span style="color: #006699; font-weight: bold">padding-right</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
+    <span style="color: #006699; font-weight: bold">padding-left</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
+    <span style="color: #006699; font-weight: bold">background-color</span><span style="color: #555555">:</span> <span style="color: #FF6600">#B8B8B8</span>;
+    <span style="color: #006699; font-weight: bold">color</span><span style="color: #555555">:</span> <span style="color: #336666">black</span>;
+}
+
+<span style="color: #330099; font-weight: bold">td</span> {
+    <span style="color: #006699; font-weight: bold">padding-top</span><span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
+    <span style="color: #006699; font-weight: bold">padding-bottom</span><span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
+    <span style="color: #006699; font-weight: bold">padding-right</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
+    <span style="color: #006699; font-weight: bold">padding-left</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
+    <span style="color: #006699; font-weight: bold">background-color</span><span style="color: #555555">:</span> <span style="color: #FF6600">#FFFFFF</span>;
+    <span style="color: #006699; font-weight: bold">color</span><span style="color: #555555">:</span> <span style="color: #336666">black</span>;
 }
 </pre></div>
 
@@ -266,7 +270,7 @@ the family&nbsp;Rosaceae.</dd>
     </section>
 
         </div>
-        <div class="col-sm-3 well well-sm" id="sidebar">
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
 
 <aside>
     <section>

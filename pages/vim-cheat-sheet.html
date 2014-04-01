@@ -37,7 +37,7 @@
 </head>
 
 <body>
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -63,11 +63,11 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <!-- /.navbar-collapse -->
     </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
     <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
         <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
     </a>
-       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 </div> <!-- /.navbar -->
 
 <div class="container">
@@ -77,109 +77,73 @@ Jeff's Skinner Box&nbsp;            </a>
     <section id="content" class="body">
         <h1 class="entry-title">Vim Cheat Sheet</h1>
         
-        <div class="entry-content">
+        <div class="entry-content" style="background-image: url('/home/jeff/blogging/content/images/banners-bkgrds/scratchpad-yellow-blueline.jpg'); background-repeat: repeat;">
             <p><a href="http://www.glump.net/howto/desktop/vim-graphical-cheat-sheet-and-tutorial">Graphical vi-vim Cheat Sheet and&nbsp;Tutorial</a></p>
 <p>Using Vim&#8217;s scripting language (and a great deal of insight and tools from others), I have setup Vim on my local machine to be an effective development environment for my needs.  Also, using GitHub, I can replicate this Vim environment across the multiple systems I&#8217;m presently&nbsp;use.</p>
 <h2>Working with&nbsp;files</h2>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="caps">NERD</span> Commenter Command</td>
-<td align="center">Open a new file. You can use the Tab key for automatic file name completion, just like at the shell command prompt.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:w filename</td>
+<td align="left">Save changes to a file. If you don&#8217;t specify a file name, Vim saves as the file name you were editing. For saving the file under a different name, specify the file name.</td>
 </tr>
 <tr>
-<td>:w filename</td>
-<td align="center">Save changes to a file. If you don&#8217;t specify a file name, Vim saves as the file name you were editing. For saving the file under a different name, specify the file name.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:q</td>
+<td align="left">Quit Vim. If you have unsaved changes, Vim refuses to exit.</td>
 </tr>
 <tr>
-<td>:q</td>
-<td align="center">Quit Vim. If you have unsaved changes, Vim refuses to exit.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:q!</td>
+<td align="left">Exit Vim without saving changes.</td>
 </tr>
 <tr>
-<td>:q!</td>
-<td align="center">Exit Vim without saving changes.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:qa</td>
+<td align="left">quit all (close Vim, but not if there are unsaved changes)</td>
 </tr>
 <tr>
-<td>:qa</td>
-<td align="center">quit all (close Vim, but not if there are unsaved changes)</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:qa!</td>
+<td align="left">quit all (close Vim without saving—discard any changes)</td>
 </tr>
 <tr>
-<td>:qa!</td>
-<td align="center">quit all (close Vim without saving—discard any changes)</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:wq</td>
+<td align="left">Write the file and exit.</td>
 </tr>
 <tr>
-<td>:wq</td>
-<td align="center">Write the file and exit.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:wa</td>
+<td align="left">write all changed files (save all changes), and keep working</td>
 </tr>
 <tr>
-<td>:wa</td>
-<td align="center">write all changed files (save all changes), and keep working</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:<span class="caps">ZZ</span></td>
+<td align="left">write current file, if modified, and exit.</td>
 </tr>
 <tr>
-<td>:<span class="caps">ZZ</span></td>
-<td align="center">write current file, if modified, and exit.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:1,10 w outfile</td>
+<td align="left">Saves lines 1 to 10 in outfile</td>
 </tr>
 <tr>
-<td>:1,10 w outfile</td>
-<td align="center">Saves lines 1 to 10 in outfile</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:1,10 w &gt;&gt; outfile</td>
+<td align="left">Appends lines 1 to 10 to outfile</td>
 </tr>
 <tr>
-<td>:1,10 w &gt;&gt; outfile</td>
-<td align="center">Appends lines 1 to 10 to outfile</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:r infile</td>
+<td align="left">Insert the content of infile</td>
 </tr>
 <tr>
-<td>:r infile</td>
-<td align="center">Insert the content of infile</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:23r infile</td>
+<td align="left">Insert the content of infile under line 23</td>
 </tr>
 <tr>
-<td>:23r infile</td>
-<td align="center">Insert the content of infile under line 23</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:x</td>
+<td align="left">Almost the same as :wq, write the file and exit if you&#8217;ve made changes to the file. If you haven&#8217;t made any changes to the file, Vim exits without writing the file.</td>
 </tr>
 <tr>
-<td>:x</td>
-<td align="center">Almost the same as :wq, write the file and exit if you&#8217;ve made changes to the file. If you haven&#8217;t made any changes to the file, Vim exits without writing the file.</td>
-<td align="left"></td>
-<td></td>
-</tr>
-<tr>
-<td><span class="caps">CTRL</span>-Z</td>
-<td align="center">Suspend Vim, like &#8220;:stop&#8221;.  Works in Normal and in Visual mode.  In Insert and Command-line mode, the <span class="caps">CTRL</span>-Z is inserted as a normal character.</td>
-<td align="left"></td>
-<td></td>
+<td align="center"><span class="caps">CTRL</span>-Z</td>
+<td align="left">Suspend Vim, like &#8220;:stop&#8221;.  Works in Normal and in Visual mode.  In Insert and Command-line mode, the <span class="caps">CTRL</span>-Z is inserted as a normal character.</td>
 </tr>
 </tbody>
 </table>
@@ -188,174 +152,118 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>j or Up Arrow</td>
-<td align="center">Move the cursor up one line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">j or Up Arrow</td>
+<td align="left">Move the cursor up one line.</td>
 </tr>
 <tr>
-<td>k or Down Arrow</td>
-<td align="center">Down one line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">k or Down Arrow</td>
+<td align="left">Down one line.</td>
 </tr>
 <tr>
-<td>h or Left Arrow</td>
-<td align="center">Left one character.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">h or Left Arrow</td>
+<td align="left">Left one character.</td>
 </tr>
 <tr>
-<td>l or Right Arrow</td>
-<td align="center">Right one character.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">l or Right Arrow</td>
+<td align="left">Right one character.</td>
 </tr>
 <tr>
-<td>w</td>
-<td align="center">Move to next word</td>
-<td align="left"></td>
-<td></td>
+<td align="center">w</td>
+<td align="left">Move to next word</td>
 </tr>
 <tr>
-<td>W</td>
-<td align="center">Move to next blank delimited word</td>
-<td align="left"></td>
-<td></td>
+<td align="center">W</td>
+<td align="left">Move to next blank delimited word</td>
 </tr>
 <tr>
-<td>e</td>
-<td align="center">To the end of a word.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">e</td>
+<td align="left">To the end of a word.</td>
 </tr>
 <tr>
-<td>E</td>
-<td align="center">To the end of a whitespace-delimited word.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">E</td>
+<td align="left">To the end of a whitespace-delimited word.</td>
 </tr>
 <tr>
-<td>b</td>
-<td align="center">To the beginning of a word.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">b</td>
+<td align="left">To the beginning of a word.</td>
 </tr>
 <tr>
-<td>B</td>
-<td align="center">To the beginning of a whitespace-delimited word.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">B</td>
+<td align="left">To the beginning of a whitespace-delimited word.</td>
 </tr>
 <tr>
-<td>(</td>
-<td align="center">Move a sentence back</td>
-<td align="left"></td>
-<td></td>
+<td align="center">(</td>
+<td align="left">Move a sentence back</td>
 </tr>
 <tr>
-<td>)</td>
-<td align="center">Move a sentence forward</td>
-<td align="left"></td>
-<td></td>
+<td align="center">)</td>
+<td align="left">Move a sentence forward</td>
 </tr>
 <tr>
-<td>{</td>
-<td align="center">Move a paragraph back</td>
-<td align="left"></td>
-<td></td>
+<td align="center">{</td>
+<td align="left">Move a paragraph back</td>
 </tr>
 <tr>
-<td>}</td>
-<td align="center">Move a paragraph forward</td>
-<td align="left"></td>
-<td></td>
+<td align="center">}</td>
+<td align="left">Move a paragraph forward</td>
 </tr>
 <tr>
-<td>0</td>
-<td align="center">To the beginning of a line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">0</td>
+<td align="left">To the beginning of a line.</td>
 </tr>
 <tr>
-<td>^</td>
-<td align="center">To the first non-whitespace character of a line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">^</td>
+<td align="left">To the first non-whitespace character of a line.</td>
 </tr>
 <tr>
-<td><mathjax>$</td>
-<td align="center">To the end of a line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center"><mathjax>$</td>
+<td align="left">To the end of a line.</td>
 </tr>
 <tr>
-<td>1G</td>
-<td align="center">Move to the first line of the file</td>
-<td align="left"></td>
-<td></td>
+<td align="center">1G</td>
+<td align="left">Move to the first line of the file</td>
 </tr>
 <tr>
-<td>G</td>
-<td align="center">Move to the last line of the file</td>
-<td align="left"></td>
-<td></td>
+<td align="center">G</td>
+<td align="left">Move to the last line of the file</td>
 </tr>
 <tr>
-<td>nG</td>
-<td align="center">Move to nth line of the file</td>
-<td align="left"></td>
-<td></td>
+<td align="center">nG</td>
+<td align="left">Move to nth line of the file</td>
 </tr>
 <tr>
-<td>fc</td>
-<td align="center">Move forward to c</td>
-<td align="left"></td>
-<td></td>
+<td align="center">fc</td>
+<td align="left">Move forward to c</td>
 </tr>
 <tr>
-<td>Fc</td>
-<td align="center">Move back to c</td>
-<td align="left"></td>
-<td></td>
+<td align="center">Fc</td>
+<td align="left">Move back to c</td>
 </tr>
 <tr>
-<td>:n</td>
-<td align="center">Jump to line number n. For example, to jump to line 42, you'd type :42</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:n</td>
+<td align="left">Jump to line number n. For example, to jump to line 42, you'd type :42</td>
 </tr>
 <tr>
-<td>H</td>
-<td align="center">To the first line of the screen.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">H</td>
+<td align="left">To the first line of the screen.</td>
 </tr>
 <tr>
-<td>M</td>
-<td align="center">To the middle line of the screen.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">M</td>
+<td align="left">To the middle line of the screen.</td>
 </tr>
 <tr>
-<td>L</td>
-<td align="center">To the last line of the screen.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">L</td>
+<td align="left">To the last line of the screen.</td>
 </tr>
 <tr>
-<td>%</td>
-<td align="center">Move to associated ( ), </td>
-<td align="left"></td>
-<td></td>
+<td align="center">%</td>
+<td align="left">Move to associated ( ), </td>
 </tr>
 </tbody>
 </table>
@@ -363,72 +271,50 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>i</td>
-<td align="center">Insert before cursor.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">i</td>
+<td align="left">Insert before cursor.</td>
 </tr>
 <tr>
-<td>I</td>
-<td align="center">Insert to the start of the current line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">I</td>
+<td align="left">Insert to the start of the current line.</td>
 </tr>
 <tr>
-<td>a</td>
-<td align="center">Append after cursor.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">a</td>
+<td align="left">Append after cursor.</td>
 </tr>
 <tr>
-<td>A</td>
-<td align="center">Append to the end of the current line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">A</td>
+<td align="left">Append to the end of the current line.</td>
 </tr>
 <tr>
-<td>o</td>
-<td align="center">Open a new line below and insert.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">o</td>
+<td align="left">Open a new line below and insert.</td>
 </tr>
 <tr>
-<td>O</td>
-<td align="center">Open a new line above and insert.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">O</td>
+<td align="left">Open a new line above and insert.</td>
 </tr>
 <tr>
-<td>C</td>
-<td align="center">Change the rest of the current line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">C</td>
+<td align="left">Change the rest of the current line.</td>
 </tr>
 <tr>
-<td>r</td>
-<td align="center">Overwrite one character. After overwriting the single character, go back to command mode.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">r</td>
+<td align="left">Overwrite one character. After overwriting the single character, go back to command mode.</td>
 </tr>
 <tr>
-<td>R</td>
-<td align="center">Enter insert mode but replace characters rather than inserting.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">R</td>
+<td align="left">Enter insert mode but replace characters rather than inserting.</td>
 </tr>
 <tr>
-<td><Esc></td>
-<td align="center">Exit insert/overwrite mode and go back to command mode.</td>
-<td align="left"></td>
-<td></td>
+<td align="center"><Esc></td>
+<td align="left">Exit insert/overwrite mode and go back to command mode.</td>
 </tr>
 </tbody>
 </table>
@@ -436,54 +322,38 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><Del></td>
-<td align="center">Delete characters under the cursor.</td>
-<td align="left"></td>
-<td></td>
+<td align="center"><Del></td>
+<td align="left">Delete characters under the cursor.</td>
 </tr>
 <tr>
-<td>x</td>
-<td align="center">Delete characters under the cursor.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">x</td>
+<td align="left">Delete characters under the cursor.</td>
 </tr>
 <tr>
-<td>X</td>
-<td align="center">Delete characters before the cursor.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">X</td>
+<td align="left">Delete characters before the cursor.</td>
 </tr>
 <tr>
-<td>dd or :d</td>
-<td align="center">Delete the current line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">dd or :d</td>
+<td align="left">Delete the current line.</td>
 </tr>
 <tr>
-<td>dw</td>
-<td align="center">Delete the word under the cursor.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">dw</td>
+<td align="left">Delete the word under the cursor.</td>
 </tr>
 <tr>
-<td>d$</mathjax></td>
-<td align="center">Delete to the end of the line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">d$</mathjax></td>
+<td align="left">Delete to the end of the line.</td>
 </tr>
 <tr>
-<td motion="motion">d</td>
-<td align="center" motion="motion">Delete text that </td>
-<td align="left"></td>
-<td></td>
+<td align="center" motion="motion">d</td>
+<td align="left" motion="motion">Delete text that </td>
 </tr>
 </tbody>
 </table>
@@ -492,54 +362,38 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>yy</td>
-<td align="center">Yank the current line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">yy</td>
+<td align="left">Yank the current line</td>
 </tr>
 <tr>
-<td>:y</td>
-<td align="center">Yank the current line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:y</td>
+<td align="left">Yank the current line</td>
 </tr>
 <tr>
-<td>nyy</td>
-<td align="center">Yank n lines from current down</td>
-<td align="left"></td>
-<td></td>
+<td align="center">nyy</td>
+<td align="left">Yank n lines from current down</td>
 </tr>
 <tr>
-<td>yw</td>
-<td align="center">Yank the word under the cursor</td>
-<td align="left"></td>
-<td></td>
+<td align="center">yw</td>
+<td align="left">Yank the word under the cursor</td>
 </tr>
 <tr>
-<td>y<mathjax>$</td>
-<td align="center">Yank to the end of the line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">y<mathjax>$</td>
+<td align="left">Yank to the end of the line</td>
 </tr>
 <tr>
-<td>"+y</td>
-<td align="center">copies to the "usual" clipboard buffer (so you can paste using Ctrl+V, right click and select "Paste" etc)</td>
-<td align="left"></td>
-<td></td>
+<td align="center">"+y</td>
+<td align="left">copies to the "usual" clipboard buffer (so you can paste using Ctrl+V, right click and select "Paste" etc)</td>
 </tr>
 <tr>
-<td>"*y</td>
-<td align="center">copies to the X11 selection - you can paste from this buffer using middle click</td>
-<td align="left"></td>
-<td></td>
+<td align="center">"*y</td>
+<td align="left">copies to the X11 selection - you can paste from this buffer using middle click</td>
 </tr>
 </tbody>
 </table>
@@ -547,24 +401,18 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>p</td>
-<td align="center">Put after the position or after the line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">p</td>
+<td align="left">Put after the position or after the line</td>
 </tr>
 <tr>
-<td>P</td>
-<td align="center">Put before the poition or before the line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">P</td>
+<td align="left">Put before the poition or before the line</td>
 </tr>
 </tbody>
 </table>
@@ -572,30 +420,22 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>C</td>
-<td align="center">Change to the end of the line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">C</td>
+<td align="left">Change to the end of the line</td>
 </tr>
 <tr>
-<td>cc</td>
-<td align="center">Change the whole line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">cc</td>
+<td align="left">Change the whole line</td>
 </tr>
 <tr>
-<td>cw</td>
-<td align="center">Change the word under the cursor</td>
-<td align="left"></td>
-<td></td>
+<td align="center">cw</td>
+<td align="left">Change the word under the cursor</td>
 </tr>
 </tbody>
 </table>
@@ -603,36 +443,26 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>J</td>
-<td align="center">Join lines</td>
-<td align="left"></td>
-<td></td>
+<td align="center">J</td>
+<td align="left">Join lines</td>
 </tr>
 <tr>
-<td>.</td>
-<td align="center">Repeat last text-changing command</td>
-<td align="left"></td>
-<td></td>
+<td align="center">.</td>
+<td align="left">Repeat last text-changing command</td>
 </tr>
 <tr>
-<td>u</td>
-<td align="center">Undo last change</td>
-<td align="left"></td>
-<td></td>
+<td align="center">u</td>
+<td align="left">Undo last change</td>
 </tr>
 <tr>
-<td>U</td>
-<td align="center">Undo all changes to line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">U</td>
+<td align="left">Undo all changes to line</td>
 </tr>
 </tbody>
 </table>
@@ -640,30 +470,22 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>v</td>
-<td align="center">Start highlighting characters. Use the normal movement keys and commands to select text for highlighting.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">v</td>
+<td align="left">Start highlighting characters. Use the normal movement keys and commands to select text for highlighting.</td>
 </tr>
 <tr>
-<td>V</td>
-<td align="center">Start highlighting lines.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">V</td>
+<td align="left">Start highlighting lines.</td>
 </tr>
 <tr>
-<td>The ESC key</td>
-<td align="center">Exit visual mode and return to command mode.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">The ESC key</td>
+<td align="left">Exit visual mode and return to command mode.</td>
 </tr>
 </tbody>
 </table>
@@ -672,72 +494,50 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>~</td>
-<td align="center">Change the case of characters. This works both in visual and command mode. In visual mode, change the case of highlighted characters. In command mode, change the case of the character under cursor.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">~</td>
+<td align="left">Change the case of characters. This works both in visual and command mode. In visual mode, change the case of highlighted characters. In command mode, change the case of the character under cursor.</td>
 </tr>
 <tr>
-<td>&gt; (V)</td>
-<td align="center">Shift right (indent).</td>
-<td align="left"></td>
-<td></td>
+<td align="center">&gt; (V)</td>
+<td align="left">Shift right (indent).</td>
 </tr>
 <tr>
-<td>&lt; (V)</td>
-<td align="center">Shift left (de-indent).</td>
-<td align="left"></td>
-<td></td>
+<td align="center">&lt; (V)</td>
+<td align="left">Shift left (de-indent).</td>
 </tr>
 <tr>
-<td>c (V)</td>
-<td align="center">Change the highlighted text.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">c (V)</td>
+<td align="left">Change the highlighted text.</td>
 </tr>
 <tr>
-<td>y (V)</td>
-<td align="center">Yank the highlighted text. In Windows terms, "copy the selected text to clipboard."</td>
-<td align="left"></td>
-<td></td>
+<td align="center">y (V)</td>
+<td align="left">Yank the highlighted text. In Windows terms, "copy the selected text to clipboard."</td>
 </tr>
 <tr>
-<td>d (V)</td>
-<td align="center">Delete the highlighted text. In Windows terms, "cut the selected text to clipboard."</td>
-<td align="left"></td>
-<td></td>
+<td align="center">d (V)</td>
+<td align="left">Delete the highlighted text. In Windows terms, "cut the selected text to clipboard."</td>
 </tr>
 <tr>
-<td>yy or :y or Y</td>
-<td align="center">Yank the current line. You don't need to highlight it first.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">yy or :y or Y</td>
+<td align="left">Yank the current line. You don't need to highlight it first.</td>
 </tr>
 <tr>
-<td>dd or :d</td>
-<td align="center">Delete the current line. Again, you don't need to highlight it first.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">dd or :d</td>
+<td align="left">Delete the current line. Again, you don't need to highlight it first.</td>
 </tr>
 <tr>
-<td>p</td>
-<td align="center">Put the text you yanked or deleted. In Windows terms, "paste the contents of the clipboard". Put characters after the cursor. Put lines below the current line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">p</td>
+<td align="left">Put the text you yanked or deleted. In Windows terms, "paste the contents of the clipboard". Put characters after the cursor. Put lines below the current line.</td>
 </tr>
 <tr>
-<td>P</td>
-<td align="center">Put characters before the cursor. Put lines above the current line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">P</td>
+<td align="left">Put characters before the cursor. Put lines above the current line.</td>
 </tr>
 </tbody>
 </table>
@@ -745,42 +545,30 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>]s</td>
-<td align="center">move to the next misspelled word</td>
-<td align="left"></td>
-<td></td>
+<td align="center">]s</td>
+<td align="left">move to the next misspelled word</td>
 </tr>
 <tr>
-<td>[s</td>
-<td align="center">move to the previous misspelled word</td>
-<td align="left"></td>
-<td></td>
+<td align="center">[s</td>
+<td align="left">move to the previous misspelled word</td>
 </tr>
 <tr>
-<td>zg</td>
-<td align="center">add a word to the dictionary</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zg</td>
+<td align="left">add a word to the dictionary</td>
 </tr>
 <tr>
-<td>zug</td>
-<td align="center">undo the addition of a word to the dictionary</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zug</td>
+<td align="left">undo the addition of a word to the dictionary</td>
 </tr>
 <tr>
-<td>z=</td>
-<td align="center">view spelling suggestions for a misspelled word</td>
-<td align="left"></td>
-<td></td>
+<td align="center">z=</td>
+<td align="left">view spelling suggestions for a misspelled word</td>
 </tr>
 </tbody>
 </table>
@@ -788,30 +576,22 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>:%!fmt</td>
-<td align="center">Align all lines</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%!fmt</td>
+<td align="left">Align all lines</td>
 </tr>
 <tr>
-<td>!}fmt</td>
-<td align="center">Align all lines at the current position</td>
-<td align="left"></td>
-<td></td>
+<td align="center">!}fmt</td>
+<td align="left">Align all lines at the current position</td>
 </tr>
 <tr>
-<td>5!!fmt</td>
-<td align="center">Align the next 5 lines</td>
-<td align="left"></td>
-<td></td>
+<td align="center">5!!fmt</td>
+<td align="left">Align the next 5 lines</td>
 </tr>
 </tbody>
 </table>
@@ -819,30 +599,22 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>u</td>
-<td align="center">Undo the last action.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">u</td>
+<td align="left">Undo the last action.</td>
 </tr>
 <tr>
-<td>U</td>
-<td align="center">Undo all the latest changes that were made to the current line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">U</td>
+<td align="left">Undo all the latest changes that were made to the current line.</td>
 </tr>
 <tr>
-<td>Ctrl + r</td>
-<td align="center">Redo.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">Ctrl + r</td>
+<td align="left">Redo.</td>
 </tr>
 </tbody>
 </table>
@@ -850,102 +622,70 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>/pattern</td>
-<td align="center">Search the file for pattern.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/pattern</td>
+<td align="left">Search the file for pattern.</td>
 </tr>
 <tr>
-<td>n</td>
-<td align="center">Scan for next search match in the same direction.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">n</td>
+<td align="left">Scan for next search match in the same direction.</td>
 </tr>
 <tr>
-<td>N</td>
-<td align="center">Scan for next search match but opposite direction.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">N</td>
+<td align="left">Scan for next search match but opposite direction.</td>
 </tr>
 <tr>
-<td>/word</td>
-<td align="center">Search word from top to bottom</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/word</td>
+<td align="left">Search word from top to bottom</td>
 </tr>
 <tr>
-<td>?word</td>
-<td align="center">Search word from bottom to top</td>
-<td align="left"></td>
-<td></td>
+<td align="center">?word</td>
+<td align="left">Search word from bottom to top</td>
 </tr>
 <tr>
-<td>/jo[ha]n</td>
-<td align="center">Search john or joan</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/jo[ha]n</td>
+<td align="left">Search john or joan</td>
 </tr>
 <tr>
-<td>/\&lt; the</td>
-<td align="center">Search the, theatre or then</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/\&lt; the</td>
+<td align="left">Search the, theatre or then</td>
 </tr>
 <tr>
-<td>/the></td>
-<td align="center">Search the or breathe</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/the></td>
+<td align="left">Search the or breathe</td>
 </tr>
 <tr>
-<td>/\&lt; the></td>
-<td align="center">Search the</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/\&lt; the></td>
+<td align="left">Search the</td>
 </tr>
 <tr>
-<td>/\&lt; ¦.></td>
-<td align="center">Search all words of 4 letters</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/\&lt; ¦.></td>
+<td align="left">Search all words of 4 letters</td>
 </tr>
 <tr>
-<td>/\/</td>
-<td align="center">Search fred but not alfred or frederick</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/\/</td>
+<td align="left">Search fred but not alfred or frederick</td>
 </tr>
 <tr>
-<td>/fred\</td>
-<td align="center">joe</td>
-<td align="left">Search fred or joe</td>
-<td></td>
+<td align="center">/fred\</td>
+<td align="left">joe</td>
 </tr>
 <tr>
-<td>/\&lt;\d\d\d\d></td>
-<td align="center">Search exactly 4 digits</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/\&lt;\d\d\d\d></td>
+<td align="left">Search exactly 4 digits</td>
 </tr>
 <tr>
-<td>/^\n{3}</td>
-<td align="center">Find 3 empty lines</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/^\n{3}</td>
+<td align="left">Find 3 empty lines</td>
 </tr>
 <tr>
-<td>:bufdo /searchstr/</td>
-<td align="center">Search in all open files</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:bufdo /searchstr/</td>
+<td align="left">Search in all open files</td>
 </tr>
 </tbody>
 </table>
@@ -953,396 +693,266 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>:rs/foo/bar/a</td>
-<td align="center">Substitute foo with bar. r determines the range and a determines the arguments.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:rs/foo/bar/a</td>
+<td align="left">Substitute foo with bar. r determines the range and a determines the arguments.</td>
 </tr>
 <tr>
-<td>The range (r) can be</td>
-<td align="center"></td>
+<td align="center">The range (r) can be</td>
 <td align="left"></td>
-<td></td>
 </tr>
 <tr>
-<td>nothing</td>
-<td align="center">Work on current line only.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">nothing</td>
+<td align="left">Work on current line only.</td>
 </tr>
 <tr>
-<td>number</td>
-<td align="center">Work on the line whose number you give.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">number</td>
+<td align="left">Work on the line whose number you give.</td>
 </tr>
 <tr>
-<td>%</td>
-<td align="center">The whole file.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">%</td>
+<td align="left">The whole file.</td>
 </tr>
 <tr>
-<td>Arguments (a) can be</td>
-<td align="center"></td>
+<td align="center"><strong>Arguments (a) can be</strong></td>
 <td align="left"></td>
-<td></td>
 </tr>
 <tr>
-<td>g</td>
-<td align="center">Replace all occurrences in the line. Without this, Vim replaces only the first occurrences in each line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">g</td>
+<td align="left">Replace all occurrences in the line. Without this, Vim replaces only the first occurrences in each line.</td>
 </tr>
 <tr>
-<td>i</td>
-<td align="center">Ignore case for the search pattern.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">i</td>
+<td align="left">Ignore case for the search pattern.</td>
 </tr>
 <tr>
-<td>I</td>
-<td align="center">Don't ignore case.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">I</td>
+<td align="left">Don't ignore case.</td>
 </tr>
 <tr>
-<td>c</td>
-<td align="center">Confirm each substitution. You can type y to substitute this match, n to skip this match, a to substitute this and all the remaining matches ("Yes to all"), and q to quit substitution.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">c</td>
+<td align="left">Confirm each substitution. You can type y to substitute this match, n to skip this match, a to substitute this and all the remaining matches ("Yes to all"), and q to quit substitution.</td>
 </tr>
 <tr>
-<td>Examples</td>
-<td align="center"></td>
+<td align="center"><strong>Examples</strong></td>
 <td align="left"></td>
-<td></td>
 </tr>
 <tr>
-<td>:452s/foo/bar/</td>
-<td align="center">Replace the first occurrence of the word foo with bar on line number 452.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:452s/foo/bar/</td>
+<td align="left">Replace the first occurrence of the word foo with bar on line number 452.</td>
 </tr>
 <tr>
-<td>:s/foo/bar/g</td>
-<td align="center">Replace every occurrence of the word foo with bar on current line.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:s/foo/bar/g</td>
+<td align="left">Replace every occurrence of the word foo with bar on current line.</td>
 </tr>
 <tr>
-<td>:%s/foo/bar/g</td>
-<td align="center">Replace every occurrence of the word foo with bar in the whole file.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/foo/bar/g</td>
+<td align="left">Replace every occurrence of the word foo with bar in the whole file.</td>
 </tr>
 <tr>
-<td>:%s/foo/bar/gi</td>
-<td align="center">The same as above, but ignore the case of the pattern you want to substitute. This replaces foo, FOO, Foo, and so on.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/foo/bar/gi</td>
+<td align="left">The same as above, but ignore the case of the pattern you want to substitute. This replaces foo, FOO, Foo, and so on.</td>
 </tr>
 <tr>
-<td>:%s/foo/bar/gc</td>
-<td align="center">Confirm every substitution.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/foo/bar/gc</td>
+<td align="left">Confirm every substitution.</td>
 </tr>
 <tr>
-<td>:%s/foo/bar/c</td>
-<td align="center">For each line on the file, replace the first occurrence of foo with bar and confirm every substitution.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/foo/bar/c</td>
+<td align="left">For each line on the file, replace the first occurrence of foo with bar and confirm every substitution.</td>
 </tr>
 <tr>
-<td>:%s/old/new/g</td>
-<td align="center">Replace all occurrences of old by new in file</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/old/new/g</td>
+<td align="left">Replace all occurrences of old by new in file</td>
 </tr>
 <tr>
-<td>:%s/old/new/gw</td>
-<td align="center">Replace all occurrences with confirmation</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/old/new/gw</td>
+<td align="left">Replace all occurrences with confirmation</td>
 </tr>
 <tr>
-<td>:2,35s/old/new/g</td>
-<td align="center">Replace all occurrences between lines 2 and 35</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:2,35s/old/new/g</td>
+<td align="left">Replace all occurrences between lines 2 and 35</td>
 </tr>
 <tr>
-<td>:5,$</mathjax>s/old/new/g</td>
-<td align="center">Replace all occurrences from line 5 to <span class="caps">EOF</span></td>
-<td align="left"></td>
-<td></td>
+<td align="center">:5,$</mathjax>s/old/new/g</td>
+<td align="left">Replace all occurrences from line 5 to <span class="caps">EOF</span></td>
 </tr>
 <tr>
-<td>:%s/^/hello/g</td>
-<td align="center">Replace the beginning of each line by hello</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/^/hello/g</td>
+<td align="left">Replace the beginning of each line by hello</td>
 </tr>
 <tr>
-<td>:%s/<mathjax>$/Harry/g</td>
-<td align="center">Replace the end of each line by Harry</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/<mathjax>$/Harry/g</td>
+<td align="left">Replace the end of each line by Harry</td>
 </tr>
 <tr>
-<td>:%s/onward/forward/gi</td>
-<td align="center">Replace onward by forward, case insensitive</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/onward/forward/gi</td>
+<td align="left">Replace onward by forward, case insensitive</td>
 </tr>
 <tr>
-<td>:%s/ *$</mathjax>//g</td>
-<td align="center">Delete all white spaces</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/ *$</mathjax>//g</td>
+<td align="left">Delete all white spaces</td>
 </tr>
 <tr>
-<td>:g/string/d</td>
-<td align="center">Delete all lines containing string</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:g/string/d</td>
+<td align="left">Delete all lines containing string</td>
 </tr>
 <tr>
-<td>:v/string/d</td>
-<td align="center">Delete all lines containing which didn’t contain string</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:v/string/d</td>
+<td align="left">Delete all lines containing which didn’t contain string</td>
 </tr>
 <tr>
-<td>:s/Bill/Steve/</td>
-<td align="center">Replace the first occurrence of Bill by Steve in current line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:s/Bill/Steve/</td>
+<td align="left">Replace the first occurrence of Bill by Steve in current line</td>
 </tr>
 <tr>
-<td>:s/Bill/Steve/g</td>
-<td align="center">Replace Bill by Steve in current line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:s/Bill/Steve/g</td>
+<td align="left">Replace Bill by Steve in current line</td>
 </tr>
 <tr>
-<td>:%s/Bill/Steve/g</td>
-<td align="center">Replace Bill by Steve in all the file</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/Bill/Steve/g</td>
+<td align="left">Replace Bill by Steve in all the file</td>
 </tr>
 <tr>
-<td>:%s/\r//g</td>
-<td align="center">Delete <span class="caps">DOS</span> carriage returns (^M)</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/\r//g</td>
+<td align="left">Delete <span class="caps">DOS</span> carriage returns (^M)</td>
 </tr>
 <tr>
-<td>:%s/\r/\r/g</td>
-<td align="center">Transform <span class="caps">DOS</span> carriage returns in returns</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/\r/\r/g</td>
+<td align="left">Transform <span class="caps">DOS</span> carriage returns in returns</td>
 </tr>
 <tr>
-<td>:%s#&lt;[^&gt;]+&gt;##g</td>
-<td align="center">Delete <span class="caps">HTML</span> tags but keeps text</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s#&lt;[^&gt;]+&gt;##g</td>
+<td align="left">Delete <span class="caps">HTML</span> tags but keeps text</td>
 </tr>
 <tr>
-<td>:%s/^(.*)\n\1<mathjax>$/\1/</td>
-<td align="center">Delete lines which appears twice</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/^(.*)\n\1<mathjax>$/\1/</td>
+<td align="left">Delete lines which appears twice</td>
 </tr>
 <tr>
-<td>Ctrl+a</td>
-<td align="center">Increment number under the cursor</td>
-<td align="left"></td>
-<td></td>
+<td align="center">Ctrl+a</td>
+<td align="left">Increment number under the cursor</td>
 </tr>
 <tr>
-<td>Ctrl+x</td>
-<td align="center">Decrement number under cursor</td>
-<td align="left"></td>
-<td></td>
+<td align="center">Ctrl+x</td>
+<td align="left">Decrement number under cursor</td>
 </tr>
 <tr>
-<td>Regular Expressions</td>
-<td align="center"></td>
+<td align="center"><strong>Regular Expressions</strong></td>
 <td align="left"></td>
-<td></td>
 </tr>
 <tr>
-<td>. (dot)</td>
-<td align="center">Any single character except newline</td>
-<td align="left"></td>
-<td></td>
+<td align="center">. (dot)</td>
+<td align="left">Any single character except newline</td>
 </tr>
 <tr>
-<td>*</td>
-<td align="center">zero or more occurances of any character</td>
-<td align="left"></td>
-<td></td>
+<td align="center">*</td>
+<td align="left">zero or more occurances of any character</td>
 </tr>
 <tr>
-<td>[...]</td>
-<td align="center">Any single character specified in the set</td>
-<td align="left"></td>
-<td></td>
+<td align="center">[...]</td>
+<td align="left">Any single character specified in the set</td>
 </tr>
 <tr>
-<td>[^...]</td>
-<td align="center">Any single character not specified in the set</td>
-<td align="left"></td>
-<td></td>
+<td align="center">[^...]</td>
+<td align="left">Any single character not specified in the set</td>
 </tr>
 <tr>
-<td>^</td>
-<td align="center">Anchor - beginning of the line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">^</td>
+<td align="left">Anchor - beginning of the line</td>
 </tr>
 <tr>
-<td>$</mathjax></td>
-<td align="center">Anchor - end of line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">$</mathjax></td>
+<td align="left">Anchor - end of line</td>
 </tr>
 <tr>
-<td>\&lt;</td>
-<td align="center">Anchor - begining of word</td>
-<td align="left"></td>
-<td></td>
+<td align="center">\&lt;</td>
+<td align="left">Anchor - begining of word</td>
 </tr>
 <tr>
-<td>></td>
-<td align="center">Anchor - end of word</td>
-<td align="left"></td>
-<td></td>
+<td align="center">></td>
+<td align="left">Anchor - end of word</td>
 </tr>
 <tr>
-<td>(&#8230;)</td>
-<td align="center">Grouping - usually used to group conditions</td>
-<td align="left"></td>
-<td></td>
+<td align="center">(&#8230;)</td>
+<td align="left">Grouping - usually used to group conditions</td>
 </tr>
 <tr>
-<td>\n</td>
-<td align="center">Contents of nth grouping</td>
-<td align="left"></td>
-<td></td>
+<td align="center">\n</td>
+<td align="left">Contents of nth grouping</td>
 </tr>
 <tr>
-<td>[&#8230;] - Set Examples</td>
-<td align="center"></td>
+<td align="center"><strong>[&#8230;] - Set Examples</strong></td>
 <td align="left"></td>
-<td></td>
 </tr>
 <tr>
-<td>[A-Z]</td>
-<td align="center">The <span class="caps">SET</span> from Capital A to Capital Z</td>
-<td align="left"></td>
-<td></td>
+<td align="center">[A-Z]</td>
+<td align="left">The <span class="caps">SET</span> from Capital A to Capital Z</td>
 </tr>
 <tr>
-<td>[a-z]</td>
-<td align="center">The <span class="caps">SET</span> from lowercase a to lowercase z</td>
-<td align="left"></td>
-<td></td>
+<td align="center">[a-z]</td>
+<td align="left">The <span class="caps">SET</span> from lowercase a to lowercase z</td>
 </tr>
 <tr>
-<td>[0-9]</td>
-<td align="center">The <span class="caps">SET</span> from 0 to 9 (All numerals)</td>
-<td align="left"></td>
-<td></td>
+<td align="center">[0-9]</td>
+<td align="left">The <span class="caps">SET</span> from 0 to 9 (All numerals)</td>
 </tr>
 <tr>
-<td>[./=+]</td>
-<td align="center">The <span class="caps">SET</span> containing . (dot), / (slash), =, and +</td>
-<td align="left"></td>
-<td></td>
+<td align="center">[./=+]</td>
+<td align="left">The <span class="caps">SET</span> containing . (dot), / (slash), =, and +</td>
 </tr>
 <tr>
-<td>[-A-F]</td>
-<td align="center">The <span class="caps">SET</span> from Capital A to Capital F and the dash (dashes must be specified first)</td>
-<td align="left"></td>
-<td></td>
+<td align="center">[-A-F]</td>
+<td align="left">The <span class="caps">SET</span> from Capital A to Capital F and the dash (dashes must be specified first)</td>
 </tr>
 <tr>
-<td>[0-9 A-Z]</td>
-<td align="center">The <span class="caps">SET</span> containing all capital letters and digits and a space</td>
-<td align="left"></td>
-<td></td>
+<td align="center">[0-9 A-Z]</td>
+<td align="left">The <span class="caps">SET</span> containing all capital letters and digits and a space</td>
 </tr>
 <tr>
-<td>[A-Z][a-zA-Z]</td>
-<td align="center">In the first position, the <span class="caps">SET</span> from Capital A to Capital Z.  In the second character position, the <span class="caps">SET</span> containing all letters</td>
-<td align="left"></td>
-<td></td>
+<td align="center">[A-Z][a-zA-Z]</td>
+<td align="left">In the first position, the <span class="caps">SET</span> from Capital A to Capital Z.  In the second character position, the <span class="caps">SET</span> containing all letters</td>
 </tr>
 <tr>
-<td>Regular Expression Examples</td>
-<td align="center"></td>
+<td align="center"><strong>Regular Expression Examples</strong></td>
 <td align="left"></td>
-<td></td>
 </tr>
 <tr>
-<td>/Hello/</td>
-<td align="center">Matches if the line contains the value Hello</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/Hello/</td>
+<td align="left">Matches if the line contains the value Hello</td>
 </tr>
 <tr>
-<td>/^<span class="caps">TEST</span><mathjax>$/</td>
-<td align="center">Matches if the line contains TEST by itself</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/^<span class="caps">TEST</span><mathjax>$/</td>
+<td align="left">Matches if the line contains TEST by itself</td>
 </tr>
 <tr>
-<td>/^[a-zA-Z]/</td>
-<td align="center">Matches if the line starts with any letter</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/^[a-zA-Z]/</td>
+<td align="left">Matches if the line starts with any letter</td>
 </tr>
 <tr>
-<td>/^[a-z].*/</td>
-<td align="center">Matches if the first character of the line is a-z and there is at least one more of any character following it</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/^[a-z].*/</td>
+<td align="left">Matches if the first character of the line is a-z and there is at least one more of any character following it</td>
 </tr>
 <tr>
-<td>/2134$</mathjax>/</td>
-<td align="center">Matches if line ends with 2134</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/2134$</mathjax>/</td>
+<td align="left">Matches if line ends with 2134</td>
 </tr>
 <tr>
-<td>/(21</td>
-<td align="center">35)/</td>
-<td align="left">Matches is the line contains 21 or 35. Note the use of ( ) with the pipe symbol to specify the &#8216;or&#8217; condition</td>
-<td></td>
+<td align="center">/(21</td>
+<td align="left">35)/</td>
 </tr>
 <tr>
-<td>/[0-9]*/</td>
-<td align="center">Matches if there are zero or more numbers in the line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/[0-9]*/</td>
+<td align="left">Matches if there are zero or more numbers in the line</td>
 </tr>
 <tr>
-<td>/^[^#]/</td>
-<td align="center">Matches if the first character is not a # in the line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">/^[^#]/</td>
+<td align="left">Matches if the first character is not a # in the line</td>
 </tr>
 </tbody>
 </table>
@@ -1350,84 +960,58 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Vu</td>
-<td align="center">Lowercase line</td>
-<td align="left"></td>
-<td></td>
+<td align="center">Vu</td>
+<td align="left">Lowercase line</td>
 </tr>
 <tr>
-<td><span class="caps">VU</span></td>
-<td align="center">Uppercase line</td>
-<td align="left"></td>
-<td></td>
+<td align="center"><span class="caps">VU</span></td>
+<td align="left">Uppercase line</td>
 </tr>
 <tr>
-<td>g~~</td>
-<td align="center">Invert case</td>
-<td align="left"></td>
-<td></td>
+<td align="center">g~~</td>
+<td align="left">Invert case</td>
 </tr>
 <tr>
-<td>vEU</td>
-<td align="center">Switch word to uppercase</td>
-<td align="left"></td>
-<td></td>
+<td align="center">vEU</td>
+<td align="left">Switch word to uppercase</td>
 </tr>
 <tr>
-<td>vE~</td>
-<td align="center">Modify word case</td>
-<td align="left"></td>
-<td></td>
+<td align="center">vE~</td>
+<td align="left">Modify word case</td>
 </tr>
 <tr>
-<td>ggguG</td>
-<td align="center">Set all text to lowercase</td>
-<td align="left"></td>
-<td></td>
+<td align="center">ggguG</td>
+<td align="left">Set all text to lowercase</td>
 </tr>
 <tr>
-<td>:set ignorecase</td>
-<td align="center">Ignore case in searches</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:set ignorecase</td>
+<td align="left">Ignore case in searches</td>
 </tr>
 <tr>
-<td>:set smartcase</td>
-<td align="center">Ignore case in searches excepted if an uppercase letter is used</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:set smartcase</td>
+<td align="left">Ignore case in searches excepted if an uppercase letter is used</td>
 </tr>
 <tr>
-<td>:%s/\&lt;./\u&amp;/g</td>
-<td align="center">Sets first letter of each word to uppercase</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/\&lt;./\u&amp;/g</td>
+<td align="left">Sets first letter of each word to uppercase</td>
 </tr>
 <tr>
-<td>:%s/\&lt;./\l&amp;/g</td>
-<td align="center">Sets first letter of each word to lowercase</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/\&lt;./\l&amp;/g</td>
+<td align="left">Sets first letter of each word to lowercase</td>
 </tr>
 <tr>
-<td>:%s/.*/\u&amp;</td>
-<td align="center">Sets first letter of each line to uppercase</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/.*/\u&amp;</td>
+<td align="left">Sets first letter of each line to uppercase</td>
 </tr>
 <tr>
-<td>:%s/.*/\l&amp;</td>
-<td align="center">Sets first letter of each line to lowercase</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:%s/.*/\l&amp;</td>
+<td align="left">Sets first letter of each line to lowercase</td>
 </tr>
 </tbody>
 </table>
@@ -1435,54 +1019,38 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>:tabnew</td>
-<td align="center">Creates a new tab</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:tabnew</td>
+<td align="left">Creates a new tab</td>
 </tr>
 <tr>
-<td>gt</td>
-<td align="center">Show next tab</td>
-<td align="left"></td>
-<td></td>
+<td align="center">gt</td>
+<td align="left">Show next tab</td>
 </tr>
 <tr>
-<td>:tabfirst</td>
-<td align="center">Show first tab</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:tabfirst</td>
+<td align="left">Show first tab</td>
 </tr>
 <tr>
-<td>:tablast</td>
-<td align="center">Show last tab</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:tablast</td>
+<td align="left">Show last tab</td>
 </tr>
 <tr>
-<td>:tabm n(position)</td>
-<td align="center">Rearrange tabs</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:tabm n(position)</td>
+<td align="left">Rearrange tabs</td>
 </tr>
 <tr>
-<td>:tabdo %s/foo/bar/g</td>
-<td align="center">Execute a command in all tabs</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:tabdo %s/foo/bar/g</td>
+<td align="left">Execute a command in all tabs</td>
 </tr>
 <tr>
-<td>:tab ball</td>
-<td align="center">Puts all open files in tabs</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:tab ball</td>
+<td align="left">Puts all open files in tabs</td>
 </tr>
 </tbody>
 </table>
@@ -1490,84 +1058,58 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>:e filename</td>
-<td align="center">Edit filename in current window</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:e filename</td>
+<td align="left">Edit filename in current window</td>
 </tr>
 <tr>
-<td>:split filename</td>
-<td align="center">Split the window and open filename</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:split filename</td>
+<td align="left">Split the window and open filename</td>
 </tr>
 <tr>
-<td>ctrl-w up arrow</td>
-<td align="center">Puts cursor in top window</td>
-<td align="left"></td>
-<td></td>
+<td align="center">ctrl-w up arrow</td>
+<td align="left">Puts cursor in top window</td>
 </tr>
 <tr>
-<td>ctrl-w ctrl-w</td>
-<td align="center">Puts cursor in next window</td>
-<td align="left"></td>
-<td></td>
+<td align="center">ctrl-w ctrl-w</td>
+<td align="left">Puts cursor in next window</td>
 </tr>
 <tr>
-<td>ctrl-w_</td>
-<td align="center">Maximize current window</td>
-<td align="left"></td>
-<td></td>
+<td align="center">ctrl-w_</td>
+<td align="left">Maximize current window</td>
 </tr>
 <tr>
-<td>ctrl-w=</td>
-<td align="center">Gives the same size to all windows</td>
-<td align="left"></td>
-<td></td>
+<td align="center">ctrl-w=</td>
+<td align="left">Gives the same size to all windows</td>
 </tr>
 <tr>
-<td>10 ctrl-w+</td>
-<td align="center">Add 10 lines to current window</td>
-<td align="left"></td>
-<td></td>
+<td align="center">10 ctrl-w+</td>
+<td align="left">Add 10 lines to current window</td>
 </tr>
 <tr>
-<td>:vsplit file</td>
-<td align="center">Split window vertically</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:vsplit file</td>
+<td align="left">Split window vertically</td>
 </tr>
 <tr>
-<td>:sview file</td>
-<td align="center">Same as :split in read-only mode</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:sview file</td>
+<td align="left">Same as :split in read-only mode</td>
 </tr>
 <tr>
-<td>:hide</td>
-<td align="center">Close current window</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:hide</td>
+<td align="left">Close current window</td>
 </tr>
 <tr>
-<td>:­nly</td>
-<td align="center">Close all windows, excepted current</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:­nly</td>
+<td align="left">Close all windows, excepted current</td>
 </tr>
 <tr>
-<td>:b 2</td>
-<td align="center">Open #2 in this window</td>
-<td align="left"></td>
-<td></td>
+<td align="center">:b 2</td>
+<td align="left">Open #2 in this window</td>
 </tr>
 </tbody>
 </table>
@@ -1575,30 +1117,22 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>mk</td>
-<td align="center">Marks current position as k</td>
-<td align="left"></td>
-<td></td>
+<td align="center">mk</td>
+<td align="left">Marks current position as k</td>
 </tr>
 <tr>
-<td>˜k</td>
-<td align="center">Moves cursor to mark k</td>
-<td align="left"></td>
-<td></td>
+<td align="center">˜k</td>
+<td align="left">Moves cursor to mark k</td>
 </tr>
 <tr>
-<td>dk</td>
-<td align="center">Delete all until mark k</td>
-<td align="left"></td>
-<td></td>
+<td align="center">dk</td>
+<td align="left">Delete all until mark k</td>
 </tr>
 </tbody>
 </table>
@@ -1606,30 +1140,22 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td 0-9a-zA-Z_="0-9a-zA-Z&quot;">q</td>
-<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="center">Record typed characters into register </td>
-<td align="left"></td>
-<td></td>
+<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="center">q</td>
+<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="left">Record typed characters into register </td>
 </tr>
 <tr>
-<td>q</td>
-<td align="center">Stops recording.  (Implementation note: The &#8216;q&#8217; that stops recording is not stored in the register, unless it was the result of a mapping)</td>
-<td align="left"></td>
-<td></td>
+<td align="center">q</td>
+<td align="left">Stops recording.  (Implementation note: The &#8216;q&#8217; that stops recording is not stored in the register, unless it was the result of a mapping)</td>
 </tr>
 <tr>
-<td>qq</td>
-<td align="center">Start recording a new macro to the register q.</td>
-<td align="left"></td>
-<td></td>
+<td align="center">qq</td>
+<td align="left">Start recording a new macro to the register q.</td>
 </tr>
 </tbody>
 </table>
@@ -1637,30 +1163,22 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td 0-9a-zA-Z_="0-9a-zA-Z&quot;">@q</td>
-<td align="center">Play back the macro.</td>
-<td align="left"></td>
-<td></td>
+<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="center">@q</td>
+<td align="left">Play back the macro.</td>
 </tr>
 <tr>
-<td 0-9="0-9"></td>
-<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="center">Play back the macro q</td>
-<td align="left"></td>
-<td></td>
+<td 0-9="0-9" align="center"></td>
+<td 0-9a-zA-Z_="0-9a-zA-Z&quot;" align="left">Play back the macro q</td>
 </tr>
 <tr>
-<td>@@</td>
-<td align="center">Repeat the last macro played</td>
-<td align="left"></td>
-<td></td>
+<td align="center">@@</td>
+<td align="left">Repeat the last macro played</td>
 </tr>
 </tbody>
 </table>
@@ -1668,126 +1186,86 @@ Jeff's Skinner Box&nbsp;            </a>
 <table>
 <thead>
 <tr>
-<th>Vim Command</th>
-<th align="center">Action</th>
-<th align="left"></th>
-<th></th>
+<th align="center">Vim Command</th>
+<th align="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>zf#j</td>
-<td align="center">creates a fold from the cursor down # lines</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zf#j</td>
+<td align="left">creates a fold from the cursor down # lines</td>
 </tr>
 <tr>
-<td>zf/</td>
-<td align="center">string creates a fold from the cursor to string</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zf/</td>
+<td align="left">string creates a fold from the cursor to string</td>
 </tr>
 <tr>
-<td motion="motion">zf</td>
-<td align="center">operator to create a fold</td>
-<td align="left"></td>
-<td></td>
+<td align="center" motion="motion">zf</td>
+<td align="left">operator to create a fold</td>
 </tr>
 <tr>
-<td>zf&#8217;a</td>
-<td align="center">fold to mark</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zf&#8217;a</td>
+<td align="left">fold to mark</td>
 </tr>
 <tr>
-<td>zn</td>
-<td align="center">fold none: reset &#8216;foldenable&#8217;. All folds will be open</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zn</td>
+<td align="left">fold none: reset &#8216;foldenable&#8217;. All folds will be open</td>
 </tr>
 <tr>
-<td>zN</td>
-<td align="center">fold normal: set &#8216;foldenable&#8217;. All folds will be as they were before</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zN</td>
+<td align="left">fold normal: set &#8216;foldenable&#8217;. All folds will be as they were before</td>
 </tr>
 <tr>
-<td>zi</td>
-<td align="center">invert &#8216;foldenable&#8217;</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zi</td>
+<td align="left">invert &#8216;foldenable&#8217;</td>
 </tr>
 <tr>
-<td>zj</td>
-<td align="center">moves the cursor to the next fold</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zj</td>
+<td align="left">moves the cursor to the next fold</td>
 </tr>
 <tr>
-<td>zk</td>
-<td align="center">moves the cursor to the previous fold</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zk</td>
+<td align="left">moves the cursor to the previous fold</td>
 </tr>
 <tr>
-<td>zo</td>
-<td align="center">opens a fold at the cursor</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zo</td>
+<td align="left">opens a fold at the cursor</td>
 </tr>
 <tr>
-<td>zO</td>
-<td align="center">opens all folds at the cursor</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zO</td>
+<td align="left">opens all folds at the cursor</td>
 </tr>
 <tr>
-<td>zm</td>
-<td align="center">increases the fold-level by one</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zm</td>
+<td align="left">increases the fold-level by one</td>
 </tr>
 <tr>
-<td>zM</td>
-<td align="center">closes all open folds</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zM</td>
+<td align="left">closes all open folds</td>
 </tr>
 <tr>
-<td>zr</td>
-<td align="center">decreases the fold-level by one</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zr</td>
+<td align="left">decreases the fold-level by one</td>
 </tr>
 <tr>
-<td>zR</td>
-<td align="center">decreases the fold-level to zero &#8212; all folds will be open</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zR</td>
+<td align="left">decreases the fold-level to zero &#8212; all folds will be open</td>
 </tr>
 <tr>
-<td>zd</td>
-<td align="center">deletes the fold at the cursor</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zd</td>
+<td align="left">deletes the fold at the cursor</td>
 </tr>
 <tr>
-<td>zE</td>
-<td align="center">deletes all folds</td>
-<td align="left"></td>
-<td></td>
+<td align="center">zE</td>
+<td align="left">deletes all folds</td>
 </tr>
 <tr>
-<td>[z</td>
-<td align="center">move to start of open fold</td>
-<td align="left"></td>
-<td></td>
+<td align="center">[z</td>
+<td align="left">move to start of open fold</td>
 </tr>
 <tr>
-<td>]z</td>
-<td align="center">move to end of open fold</td>
-<td align="left"></td>
-<td></td>
+<td align="center">]z</td>
+<td align="left">move to end of open fold</td>
 </tr>
 </tbody>
 </table>
@@ -1848,7 +1326,7 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
     </section>
         </div>
-        <div class="col-sm-3 well well-sm" id="sidebar">
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
 
 <aside>
     <section>

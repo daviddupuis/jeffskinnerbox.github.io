@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>HowTo: Linux Maintenance and Filesystem Hygiene - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="HowTo: Linux Maintenance and Filesystem Hygiene"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/posts/2014/Mar/31/howto-linux-maintenance-and-filesystem-hygiene/"/>
+            <meta property="og:description" content="This article reviews the kinds of maintenance activities required by Ubuntu / Debian / Raspberry Pi Linux distributions to keep them running as they should. It covers topics like OS and applications updates, disk / filesystems integrity, and cleaning up filesystem clutter."/>
+
+        <meta content='4b4ba976784eb9a97125d9e26149a667' name='RepostUsAPIKey' />
+        <script src='http://1.rp-api.com/rjs/repostus.js' type='text/javascript'></script>
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
+                             About Me
+                          </a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/posts/2014/Mar/31/howto-linux-maintenance-and-filesystem-hygiene/"
+                       rel="bookmark"
+                       title="Permalink to HowTo: Linux Maintenance and Filesystem Hygiene">
+                        HowTo: Linux Maintenance and Filesystem Hygiene
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-03-31T21:23:00"> Monday&nbsp;&nbsp;&nbsp;&nbsp;March 31, 2014</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/linux/">Linux</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/raspberry-pi/">Raspberry Pi</a>
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <p>What kind of maintenance does one need to do on an Ubuntu / Debian / Raspberry Pi Linux distributions?
+Defrag the drive, clean your registry, update antivirus, etc. just like you need to in Windows?
+None of this is needed in Linux but there is some recommend ifilesystem hygiene you should be&nbsp;doing.</p>
+<h2>Gather&nbsp;Information</h2>
+<p>For some of the maintenance activities listed here, you&#8217;re going to need some basic information.
+This next section shows you how to get that&nbsp;information. </p>
+<h4>Distribution Name and&nbsp;Version</h4>
+<p>To determine which Linux version / build / release / distribution you are&nbsp;running:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># kernel name and release
+uname -sr
+
+# kernel version
+uname -v
+
+# Linux distribution
+cat /etc/*-release
+lsb_release -a
+</pre></div>
+
+
+<p>Use the following command to get a listing of all the physical hard drives
+(and virutal drives) on the&nbsp;system:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">hwinfo --disk --short
+</pre></div>
+
+
+<p>For the Raspberry Pi, you can list the installed firmware version&nbsp;via:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">/opt/vc/bin/vcgencmd version
+</pre></div>
+
+
+<h2><span class="caps">OS</span> and Application&nbsp;Maintenance</h2>
+<p>You should periodically update your Linux operating system (<span class="caps">OS</span>)
+and its&nbsp;applications.</p>
+<h4>Install Operating System and Application&nbsp;Patches/Updates</h4>
+<p>This will patch the Linux operating system and all its <span class="caps">GPL</span>&nbsp;applications </p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get update; sudo apt-get dist-upgrade
+</pre></div>
+
+
+<h4>Updating Firmware for Raspberry&nbsp;Pi</h4>
+<p>In the case of the Raspberry Pi (RPi), you will want to also upgrade the firmware regularly.
+<a href="http://www.raspbian.org/">Raspbian</a> is the standard Linux operating system distribution for the RPi,
+but it doesn&#8217;t include firmware.
+Never the less, tools for updating the firmware are included in the Raspbian distribution of Linux.
+That tool is <code>sudo apt-get install rpi-update</code>.
+I&#8217;m using the <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview">Adafruit&#8217;s Occidentalis distribution</a>, so this requires a
+<a href="https://github.com/Hexxeh/rpi-update">slightly different update tool</a> (<code>git</code> needs to be&nbsp;installed):</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
+sudo chmod +x /usr/bin/rpi-update
+</pre></div>
+
+
+<p>Once the tool has been installed, periodically you can update the firmware via these&nbsp;commands:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo BRANCH=next rpi-update
+sudo reboot
+</pre></div>
+
+
+<p>Note that once the firmware has been sucessfully updated,
+you&#8217;ll need to reboot to load the new&nbsp;firmware.</p>
+<h2>Filesystem&nbsp;Maintenance</h2>
+<p>Filesystems and disks should be check to make sure they are not running low on resources
+and are not showing any signs of pending&nbsp;failure.</p>
+<h4>Check Storage and Inode&nbsp;Usage</h4>
+<p>If you let some directories get really full, like above 95% full, you will see some serious system problems.
+Check on the status of directory systems storage space and inode&nbsp;usage:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">df
+df -i
+</pre></div>
+
+
+<h4>Disk and Filesystems&nbsp;Integrity</h4>
+<p><a href="http://sourceforge.net/apps/trac/smartmontools/wiki">Smartmontools</a> is a set of applications that can test hard drives
+and read their hardware <span class="caps">SMART</span> statistics (install with <code>sudo apt-get install smartmontools</code>).
+To ensure that your drive supports <a href="http://en.wikipedia.org/wiki/S.M.A.R.T."><span class="caps">SMART</span></a>, type the following for each physical&nbsp;drive:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo smartctl -i /dev/sda
+</pre></div>
+
+
+<p>If <code>smartctl</code> can access the drive, you should turn on some <span class="caps">SMART</span> features.
+I ran the following command on my three drives (example for the <code>/dev/sda</code> drive):</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo smartctl -s on -o on -S on /dev/sda
+</pre></div>
+
+
+<p>Check the disk&#8217;s overall&nbsp;health:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo smartctl -H /dev/sda
+</pre></div>
+
+
+<p>If it doesn’t return <span class="caps">PASSED</span>, you should immediately backup all your data.
+A short, but more extensive test&nbsp;is</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo smartctl -t short /dev/sda
+</pre></div>
+
+
+<p>You can do a long self-test, but this can take a significant amount of time.
+You might want to run it overnight and check for the results in the&nbsp;morning.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo smartctl -t long /dev/sda
+</pre></div>
+
+
+<p>To check results, run the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo smartctl -l selftest /dev/sda
+</pre></div>
+
+
+<p>Unfortunately, there’s no way to check progress, so just keep running that command until the results show up.
+ If either test fails, you should immediately backup all your data.
+Depending on the error, your drive might be close to death or it may still have a long life ahead.
+Consult the <a href="http://sourceforge.net/apps/trac/smartmontools/wiki/FAQ">smartmontools <span class="caps">FAQ</span></a>.</p>
+<p>We’ve now enabled some features and run the basic tests.
+Instead of repeating the previous section daily, we can setup <code>smartd</code> to do it all automatically.
+Via the demon, you can run Smartmontools in the background,
+have it check drives, and email you when there are issues.
+See the Sources below to figure out what needs to be done to setup the <code>smartd</code> demon.</p>
+<h2>Clean-Up</h2>
+<p>Linux will leave some clutter around in the filesystem.
+While generally not a problem, it can eat-up disk space,
+and can become a problem for the <code>/boot</code> directory.</p>
+<h4>Clean-Up Temporary&nbsp;Files</h4>
+<p>Some editors (like vim) may leave files ending with a ‘~&#8217; character laying around.
+You can clean them up under your <code>$HOME</code> as a normal user
+(You can do it for the entire system as root, but that can be extremely dangerous.)
+Use the command below to get a list of&nbsp;candidates:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">find $HOME -type f -name &quot;*~&quot; -print
+</pre></div>
+
+
+<p>After that appears to do what you want, add the -exec&nbsp;part.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">find $HOME -type f -name &quot;*~&quot; -print -exec rm {} \;
+</pre></div>
+
+
+<p>Kernel crashes, when they happen, write the core dump files under <code>/var</code>.
+Assuming you aren&#8217;t saving them for debugging, you can do this to get a&nbsp;listing:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo find /var -type f -name &quot;core&quot; -print
+</pre></div>
+
+
+<p>Some applications create temporary files in their own&nbsp;directories: </p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">rm -rf ${HOME}/.macromedia/* ${HOME}/.adobe/*
+</pre></div>
+
+
+<h4>Clean-Up Old Log&nbsp;Files</h4>
+<p>You can also remove old compress log files from the system&nbsp;with</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rm -v /var/log/*.gz
+</pre></div>
+
+
+<h4>Clean-Up Installation&nbsp;Packages</h4>
+<p>To remove partual packages, clean the cache, remove unused dependancies&nbsp;use:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get autoclean
+sudo apt-get clean
+sudo apt-get autoremove
+</pre></div>
+
+
+<h4>Clean-Up Old Kernel&nbsp;Packages</h4>
+<p>You also need to do something similar for kernel installations.
+You&#8217;ll find the amount of space being used by the current kernel
+and old kernel installation packages in <code>/boot</code> by&nbsp;running:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">df -h /boot
+</pre></div>
+
+
+<p>The current Linux kernel installation (and the one you most definitely must keep)
+can be identified&nbsp;via:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">uname -r
+</pre></div>
+
+
+<p>Run the following command to list all packages that you no longer&nbsp;need:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">dpkg -l &#39;linux-*&#39; | sed &#39;/^ii/!d;/&#39;&quot;$(uname -r | sed &quot;s/\(.*\)-\([^0-9]\+\)/\1/&quot;)&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;
+</pre></div>
+
+
+<p>You can use the above command to permanently delete <strong><span class="caps">ALL</span></strong> older&nbsp;kernels:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get remove --purge $(dpkg -l &#39;linux-*&#39; | sed &#39;/^ii/!d;/&#39;&quot;$(uname -r | sed &quot;s/\(.*\)-\([^0-9]\+\)/\1/&quot;)&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;)
+</pre></div>
+
+
+<p>However this <strong>may not be wise</strong>, as you should <strong>always</strong>
+have an old kernel or two to fall back to
+(just in case the new one doesn&#8217;t work with your system).
+At the very least, if you&#8217;ve just upgraded the kernel,
+reboot before deleting the older&nbsp;versions.</p>
+<h2>When the Hard Disk Goes&nbsp;South</h2>
+<p>For basic disk errors, you could try letting Linux heal itself with <code>fsck</code> at boot up.
+To do this, shut down the system with the -F option like&nbsp;this:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo shutdown -r -F now
+</pre></div>
+
+
+<p>Linux reboots immediately and looks for disk errors with the <a href="http://linux.die.net/man/8/fsck"><code>fsck</code></a> command.
+Confirm fixing disk errors by pressing &#8220;y&#8221; and &#8220;Enter&#8221; if&nbsp;prompted.</p>
+<p>If this fails, read these articals &#8220;<a href="http://www.linuxjournal.com/article/193?page=0,0">Disk Maintenance under Linux (Disk Recovery</a>&#8220;,
+<a href="http://www.dedoimedo.com/computers/linux-data-recovery.html">How to recover partitions and data using Linux - Tutorial</a>,
+and then follow the instructions&nbsp;carefully!</p>
+<h2>Sources</h2>
+<p>I consulted the following sources to create this&nbsp;posting:</p>
+<ul>
+<li><a href="http://askubuntu.com/questions/194651/why-use-apt-get-upgrade-instead-of-apt-get-dist-upgrade">Why use apt-get upgrade instead of apt-get&nbsp;dist-upgrade?</a></li>
+<li><a href="http://lifehacker.com/5817282/what-kind-of-maintenance-do-i-need-to-do-on-my-linux-pc">What Kind of Maintenance Do I Need to Do On My Linux <span class="caps">PC</span>?</a></li>
+<li><a href="http://askubuntu.com/questions/81042/is-system-cleanup-optimization-needed">Is system cleanup/optimization&nbsp;needed</a></li>
+<li><a href="http://www.linuxjournal.com/article/193?page=0,0">Disk Maintenance under Linux (Disk&nbsp;Recovery)</a></li>
+<li><a href="https://help.ubuntu.com/community/Smartmontools">Smartmontools</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/S.M.A.R.T."><span class="caps">S.M.A.R.T.</span>(Self-Monitoring, Analysis, and Reporting&nbsp;Technology)</a></li>
+<li><a href="http://blog.shadypixel.com/monitoring-hard-drive-health-on-linux-with-smartmontools/">Monitoring Hard Drive Health on Linux with&nbsp;smartmontools</a></li>
+<li><a href="http://askubuntu.com/questions/2793/how-do-i-remove-or-hide-old-kernel-versions-to-clean-up-the-boot-menu-or-free-sp">How do I remove or hide old kernel versions to clean up the boot menu or free&nbsp;space?</a></li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'howto-linux-maintenance-and-filesystem-hygiene';
+            var disqus_url = 'http://jeffskinnerbox.me/posts/2014/Mar/31/howto-linux-maintenance-and-filesystem-hygiene/';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+                        <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <small>
+                All my work is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

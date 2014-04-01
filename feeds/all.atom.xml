@@ -1,5 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Jeff's Skinner Box</title><link href="http://jeffskinnerbox.me/" rel="alternate"></link><link href="http://jeffskinnerbox.me/feeds/all.atom.xml" rel="self"></link><id>http://jeffskinnerbox.me/</id><updated>2014-02-08T00:01:00-05:00</updated><entry><title>Network Backups via Rsync and Rsnapshot</title><link href="http://jeffskinnerbox.me/posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/" rel="alternate"></link><updated>2014-02-08T00:01:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2014-02-08:posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/</id><summary type="html">&lt;h3&gt;rsync and&amp;nbsp;rsnapshot&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Jeff's Skinner Box</title><link href="http://jeffskinnerbox.me/" rel="alternate"></link><link href="http://jeffskinnerbox.me/feeds/all.atom.xml" rel="self"></link><id>http://jeffskinnerbox.me/</id><updated>2014-03-31T21:23:00-04:00</updated><entry><title>HowTo: Linux Maintenance and Filesystem Hygiene</title><link href="http://jeffskinnerbox.me/posts/2014/Mar/31/howto-linux-maintenance-and-filesystem-hygiene/" rel="alternate"></link><updated>2014-03-31T21:23:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2014-03-31:posts/2014/Mar/31/howto-linux-maintenance-and-filesystem-hygiene/</id><summary type="html">&lt;p&gt;What kind of maintenance does one need to do on an Ubuntu / Debian / Raspberry Pi Linux distributions?
+Defrag the drive, clean your registry, update antivirus, etc. just like you need to in Windows?
+None of this is needed in Linux but there is some recommend ifilesystem hygiene you should be&amp;nbsp;doing.&lt;/p&gt;
+&lt;h2&gt;Gather&amp;nbsp;Information&lt;/h2&gt;
+&lt;p&gt;For some of the maintenance activities listed here, you&amp;#8217;re going to need some basic information.
+This next section shows you how to get that&amp;nbsp;information. &lt;/p&gt;
+&lt;h4&gt;Distribution Name and&amp;nbsp;Version&lt;/h4&gt;
+&lt;p&gt;To determine which Linux version / build / release / distribution you are&amp;nbsp;running:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# kernel name and release
+uname -sr
+
+# kernel version
+uname -v
+
+# Linux distribution
+cat /etc/*-release
+lsb_release -a
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Use the following command to get a listing of all the physical hard drives
+(and virutal drives) on the&amp;nbsp;system:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;hwinfo --disk --short
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For the Raspberry Pi, you can list the installed firmware version&amp;nbsp;via:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;/opt/vc/bin/vcgencmd version
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;&lt;span class="caps"&gt;OS&lt;/span&gt; and Application&amp;nbsp;Maintenance&lt;/h2&gt;
+&lt;p&gt;You should periodically update your Linux operating system (&lt;span class="caps"&gt;OS&lt;/span&gt;)
+and its&amp;nbsp;applications.&lt;/p&gt;
+&lt;h4&gt;Install Operating System and Application&amp;nbsp;Patches/Updates&lt;/h4&gt;
+&lt;p&gt;This will patch the Linux operating system and all its &lt;span class="caps"&gt;GPL&lt;/span&gt;&amp;nbsp;applications &lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get update; sudo apt-get dist-upgrade
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Updating Firmware for Raspberry&amp;nbsp;Pi&lt;/h4&gt;
+&lt;p&gt;In the case of the Raspberry Pi (RPi), you will want to also upgrade the firmware regularly.
+&lt;a href="http://www.raspbian.org/"&gt;Raspbian&lt;/a&gt; is the standard Linux operating system distribution for the RPi,
+but it doesn&amp;#8217;t include firmware.
+Never the less, tools for updating the firmware are included in the Raspbian distribution of Linux.
+That tool is &lt;code&gt;sudo apt-get install rpi-update&lt;/code&gt;.
+I&amp;#8217;m using the &lt;a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview"&gt;Adafruit&amp;#8217;s Occidentalis distribution&lt;/a&gt;, so this requires a
+&lt;a href="https://github.com/Hexxeh/rpi-update"&gt;slightly different update tool&lt;/a&gt; (&lt;code&gt;git&lt;/code&gt; needs to be&amp;nbsp;installed):&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
+sudo chmod +x /usr/bin/rpi-update
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once the tool has been installed, periodically you can update the firmware via these&amp;nbsp;commands:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo BRANCH=next rpi-update
+sudo reboot
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note that once the firmware has been sucessfully updated,
+you&amp;#8217;ll need to reboot to load the new&amp;nbsp;firmware.&lt;/p&gt;
+&lt;h2&gt;Filesystem&amp;nbsp;Maintenance&lt;/h2&gt;
+&lt;p&gt;Filesystems and disks should be check to make sure they are not running low on resources
+and are not showing any signs of pending&amp;nbsp;failure.&lt;/p&gt;
+&lt;h4&gt;Check Storage and Inode&amp;nbsp;Usage&lt;/h4&gt;
+&lt;p&gt;If you let some directories get really full, like above 95% full, you will see some serious system problems.
+Check on the status of directory systems storage space and inode&amp;nbsp;usage:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;df
+df -i
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Disk and Filesystems&amp;nbsp;Integrity&lt;/h4&gt;
+&lt;p&gt;&lt;a href="http://sourceforge.net/apps/trac/smartmontools/wiki"&gt;Smartmontools&lt;/a&gt; is a set of applications that can test hard drives
+and read their hardware &lt;span class="caps"&gt;SMART&lt;/span&gt; statistics (install with &lt;code&gt;sudo apt-get install smartmontools&lt;/code&gt;).
+To ensure that your drive supports &lt;a href="http://en.wikipedia.org/wiki/S.M.A.R.T."&gt;&lt;span class="caps"&gt;SMART&lt;/span&gt;&lt;/a&gt;, type the following for each physical&amp;nbsp;drive:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo smartctl -i /dev/sda
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If &lt;code&gt;smartctl&lt;/code&gt; can access the drive, you should turn on some &lt;span class="caps"&gt;SMART&lt;/span&gt; features.
+I ran the following command on my three drives (example for the &lt;code&gt;/dev/sda&lt;/code&gt; drive):&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo smartctl -s on -o on -S on /dev/sda
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Check the disk&amp;#8217;s overall&amp;nbsp;health:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo smartctl -H /dev/sda
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If it doesn’t return &lt;span class="caps"&gt;PASSED&lt;/span&gt;, you should immediately backup all your data.
+A short, but more extensive test&amp;nbsp;is&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo smartctl -t short /dev/sda
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can do a long self-test, but this can take a significant amount of time.
+You might want to run it overnight and check for the results in the&amp;nbsp;morning.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo smartctl -t long /dev/sda
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To check results, run the&amp;nbsp;following:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo smartctl -l selftest /dev/sda
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Unfortunately, there’s no way to check progress, so just keep running that command until the results show up.
+ If either test fails, you should immediately backup all your data.
+Depending on the error, your drive might be close to death or it may still have a long life ahead.
+Consult the &lt;a href="http://sourceforge.net/apps/trac/smartmontools/wiki/FAQ"&gt;smartmontools &lt;span class="caps"&gt;FAQ&lt;/span&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We’ve now enabled some features and run the basic tests.
+Instead of repeating the previous section daily, we can setup &lt;code&gt;smartd&lt;/code&gt; to do it all automatically.
+Via the demon, you can run Smartmontools in the background,
+have it check drives, and email you when there are issues.
+See the Sources below to figure out what needs to be done to setup the &lt;code&gt;smartd&lt;/code&gt; demon.&lt;/p&gt;
+&lt;h2&gt;Clean-Up&lt;/h2&gt;
+&lt;p&gt;Linux will leave some clutter around in the filesystem.
+While generally not a problem, it can eat-up disk space,
+and can become a problem for the &lt;code&gt;/boot&lt;/code&gt; directory.&lt;/p&gt;
+&lt;h4&gt;Clean-Up Temporary&amp;nbsp;Files&lt;/h4&gt;
+&lt;p&gt;Some editors (like vim) may leave files ending with a ‘~&amp;#8217; character laying around.
+You can clean them up under your &lt;code&gt;$HOME&lt;/code&gt; as a normal user
+(You can do it for the entire system as root, but that can be extremely dangerous.)
+Use the command below to get a list of&amp;nbsp;candidates:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;find $HOME -type f -name &amp;quot;*~&amp;quot; -print
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After that appears to do what you want, add the -exec&amp;nbsp;part.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;find $HOME -type f -name &amp;quot;*~&amp;quot; -print -exec rm {} \;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Kernel crashes, when they happen, write the core dump files under &lt;code&gt;/var&lt;/code&gt;.
+Assuming you aren&amp;#8217;t saving them for debugging, you can do this to get a&amp;nbsp;listing:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo find /var -type f -name &amp;quot;core&amp;quot; -print
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Some applications create temporary files in their own&amp;nbsp;directories: &lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;rm -rf ${HOME}/.macromedia/* ${HOME}/.adobe/*
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Clean-Up Old Log&amp;nbsp;Files&lt;/h4&gt;
+&lt;p&gt;You can also remove old compress log files from the system&amp;nbsp;with&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rm -v /var/log/*.gz
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Clean-Up Installation&amp;nbsp;Packages&lt;/h4&gt;
+&lt;p&gt;To remove partual packages, clean the cache, remove unused dependancies&amp;nbsp;use:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get autoclean
+sudo apt-get clean
+sudo apt-get autoremove
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Clean-Up Old Kernel&amp;nbsp;Packages&lt;/h4&gt;
+&lt;p&gt;You also need to do something similar for kernel installations.
+You&amp;#8217;ll find the amount of space being used by the current kernel
+and old kernel installation packages in &lt;code&gt;/boot&lt;/code&gt; by&amp;nbsp;running:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;df -h /boot
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The current Linux kernel installation (and the one you most definitely must keep)
+can be identified&amp;nbsp;via:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;uname -r
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Run the following command to list all packages that you no longer&amp;nbsp;need:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;dpkg -l &amp;#39;linux-*&amp;#39; | sed &amp;#39;/^ii/!d;/&amp;#39;&amp;quot;$(uname -r | sed &amp;quot;s/\(.*\)-\([^0-9]\+\)/\1/&amp;quot;)&amp;quot;&amp;#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can use the above command to permanently delete &lt;strong&gt;&lt;span class="caps"&gt;ALL&lt;/span&gt;&lt;/strong&gt; older&amp;nbsp;kernels:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get remove --purge $(dpkg -l &amp;#39;linux-*&amp;#39; | sed &amp;#39;/^ii/!d;/&amp;#39;&amp;quot;$(uname -r | sed &amp;quot;s/\(.*\)-\([^0-9]\+\)/\1/&amp;quot;)&amp;quot;&amp;#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&amp;#39;)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;However this &lt;strong&gt;may not be wise&lt;/strong&gt;, as you should &lt;strong&gt;always&lt;/strong&gt;
+have an old kernel or two to fall back to
+(just in case the new one doesn&amp;#8217;t work with your system).
+At the very least, if you&amp;#8217;ve just upgraded the kernel,
+reboot before deleting the older&amp;nbsp;versions.&lt;/p&gt;
+&lt;h2&gt;When the Hard Disk Goes&amp;nbsp;South&lt;/h2&gt;
+&lt;p&gt;For basic disk errors, you could try letting Linux heal itself with &lt;code&gt;fsck&lt;/code&gt; at boot up.
+To do this, shut down the system with the -F option like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo shutdown -r -F now
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Linux reboots immediately and looks for disk errors with the &lt;a href="http://linux.die.net/man/8/fsck"&gt;&lt;code&gt;fsck&lt;/code&gt;&lt;/a&gt; command.
+Confirm fixing disk errors by pressing &amp;#8220;y&amp;#8221; and &amp;#8220;Enter&amp;#8221; if&amp;nbsp;prompted.&lt;/p&gt;
+&lt;p&gt;If this fails, read these articals &amp;#8220;&lt;a href="http://www.linuxjournal.com/article/193?page=0,0"&gt;Disk Maintenance under Linux (Disk Recovery&lt;/a&gt;&amp;#8220;,
+&lt;a href="http://www.dedoimedo.com/computers/linux-data-recovery.html"&gt;How to recover partitions and data using Linux - Tutorial&lt;/a&gt;,
+and then follow the instructions&amp;nbsp;carefully!&lt;/p&gt;
+&lt;h2&gt;Sources&lt;/h2&gt;
+&lt;p&gt;I consulted the following sources to create this&amp;nbsp;posting:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://askubuntu.com/questions/194651/why-use-apt-get-upgrade-instead-of-apt-get-dist-upgrade"&gt;Why use apt-get upgrade instead of apt-get&amp;nbsp;dist-upgrade?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://lifehacker.com/5817282/what-kind-of-maintenance-do-i-need-to-do-on-my-linux-pc"&gt;What Kind of Maintenance Do I Need to Do On My Linux &lt;span class="caps"&gt;PC&lt;/span&gt;?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://askubuntu.com/questions/81042/is-system-cleanup-optimization-needed"&gt;Is system cleanup/optimization&amp;nbsp;needed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.linuxjournal.com/article/193?page=0,0"&gt;Disk Maintenance under Linux (Disk&amp;nbsp;Recovery)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://help.ubuntu.com/community/Smartmontools"&gt;Smartmontools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://wiki.archlinux.org/index.php/S.M.A.R.T."&gt;&lt;span class="caps"&gt;S.M.A.R.T.&lt;/span&gt;(Self-Monitoring, Analysis, and Reporting&amp;nbsp;Technology)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://blog.shadypixel.com/monitoring-hard-drive-health-on-linux-with-smartmontools/"&gt;Monitoring Hard Drive Health on Linux with&amp;nbsp;smartmontools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://askubuntu.com/questions/2793/how-do-i-remove-or-hide-old-kernel-versions-to-clean-up-the-boot-menu-or-free-sp"&gt;How do I remove or hide old kernel versions to clean up the boot menu or free&amp;nbsp;space?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="Linux"></category><category term="Raspberry Pi"></category></entry><entry><title>Network Backups via Rsync and Rsnapshot</title><link href="http://jeffskinnerbox.me/posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/" rel="alternate"></link><updated>2014-02-08T00:01:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2014-02-08:posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/</id><summary type="html">&lt;h3&gt;Rsync and&amp;nbsp;Rsnapshot&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/"&gt;
 &lt;img class="img-rounded floatLeft" style="margin: 0px 8px; float: left" title="Seagate Backup Plus" alt="{{ site.author.name }}" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="30%" height="30%" /&gt;&lt;/a&gt;
 I got a 4 Terabyte &lt;a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/"&gt;Seagate Backup Plus&lt;/a&gt; hard drive as a Christmas present and

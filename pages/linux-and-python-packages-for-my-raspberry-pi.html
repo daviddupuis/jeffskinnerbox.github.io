@@ -37,7 +37,7 @@
 </head>
 
 <body>
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -63,11 +63,11 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <!-- /.navbar-collapse -->
     </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
     <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
         <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
     </a>
-       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
 </div> <!-- /.navbar -->
 
 <div class="container">
@@ -77,39 +77,15 @@ Jeff's Skinner Box&nbsp;            </a>
     <section id="content" class="body">
         <h1 class="entry-title">Linux and Python Packages for My Raspberry Pi</h1>
         
-        <div class="entry-content">
-            <p><a href="/images/raspberry-pi-python-logo-rpi-logo.jpg">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Raspberry Pi + Python Logo + RPi Logo" src="/images/raspberry-pi-python-logo-rpi-logo.jpg" width="150" height="150" />
-</a>
-I have two Raspberry Pi&#8217;s (RPi) and will likely have more as I proceed deeper into the projects I have identified.
+        <div class="entry-content" style="background-image: url('/home/jeff/blogging/content/images/banners-bkgrds/scratchpad-yellow-blueline.jpg'); background-repeat: repeat;">
+            <p>I have two Raspberry Pi&#8217;s (RPi) and will likely have more as I proceed deeper into the projects I have identified.
 Not all the RPi&#8217;s will be configured the same
 and I&#8217;m using this page to document what Linux and Python packages I have&nbsp;loaded.</p>
 <h3>My Raspberry&nbsp;Patch</h3>
-<table>
-<thead>
-<tr>
-<th>RPi Broad</th>
-<th align="center">Linux Packages</th>
-<th align="left"></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>RedRPi</strong></td>
-<td align="center">Synaptic, Vim, PyRoom, Git, Chromium, Apache, Python, IPython, matplotlib, basemap, numpy, Pandas, PyQt4, markdown, Conky, SendEmail, <span class="caps">SSHFS</span>, <span class="caps">ALSA</span>, Festival, Flite, dos2unix, x11-apps, x11-xserver-utils, xterm, fonts-inconsolata,  Mathematica</td></td>
-<td align="left"></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>BlackRPi</strong></td>
-<td align="center">Synaptic, Vim, Git, Chromium, Python, <span class="caps">SSHFS</span>, Wireshark, Microcom, Arduino, dos2unix</td></td>
-<td align="left"></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Given that the Raspberry Pi (RPi) is a relatively new devices, you can expect the software for this platform to undergo frequent updates.
+<p><a href="/images/raspberry-pi-python-logo-rpi-logo.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Raspberry Pi + Python Logo + RPi Logo" src="/images/raspberry-pi-python-logo-rpi-logo.jpg" width="150" height="150" />
+</a>
+Given that the Raspberry Pi (RPi) is a relatively new devices, you can expect the software for this platform to undergo frequent updates.
 First you have the RPi&#8217;s Linux
 <a href="http://en.wikipedia.org/wiki/Operating_system">operating system (<span class="caps">OS</span>)</a>
 (in my case <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/occidentalis-v0-dot-2">Occidentalis</a>,
@@ -125,6 +101,24 @@ This could include things like
 <a href="http://code.google.com/p/webiopi/">WebIOPi</a>
  also includes packages for
 <a href="http://www.python.org/">Python</a>.</p>
+<table>
+<thead>
+<tr>
+<th align="center">RPi Board</th>
+<th align="left">Linux Packages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>RedRPi</strong></td>
+<td align="left">Synaptic, Vim, PyRoom, Git, Chromium, Apache, Python, IPython, matplotlib, basemap, numpy, Pandas, PyQt4, markdown, Conky, SendEmail, <span class="caps">SSHFS</span>, <span class="caps">ALSA</span>, Festival, Flite, dos2unix, x11-apps, x11-xserver-utils, xterm, fonts-inconsolata,  Mathematica</td>
+</tr>
+<tr>
+<td align="center"><strong>BlackRPi</strong></td>
+<td align="left">Synaptic, Vim, Git, Chromium, Python, <span class="caps">SSHFS</span>, Wireshark, Microcom, Arduino, dos2unix</td>
+</tr>
+</tbody>
+</table>
 <h3>Do Your House Cleaning&nbsp;First</h3>
 <p>I&#8217;m loading software via the Linux
 <a href="http://en.wikipedia.org/wiki/Advanced_Packaging_Tool"><code>apt-get</code></a>
@@ -402,7 +396,7 @@ font designed for source code listing, terminal emulators, and similar&nbsp;uses
         </div>
     </section>
         </div>
-        <div class="col-sm-3 well well-sm" id="sidebar">
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
 
 <aside>
     <section>
