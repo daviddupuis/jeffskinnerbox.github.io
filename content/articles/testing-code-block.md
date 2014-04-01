@@ -218,11 +218,22 @@ For the example below, indent the text but begin with `:::java hl_lines="9 10 11
 The posting "[Adding code snippets to your blog][05]"
 show you how to use [GitHug Gist][06] to add code listings to your blog.
 The example below is a code snippits from [here][07].
-<!-- -------- Gist Code Snippit --------- --> 
+
+<!-- -------- Start: Gist Code Snippit --------- --> 
 <style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;">
     <script src="https://gist.github.com/jeffskinnerbox/6663095.js"></script>
 </style>
-<!-- -------- Gist Code Snippit --------- --> 
+<!-- --------- End: Gist Code Snippit ---------- --> 
+
+The file content to create this is as follows:
+
+```
+<!-- -------- Start: Gist Code Snippit --------- --> 
+<style="padding: 5px; overflow: auto; font-family: Andale Mono,Lucida Console,Monaco,fixed,monospace; color: rgb(0, 0, 0); background-color: rgb(238, 238, 238); font-size: 12px; line-height: 14px; width: 90%;">
+    <script src="https://gist.github.com/jeffskinnerbox/6663095.js"></script>
+</style>
+<!-- --------- End: Gist Code Snippit ---------- --> 
+```
 
 
 

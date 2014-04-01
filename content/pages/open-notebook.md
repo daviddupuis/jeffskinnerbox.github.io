@@ -60,6 +60,7 @@ xxx
 * [Blogging an iPython notebook with Jekyll](http://www.davidketcheson.info/2012/10/11/blogging_ipython_notebooks_with_jekyll.html)
 * [Blogging with IPython-notebook](http://home.badc.rl.ac.uk/spascoe/blog/blogging-with-ipython-notebook.html)
 * [Welcome to my Lab Notebook - Reloaded](http://carlboettiger.info/2012/09/28/Welcome-to-my-lab-notebook.html)
+* [Python for Signal Processing](http://python-for-signal-processing.blogspot.com/)
 
 [01]:http://ipython.org/notebook.html
 [02]:http://carlboettiger.info/2012/09/28/Welcome-to-my-lab-notebook.html

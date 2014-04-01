@@ -38,7 +38,7 @@ Here is an example when using a file stored within the pelican directory structu
 Here is an another example using a file from the web
 (also hover the mouse over the image to see the text):
 
-```no-highlight
+```md
 Full image is placed here
 ![alt text](http://content.answcdn.com/main/content/img/oxford/Oxford_Mind/0198162246.skinner-box.1.jpg "Skinner Box:  operant conditioning cage")
 Lorem ipsum dolor sit amet, ....

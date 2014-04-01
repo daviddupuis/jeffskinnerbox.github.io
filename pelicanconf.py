@@ -197,10 +197,10 @@ PYGMENTS_STYLE = 'default'
 PATH = 'content'
 PAGE_DIR = 'pages'
 ARTICLE_DIR = 'articles'
-ARTICLE_EXCLUDES = ('draft', 'TBD',)
+ARTICLE_EXCLUDES = ('drafts', 'TBD',)
 
 # List of directories to exclude when looking for pages.
-PAGE_EXCLUDES = ('draft', 'TBD',)
+PAGE_EXCLUDES = ('drafts', 'TBD',)
 
 # Locations where files will be saved in output directory.
 OUTPUT_PATH = 'output/'

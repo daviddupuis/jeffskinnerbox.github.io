@@ -100,6 +100,12 @@ Digital repositories are especially useful where data is used to directly reprod
 #### Is It A New Industral Revolution?
 * [What is the New Industrial Revolution?](http://makezine.com/2013/06/24/what-is-the-new-industrial-revolution/)
 
+#### MicroFactory (aka 3rd Industrial Revolution)
+* [Local Motors](https://localmotors.com/)
+* [Proto Labs](http://www.protolabs.com/)
+* [First Build](http://firstbuild.com/)
+* [GE Garages](http://www.gegarages.com/)
+
 #### Fun Examples
 [Mission Control Desk](http://www.youtube.com/watch?v=j6zseFi070E):
 This pretty much covers every aspect of what being a Maker is all about. Woodwork, electronics, programming, and fun!

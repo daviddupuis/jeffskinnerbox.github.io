@@ -2,19 +2,14 @@ Title: Linux and Python Packages for My Raspberry Pi
 Slug: linux-and-python-packages-for-my-raspberry-pi
 Status: hidden
 
-<a href="/images/raspberry-pi-python-logo-rpi-logo.jpg">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Raspberry Pi + Python Logo + RPi Logo" src="/images/raspberry-pi-python-logo-rpi-logo.jpg" width="150" height="150" />
-</a>
 I have two Raspberry Pi's (RPi) and will likely have more as I proceed deeper into the projects I have identified.
 Not all the RPi's will be configured the same
 and I'm using this page to document what Linux and Python packages I have loaded.
 
 ### My Raspberry Patch
-RPi Broad | Linux Packages
-|:-------:|:----------------|
-**RedRPi** | Synaptic, Vim, PyRoom, Git, Chromium, Apache, Python, IPython, matplotlib, basemap, numpy, Pandas, PyQt4, markdown, Conky, SendEmail, SSHFS, ALSA, Festival, Flite, dos2unix, x11-apps, x11-xserver-utils, xterm, fonts-inconsolata,  Mathematica</td>
-**BlackRPi** | Synaptic, Vim, Git, Chromium, Python, SSHFS, Wireshark, Microcom, Arduino, dos2unix</td>
-
+<a href="/images/raspberry-pi-python-logo-rpi-logo.jpg">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Raspberry Pi + Python Logo + RPi Logo" src="/images/raspberry-pi-python-logo-rpi-logo.jpg" width="150" height="150" />
+</a>
 Given that the Raspberry Pi (RPi) is a relatively new devices, you can expect the software for this platform to undergo frequent updates.
 First you have the RPi's Linux
 [operating system (OS)](http://en.wikipedia.org/wiki/Operating_system)
@@ -31,6 +26,11 @@ This could include things like
 [WebIOPi](http://code.google.com/p/webiopi/)
  also includes packages for
 [Python](http://www.python.org/).
+
+|   RPi Board  | Linux Packages |
+|:------------:|:----------------|
+|  **RedRPi**  | Synaptic, Vim, PyRoom, Git, Chromium, Apache, Python, IPython, matplotlib, basemap, numpy, Pandas, PyQt4, markdown, Conky, SendEmail, SSHFS, ALSA, Festival, Flite, dos2unix, x11-apps, x11-xserver-utils, xterm, fonts-inconsolata,  Mathematica |
+| **BlackRPi** | Synaptic, Vim, Git, Chromium, Python, SSHFS, Wireshark, Microcom, Arduino, dos2unix |
 
 ### Do Your House Cleaning First
 I'm loading software via the Linux

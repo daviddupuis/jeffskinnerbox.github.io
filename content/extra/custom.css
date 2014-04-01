@@ -32,12 +32,15 @@
     font-size: 6pt;
 }
 
-/* This will provide some visual improvements to Markdown's formatted tables */
+/* This will provide some visual improvements to Markdown's formating of tables */
 table, th, td {
     margin-left: auto; 
     margin-right: auto;
     border: 1px solid black;
-    /*box-shadow: 10px 10px 5px #888888;*/
+}
+
+table {
+    box-shadow: 5px 5px 10px #888888;
 }
 
 th {
@@ -62,4 +65,10 @@ td {
 code {
     font-family: monospace, monospace;
     color: black;
+}
+
+/* This will make the code blocks more aesthetically appealing */
+.codehilite {
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #888888;
 }

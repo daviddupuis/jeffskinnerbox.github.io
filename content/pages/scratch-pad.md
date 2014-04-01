@@ -26,7 +26,7 @@ Status: hidden
 * [Radar Imaging in your Garage: Synthetic Aperture Radar](http://hackaday.com/2014/03/17/radar-imaging-in-your-garage-synthetic-aperture-radar/#more-115727)
 * [Try Radar for Your Next Project](http://hackaday.com/2014/02/24/guest-post-try-radar-for-your-next-project/#more-115551)
 * [RADARduino Prototype Testing and Revision 2 Details](http://reactancelabs.com/?p=293)
-* [The $240 High Resolution X-Band Linear Rail SAR Imaging System](http://glcharvat.com/Dr._Gregory_L._Charvat_Projects/$240_High_Res_Rail_SAR.html)
+* [High Resolution X-Band Linear Rail SAR Imaging System](http://glcharvat.com/Dr._Gregory_L._Charvat_Projects/$240_High_Res_Rail_SAR.html)
 * [Homebuilt Ultra Wideband Impulse Radar](http://hackaday.com/2013/10/05/homebuilt-ultra-wideband-impulse-radar/)
 * Coffee Can Radar
     * [How to build a synthetic-aperture imaging system with tin cans and AA batteries](http://spectrum.ieee.org/geek-life/hands-on/coffeecan-radar)
@@ -43,7 +43,7 @@ Status: hidden
 
 ---
 
-#### Data Radio Channel (DARC)
+#### Data Radio Channel (DARC) 
 * [How I discovered RDS](http://www.windytan.com/2013/04/how-i-discovered-rds.html)
 * [Broadcast messages on the DARC side](http://www.windytan.com/2013/11/broadcast-messages-on-darc-side.html)
 
@@ -164,6 +164,8 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 * [Out in the Open: Meet Alphalem, an Open Source Brain Just for Robots](http://www.wired.com/wiredenterprise/2014/01/alphalem/)
 * [ROS 101: Introdcution to the Robot Operating System](http://www.clearpathrobotics.com/blog/how-to-guide-ros-101/?category=5)
 * [ROS 101: PRACTICAL EXAMPLE](http://www.clearpathrobotics.com/blog/ros-101-practical-examples/)
+* [ez-robot](http://www.ez-robot.com/)
+* [PyPot: A library for Dynamixel motors control](http://poppy-project.github.io/pypot/index.html)
 
 ---
 
@@ -269,6 +271,8 @@ In the August 2009  Aclara Technologies white paper [Metering and More: How 
 * http://hackedgadgets.com/2009/05/15/web-monitoring-of-water-usage-using-an-iobridge/
 * http://electronics-diy.com/electronic_schematic.php?id=998
 * http://www.webstatschecker.com/stats/keyword/diy_arduino_water_meter
+
+* [Low power wireless gas meter monitoring](http://perso.aquilenet.fr/~sven337/english/2014/03/18/Gas-meter-monitoring-wireless-battery-arduino.html)
 
 ---
 

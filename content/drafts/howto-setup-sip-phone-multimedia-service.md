@@ -1,10 +1,12 @@
 Title: HOWTO: Setup SIP Phone/Multimedia Service
 Date: 2014-02-21 18:20
-Category: Misc
-Tags: VoIP, Multimedia 
+Category: HowTo, Software
+Tags: VoIP, SIP, Multimedia 
 Slug: howto-setup-sip-phone-multimedia-service
 Author: Jeff Irland
+Image: how-too.jpg
 Summary: bla bla bla
+Status: draft
 
 The [Session Initiation Protocol (SIP)][01] is a signaling communications protocol,
 widely used for controlling multimedia communication sessions such as

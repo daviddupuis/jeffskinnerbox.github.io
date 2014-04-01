@@ -1,6 +1,4 @@
 # Pelican Driven Website
-![Screen Shot](https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/blob/master/extra/Jeff's_Skinner_Box_Screen_Shot.png)
-
 This is the source content and tools for creating my web site [www.jeffskinnerbox.me][03].
 The site is generated using [Pelican][04], written mostly in [markdown][05],
 and it is hosted using [Github Pages][06].
@@ -9,9 +7,11 @@ reusing and modifing the [Bootswatch][09] [Bootstrap][07] theme called [flatly][
 The web site also makes use of pages that were formated using the [IPython][12] tool [nbconvert][11].
 All these tools (and [several more][13]) are used to create the content for the web site.
 
-The building and publishing of the web site is manage via a Makefile, and the two Pelican configuration files
+![Screen Shot](https://raw.githubusercontent.com/jeffskinnerbox/jeffskinnerbox.github.io/master/extra/Jeff's_Skinner_Box_Screen_Shot.png)
 
 ## Configuration Files
+The building and publishing of the web site is manage via a Makefile, and the two Pelican configuration files
+`pelicanconf.py` and `publishconf.py`.
 This theme honors the following standard Pelican settings:
 
 * Putting feeds in the `<head>` section:
@@ -29,6 +29,19 @@ This theme honors the following standard Pelican settings:
 
 It uses the `tag_cloud` variable for displaying tags in the sidebar.
 You can control the amount of tags shown with: `TAG_CLOUD_MAX_ITEMS`.
+
+## Custom Domain Name
+To use a custom domain with GitHub Pages,
+you need to put the domain of your site (e.g., www.jeffskinnerbox.me)
+inside a `CNAME` file at the root of your site.
+To do this, add the `CNAME` file to the `content/extras/`.
+Then use the configuration variable `STATIC_PATHS` setting to tell Pelican
+to copy this file to your output directory. For example:
+
+```python
+STATIC_PATHS = [ 'images', 'extra/CNAME' ]
+EXTRA_PATH_METADATA = { 'extra/CNAME': { 'path': 'CNAME' }, }
+```
 
 ## Extras
 
@@ -54,6 +67,8 @@ EXTRA_PATH_METADATA = {
     'extra/custom.css': {'path': 'static/custom.css'}
 }
 ```
+
+### Plugins
 
 ### Pygments
 You can choose the syntax highlighting style by using the `PYGMENTS_STYLE` variable
@@ -98,7 +113,7 @@ This theme has support for the [Related Posts plugin](https://github.com/getpeli
 ### Favicon
 Set the `FAVICON` option in your `pelicanconf.py`. For example: `FAVICON = 'images/favicon.png'`
 
-### Sidebar options
+### Sidebar Options
 The following things can be displayed on the sidebar:
 
 * **Social links** can be provided through the `SOCIAL` variable. If it's empty, the section will not be shown
@@ -167,27 +182,63 @@ The Makefile is engineered for doing common tasks with the static site generator
 * transfering it to a remote git repository, a remote host/server or a local git repository.
 
 ### Make Commands
-* `make html` - generate content for local server (i.e. localhost:8000)
-* `make publish` - generate content ready for production server (i.e. via GitHub)
-* `make github [COMMENT="string"]` - upload the content to production server and update GitHub (i.e. GitHub)
-* `make process` - create thumbnails and other files required by the web site
-* `make clean` - remove the generated HTML files for the web site (i.e. deletes output directory)
-* `make regenerate` - automatically regenerate files upon modification
-* `make serve [PORT=8000]` - serve site at http://localhost:8000
-* `make devserver [PORT=8000]` - start/restart develop_server.sh
-* `make stopserver` - stop local server
-* `make backup` - Create backup of the blog's contents and tools
+I modified the default Makefile create by the installation of Pelican.
+I updated it with some additional tools to make the work flow process more automated an easier.
 
-TBD
-* `make article [TITLE="string"]` - Create a draft article
-* `make page [TITLE="string"]` - Create a draft page
+`make html`
+:   Convert your Markdown formated content and generate HTML content for local server
+    (i.e. localhost:8000).
 
-### A Collection of Notebooks for using IPython 
-The following notebooks showcase multiple aspects of IPython, from its basic use to more advanced scenarios.
-It has been create from my personal experimentation with IPython and from lifting notebooks from other sources.
+`make regenerate`
+:   If you’d prefer to have Pelican automatically regenerate your site every time
+    a change is detected (which is handy when testing locally),
+    use this command instead to automatically regenerate files upon modification.
+
+`make serve [PORT=8000]`
+:   This will serve the content at `http://localhost:8000`.
+    You use this to inspect its formatting before you post it on your web site.
+
+`make devserver [PORT=8000]`
+:   Normally you would need to run `make regenerate` and `make serve`
+    in two separate terminal sessions, but you can run both at once via this command.
+    This command will simultaneously run Pelican in regeneration mode, as well as,
+    serve the output at `http://localhost:8000`.
+
+`make stopserver`
+:   Once you are done testing your changes, this command stop the development server.
+    It does this via execution of the script `./develop_server.sh stop`.
+
+`make publish`
+:   To assure a clean generation of content, ready for production servera, run this command.
+
+`make github [COMMENT="<string>"]`
+:   When you’re ready to place your site within your local git repository
+    and publish your site at GitHUb, you can upload it via this command.
+    The `<string>` is the comment string required by Git.
+
+`make process`
+:   This is typically used internally to the Makefile.
+    It creat thumbnails and other such support files required by the web site.
+
+`make clean`
+:   This will remove all the generated HTML files by deleting the `output` directory.
+
+`make backup`
+:   This will create a backup of the blog's contents and tools and place
+    them in `$HOME/tmp` for safe keeping.
+
+`make article [TITLE="<string>"]`
+:   Using the metadata for an article stored in the directory `metadata`,
+    this will create a draft article in the directory `content/drafts`
+    and open it with `vim` for editing.
+
+`make page [TITLE="<string>"]`
+:   Using the metadata for a page stored in the directory `metadata`,
+    this will create a draft article in the directory `content/pages`
+    and open it with `vim` for editing.
 
 ## License
-Copyright (c) 2013 Jeffrey C. Irland.  MIT Licensed, see [LICENSE][02] for details.
+Copyright (c) 2014 Jeffrey C. Irland.  MIT Licensed, see [LICENSE][02] for details.
 
 
 

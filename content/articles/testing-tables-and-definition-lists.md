@@ -13,12 +13,16 @@ It has no borders, no header formating, no padding in cells, etc.
 This can be fixed with a little custom CSS.
 My fix is in `content/extra/custom.css` and is listed blow:
 
-```
-/* This will provide some visual improvements to Markdown's formatted tables */
+```css
+/* This will provide some visual improvements to Markdown's formating of tables */
 table, th, td {
     margin-left: auto; 
     margin-right: auto;
     border: 1px solid black;
+}
+
+table {
+    box-shadow: 5px 5px 10px #888888;
 }
 
 th {

@@ -1,14 +1,19 @@
-Title: Linux Maintenance and Filesystem Hygiene
-Date: 2014-02-21 18:20
-Category: Linux
-Tags: Linux
-Slug: linux-maintenance-and-filesystem-hygiene
+Title: HowTo: Linux Maintenance and Filesystem Hygiene
+Date: 2014-03-31 21:23
+Category: HowTo, Software
+Tags: Linux, Raspberry Pi
+Slug: howto-linux-maintenance-and-filesystem-hygiene
 Author: Jeff Irland
-Summary: bla bla bla
+Image: how-too.jpg
+Summary: This article reviews the kinds of maintenance activities required by Ubuntu / Debian / Raspberry Pi Linux distributions to keep them running as they should.  It covers topics like OS and applications updates, disk / filesystems integrity, and cleaning up filesystem clutter.
+
+What kind of maintenance does one need to do on an Ubuntu / Debian / Raspberry Pi Linux distributions?
+Defrag the drive, clean your registry, update antivirus, etc. just like you need to in Windows?
+None of this is needed in Linux but there is some recommend ifilesystem hygiene you should be doing.
 
 ## Gather Information
-For some of the maintenance activities listed here, your going to need some basic information.
-This next section should be helpful.
+For some of the maintenance activities listed here, you're going to need some basic information.
+This next section shows you how to get that information. 
 
 #### Distribution Name and Version
 To determine which Linux version / build / release / distribution you are running:
@@ -32,7 +37,10 @@ For the Raspberry Pi, you can list the installed firmware version via:
 
     /opt/vc/bin/vcgencmd version
 
-## Maintenance
+## OS and Application Maintenance
+You should periodically update your Linux operating system (OS)
+and its applications.
+
 #### Install Operating System and Application Patches/Updates
 This will patch the Linux operating system and all its GPL applications 
 
@@ -58,7 +66,11 @@ Once the tool has been installed, periodically you can update the firmware via t
 Note that once the firmware has been sucessfully updated,
 you'll need to reboot to load the new firmware.
 
-#### Check Stoarge and Inode Usage
+## Filesystem Maintenance
+Filesystems and disks should be check to make sure they are not running low on resources
+and are not showing any signs of pending failure.
+
+#### Check Storage and Inode Usage
 If you let some directories get really full, like above 95% full, you will see some serious system problems.
 Check on the status of directory systems storage space and inode usage:
 
@@ -72,8 +84,8 @@ To ensure that your drive supports [SMART][03], type the following for each phys
 
     sudo smartctl -i /dev/sda 
 
-If smartctl can access the drive, you should turn on some SMART features.
-Run the following command my three drives:
+If `smartctl` can access the drive, you should turn on some SMART features.
+I ran the following command on my three drives (example for the `/dev/sda` drive):
 
     sudo smartctl -s on -o on -S on /dev/sda
 
@@ -96,7 +108,6 @@ To check results, run the following:
     sudo smartctl -l selftest /dev/sda
 
 Unfortunately, there’s no way to check progress, so just keep running that command until the results show up.
-
  If either test fails, you should immediately backup all your data.
 Depending on the error, your drive might be close to death or it may still have a long life ahead.
 Consult the [smartmontools FAQ][06].
@@ -108,9 +119,13 @@ have it check drives, and email you when there are issues.
 See the Sources below to figure out what needs to be done to setup the `smartd` demon.
 
 ## Clean-Up
+Linux will leave some clutter around in the filesystem.
+While generally not a problem, it can eat-up disk space,
+and can become a problem for the `/boot` directory.
+
 #### Clean-Up Temporary Files
 Some editors (like vim) may leave files ending with a ‘~' character laying around.
-You can clean them up under your HOME as a normal user
+You can clean them up under your `$HOME` as a normal user
 (You can do it for the entire system as root, but that can be extremely dangerous.)
 Use the command below to get a list of candidates:
 
@@ -120,7 +135,7 @@ After that appears to do what you want, add the -exec part.
 
     find $HOME -type f -name "*~" -print -exec rm {} \; 
 
-Kernel crashes, when they happen, write the core dump files under /var.
+Kernel crashes, when they happen, write the core dump files under `/var`.
 Assuming you aren't saving them for debugging, you can do this to get a listing:
 
     sudo find /var -type f -name "core" -print
@@ -141,12 +156,15 @@ To remove partual packages, clean the cache, remove unused dependancies use:
     sudo apt-get clean
     sudo apt-get autoremove
 
+#### Clean-Up Old Kernel Packages
 You also need to do something similar for kernel installations.
-You find a the current kernel installation packages being kept in /boot by running:
+You'll find the amount of space being used by the current kernel
+and old kernel installation packages in `/boot` by running:
 
     df -h /boot
 
-The current Linux kernel installation (and one you should keep) can be identified via:
+The current Linux kernel installation (and the one you most definitely must keep)
+can be identified via:
 
     uname -r
 
@@ -154,8 +172,18 @@ Run the following command to list all packages that you no longer need:
 
     dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d'
 
-#### When the Hard Disk Goes South
-For basic disk errors, you could try letting Linux heal itself with fsck at boot up.
+You can use the above command to permanently delete **ALL** older kernels:
+
+    sudo apt-get remove --purge $(dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d')
+
+However this **may not be wise**, as you should **always**
+have an old kernel or two to fall back to
+(just in case the new one doesn't work with your system).
+At the very least, if you've just upgraded the kernel,
+reboot before deleting the older versions.
+
+## When the Hard Disk Goes South
+For basic disk errors, you could try letting Linux heal itself with `fsck` at boot up.
 To do this, shut down the system with the -F option like this:
 
     sudo shutdown -r -F now
@@ -177,6 +205,7 @@ I consulted the following sources to create this posting:
 * [Smartmontools](https://help.ubuntu.com/community/Smartmontools)
 * [S.M.A.R.T. (Self-Monitoring, Analysis, and Reporting Technology)](https://wiki.archlinux.org/index.php/S.M.A.R.T.)
 * [Monitoring Hard Drive Health on Linux with smartmontools](http://blog.shadypixel.com/monitoring-hard-drive-health-on-linux-with-smartmontools/)
+* [How do I remove or hide old kernel versions to clean up the boot menu or free space?](http://askubuntu.com/questions/2793/how-do-i-remove-or-hide-old-kernel-versions-to-clean-up-the-boot-menu-or-free-sp)
 
 
 
@@ -189,5 +218,3 @@ I consulted the following sources to create this posting:
 [07]:http://www.raspbian.org/
 [08]:http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview
 [09]:https://github.com/Hexxeh/rpi-update
-[10]:
-[11]:

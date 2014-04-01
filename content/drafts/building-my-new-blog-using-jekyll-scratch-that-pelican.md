@@ -1,10 +1,13 @@
 Title: Building My New Blog Using Jekyll...Scratch That...Pelican
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Blogging
 Tags: Jekyll, Pelican, Blog, Bootstrap
 Slug: building-my-new-blog-using-jekyll-scratch-that-pelican
 Author: Jeff Irland
+Image: pelican_logo.png
 Summary: This article give a "how I setup Pelican" outline from start to finish. It shows you how to install Pelican, add supporting tools like Markdown, Disqus, Google Analytics, Bootstrap, etc.  It also show you how to use tools Make and GitHub to create a easy to maintain workflow.
+
+Search for XXXX FINISH THIS XXXX and make updates.
 
 * [Migrating from Octopress to Pelican](http://jakevdp.github.io/blog/2013/05/07/migrating-from-octopress-to-pelican/)
 * [How I setup Pelican](http://terriyu.info/blog/posts/2013/07/pelican-setup/)
@@ -135,19 +138,16 @@ vi .gitignore
 output/
 ```
 
-More work needs to be done, so updates will be required.
+XXXX FINISH THIS XXXX
 I have posted a final and more complete version of `.gitignore` [on Gist][51].
 
 #### Pelican Configuration File
 Pelican is configurable via setting is a Python module called `pelicanconf.py`.
-The settings you define in this configuration file will be used within the Pewlican
+The settings you define in this configuration file will be used within the Pelican
 templates that are part of the themes and to control Pelican processing.
-The basic idea is that you can point Pelican at the template files in your
+The basic idea is that, via the configuration files,
+you can point Pelican at the template files in your
 `pelican-themes/<theme>/templates/` directory to generate all static html files.
-Pelican uses [Jinja][15] for its templating language.
-In these templates, you should have access to all variables from `pelicanconf.py`
-as well as template-specific variables (See “[Template and Variables][16]”
-section of the Pelican documentation).
 
 Think of Pelican as having two primary modes of operation:
 local development and production deployment (i.e., `pelicanconf.py` and `publishconf.py`, respectively).
@@ -162,130 +162,99 @@ The way to do that is to ensure your `publishconf.py` is being referenced at pub
 `pelican content -s publishconf.py`.
 I posted my `pelicanconf.py` and `publishconf.py` files on Gist here and here.  XXXX FINISH THIS XXXX
 
-#### Pelican's Markdown
-Pelican will support [Markdown][19], [reStructuredText][20], and [AsciiDoc][21]
-for the creation of content.
-I will be using Markdown to write my blog posts.
-By default, Pelican uses a flavor of Markdown that comes with some [extentions][22].
-I especially like using the footnotes extension......
+Pelican uses [Jinja][15] for its templating language.
+In these templates, you should have access to all variables from `pelicanconf.py`
+as well as template-specific variables (See “[Template and Variables][16]”
+section of the Pelican documentation).
+The specifics of what variables are supported and what they mean are documented
+in the `README.md` file.
 
-#### Creating Content
-Pelican considers “articles” to be chronological content, such as posts on a blog,
-and thus associated with a date (e.g. a web posting about some project underway).
-Pelican also supports “pages” that are usually not temporal in nature
-and are used for content that does not change very often (e.g., “About Me” page).
-Also like Jekyll, each of the content files contain metadata about the file.
-When using Markdown, that metadata looks like:
-
-     XXXX FINISH THIS XXXX
-    Title: My Super Title For My Suppoer Post
-    Date: 2010-12-03 10:20
-    Category: Python
-    Tags: pelican, publishing
-    Slug: my-super-post
-    Author: Jeff Irland
-    Summary: Short version for index and feeds
-    
-    This is the content of my super blog post.
-
-To Run it
-pelican -s pelicanconf.py -o output content
-cd output
-python -m SimpleHTTPServer
-# then localhost:8000 in your browser
-
-OR
-
-( pelican -s pelicanconf.py -o output content && cd output && python -m SimpleHTTPServer ) && cd -
-
-OR
-
-make html
-make serve
-
-OR
-
-pelican --autoreload -s pelicanconf.py -o output content
-make serve
-
-#### Processing Content
-Pelican support several automation tools for the processing of content and publishing.
-It supports [make][09] and [fabric][08] build tools, but I'll onluy cover make here.
-A Makefile is automatically created during the pelican-quickstart process.
-Make can be used to automate the processing of content. 
-
-If you want to generate your site, run:
-
-    make html
-
-If you’d prefer to have Pelican automatically regenerate your site every time a change is detected
-(which is handy when testing locally), use the following command instead:
-
-    make regenerate
-
-To serve the generated site so it can be previewed in your browser at http://localhost:8000/:
-
-    make serve
-
-Normally you would need to run make regenerate and make serve in two separate terminal sessions,
-but you can run both at once via:
-
-    make devserver
-
-The above command will simultaneously run Pelican in regeneration mode
-as well as serve the output at http://localhost:8000.
-Once you are done testing your changes, you should stop the development server via:
-
-    ./develop_server.sh stop
-
-When you’re ready to publish your site, you can upload it via the method(s)
-you chose during the pelican-quickstart questionnaire.
-I modified the `Makefile` to include the following:
-
-    make github
-
-#### Adding Content
-The next step is to begin to adding content to the content folder that has been created for you.
-Enter the `content` folder and create your markdown content files there.
-While you are writing your post, you can generate your post using:
-
-    make server
-
-### Creating Pelican Theme
-* [Theming Pelican with a little Boostrap](http://andresjruiz.com/theming-pelican-with-a-little-boostrap.html)
-* [Pelican Bootstrap 3 theme released](http://dandydev.net/blog/pelican-bootstrap3-theme-released)
-* [pelican-bootstrap3](http://floss.zoomquiet.io/data/20131218101822/index.html)
-
-Pelican Tmemes allow you to seperate the contents of your blog from its look-and-feel.
+### Creating the Pelican Theme
+Pelican Themes allow you to seperate the contents of your blog from its look-and-feel.
 You can find images of the available themes at [Pelican Themes][26].
 This is accomplished in part via use of [Jinja][15] template engine to render Pelican pages and articles. 
 Pelican makes it easy to make your own themes but clearly it is easiest when
 you start with a theme that is close to what you want.
 I started with [pelican-bootstrap3][27] to creat my theme.
-This theme makes use of [Bootstrap 3][28],
+
+On top of this Pelican Theme, is layered [Bootstrap 3][28],
 a front-end framework for developing [responsive web sites][34].
-
-# Customizing Bootstrap
-1. Forking/cloning will let you fetch the new upcoming versions of Bootstrap easily
-2. Do not modify the bootstrap.css file
-3. Create your own css file and overwrite whenever you want original bootstrap stuff
-
-* ["best practices" for customizing Bootstrap css template](http://stackoverflow.com/questions/8596794/customizing-bootstrap-css-template)
-* [Customizing Bootstrap](http://coding.smashingmagazine.com/2013/03/12/customizing-bootstrap/)
-* [How to customize Twitter Bootstrap to fit your web design](http://www.codeproject.com/Articles/594098/How-to-customize-Twitter-Bootstrap-to-fit-your-web)
-* [Less Like Bootstrap – 5 Ways To Customize Your Designs](http://blog.jetstrap.com/2013/07/less-like-bootstrap/)
-* [How to modify Bootstrap simply and effectively](http://www.webdesignerdepot.com/2013/07/how-to-modify-bootstrap-simply-and-effectively/)
-* [Bootstrap ThemeRoller](http://www.bootstrapthemeroller.com/)
-* [Free themes for Bootstrap](http://bootswatch.com/#gallery)
-* [Shine Your Boots! Customizing Twitter Bootstrap](http://www.cognizo.com/2012/04/twitter-bootstrap-customization/)
-* [Twitter Bootstrap 101](http://webdesign.tutsplus.com/series/twitter-bootstrap-101/)
-
-
 Bootstrap is a popular web framework, and as a result of its growing popularity,
 it has created uniformity between many websites.
 [Bootswatch][35] was created to somewhat combate this trend,
 enable developers, still using Bootstrap to try on a new look,
 without investing much time or energy.
+I used the Bootswatch Bootstrap theme called [flatly][53] 
+I then made modifications as required to create my web site style.
+
+# Customizing Bootstrap/Bootwatch via custom.css
+Dispite all the careful selection of a Bootstrap and Pelicanthemes,
+your going to want to make some modifications.
+In my case, I wanted to change how tables are displayed, the formatting of tag clouds,
+font color of inline code, among other things.
+You could make the modifcations to the `bootstrap.css` file
+but this isn't [best practice][54].
+What you should do is create your own css file and
+have it overwrite whenever you want original bootstrap stuff.
+You can use `pelicanconf.py` variable `CUSTOM_CSS` to point to your `custom.css` file.
+The specfics for this topic can be found in the `README.md` file.
+
+#### Pelican's Markdown
+Pelican will support [Markdown][19], [reStructuredText][20], and [AsciiDoc][21]
+for the creation of content.
+I plan to only use Markdown to write my blog posts.
+By default, Pelican uses a flavor of Markdown that comes with some [extentions][22].
+I especially like using the footnotes and Pygments extension.
+The specifics on how to make this happen are in the `README.md` file.
+
+#### Creating Content
+Pelican considers “articles” to be chronological content, such as posts on a blog,
+and thus associated with a date (e.g. a web posting about some project underway).
+Pelican also supports “pages” that are usually not temporal in nature
+and are used for content that does not change very often (e.g. “About Me” page).
+Also like Jekyll, each of the content files contain metadata about the file.
+When using Markdown, that metadata looks like:
+
+```
+Title: My Super Title For My Super Post
+Date: 2010-12-03 10:20
+Category: Blog
+Tags: Pelican, Python
+Slug: my-super-post
+Author: Jeff Irland
+Image: DRAFT_stamp.svg
+Summary: Short discription that will appear in a listing of all articles on the home page.
+Status: draft
+```
+    
+This metadata is placed as a header for the article or page.
+From there you can use your favorate editor to write your content in Markdown.
+The next section shows you how to process this content and see it formated for the web site.
+
+I added to my Pelican driven web site support for IPython Notebook.
+The purpose of the IPython Notbook formated pages is to capture content that is
+best expressed in mathamatics, algorthmic code, or graphical format.
+This comes quite painlessly thanks to [IPython][56]
+and its compainion tool [nbconvert][55].
+These IPython Notebooks are stored in `content/notebooks`.
+The are formated by Pelican as pages and I have created a root page
+called "Open Notebook" accessable on the navigation bar.
+
+#### Processing Content
+Pelican support several automation tools for the processing of content and publishing.
+It supports [make][09] and [fabric][08] build tools, but I'll only cover make here.
+Make can be used to automate the creation, editing, and processing of content. 
+A Makefile is automatically created during the pelican-quickstart process,
+but I modified for my needs.
+
+The `REDME.md` file documents how the Makefile can be used, but at its heart,
+the processing of Pelican content involves these steps:
+
+1. Create the content in `content/articles`, `content/pages`, or `content/drafts`.
+2. Process your content by converting the Markdown to HTML.  You do this by running `pelican -s pelicanconf.py -o output content` in the root of the blogs directory system (or `pelican --autoreload -s pelicanconf.py -o output content` to autoprocess).
+3. To serve up as a web page, change directory to `output` and run `python -m SimpleHTTPServer`.
+4. To see your web site, place `localhost:8000` in your browser.
+5. Once yoru happy with how the content is formated, you push the content to you GitHub hosted web site.
 
 ##### Pelican's File Structure
 Jekyll expects your website directory to be laid out like so:
@@ -306,6 +275,7 @@ Jekyll expects your website directory to be laid out like so:
             |-- style.css
         |-- javascripts
 
+XXXX FINISH THIS XXXX 
 Theme
     : xxx
 static
@@ -326,6 +296,7 @@ page.html
 tag.html
     : This template will be processed for each tag, with corresponding .html files saved as output/tag/tag_name.html.
 
+XXXX FINISH THIS XXXX 
 ```
 ├── static
 │   ├── css
@@ -344,6 +315,7 @@ tag.html
     └── tags.html             // must list all the tags. Can be a tag cloud.
 ```
 
+XXXX FINISH THIS XXXX 
 ```
 ├── AUTHORS.md
 ├── LICENSE
@@ -357,84 +329,6 @@ tag.html
 │   │   ├── bootstrap.flatly.min.css
 │   │   ├── bootstrap.journal.min.css
 │   │   ├── bootstrap.min.css
-│   │   ├── bootstrap.readable.min.css
-│   │   ├── bootstrap.readable-old.min.css
-│   │   ├── bootstrap.simplex.min.css
-│   │   ├── bootstrap.slate.min.css
-│   │   ├── bootstrap.spacelab.min.css
-│   │   ├── bootstrap.united.min.css
-│   │   ├── bootstrap.yeti.min.css
-│   │   ├── font-awesome.css
-│   │   ├── font-awesome.min.css
-│   │   ├── html4css1.css
-│   │   ├── style.css
-│   │   ├── typogrify.css
-│   │   ├── pygments
-│   │   │   ├── autumn.css
-│   │   │   ├── borland.css
-│   │   │   ├── bw.css
-│   │   │   ├── colorful.css
-│   │   │   ├── default.css
-│   │   │   ├── emacs.css
-│   │   │   ├── friendly.css
-│   │   │   ├── fruity.css
-│   │   │   ├── manni.css
-│   │   │   ├── monokai.css
-│   │   │   ├── murphy.css
-│   │   │   ├── native.css
-│   │   │   ├── pastie.css
-│   │   │   ├── perldoc.css
-│   │   │   ├── solarizeddark.css
-│   │   │   ├── solarizedlight.css
-│   │   │   ├── tango.css
-│   │   │   ├── trac.css
-│   │   │   ├── vim.css
-│   │   │   └── vs.css
-│   ├── fonts
-│   │   ├── FontAwesome.otf
-│   │   ├── fontawesome-webfont.eot
-│   │   ├── fontawesome-webfont.svg
-│   │   ├── fontawesome-webfont.ttf
-│   │   ├── fontawesome-webfont.woff
-│   │   ├── glyphicons-halflings-regular.eot
-│   │   ├── glyphicons-halflings-regular.svg
-│   │   ├── glyphicons-halflings-regular.ttf
-│   │   └── glyphicons-halflings-regular.woff
-│   └── js
-│       ├── bootstrap.min.js
-│       ├── github.js
-│       ├── jXHR.js
-│       └── respond.min.js
-└── templates
-    ├── archives.html
-    ├── article.html
-    ├── author.html
-    ├── authors.html
-    ├── base.html
-    ├── categories.html
-    ├── category.html
-    ├── index.html
-    ├── page.html
-    ├── tag.html
-    ├── tags.html
-    └── includes
-        ├── addthis.html
-        ├── article_info.html
-        ├── cc-license.html
-        ├── comment_count.html
-        ├── comments.html
-        ├── disqus_script.html
-        ├── footer.html
-        ├── ga.html
-        ├── github.html
-        ├── github-js.html
-        ├── links.html
-        ├── pagination.html
-        ├── piwik.html
-        ├── related-posts.html
-        ├── sidebar.html
-        ├── taglist.html
-        └── translations.html
 ```
 
 ### Basic Workflow With Pelican
@@ -634,7 +528,11 @@ If you installed a stable Pelican, Markdown, or other package release via pip or
 and wish to upgrade to the latest stable release,
 you can do so by adding `--upgrade` to the relevant command. For Pelican, that would be:
 
-    pip install --upgrade pelican
+```shell
+pip install --upgrade pelican
+```
+
+To upgrade Bootstrap, Bootwatch, .....
 
 
 
@@ -689,12 +587,13 @@ you can do so by adding `--upgrade` to the relevant command. For Pelican, that w
 [49]:http://www.virtualenv.org/en/latest/
 [50]:http://docs.getpelican.com/en/3.2/getting_started.html#installing-pelican
 [51]:https://gist.github.com/jeffskinnerbox/9612119
-[52]:
-[53]:
-[54]:
-[55]:
-[56]:
+[52]:https://github.com/DandyDev/pelican-bootstrap3
+[53]:http://bootswatch.com/flatly/
+[54]:http://stackoverflow.com/questions/8596794/customizing-bootstrap-css-template
+[55]:http://ipython.org/ipython-doc/rel-1.0.0/interactive/nbconvert.html
+[56]:http://ipython.org/
 [57]:
 [58]:
 [59]:
 [60]:
+

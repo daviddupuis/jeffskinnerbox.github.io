@@ -11,7 +11,8 @@ Think about it! You sit in front of computer screen, pecking away at keys, and w
 
 This web site is to capture my exploration of software and hardware hacks, and in general, those projects that I find entertaining and educational.  **I do them to fulfill my inner pigeon!**
 
->_[Wikipedia][01] tells us that an operate conditioning chamber (also known as the Skinner Box) is a laboratory apparatus used in the experimental analysis of behavior to study animal behavior. A subject (typically a rat or pigeon but it also works for people) was placed in the box, and the mechanism gave small amounts of food each time the subject performed a particular action, such as depressing a lever or pecking a disk._
+>_An operate conditioning chamber (also known as the Skinner Box) is a laboratory apparatus used in the experimental analysis of behavior to study animal behavior. A subject (typically a rat or pigeon but it also works for people) was placed in the box, and the mechanism gave small amounts of food each time the subject performed a particular action, such as depressing a lever or pecking a disk._
+<footer>[Wikipedia][01]</footer>
 
 ### The Ramblings of a Frustrated Engineer
 <a href="http://thehappiestcow.wordpress.com/2012/09/17/switching-light-sculptures/">

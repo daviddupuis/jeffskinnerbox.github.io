@@ -83,7 +83,7 @@
 </head>
 
 <body>
-<div class="navbar {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse{% else %}navbar-default{% endif %} navbar-fixed-top" role="navigation">
+<div class="navbar {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse{% else %}navbar-default{% endif %} navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -131,8 +131,8 @@
         </div>
         <!-- /.navbar-collapse -->
     </div>
-    {% if GITHUB_RIBBON %}
-        {% include 'includes/github_ribbon.html' %}       <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    {% if GITHUB_RIBBON %}  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+        {% include 'includes/github_ribbon.html' %}
     {% endif %}
 </div> <!-- /.navbar -->
 
@@ -150,7 +150,7 @@
         {% endblock %}
         </div>
 	{% if not HIDE_SIDEBAR %}
-        <div class="col-sm-3 well well-sm" id="sidebar">
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
             {% include 'includes/sidebar.html' %}
         </div>
 	{% endif %}

@@ -5,7 +5,7 @@ PELICANOPTS =
 BASEDIR = $(CURDIR)
 METADATA = $(BASEDIR)/metadata
 INPUTDIR = $(BASEDIR)/content
-DRAFTDIR = $(INPUTDIR)/draft
+DRAFTDIR = $(INPUTDIR)/drafts
 OUTPUTDIR = $(BASEDIR)/output
 CONFFILE = $(BASEDIR)/pelicanconf.py
 PUBLISHCONF = $(BASEDIR)/publishconf.py
@@ -35,7 +35,8 @@ help:
 	@echo '   make devserver [PORT=8000]        start/restart develop_server.sh'
 	@echo '   make stopserver                   stop local server'
 	@echo '   make backup                       create backup of blogs content and tools'
-	@echo '   make github [COMMENT="string"]    upload the content to production server'
+	@echo '   make github [COMMENT="<string>"]  upload the content to production server'
+	@echo '   make article TITLE="<string>"     create new article with title <string> and start vim'
 	@echo ' '
 	@echo 'Set the DEBUG variable to 1 to enable debugging (e.g. make html DEBUG=1)'
 	@echo ' '
@@ -100,7 +101,7 @@ backup: html
 	find . -maxdepth 1 -type f -exec cp {} $(BACKUPDIR) \;
 
 # push the web site to its domain and place the content into GitHub
-github: publish
+github: backup publish
 	ghp-import $(OUTPUTDIR)
 	git push origin gh-pages:master
 	git add --all

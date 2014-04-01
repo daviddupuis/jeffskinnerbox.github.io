@@ -7,7 +7,7 @@ Author: Jeff Irland
 Image: backup-vault.png
 Summary: Using a external hard drive, and rsync / rsnapshot as a remote filesystem backup utility, I create scheduled incremental backups of my Linux & Windows filesystems. This light-weight and efficient scheme allows me to create increment backups every 4 hours and keep backups up to three months.
 
-### rsync and rsnapshot
+### Rsync and Rsnapshot
 <a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/">
 <img class="img-rounded floatLeft" style="margin: 0px 8px; float: left" title="Seagate Backup Plus" alt="{{ site.author.name }}" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="30%" height="30%" /></a>
 I got a 4 Terabyte [Seagate Backup Plus][05] hard drive as a Christmas present and
@@ -83,15 +83,15 @@ place it in the `fstab` file so its mounted everytime at boot up.
 Rsync should already be installed on most Linux system.
 You can install it, and the [grsync][04] & [rsnapshot][08] tools, using this command:
 
-~~~~.shell
+```bash
 sudo apt-get install rsync grsync rsnapshot
-~~~~
+```
 
 ### Select Backup Storage Location
 I want to create directory for the backups that are readable by all users, but writable by only root.
 To do this, do the following:
 
-```shell
+```bash
 mkdir /mnt/backup
 chmod a+rwx /mnt/backup
 chmod o-w /mnt/backup
