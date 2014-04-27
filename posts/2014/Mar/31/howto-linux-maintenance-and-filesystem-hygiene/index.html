@@ -297,6 +297,13 @@ have an old kernel or two to fall back to
 (just in case the new one doesn&#8217;t work with your system).
 At the very least, if you&#8217;ve just upgraded the kernel,
 reboot before deleting the older&nbsp;versions.</p>
+<p>And if you happend to blow away all the kernel images (as I have done more than once),
+get your current kernel verison back by executing <code>uname -r</code> and then reinstall it&nbsp;with:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install linux-image-x.x.x-xx
+</pre></div>
+
+
+<p>where <code>x.x.x-xx</code> is the kernel version number give by the <code>uname -r</code> command.</p>
 <h2>When the Hard Disk Goes&nbsp;South</h2>
 <p>For basic disk errors, you could try letting Linux heal itself with <code>fsck</code> at boot up.
 To do this, shut down the system with the -F option like&nbsp;this:</p>

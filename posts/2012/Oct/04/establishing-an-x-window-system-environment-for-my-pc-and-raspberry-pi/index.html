@@ -169,15 +169,20 @@ mintty --position 600,500 --size 80,25 --exec ssh -X pi@raspberrypi.local
 
 
 <p>This will open up two xterm windows for your in the left hand corner of the screen and a thrid xterm window in the center of the screen.  This third screen is automatically logging in to the RPi as user pi and will wait four you to enter the&nbsp;password.</p>
-<p>Also make sure that you export your <code>DISPLAY</code> for the X server on your <span class="caps">PC</span>.  You can do this by placing the following in your <code>.bashrc</code> file:
-<p style="padding-left:30px;"><code># environment variables required by X Window System
+<p>Also make sure that you export your <code>DISPLAY</code> for the X server on your <span class="caps">PC</span>.  You can do this by placing the following in your <code>.bashrc</code> file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># environment variables required by X Window System
 export DISPLAY=:0.0
-</code></p></p>
+</pre></div>
+
+
 <h2>Configuring&nbsp;RPi</h2>
 
-<p>Not much needs to be done to the RPi to prepare for the X applications.  You may wish to launch some X Window System application upon logging in.  You can do this by adding the X applications to your .bash_profile.  For example, add the following line to launch the <span class="caps">LXDE</span> file manager:
-<p style="padding-left:30px;"><code># execute X Window System programs
-pcmanfm &amp;</code></p></p>
+<p>Not much needs to be done to the RPi to prepare for the X applications.  You may wish to launch some X Window System application upon logging in.  You can do this by adding the X applications to your .bash_profile.  For example, add the following line to launch the <span class="caps">LXDE</span> file&nbsp;manager:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># execute X Window System programs
+pcmanfm &amp;
+</pre></div>
+
+
 <h2>Starting and Stopping the Cygwin X&nbsp;Server</h2>
 
 <p>The environments are now set.  Time to start the X Server. The easiest way for <a href="http://x.cygwin.com/docs/ug/using.html#using-starting">starting Cygwin/X</a> is using the &#8220;XWin Server&#8221; shortcut under &#8220;Cygwin-X&#8221; on the Start Menu or on the <span class="caps">MS</span> Windows desktop. You could also type <code>startxwin</code> on the Cygwin command&nbsp;line.</p>

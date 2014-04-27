@@ -150,10 +150,13 @@ Chromium is a fully open-source version of Google&#8217;s Chrome, and for lice
 I have a <a href="http://www.mysqueezebox.com/index/Home">SqueezeBox</a> device in my workshop for playing music.  On my old <span class="caps">PC</span>, I had installed the SlimServer which would provide the music stream.  I want to now reestablish that capability on the Linux box. The post <a href="http://www.ehow.com/how_7314755_use-squeezebox-ubuntu.html">How to Use Squeezebox With Ubuntu</a> and the <a href="http://wiki.slimdevices.com/index.php/DebianPackage">Logitech SqueezeBox Wiki</a> gives you all the information you should&nbsp;need.</p>
 <p>The Ubuntu (Debian) software for the <a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server">SqueezeCenter</a> or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via <code>get-apt</code>.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the <a href="http://linux.die.net/man/5/sources.list"><code>sources.list</code></a> file.  To do this, do the following:
 <p style="padding-left:30px;"><code>sudo vim /etc/apt/sources.list</code></p>
-Scroll to the bottom of the file and enter the following information and then save:
-<p style="padding-left:30px;"><code>## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).
-deb http://debian.slimdevices.com stable main</code></p>
-Now do the&nbsp;following:</p>
+Scroll to the bottom of the file and enter the following information and then&nbsp;save:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).
+deb http://debian.slimdevices.com stable main
+</pre></div>
+
+
+<p>Now do the&nbsp;following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get remove --purge logitechmediaserver
 sudo apt-get update
 sudo apt-get install logitechmediaserver

@@ -188,6 +188,13 @@ have an old kernel or two to fall back to
 (just in case the new one doesn&amp;#8217;t work with your system).
 At the very least, if you&amp;#8217;ve just upgraded the kernel,
 reboot before deleting the older&amp;nbsp;versions.&lt;/p&gt;
+&lt;p&gt;And if you happend to blow away all the kernel images (as I have done more than once),
+get your current kernel verison back by executing &lt;code&gt;uname -r&lt;/code&gt; and then reinstall it&amp;nbsp;with:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install linux-image-x.x.x-xx
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;where &lt;code&gt;x.x.x-xx&lt;/code&gt; is the kernel version number give by the &lt;code&gt;uname -r&lt;/code&gt; command.&lt;/p&gt;
 &lt;h2&gt;When the Hard Disk Goes&amp;nbsp;South&lt;/h2&gt;
 &lt;p&gt;For basic disk errors, you could try letting Linux heal itself with &lt;code&gt;fsck&lt;/code&gt; at boot up.
 To do this, shut down the system with the -F option like&amp;nbsp;this:&lt;/p&gt;
@@ -1327,10 +1334,13 @@ Chromium is a fully open-source version of Google&amp;#8217;s Chrome, and for 
 I have a &lt;a href="http://www.mysqueezebox.com/index/Home"&gt;SqueezeBox&lt;/a&gt; device in my workshop for playing music.  On my old &lt;span class="caps"&gt;PC&lt;/span&gt;, I had installed the SlimServer which would provide the music stream.  I want to now reestablish that capability on the Linux box. The post &lt;a href="http://www.ehow.com/how_7314755_use-squeezebox-ubuntu.html"&gt;How to Use Squeezebox With Ubuntu&lt;/a&gt; and the &lt;a href="http://wiki.slimdevices.com/index.php/DebianPackage"&gt;Logitech SqueezeBox Wiki&lt;/a&gt; gives you all the information you should&amp;nbsp;need.&lt;/p&gt;
 &lt;p&gt;The Ubuntu (Debian) software for the &lt;a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server"&gt;SqueezeCenter&lt;/a&gt; or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via &lt;code&gt;get-apt&lt;/code&gt;.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the &lt;a href="http://linux.die.net/man/5/sources.list"&gt;&lt;code&gt;sources.list&lt;/code&gt;&lt;/a&gt; file.  To do this, do the following:
 &lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo vim /etc/apt/sources.list&lt;/code&gt;&lt;/p&gt;
-Scroll to the bottom of the file and enter the following information and then save:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).
-deb http://debian.slimdevices.com stable main&lt;/code&gt;&lt;/p&gt;
-Now do the&amp;nbsp;following:&lt;/p&gt;
+Scroll to the bottom of the file and enter the following information and then&amp;nbsp;save:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).
+deb http://debian.slimdevices.com stable main
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now do the&amp;nbsp;following:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get remove --purge logitechmediaserver
 sudo apt-get update
 sudo apt-get install logitechmediaserver
@@ -3071,7 +3081,17 @@ flite_time `date +%H:%M`
     &lt;li&gt;&lt;a href="http://www.cstr.ed.ac.uk/projects/festival/manual/festival_7.html"&gt;Quick&amp;nbsp;Start&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href="http://digital.cs.usu.edu/~vkulyukin/vkweb/teaching/cs6890/festival.pdf"&gt;More&amp;nbsp;Complete&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/ul&gt;&lt;/p&gt;</summary><category term="Raspberry Pi"></category><category term="Audio"></category></entry><entry><title>Getting Audio Out Working on the Raspberry Pi</title><link href="http://jeffskinnerbox.me/posts/2012/Nov/15/getting-audio-out-working-on-the-raspberry-pi/" rel="alternate"></link><updated>2012-11-15T00:01:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2012-11-15:posts/2012/Nov/15/getting-audio-out-working-on-the-raspberry-pi/</id><summary type="html">&lt;p&gt;I want to deliver sound from my Raspberry Pi&amp;#8217;s (RPi) Audio Output 3.5mm jack.  I&amp;#8217;ll need to get audio drivers working on Audio Out, and to test it, I&amp;#8217;ll need some sound files and players.  I&amp;#8217;m choosing the &lt;a href="http://www.alsa-project.org/main/index.php/Main_Page"&gt;Advanced Linux Sound Architecture (&lt;span class="caps"&gt;ALSA&lt;/span&gt;)&lt;/a&gt; drivers because its widely supported and because &lt;a href="http://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture"&gt;&lt;span class="caps"&gt;ALSA&lt;/span&gt;&lt;/a&gt; not only provides audio but  &lt;a href="http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface"&gt;Musical Instrument Digital Interface (&lt;span class="caps"&gt;MIDI&lt;/span&gt;)&lt;/a&gt; functionality to Linux.   I&amp;#8217;ll also be using the popular command line &lt;span class="caps"&gt;MP3&lt;/span&gt; players, &lt;a href="http://linux.die.net/man/1/mpg321"&gt;mpg321&lt;/a&gt; and the &lt;span class="caps"&gt;WAV&lt;/span&gt; player that comes with &lt;span class="caps"&gt;ALSA&lt;/span&gt;, &lt;a href="http://linux.die.net/man/1/aplay"&gt;aplay&lt;/a&gt;.&lt;/p&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;h2&gt;Update&lt;/h2&gt;
+&lt;p&gt;Gary Hall of &lt;a href="http://874.org.uk/"&gt;878.org.uk&lt;/a&gt; made me aware of another method of getting speech out of the Raspberry Pi.
+His article &lt;a href="http://874.org.uk/speaking-weather-forecast-raspberry-pi.html"&gt;Getting your Raspberry Pi to speak the weather forecast&lt;/a&gt;
+explains his very simple approach using Google Text to Speech service.
+See&amp;nbsp;below&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;mplayer -ao alsa -really-quiet -noconsolecontrols &amp;quot;http://translate.google.com/translate_tts?tl=en&amp;amp;q=Look Dave, I can see you&amp;#39;re really upset about this.&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Some day, Google will rule the&amp;nbsp;world!&lt;/p&gt;</summary><category term="Raspberry Pi"></category><category term="Audio"></category></entry><entry><title>Getting Audio Out Working on the Raspberry Pi</title><link href="http://jeffskinnerbox.me/posts/2012/Nov/15/getting-audio-out-working-on-the-raspberry-pi/" rel="alternate"></link><updated>2012-11-15T00:01:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2012-11-15:posts/2012/Nov/15/getting-audio-out-working-on-the-raspberry-pi/</id><summary type="html">&lt;p&gt;I want to deliver sound from my Raspberry Pi&amp;#8217;s (RPi) Audio Output 3.5mm jack.  I&amp;#8217;ll need to get audio drivers working on Audio Out, and to test it, I&amp;#8217;ll need some sound files and players.  I&amp;#8217;m choosing the &lt;a href="http://www.alsa-project.org/main/index.php/Main_Page"&gt;Advanced Linux Sound Architecture (&lt;span class="caps"&gt;ALSA&lt;/span&gt;)&lt;/a&gt; drivers because its widely supported and because &lt;a href="http://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture"&gt;&lt;span class="caps"&gt;ALSA&lt;/span&gt;&lt;/a&gt; not only provides audio but  &lt;a href="http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface"&gt;Musical Instrument Digital Interface (&lt;span class="caps"&gt;MIDI&lt;/span&gt;)&lt;/a&gt; functionality to Linux.   I&amp;#8217;ll also be using the popular command line &lt;span class="caps"&gt;MP3&lt;/span&gt; players, &lt;a href="http://linux.die.net/man/1/mpg321"&gt;mpg321&lt;/a&gt; and the &lt;span class="caps"&gt;WAV&lt;/span&gt; player that comes with &lt;span class="caps"&gt;ALSA&lt;/span&gt;, &lt;a href="http://linux.die.net/man/1/aplay"&gt;aplay&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;To get things going, I installed &lt;span class="caps"&gt;ALSA&lt;/span&gt;, a &lt;span class="caps"&gt;MP3&lt;/span&gt; tools, and a &lt;span class="caps"&gt;WAV&lt;/span&gt; to &lt;span class="caps"&gt;MP3&lt;/span&gt; conversion tool via the following&amp;nbsp;commands:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install alsa-utils
 sudo apt-get install mpg321
@@ -3499,15 +3519,20 @@ mintty --position 600,500 --size 80,25 --exec ssh -X pi@raspberrypi.local
 
 
 &lt;p&gt;This will open up two xterm windows for your in the left hand corner of the screen and a thrid xterm window in the center of the screen.  This third screen is automatically logging in to the RPi as user pi and will wait four you to enter the&amp;nbsp;password.&lt;/p&gt;
-&lt;p&gt;Also make sure that you export your &lt;code&gt;DISPLAY&lt;/code&gt; for the X server on your &lt;span class="caps"&gt;PC&lt;/span&gt;.  You can do this by placing the following in your &lt;code&gt;.bashrc&lt;/code&gt; file:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;# environment variables required by X Window System
+&lt;p&gt;Also make sure that you export your &lt;code&gt;DISPLAY&lt;/code&gt; for the X server on your &lt;span class="caps"&gt;PC&lt;/span&gt;.  You can do this by placing the following in your &lt;code&gt;.bashrc&lt;/code&gt; file:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# environment variables required by X Window System
 export DISPLAY=:0.0
-&lt;/code&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;Configuring&amp;nbsp;RPi&lt;/h2&gt;
 
-&lt;p&gt;Not much needs to be done to the RPi to prepare for the X applications.  You may wish to launch some X Window System application upon logging in.  You can do this by adding the X applications to your .bash_profile.  For example, add the following line to launch the &lt;span class="caps"&gt;LXDE&lt;/span&gt; file manager:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;# execute X Window System programs
-pcmanfm &amp;amp;&lt;/code&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;Not much needs to be done to the RPi to prepare for the X applications.  You may wish to launch some X Window System application upon logging in.  You can do this by adding the X applications to your .bash_profile.  For example, add the following line to launch the &lt;span class="caps"&gt;LXDE&lt;/span&gt; file&amp;nbsp;manager:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# execute X Window System programs
+pcmanfm &amp;amp;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;Starting and Stopping the Cygwin X&amp;nbsp;Server&lt;/h2&gt;
 
 &lt;p&gt;The environments are now set.  Time to start the X Server. The easiest way for &lt;a href="http://x.cygwin.com/docs/ug/using.html#using-starting"&gt;starting Cygwin/X&lt;/a&gt; is using the &amp;#8220;XWin Server&amp;#8221; shortcut under &amp;#8220;Cygwin-X&amp;#8221; on the Start Menu or on the &lt;span class="caps"&gt;MS&lt;/span&gt; Windows desktop. You could also type &lt;code&gt;startxwin&lt;/code&gt; on the Cygwin command&amp;nbsp;line.&lt;/p&gt;
