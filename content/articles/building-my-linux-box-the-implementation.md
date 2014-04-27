@@ -37,8 +37,12 @@ I have a <a href="http://www.mysqueezebox.com/index/Home">SqueezeBox</a> device 
 The Ubuntu (Debian) software for the <a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server">SqueezeCenter</a> or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via <code>get-apt</code>.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the <a href="http://linux.die.net/man/5/sources.list"><code>sources.list</code></a> file.  To do this, do the following:
 <p style="padding-left:30px;"><code>sudo vim /etc/apt/sources.list</code></p>
 Scroll to the bottom of the file and enter the following information and then save:
-<p style="padding-left:30px;"><code>## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).
-deb http://debian.slimdevices.com stable main</code></p>
+
+```shell
+## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).
+deb http://debian.slimdevices.com stable main
+```
+
 Now do the following:
 
 ```shell

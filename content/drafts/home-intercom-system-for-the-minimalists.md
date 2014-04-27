@@ -6,6 +6,9 @@ Slug: home-intercom-system-for-the-minimalists
 Author: Jeff Irland
 Summary: bla bla bla
 
+
+[)IHU is a Voice over IP (VoIP) application for Linux (using Qt), that creates an audio stream between two computers easily and with the minimal traffic on the network.](http://ihu.sourceforge.net/)
+
 A [search of eBay for "VoIP Intercom"][ebay] gets you device that range from $150 to $500.
 [ebay]:http://www.ebay.com/sch/i.html?_trksid=p2057253.m570.l1311.R1.TR1.TRC0.A0.H0.Xvoip+inter&_nkw=voip+intercom&_sacat=0&_from=R40
 

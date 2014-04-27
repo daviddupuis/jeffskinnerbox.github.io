@@ -1,6 +1,6 @@
 Title: HowTo: Linux Maintenance and Filesystem Hygiene
 Date: 2014-03-31 21:23
-Category: HowTo, Software
+Category: Software
 Tags: Linux, Raspberry Pi
 Slug: howto-linux-maintenance-and-filesystem-hygiene
 Author: Jeff Irland
@@ -181,6 +181,15 @@ have an old kernel or two to fall back to
 (just in case the new one doesn't work with your system).
 At the very least, if you've just upgraded the kernel,
 reboot before deleting the older versions.
+
+And if you happend to blow away all the kernel images (as I have done more than once),
+get your current kernel verison back by executing `uname -r` and then reinstall it with:
+
+```shell
+sudo apt-get install linux-image-x.x.x-xx
+```
+
+where `x.x.x-xx` is the kernel version number give by the `uname -r` command.
 
 ## When the Hard Disk Goes South
 For basic disk errors, you could try letting Linux heal itself with `fsck` at boot up.

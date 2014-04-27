@@ -5,7 +5,7 @@ Tags: Wine, VirtualBox
 Slug: having-fun-with-wine-virtualbox-and-turbotax
 Author: Jeff Irland
 Image: virtualbox-logo.jpg
-Summary: I discover that getting Microsoft Windows applications working using Wine is a pain!  Out of necessity, I turn to VirtualBox.  Getting VirtualBox and MS Windows 8.1 working together is simple.
+Summary: I discovered that getting Microsoft Windows applications working using Wine is a pain!  Out of necessity, I turn to VirtualBox.  Getting VirtualBox and MS Windows 8.1 working together is simple.
 
 Sometime ago, I committed myself to Linux and [Wine][06],
 with the promise that I would sincerely abandon Microsoft Windows by

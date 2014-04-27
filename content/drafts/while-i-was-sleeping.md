@@ -45,11 +45,12 @@ Digital repositories are especially useful where data is used to directly reprod
 
 #### Local Maker Spaces
 * [Reverse Space](http://sphereroute.com/) - 13505 Dulles Technology Drive #3 Herndon, VA 
-* [Nova Labs](http://www.nova-labs.org/blog/) - 1881-F Metro Center Drive, Reston, VA
+* [NOVA Labs](http://www.nova-labs.org/blog/) - 1881-F Metro Center Drive, Reston, VA
     * [Hackaday Visits NOVA Labs And Small Batch Assembly](http://hackaday.com/2014/03/21/hackaday-visits-nova-labs-and-small-batch-assembly/)
 * [HOT ROD MAKERTRUCK Project](http://hotrodbus.blogspot.com/) - Manassas, VA
-* [Club125 - The Greenbelt Community Makerspace](http://club125.com/) - 125 Centerway, Greenbelt, MD
-* [FredericksWerken](http://frederickswerken.org/)
+* [Club125 - The Greenbelt Community Makerspace](http://club125.com/) - Greenbelt, MD
+* [FredericksWerken](http://frederickswerken.org/) - Fredricksburg, VA
+* [Baltimore Node](http://www.baltimorenode.org/about/) - Baltimore, MD
 
 #### Local Maker Events
 * [NOVA Mini Maker Faire](http://makerfairenova.com/)
@@ -74,6 +75,7 @@ Digital repositories are especially useful where data is used to directly reprod
 * [Anant Agarwal: Why massive open online courses (still) matter](http://www.ted.com/talks/anant_agarwal_why_massively_open_online_courses_still_matter.html?utm_source=newsletter_weekly_2014-02-01&utm_campaign=newsletter_weekly&utm_medium=email&utm_content=talk_of_the_week_image)
 * [MOOC List](http://www.mooc-list.com/)
 * [MOOCs 101](http://www.ted.com/playlists/141/moocs_101.html)
+* [DrPhysicsA YouTube Channel](http://www.bobeagle.co.uk/drphysicsa.html)
 * []()
 
 #### The Future

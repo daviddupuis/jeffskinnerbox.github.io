@@ -36,6 +36,9 @@ WITH_FUTURE_DATES = False
 HIDE_SITENAME = False
 SITENAME = u"Jeff's Skinner Box"
 
+# Include articles comment count on home page
+SUMMARY_COMMENT_COUNT = False
+
 # Logo to appear before the site name
 HIDE_SITELOGO = True
 SITELOGO = 'favicon.ico'

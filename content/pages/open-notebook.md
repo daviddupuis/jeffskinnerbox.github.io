@@ -20,7 +20,7 @@ so I’m assembling all my technical notes here
     * [Running Code in the IPython Notebook](/notebooks/running-code-in-the-ipython-notebook.html)
     * [Running Scripts from IPython](/notebooks/running-scripts-from-ipython.html)
     * [IPython's Rich Display System](/notebooks/ipython's-rich-display-system.html)
-* **Using Matplotlib with IPthon Notebook**
+* **Using Matplotlib with IPython Notebook**
     * [Tips and Tricks for Matplotlib](/notebooks/tips-and-tricks-for-matplotlib.html)
     * [Javascript Viewer for Matplotlib Animations](/notebooks/javascript-viewer-for-matplotlib-animations.html)
     * [Matplotlib - 2D and 3D Plotting in IPython](/notebooks/matplotlib-2d-and-3d-plotting-in-ipython.html)
@@ -33,9 +33,6 @@ so I’m assembling all my technical notes here
 
 -----
 
-### Blogging with the IPython Notebook
-xxx
-
 ### Converting Notebooks to HTML
 ``` bash
 ipython nbconvert "Configuring IPython.ipynb" --to html
@@ -46,11 +43,18 @@ ipython nbconvert "Configuring IPython.ipynb" --to html
 * [nbconvert: PDF from iPython Notebook](http://technicaltidbit.blogspot.com/2013/07/nbconvert-pdf-from-ipython-notebook.html)
 * [Quick link to download nbconvert](http://technicaltidbit.blogspot.com/2013/07/quick-link-to-download-nbconvert_15.html)
 
-### Configuring Wordpress blog to Accept Notebooks
-xxx
+### A gallery of interesting IPython Notebooks and Questions
+* https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks
+* http://nbviewer.ipython.org/
+* http://stackoverflow.com/questions/tagged/ipython-notebook?sort=votes&amp;pagesize=50
 
-### Adding the Actual Posts
-xxx
+### Blogging with the IPython notebook
+* [Blogging an iPython notebook with Jekyll](http://www.davidketcheson.info/2012/10/11/blogging_ipython_notebooks_with_jekyll.html)
+* [Blogging with IPython-notebook](http://home.badc.rl.ac.uk/spascoe/blog/blogging-with-ipython-notebook.html)
+* [Ben Morris' lab notebook](http://www.bendmorris.com/2013/05/blogging-with-ipython-distances-in.html)
+* [Welcome to my Lab Notebook - Reloaded](http://carlboettiger.info/2012/09/28/Welcome-to-my-lab-notebook.html)
+* [Blogging with the IPython notebook](http://blog.fperez.org/2012/09/blogging-with-ipython-notebook.html)
+* [Blogging with IPython in Octopress](http://jakevdp.github.io/blog/2012/10/04/blogging-with-ipython/)
 
 ### Other Bloggers Using IPython Notebook
 * [Blogging with the IPython Notebook](http://blog.fperez.org/2012/09/blogging-with-ipython-notebook.html)
@@ -61,6 +65,11 @@ xxx
 * [Blogging with IPython-notebook](http://home.badc.rl.ac.uk/spascoe/blog/blogging-with-ipython-notebook.html)
 * [Welcome to my Lab Notebook - Reloaded](http://carlboettiger.info/2012/09/28/Welcome-to-my-lab-notebook.html)
 * [Python for Signal Processing](http://python-for-signal-processing.blogspot.com/)
+
+### Scientific Python
+* [Python Scientific Lecture Notes](http://scipy-lectures.github.io/)
+
+
 
 [01]:http://ipython.org/notebook.html
 [02]:http://carlboettiger.info/2012/09/28/Welcome-to-my-lab-notebook.html

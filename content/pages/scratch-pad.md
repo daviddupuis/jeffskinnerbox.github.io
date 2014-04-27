@@ -2,6 +2,12 @@ Title: Scratch Pad
 Slug: scratch-pad
 Status: hidden
 
+#### LED Display
+* [Max's BADASS Display, Part 1](http://www.eetimes.com/author.asp?section_id=216&doc_id=1321844), [Part2](http://www.eetimes.com/author.asp?section_id=216&doc_id=1321904), [Part 3](http://www.eetimes.com/author.asp?section_id=216&doc_id=1321991&_mc=RSS_EET_EDT), [Part 4](http://www.eetimes.com/author.asp?section_id=216&doc_id=1322039)
+* [LED Art with Fadecandy](https://learn.adafruit.com/led-art-with-fadecandy)
+
+---
+
 #### Introductions to CAD Tools
 * [3D Printering: Making A Thing With OpenSCAD](http://hackaday.com/2013/12/11/3d-printering-making-a-thing-with-openscad/)
 * [D Printering: Making A Thing With AutoCAD, Part I](http://hackaday.com/2013/12/18/3d-printering-making-a-thing-with-autocad/)
@@ -23,11 +29,14 @@ Status: hidden
 ---
 
 #### Radar
-* [Radar Imaging in your Garage: Synthetic Aperture Radar](http://hackaday.com/2014/03/17/radar-imaging-in-your-garage-synthetic-aperture-radar/#more-115727)
-* [Try Radar for Your Next Project](http://hackaday.com/2014/02/24/guest-post-try-radar-for-your-next-project/#more-115551)
-* [RADARduino Prototype Testing and Revision 2 Details](http://reactancelabs.com/?p=293)
-* [High Resolution X-Band Linear Rail SAR Imaging System](http://glcharvat.com/Dr._Gregory_L._Charvat_Projects/$240_High_Res_Rail_SAR.html)
-* [Homebuilt Ultra Wideband Impulse Radar](http://hackaday.com/2013/10/05/homebuilt-ultra-wideband-impulse-radar/)
+* Basic Radar
+    * [Try Radar for Your Next Project](http://hackaday.com/2014/02/24/guest-post-try-radar-for-your-next-project/#more-115551)
+    * [RADARduino Prototype Testing and Revision 2 Details](http://reactancelabs.com/?p=293)
+    * [Homebuilt Ultra Wideband Impulse Radar](http://hackaday.com/2013/10/05/homebuilt-ultra-wideband-impulse-radar/)
+* Synthetic Aperture Radar
+    * [Radar Imaging in your Garage: Synthetic Aperture Radar](http://hackaday.com/2014/03/17/radar-imaging-in-your-garage-synthetic-aperture-radar/#more-115727)
+    * [High Resolution X-Band Linear Rail SAR Imaging System](http://glcharvat.com/Dr._Gregory_L._Charvat_Projects/$240_High_Res_Rail_SAR.html)
+    * [Phased Array Speaker System](http://people.ece.cornell.edu/land/courses/ece4760/FinalProjects/s2012/tcj26_ecs227/tcj26_ecs227/index.html)
 * Coffee Can Radar
     * [How to build a synthetic-aperture imaging system with tin cans and AA batteries](http://spectrum.ieee.org/geek-life/hands-on/coffeecan-radar)
     * [Build a Small Radar System Capable of Sensing Range, Doppler, and Synthetic Aperture Radar Imaging](http://ocw.mit.edu/resources/res-ll-003-build-a-small-radar-system-capable-of-sensing-range-doppler-and-synthetic-aperture-radar-imaging-january-iap-2011/)
@@ -43,9 +52,22 @@ Status: hidden
 
 ---
 
+#### Open Source Test and Measurement Instruments
+* [Red Pitaya](http://redpitaya.com/)
+* [Digital multimeter shield for Arduino](http://www.instructables.com/id/Digital-multimeter-shield-for-Arduino/?ALLSTEPS)
+* [Bus Pirate](http://dangerousprototypes.com/category/bus-pirate/)
+* [Open Workbench Logic Sniffer](http://dangerousprototypes.com/category/logic-sniffer-2/)
+
+---
+
 #### Data Radio Channel (DARC) 
 * [How I discovered RDS](http://www.windytan.com/2013/04/how-i-discovered-rds.html)
 * [Broadcast messages on the DARC side](http://www.windytan.com/2013/11/broadcast-messages-on-darc-side.html)
+
+---
+
+#### Field-Programmable Gate Array (FPGA) / VHSIC Hardware Description Language (VHDL)
+* [FleaFPGA Experimenters Board](http://www.fleasystems.com/fleaFPGA.html)
 
 ---
 
@@ -91,13 +113,16 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 #### Measuring Water Level in Sub-Pump Well
 * [Home Heating Hacking Part 1 or How to Measure an Oil Tank](http://alaskanshade.blogspot.ch/2013/12/home-heating-hacking-part-1-or-how-to.html)
 * [Heating Oil Level Gauge](http://www.chet.ie/?p=204)
-* [Sonar experiments]()http://shortcircuitsandinfiniteloops.blogspot.ch/2013/12/new-project-sonar-experiments.html
+* [Sonar experiments](http://shortcircuitsandinfiniteloops.blogspot.ch/2013/12/new-project-sonar-experiments.html)
 
 ---
 
-#### RPi as a Penetration testing Tool
-* [Raspberry Pwn: A Pentesting Release for the Raspberry Pi](http://pwnieexpress.com/blogs/pwnie/7977353-raspberry-pwn-a-pentesting-release-for-the-raspberry-pi)
+#### RPi as a Penetration Testing Tool
+* [Raspberry Pwn: A Pentesting Release for the Raspberry Pi](http://blog.pwnieexpress.com/post/24967860602/raspberry-pwn-a-pentesting-release-for-the-raspberry)
 * [Raspberry Pi as a Network Monitoring Node](http://www.networkworld.com/community/node/84143)
+* [Installing Kali Linux on a Raspberry Pi and Connecting to it Remotely](http://cyberarms.wordpress.com/2013/03/14/installing-kali-linux-on-a-raspberry-pi-and-connecting-to-it-remotely/)
+* [Kali Linux - advanced and versatile penetration testing Linux distribution](http://www.kali.org/)
+* [USB Rubber Ducky](http://192.64.85.110/index.php)
 
 ---
 
@@ -108,38 +133,25 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 
 ---
 
-##### Blogging with the IPython notebook
-* [Blogging an iPython notebook with Jekyll](http://www.davidketcheson.info/2012/10/11/blogging_ipython_notebooks_with_jekyll.html)
-* [Blogging with IPython-notebook](http://home.badc.rl.ac.uk/spascoe/blog/blogging-with-ipython-notebook.html)
-* [Ben Morris' lab notebook](http://www.bendmorris.com/2013/05/blogging-with-ipython-distances-in.html)
-* [Welcome to my Lab Notebook - Reloaded](http://carlboettiger.info/2012/09/28/Welcome-to-my-lab-notebook.html)
-* [Blogging with the IPython notebook](http://blog.fperez.org/2012/09/blogging-with-ipython-notebook.html)
-* [Blogging with IPython in Octopress](http://jakevdp.github.io/blog/2012/10/04/blogging-with-ipython/)
-
----
-
 #### Working with Vim and IPython
 * http://petro.tanrei.ca/2010/8/working-with-vim-and-ipython.html
 * http://github.com/ivanov/vim-ipython
 
 ---
 
-#### Signal & Systems
-* http://www.rand.org/content/dam/rand/pubs/translations/2008/T92.pdf
-* http://www.ece.sunysb.edu/~ctchen/media/freshlook.pdf
-* http://www.rev-zone.net/college/engineering/Semester6/communication/Books/Signals%20and%20Systems,2ed%20-%20A.V.Oppenheim,A.S.Willsky,Prentice%20Hall.pdf
-* http://users.encs.concordia.ca/~amer/teach/elec364/slides/Sampling.pdf
-* [Signal Processing beta](http://dsp.stackexchange.com/)
-* [Python Scientific Lecture Notes](http://scipy-lectures.github.io/)
-* http://www.slideshare.net/mchua/sigproc-selfstudy-17323823
-* http://eeweb.poly.edu/~yao/EE3414/signal_freq.pdf
+#### Solar Panels
+* [Low-cost Solar Panels are Easy to Make and Reconfigure](http://hackaday.com/2014/04/01/low-cost-solar-panels-are-easy-to-make-and-reconfigure/)
 
 ---
 
-#### A gallery of interesting IPython Notebooks and Questions
-* https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks
-* http://nbviewer.ipython.org/
-* http://stackoverflow.com/questions/tagged/ipython-notebook?sort=votes&amp;pagesize=50
+#### Signal & Systems
+* [Theory and Application of the Notion of Complex Signal](http://www.rand.org/content/dam/rand/pubs/translations/2008/T92.pdf)
+* [Signals and Systems: A Fresh Look](http://www.ece.sunysb.edu/~ctchen/media/freshlook.pdf)
+* [Signals And Systems: Sampling and reconstruction](http://users.encs.concordia.ca/~amer/teach/elec364/slides/Sampling.pdf)
+* [Signal Processing beta](http://dsp.stackexchange.com/)
+* [Python Scientific Lecture Notes](http://scipy-lectures.github.io/)
+* [Digital Signal Processing through Speech, Hearing, and Python](http://www.slideshare.net/mchua/sigproc-selfstudy-17323823)
+* [Frequency Domain Characterization of Signals](http://eeweb.poly.edu/~yao/EE3414/signal_freq.pdf)
 
 ---
 
@@ -166,6 +178,8 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 * [ROS 101: PRACTICAL EXAMPLE](http://www.clearpathrobotics.com/blog/ros-101-practical-examples/)
 * [ez-robot](http://www.ez-robot.com/)
 * [PyPot: A library for Dynamixel motors control](http://poppy-project.github.io/pypot/index.html)
+* [OSkAR: OpenCV Based Speaking Robot](http://webpages.shepherd.edu/ccrite03/Project%20Website/index.html)
+* [Micromagic Systems Robotics Store](http://www.hexapodrobot.com/index.html)
 
 ---
 
@@ -184,6 +198,8 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 * [PIDDYBOT – A Self Balancing Teaching Tool](http://hackaday.com/2014/01/17/piddybot-a-self-balancing-teaching-tool/#more-112629)
 * [Self-balancing Arduino does it without an IMU](http://hackaday.com/2013/09/26/self-balancing-arduino-does-it-without-an-imu/)
 * [Self balancing Raspberry Pi OpenCV image processing Robot](http://roboticssamy.blogspot.pt/)
+* [Control Theory Seminar](http://focus.ti.com/docs/training/catalog/events/event.jhtml?sku=OLT214002&sp_rid_pod4=NzQ0MDMwMzkzNTMS1&sp_mid_pod4=45597282)
+* [Evolutionary optimization of PID parameters for empirically identified system](http://wemakethings.net/2013/12/01/pid_genetics/)
 
 ---
 
@@ -193,11 +209,13 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 
 ---
 
-#### Whole-Home Gesture Recognition Using Wireless
-* [Gesture Recognition Toolkit](http://wisee.cs.washington.edu/)
+#### Gesture Recognition Using Wireless
+* [WiSee - Whole-Home Gesture Recognition Using Wireless](http://wisee.cs.washington.edu/)
+* [AllSee - Bringing Gesture Recognition To All Devices](http://allsee.cs.washington.edu/)
 * [Gesture Recognition Toolkit](http://www.nickgillian.com/software/grt)
 * [WiTrack: Through-Wall 3D Tracking Using Body Radio Reflections](http://witrack.csail.mit.edu/)
 * [Wi-Fi signals enable gesture recognition throughout entire home](http://www.washington.edu/news/2013/06/04/wi-fi-signals-enable-gesture-recognition-throughout-entire-home/)
+* [Gesture Recognition Using Ultrasound](http://hackaday.com/2014/04/05/gesture-recognition-using-ultrasound/)
 
 ---
 
@@ -232,6 +250,7 @@ Also check out the [CC1101 433M Wireless Modules](http://www.electrodragon.com/?
 #### Turning a tiny Linux box into a synthesizer
 * [Csound is an incredibly powerful signal processor.](http://www.csounds.com/)
 * [An Introductory Guide to Csound on the BeagleBone and the Raspberry Pi, as well other Linux-powered tinyware](http://www.csounds.com/journal/issue18/beagle_pi.html)
+* [SuperCollider - real-time audio synthesis and algorithmic composition](http://supercollider.sourceforge.net/)
 
 ---
 
@@ -277,6 +296,27 @@ In the August 2009  Aclara Technologies white paper [Metering and More: How 
 ---
 
 #### Things to Do - RTL-SDR Software Defined Radio
+
+###### RTL-SDR Software Packages
+* [THE BIG LIST OF RTL-SDR SUPPORTED SOFTWARE](http://www.rtl-sdr.com/big-list-rtl-sdr-supported-software/)
+
+###### Learning SDR-RTL and GUN Radio
+* [RTL-SDR.COM](http://www.rtl-sdr.com/)
+* [Radio Antics](http://nerdsville.blogspot.com/)
+* [Welcome to GNU Radio!](http://gnuradio.org/redmine/projects/gnuradio/wiki)
+* [GNU Radio Tutorial Series](http://www.youtube.com/playlist?list=PL618122BD66C8B3C4)
+* [CSUN/EAFB Software Defined Radio (SDR) Senior Project](http://www.csun.edu/~skatz/katzpage/sdr_project/sdrproject.html)
+* [GRC Examples](http://www.oz9aec.net/index.php/gnu-radio/grc-examples)
+* [GNU Radio Documentation](http://radioware.nd.edu/documentation)
+* [Balint's SDR (and GNU Radio) Tutorials](http://files.ettus.com/tutorials/)
+
+###### Decoding Tire Pressure Monitor Systems
+* [RECEIVING AND DECODING TIRE PRESSURE MONITOR SYSTEMS USING AN RTL-SDR](http://www.rtl-sdr.com/receiving-decoding-tire-pressure-monitor-systems-using-rtl-sdr/)
+* [Track Cars with Wireless Tire Pressure Sensors](https://www.youtube.com/watch?v=TDYoo7TGNcw)
+
+###### Wideband Spectrum Analyser
+* [RTLSDR Scanner](http://eartoearoak.com/software/rtlsdr-scanner)
+
 ###### The Innards of the RTL-SDR
 * [RTL-SDR Innards](http://bemasher.github.io/rtlamr/2014/02/08/innards.html)
 
@@ -290,15 +330,6 @@ In the August 2009  Aclara Technologies white paper [Metering and More: How 
 
 ###### Utility Metere Reading
 * [RTLAMR: An RTL-SDR receiver for smart meters operating in the 900MHz ISM band](http://bemasher.github.io/rtlamr/)
-*
-###### Learning SDR-RTL and GUN Radio
-* [RTL-SDR.COM](http://www.rtl-sdr.com/)
-* [Radio Antics](http://nerdsville.blogspot.com/)
-* [Welcome to GNU Radio!](http://gnuradio.org/redmine/projects/gnuradio/wiki)
-* [GNU Radio Tutorial Series](http://www.youtube.com/playlist?list=PL618122BD66C8B3C4)
-* [CSUN/EAFB Software Defined Radio (SDR) Senior Project](http://www.csun.edu/~skatz/katzpage/sdr_project/sdrproject.html)
-* [GRC Examples](http://www.oz9aec.net/index.php/gnu-radio/grc-examples)
-* [GNU Radio Documentation](http://radioware.nd.edu/documentation)
 
 ###### Long Wave Reciver
 * [A $40 Software-Defined Radio](http://spectrum.ieee.org/geek-life/hands-on/a-40-softwaredefined-radio)
@@ -330,10 +361,8 @@ In the August 2009  Aclara Technologies white paper [Metering and More: How 
 * [Listening to aircraft transponders with a Raspberry Pi](http://hackaday.com/2013/05/23/listening-to-aircraft-transponders-with-a-raspberry-pi/)
 * [Dump1090 for the Raspberry Pi](http://www.satsignal.eu/raspberry-pi/dump1090.html)
 
----
-
 ###### Satellite Broadcasts
-*[How to take NOAA satellite pictures using RTL-SDR for under $50](http://tutorialphotoshop.me/fopnIkYnFPI/How-to-take-NOAA-satellite-pictures-using-RTL-SDR-for)
+* [How to take NOAA satellite pictures using RTL-SDR for under $50](http://tutorialphotoshop.me/fopnIkYnFPI/How-to-take-NOAA-satellite-pictures-using-RTL-SDR-for)
 * [Receiving photos from NOAA satellites with RTL SDR](http://sq7obj.wordpress.com/2012/07/22/receiving-photos-from-noaa-satellites-with-rtl-sdr/)
 * [Satellite Tools](http://www.satsignal.eu/)
 * [PyEphem provides scientific-grade astronomical computations](http://rhodesmill.org/pyephem/)
@@ -346,6 +375,9 @@ In the August 2009  Aclara Technologies white paper [Metering and More: How 
 * [How to build a satellite receiving station using a Raspberry Pi](http://carpcomm.com/ref/)
 * [Quadrifilar Helix (QFH) Antenna](http://www.youtube.com/watch?v=fopnIkYnFPI)
 * [FM Receiver Gnuradio block using  RTL2832U dongle](http://zr6aic.blogspot.com/2012/08/gnuradio-with-rtl2832u-dongle.html)
+
+###### Other SDR Solutions
+* [Building A Software Defined Radio With A Teensy](http://hackaday.com/2014/04/25/building-a-software-defined-radio-with-a-teensy/)
 
 ---
 
@@ -500,6 +532,11 @@ So as you can see, I'm certainly <a href="http://secretengineer.com/?page_id=51
 
 #### Car Monitoring
 * [Zubie](http://zubie.co/)
+
+---
+
+#### Drone
+* [APM:Plane](http://diydrones.com/m/blogpost?id=705844%3ABlogPost%3A1616908)
 
 
 

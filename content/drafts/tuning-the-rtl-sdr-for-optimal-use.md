@@ -70,6 +70,8 @@ frequency offset
 
 Kalibrate-RTL
 
+[RTLSDR Scanner](http://eartoearoak.com/software/rtlsdr-scanner) is a simple cross platform python based spectrum analyzer for the RTL-SDR. The scanner also has an auto calibration feature which can help find the PPM offset of a dongle.
+
 [HOW TO CALIBRATE RTL-SDR USING KALIBRATE-RTL ON LINUX][10]
 
 <strong>Improving Your Dongles Antenna</strong>

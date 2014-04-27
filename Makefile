@@ -13,7 +13,7 @@ LOGOS = $(INPUTDIR)/images/logos
 SUMMARY = $(INPUTDIR)/images/summary
 
 BACKUPDIR = "/home/jeff/tmp/blog_backup_$(shell date | tr ': ' '_')"
-SLUG = $(shell echo $(TITLE) | tr '[:upper:]' '[:lower:]' | tr -d '!@$%^&*()?:;|{}[]",.' | tr -s ' ' | tr '_ ' '-')
+SLUG = $(shell echo "$(TITLE)" | tr -d '!@$%^&*()?:;|{}[]",.' | tr '[:upper:]' '[:lower:]' | tr -s ' ' | tr '_ ' '-')
 AUTHOR = "Jeff Irland"
 TMPFILE = "/tmp/temp.file"
 

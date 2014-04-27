@@ -21,13 +21,17 @@ Parameters include processor type and speed; number of analog and digital inputs
 * [iMX233-OLinuXino-NANO](https://www.olimex.com/Products/OLinuXino/iMX233/iMX233-OLinuXino-NANO/)
 * [TE-TM4C123](http://community.arm.com/docs/DOC-8010)
 * [TinyDuino](https://tiny-circuits.com/products/tinyduino/)
-* []()
-* []()
+* [MinnowBoard](http://www.minnowboard.org/)
+* [ODROID-U3](http://hardkernel.com/main/main.php)
+* [MSP430 Launchpad](http://embedded-lab.com/blog/?p=4114&mid=5508)
+* [HummingBoard](http://imx.solid-run.com/wiki/index.php?title=HummingBoard_Hardware)
+* [CuBox-i](http://cubox-i.com/)
+* [chipKIT Uno32](https://digilentinc.com/Products/Detail.cfm?NavPath=2,892,893&Prod=CHIPKIT-UNO32)
+* [UDOO](http://www.udoo.org/)
+* [BananaPi](http://bananapi.org/)
 
 Wireless Enabled
 * [RFduino](http://www.rfduino.com/)
 * []()
 * []()
-* []()
 
-* [UDOO](http://www.udoo.org/)

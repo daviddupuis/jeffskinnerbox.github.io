@@ -75,14 +75,19 @@ mintty --position 600,500 --size 80,25 --exec ssh -X pi@raspberrypi.local
 This will open up two xterm windows for your in the left hand corner of the screen and a thrid xterm window in the center of the screen.  This third screen is automatically logging in to the RPi as user pi and will wait four you to enter the password.
 
 Also make sure that you export your <code>DISPLAY</code> for the X server on your PC.  You can do this by placing the following in your <code>.bashrc</code> file:
-<p style="padding-left:30px;"><code># environment variables required by X Window System
+
+```shell
+# environment variables required by X Window System
 export DISPLAY=:0.0
-</code></p>
+```
 
 <h2>Configuring RPi</h2>
 Not much needs to be done to the RPi to prepare for the X applications.  You may wish to launch some X Window System application upon logging in.  You can do this by adding the X applications to your .bash_profile.  For example, add the following line to launch the LXDE file manager:
-<p style="padding-left:30px;"><code># execute X Window System programs
-pcmanfm &amp;</code></p>
+
+```shell
+# execute X Window System programs
+pcmanfm &
+```
 
 <h2>Starting and Stopping the Cygwin X Server</h2>
 The environments are now set.  Time to start the X Server. The easiest way for <a href="http://x.cygwin.com/docs/ug/using.html#using-starting">starting Cygwin/X</a> is using the "XWin Server" shortcut under "Cygwin-X" on the Start Menu or on the MS Windows desktop. You could also type <code>startxwin</code> on the Cygwin command line.

@@ -82,3 +82,20 @@ The documentation for Festival and Flite isn't all that great but there does see
 	<li><a href="http://digital.cs.usu.edu/~vkulyukin/vkweb/teaching/cs6890/festival.pdf">More Complete</a></li>
 </ul>
 </ul>
+
+## Update
+Gary Hall of [878.org.uk][01] made me aware of another method of getting speech out of the Raspberry Pi.
+His article [Getting your Raspberry Pi to speak the weather forecast][02]
+explains his very simple approach using Google Text to Speech service.
+See below
+
+```shell
+mplayer -ao alsa -really-quiet -noconsolecontrols "http://translate.google.com/translate_tts?tl=en&q=Look Dave, I can see you're really upset about this."
+```
+
+Some day, Google will rule the world!
+
+
+
+[01]:http://874.org.uk/
+[02]:http://874.org.uk/speaking-weather-forecast-raspberry-pi.html

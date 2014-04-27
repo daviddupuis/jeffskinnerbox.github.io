@@ -6,8 +6,10 @@
                 <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
                 <img class="img-rounded" style="margin: 0px 8px; float: left;" alt="Summary Image" src="/images/summary/thumbnail/{{ article.image }}"/>
                 <div class="summary">{{ article.summary }}
-                    {% include 'includes/comment_count.html' %}
                     <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
+                    {% if SUMMARY_COMMENT_COUNT %}
+                        {% include 'includes/comment_count.html' %}
+                    {% endif %}
                 </div>
             </article>
             <hr/>
