@@ -2,9 +2,10 @@ Title: Vim Cheat Sheet
 Slug: vim-cheat-sheet
 Status: hidden
 
-<a href="http://www.glump.net/howto/desktop/vim-graphical-cheat-sheet-and-tutorial">Graphical vi-vim Cheat Sheet and Tutorial</a>
-
-Using Vim's scripting language (and a great deal of insight and tools from others), I have setup Vim on my local machine to be an effective development environment for my needs.  Also, using GitHub, I can replicate this Vim environment across the multiple systems I'm presently use.
+Using Vim's scripting language (and a great deal of insight and tools from others),
+I have setup Vim on my local machine to be an effective development environment for my needs.
+Also, using [GitHub][01],
+I can replicate this Vim environment across the multiple systems I'm presently use.
 
 ## Working with files
 | Vim Command | Action|
@@ -17,10 +18,10 @@ Using Vim's scripting language (and a great deal of insight and tools from other
 | :wq | Write the file and exit. |
 | :wa | write all changed files (save all changes), and keep working |
 | :ZZ | write current file, if modified, and exit. |
-| :1,10 w outfile | Saves lines 1 to 10 in outfile |
-| :1,10 w >> outfile | Appends lines 1 to 10 to outfile |
-| :r infile | Insert the content of infile |
-| :23r infile | Insert the content of infile under line 23 |
+| :1,10 w _outfile_ | Saves lines 1 to 10 in _outfile_ |
+| :1,10 w >> _outfile_ | Appends lines 1 to 10 to _outfile_ |
+| :r _infile_ | Insert the content of _infile_ |
+| :23r _infile_ | Insert the content of _infile_ under line 23 |
 | :x | Almost the same as :wq, write the file and exit if you've made changes to the file. If you haven't made any changes to the file, Vim exits without writing the file. |
 | CTRL-Z | Suspend Vim, like ":stop".  Works in Normal and in Visual mode.  In Insert and Command-line mode, the CTRL-Z is inserted as a normal character. |
 
@@ -357,3 +358,9 @@ Note: the Vim commands marked with (V) work in visual mode, when you've selected
 * [Vundle vs Pathogen](http://lepture.com/work/vundle-vs-pathogen)
 * [Modern vim plugin management – Pathogen vs Vundle](http://rmitc.org/2013/04/modern-vim-plugin-management-pathogen-vs-vundle/)
 * [Jonathan Oxer's Cheat Sheets](http://jon.oxer.com.au/cheatsheet/vim)
+* [Graphical vi-vim Cheat Sheet and Tutorial](http://www.glump.net/howto/desktop/vim-graphical-cheat-sheet-and-tutorial)
+    
+
+
+[01]:https://github.com/jeffskinnerbox/dotvim
+

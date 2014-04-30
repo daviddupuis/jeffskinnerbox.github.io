@@ -79,7 +79,7 @@ otherwise you'll end up installing them globally,
 which defeats the purpose of using virtual environments.
 
 #### Run Quickstart Pelican
-Pelican now comes with a quickstart command that will create a skeleton directory structure for your project.
+Pelican comes with a quickstart command that will create a skeleton directory structure for your project.
 When running the command will ask you a series of questions.
 See the posting [How I setup Pelican][18] for recommendations on how to answer the questions.
 I (more or less) followed what was done in this article.

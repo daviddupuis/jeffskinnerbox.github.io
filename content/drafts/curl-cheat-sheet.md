@@ -1,10 +1,6 @@
 Title: cURL Cheat Sheet
-Date: 2014-02-21 18:20
-Category: Reference
-Tags: cURL
 Slug: curl-cheat-sheet
-Author: Jeff Irland
-Summary: abla bla bla
+Status: hidden
 
 [cURL][03] is a command line tool for getting or sending files using URL syntax.
 cURL uses the client-side URL transfer library [`libcurl`][01],
@@ -16,7 +12,7 @@ ftp upload, HTTP post, SSL connections (i.e. https:), cookies, file transfer res
 Basic use of cURL involves simply typing `curl` at the command line,
 followed by the URL of the output to retrieve.
 cURL defaults to displaying the output it retrieves to the standard output specified on the system.
-Beyond this, cURL offers an boat load of [command line options][04] to get the effect your lloking for.
+Beyond this, cURL offers an boat load of [command line options][04] to get the effect your looking for.
 
 ## Download a Single File
 The following command will get the content of the URL and display it in the STDOUT (i.e on your terminal).
@@ -39,9 +35,9 @@ You get the same result by using the `-o` option.
 In this case the command is: `curl -o $HOME/tmp/junk.html http://www.centos.org`.
 And to use the URL name as the filename to store the result,
 use the command: `curl -O http://www.centos.org/index.html`
-and the output will be in the current dirctory, in file `index.html`.
+and the output will be in the current directory, in file `index.html`.
 
-## Downloading Muiltiple Files
+## Downloading Multiple Files
 We can download multiple files in a single shot by specifying the URLs on the command line.
 
 ```shell
@@ -124,9 +120,9 @@ Notice that we are using semicolon(":") to separate header name from its value.
 
 ## Get Response With HTTP Headers
 If you need to get HTTP headers with your response, `--include` parameter can be used.
-[HTTP headers][] are part of these HTTP requests and responses,
+[HTTP headers][10] are part of these HTTP requests and responses,
 and they carry information about the client browser, the requested page, the server and more.
-Consider the following to see what additiona information is provided.
+Consider the following to see what additional information is provided.
 
 ```shell
 curl --request GET 'http://www.centos.org' > junk1
@@ -148,6 +144,107 @@ The `diff` produces the following:
 > Accept-Ranges: bytes
 > Content-Length: 15201
 > 
+```
+
+## See Complete Request And Response Headers with CURL
+Using verbose output in curl can help you see all headers
+(both request headers sent and response headers received).
+Using Verbose is done by simply passing `-v`.
+For example, the command `curl www.youtypeitwepostit.com` gives you
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <!-- optional styling to this site -->
+        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div>
+          <h1>You type it, we post it!</h1>
+          <p>Exciting! Amazing!</p>
+          
+          <p class="links">
+            <a href="http://www.youtypeitwepostit.com/messages">Get started</a>
+            <a href="http://www.youtypeitwepostit.com/about">About this site</a>
+            <!--<a href="http://www.youtypeitwepostit.com/login">Login via Example.net</a>-->
+          </p>
+        </div>
+    </body>
+    <!-- optional enhancement -->
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://www.youtypeitwepostit.com/script.js"></script>
+</html>
+```
+
+But the command `curl -v www.youtypeitwepostit.com` gives you
+
+```html
+* Rebuilt URL to: www.youtypeitwepostit.com/
+* Adding handle: conn: 0x91462b0
+* Adding handle: send: 0
+* Adding handle: recv: 0
+* Curl_addHandleToPipeline: length: 1
+* - Conn 0 (0x91462b0) send_pipe: 1, recv_pipe: 0
+* About to connect() to www.youtypeitwepostit.com port 80 (#0)
+*   Trying 50.16.227.220...
+* Connected to www.youtypeitwepostit.com (50.16.227.220) port 80 (#0)
+> GET / HTTP/1.1
+> User-Agent: curl/7.32.0
+> Host: www.youtypeitwepostit.com
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Content-Type: text/html
+< Date: Mon, 28 Apr 2014 01:34:15 GMT
+< Etag: "c69b62faa34d53bed401282f35449700"
+< Last-Modified: undefined
+< Content-Length: 973
+< Connection: keep-alive
+< 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <!-- optional styling to this site -->
+        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div>
+          <h1>You type it, we post it!</h1>
+          <p>Exciting! Amazing!</p>
+          
+          <p class="links">
+            <a href="http://www.youtypeitwepostit.com/messages">Get started</a>
+            <a href="http://www.youtypeitwepostit.com/about">About this site</a>
+            <!--<a href="http://www.youtypeitwepostit.com/login">Login via Example.net</a>-->
+          </p>
+        </div>
+    </body>
+    <!-- optional enhancement -->
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="http://www.youtypeitwepostit.com/script.js"></script>
+</html>
+* Connection #0 to host www.youtypeitwepostit.com left intact
+```
+
+## Show Only Response Headers
+Sometimes you only want to see the response headers returned by the server,
+without seeing the actual response content.
+In this case, use the `-I` option.
+
+```
+$ curl --request GET -I www.youtypeitwepostit.com
+HTTP/1.1 200 OK
+Content-Type: text/html
+Date: Mon, 28 Apr 2014 01:38:16 GMT
+Etag: "c69b62faa34d53bed401282f35449700"
+Last-Modified: undefined
+Content-Length: 973
+Connection: keep-alive
 ```
 
 ## Pass HTTP Authentication in cURL
@@ -272,12 +369,17 @@ internet \in"ter*net\ ([i^]n"t[~e]r*n[e^]t), n.
 ```
 
 ## Sources and Additional Examples
+* [Using cURL to automate HTTP jobs](http://curl.haxx.se/docs/httpscripting.html)
 * [15 Practical Linux cURL Command Examples (cURL Download Examples)](http://www.thegeekstuff.com/2012/04/curl-examples/)
 * [curl tutorial with examples of usage](http://www.yilmazhuseyin.com/blog/dev/curl-tutorial-examples-usage/)
+* [CURL command Tutorial in Linux with Example Usage](http://www.slashroot.in/curl-command-tutorial-linux-example-usage)
 * []()
 * []()
 * []()
-* []()
+
+[An introduction to curl using GitHub's API](https://gist.github.com/caspyin/2288960)
+[GitHub API v3](https://developer.github.com/v3/)
+
 
 
 

@@ -4,12 +4,12 @@ Category: Software
 Tags: Linux, Raspberry Pi
 Slug: howto-linux-maintenance-and-filesystem-hygiene
 Author: Jeff Irland
-Image: how-too.jpg
+Image: how-to.jpg
 Summary: This article reviews the kinds of maintenance activities required by Ubuntu / Debian / Raspberry Pi Linux distributions to keep them running as they should.  It covers topics like OS and applications updates, disk / filesystems integrity, and cleaning up filesystem clutter.
 
 What kind of maintenance does one need to do on an Ubuntu / Debian / Raspberry Pi Linux distributions?
 Defrag the drive, clean your registry, update antivirus, etc. just like you need to in Windows?
-None of this is needed in Linux but there is some recommend ifilesystem hygiene you should be doing.
+None of this is needed in Linux but there is some recommend filesystem hygiene you should be doing.
 
 ## Gather Information
 For some of the maintenance activities listed here, you're going to need some basic information.

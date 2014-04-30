@@ -431,6 +431,34 @@ init -> tc-config -> init -> /root/.profile -> /home/tc/.profile -> /home/tc/.xs
 
 
 
+
+[Ubuntu – Secure Remote Desktop Connectivity](http://blog.linuxacademy.com/linux/ubuntu-secure-remote-desktop-connectivity/)
+[Linux-Based X Terminals with XDMCP](http://www.linuxjournal.com/article/6713)
+[Setting Up an X Terminal](http://zweije.home.xs4all.nl/xauth-9.html)
+
+[The Tiny X Server Fork Is Still Being Maintained](http://www.phoronix.com/scan.php?page=news_item&px=MTU2NzA)
+
+[Can I run a remote X session in windowed mode?](http://askubuntu.com/questions/60364/can-i-run-a-remote-x-session-in-windowed-mode)
+
+[Remote x-server with ssh -X](http://www.answeredubuntu.com/175902/remote_x_server_with_ssh_x#sthash.ifsk3uxx.dpbs)
+[How to try the GDM login screen in many resolutions](http://ptspts.blogspot.com/2010/02/how-to-try-gdm-login-screen-in-many.html)
+[Remote sessions via XDMCP](http://x.cygwin.com/docs/ug/using-remote-session.html)
+[X without Display Manager](http://wiki.gentoo.org/wiki/X_without_Display_Manager)
+
+
+[Remote Graphical Desktops and XDMCP](https://www.centos.org/docs/5/html/5.2/Installation_Guide/s2-trouble-remotex.html)
+[Starting a Remote X session using XDMCP](http://forums.opensuse.org/showthread.php/466709-Starting-a-Remote-X-session-using-XDMCP)
+[Starting a UNIX/Linux Desktop Using SSH](http://support.attachmate.com/techdocs/1818.html)
+
+
+[How to use XDMCP+GDM and Xnest?](http://askubuntu.com/questions/11189/how-to-use-xdmcpgdm-and-xnest)
+[xdmcp](https://wiki.ubuntu.com/xdmcp)
+[Windows Managers vs Login Managers Vs Display Managers Vs Session Manager Vs Desktop Environment](http://unix.stackexchange.com/questions/20385/windows-managers-vs-login-managers-vs-display-managers-vs-desktop-environment)
+[Multiseat Configuration/Xnest](http://en.wikibooks.org/wiki/Multiseat_Configuration/Xnest)
+
+
+
+
 [01]:https://help.ubuntu.com/community/Lubuntu/GetLubuntu
 [02]:https://help.ubuntu.com/community/Installation/FromWindows
 [03]:https://help.ubuntu.com/community/Lubuntu/InstallingLubuntu
