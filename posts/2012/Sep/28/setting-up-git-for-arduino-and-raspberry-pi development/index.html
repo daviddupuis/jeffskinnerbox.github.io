@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
@@ -21,14 +21,14 @@
         <script src='http://1.rp-api.com/rjs/repostus.js' type='text/javascript'></script>
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Font Awesome and Google Fonts -->
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
     <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
@@ -52,9 +52,7 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About Me
-                          </a></li>
+                    <li><a href="/pages/about-me.html">About Me</a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
@@ -143,17 +141,23 @@ fatal: HTTP request failed
 
 
 <p>If you get the above error, <a href="http://codeforthesoul.blogspot.com/2012/09/git-error-about-missing-certificates-on.html">the problem</a> is that Cygwin hasn&#8217;t installed the ca-certificates package.  Run the <a href="http://www.cygwin.com/install.html">Cygwin installer</a> again, and add that package; after that <code>git clone</code> should start&nbsp;working.</p>
-<p>The next step is to commit your files to the git local repository within the <span class="caps">PC</span> under Cygwin.  To do this, execute the following command:
-<p style="padding-left:30px;"><code>git commit</code></p>
-You will be put into vim to provide a comment that will be posted with the git version.  Why vim?  Because you executed the command <code>git config --global core.editor vim</code>  earlier.  If you don&#8217;t want to use vim for adding comments under git, supply another editor when you do the configuration&nbsp;step.</p>
+<p>The next step is to commit your files to the git local repository within the <span class="caps">PC</span> under Cygwin.  To do this, execute the following&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git commit
+</pre></div>
+
+
+<p>You will be put into vim to provide a comment that will be posted with the git version.  Why vim?  Because you executed the command <code>git config --global core.editor vim</code>  earlier.  If you don&#8217;t want to use vim for adding comments under git, supply another editor when you do the configuration&nbsp;step.</p>
 <p>The next step, which strictly isn&#8217;t required but a nice to have, is to associate a descriptive identifier with the github repository.  The descriptor I used is &#8220;Cygwin-Configuration-Files&#8221;.  The command I used&nbsp;is:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git remote add Cygwin-Configuration-Files https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git
 </pre></div>
 
 
-<p>The final step is to push your local files to the github repository,
-<p style="padding-left:30px;"><code>git push Cygwin-Configuration-Files</code></p>
-<em>Warning &#8230; </em> It was during the <code>git push</code> that I ran into another problem, but it could happen nearly any time.  I discovered that sometimes, after multiple Cygwin updating or installing packages, you&#8217;ll start to get strange errors related to &#8220;fork()&#8221; or .dll loading. After some research, I discoved these errors are usually solved by <a href="http://cygwin.wikia.com/wiki/Rebaseall">rebasing your packages</a>.  While rebasing, which is executed using the Cygwin <code>rebaseall</code> command, is is a bit of a mystery, it does appear to work
+<p>The final step is to push your local files to the&nbsp;github repository,</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">git push Cygwin-Configuration-Files
+</pre></div>
+
+
+<p><em>Warning &#8230; </em> It was during the <code>git push</code> that I ran into another problem, but it could happen nearly any time.  I discovered that sometimes, after multiple Cygwin updating or installing packages, you&#8217;ll start to get strange errors related to &#8220;fork()&#8221; or .dll loading. After some research, I discoved these errors are usually solved by <a href="http://cygwin.wikia.com/wiki/Rebaseall">rebasing your packages</a>.  While rebasing, which is executed using the Cygwin <code>rebaseall</code> command, is is a bit of a mystery, it does appear to work
 <h2>Rebasing&nbsp;Cygwin</h2>
 Before you can run the <code><a href="http://inamidst.com/eph/cygwin">rebaseall</a></code> command, you&#8217;ll need to make sure no Cygwin-based services are running.   To do this, you need to run two cygwin command, <a href="http://cygwin.com/faq/faq.setup.html#faq.setup.uninstall-service">cygrunsrc</a> and <a href="http://superuser.com/questions/194529/cygwin-fatal-error-unable-to-remap-what-does-it-mean">rebaseall</a>,  under the ash command in <span class="caps">MS</span> Windows command prompt, not in a Cygwin Terminal window.   The sequence of activity is as follows:
 <ol>
@@ -304,9 +308,12 @@ So that&#8217;s it!  Its a long post for what is really a simple to use tool, b
             <a href="http://opensource.org/">
                 <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
             </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
             <small>
-                All my work is
-                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
                 except where indicated otherwise.
             </small>
             </p>

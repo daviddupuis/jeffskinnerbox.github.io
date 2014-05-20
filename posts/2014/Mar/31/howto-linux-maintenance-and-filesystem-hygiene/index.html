@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
@@ -21,14 +21,14 @@
         <script src='http://1.rp-api.com/rjs/repostus.js' type='text/javascript'></script>
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Font Awesome and Google Fonts -->
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
     <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
@@ -52,9 +52,7 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About Me
-                          </a></li>
+                    <li><a href="/pages/about-me.html">About Me</a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
@@ -139,6 +137,9 @@ lsb_release -a
 </pre></div>
 
 
+<p>To get a broader, and potentially more detailed look at your system,
+consider the commands <code>[lshw][11]</code>
+and the graphical tools <code>[lshw-gtk][12]</code> and <code>[sysinfo][12]</code>.</p>
 <h2><span class="caps">OS</span> and Application&nbsp;Maintenance</h2>
 <p>You should periodically update your Linux operating system (<span class="caps">OS</span>)
 and its&nbsp;applications.</p>
@@ -167,7 +168,7 @@ sudo reboot
 </pre></div>
 
 
-<p>Note that once the firmware has been sucessfully updated,
+<p>Note that once the firmware has been successfully updated,
 you&#8217;ll need to reboot to load the new&nbsp;firmware.</p>
 <h2>Filesystem&nbsp;Maintenance</h2>
 <p>Filesystems and disks should be check to make sure they are not running low on resources
@@ -225,6 +226,28 @@ Instead of repeating the previous section daily, we can setup <code>smartd</code
 Via the demon, you can run Smartmontools in the background,
 have it check drives, and email you when there are issues.
 See the Sources below to figure out what needs to be done to setup the <code>smartd</code> demon.</p>
+<h4>Filesystem Checks and&nbsp;Repair</h4>
+<p>The Linux filesystem can be damaged under various circumstances, e.g., system crash,
+power loss, disconnected disk, accidentally overwritten i-node, etc.
+Thus it is a good idea to check the integrity of the filesystem regularly
+to minimize the risk of filesystem corruption.
+You can check out the article &#8220;<a href="http://xmodulo.com/2014/03/automatic-filesystem-checks-repair-linux.html">How to set up automatic filesystem checks and repair on Linux</a>&#8221;
+but to do force a one-time filesystem check on the next reboot,
+do the&nbsp;following</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo touch /forcefsck
+</pre></div>
+
+
+<p>Once you create an empty file named <code>forcefsck</code> in the root directory,
+it will force filesystem check the next time you boot up.
+After successful booting, <code>/forcefsck</code> will automatically be&nbsp;removed.</p>
+<p>An alternative is to shut down the system with the <code>-F</code> option like&nbsp;this:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo shutdown -r -F now
+</pre></div>
+
+
+<p><strong><span class="caps">NOTE</span>:</strong> A filesystem check can run for many minutes, if not hours,
+depending on the size of the&nbsp;filesystem.</p>
 <h2>Clean-Up</h2>
 <p>Linux will leave some clutter around in the filesystem.
 While generally not a problem, it can eat-up disk space,
@@ -261,7 +284,7 @@ Assuming you aren&#8217;t saving them for debugging, you can do this to get a&nb
 
 
 <h4>Clean-Up Installation&nbsp;Packages</h4>
-<p>To remove partual packages, clean the cache, remove unused dependancies&nbsp;use:</p>
+<p>To remove partial packages, clean the cache, remove unused dependencies&nbsp;use:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get autoclean
 sudo apt-get clean
 sudo apt-get autoremove
@@ -297,8 +320,8 @@ have an old kernel or two to fall back to
 (just in case the new one doesn&#8217;t work with your system).
 At the very least, if you&#8217;ve just upgraded the kernel,
 reboot before deleting the older&nbsp;versions.</p>
-<p>And if you happend to blow away all the kernel images (as I have done more than once),
-get your current kernel verison back by executing <code>uname -r</code> and then reinstall it&nbsp;with:</p>
+<p>And if you happen to blow away all the kernel images (as I have done more than once),
+get your current kernel version back by executing <code>uname -r</code> and then reinstall it&nbsp;with:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install linux-image-x.x.x-xx
 </pre></div>
 
@@ -313,7 +336,7 @@ To do this, shut down the system with the -F option like&nbsp;this:</p>
 
 <p>Linux reboots immediately and looks for disk errors with the <a href="http://linux.die.net/man/8/fsck"><code>fsck</code></a> command.
 Confirm fixing disk errors by pressing &#8220;y&#8221; and &#8220;Enter&#8221; if&nbsp;prompted.</p>
-<p>If this fails, read these articals &#8220;<a href="http://www.linuxjournal.com/article/193?page=0,0">Disk Maintenance under Linux (Disk Recovery</a>&#8220;,
+<p>If this fails, read these articles &#8220;<a href="http://www.linuxjournal.com/article/193?page=0,0">Disk Maintenance under Linux (Disk Recovery</a>&#8220;,
 <a href="http://www.dedoimedo.com/computers/linux-data-recovery.html">How to recover partitions and data using Linux - Tutorial</a>,
 and then follow the instructions&nbsp;carefully!</p>
 <h2>Sources</h2>
@@ -456,9 +479,12 @@ and then follow the instructions&nbsp;carefully!</p>
             <a href="http://opensource.org/">
                 <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
             </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
             <small>
-                All my work is
-                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
                 except where indicated otherwise.
             </small>
             </p>

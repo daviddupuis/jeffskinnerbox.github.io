@@ -1,5 +1,6 @@
 /* This allows for a wider range of font sizes for the Tag Cloud.
- * Make sure to change the TAG_CLOUD_STEPS value in pelicanconf.py to 8 */
+ * Make sure to change the TAG_CLOUD_STEPS value in pelicanconf.py
+ * to to the number of tags here (i.e. 8) */
 .tag-1 {
     font-size: 20pt;
 }

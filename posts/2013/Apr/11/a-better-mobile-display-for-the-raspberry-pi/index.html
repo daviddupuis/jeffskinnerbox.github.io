@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
@@ -21,14 +21,14 @@
         <script src='http://1.rp-api.com/rjs/repostus.js' type='text/javascript'></script>
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Font Awesome and Google Fonts -->
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
     <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
@@ -52,9 +52,7 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About Me
-                          </a></li>
+                    <li><a href="/pages/about-me.html">About Me</a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
@@ -147,23 +145,38 @@ It is important to remember that the X server is the is the software program whi
     <li><code>screennumber</code> is the screen number. A display can actually have multiple screens. Usually there&#8217;s only one screen though where 0 is the&nbsp;default.</li>
 </ul>
 </ul>
-Setting the <span class="caps">DISPLAY</span> variable depends of your shell, but for the Bourne, Bash or Korn shell, you could do the following to connect with the systems local display:
-<p style="padding-left:30px;"><code>export DISPLAY=localhost:0.0</code></p>
-The remote server knows where it have to redirect the X network traffic via the definition of the <span class="caps">DISPLAY</span> <a title="linux:environment_variable" href="http://gerardnico.com/wiki/linux/environment_variable">environment variable</a> which generally points to an X Display server located on your local computer.
+Setting the <span class="caps">DISPLAY</span> variable depends of your shell, but for the Bourne, Bash or Korn shell, you could do the following to connect with the systems local&nbsp;display:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">export DISPLAY=localhost:0.0
+</pre></div>
+
+
+<p>The remote server knows where it have to redirect the X network traffic via the definition of the <span class="caps">DISPLAY</span> <a title="linux:environment_variable" href="http://gerardnico.com/wiki/linux/environment_variable">environment variable</a> which generally points to an X Display server located on your local computer.
 <h2>X&nbsp;Security</h2>
 So you see, as the user, you have full control over where you wish to display the X client window.   So what prevents you from doing something malicious,  like popping up window on someone else  terminal or read their key strokes?  After all, all you really need is their host name.  <a href="http://www.linux-tutorial.info/modules.php?name=Howto&amp;pagename=Remote-X-Apps/Remote-X-Apps-6.html">X servers have three ways of authenticating connections</a> to it: the host list mechanism (xhost) and the magic cookie mechanism (xauth). Then there is ssh, that can forward X connections, providing a protected connection between client and server over a network using a secure <a title="Tunnelling protocol" href="http://en.wikipedia.org/wiki/Tunnelling_protocol">tunnelling protocol</a>.
 <h2>The xhost&nbsp;Command</h2>
 The <a href="http://www.xfree86.org/current/xhost.1.html"><code>xhost</code></a> program is used to add and delete host (computer) names or user names to the list of machines and users that are allowed to make connections to the X server. This provides a rudimentary form of privacy control and security.  A typical use is as follows: Let&#8217;s call the computer you are sitting at the &#8220;local host&#8221; and the computer you want to connect to the &#8220;remote host&#8221;. You first use xhost to specify which computer you want to give permission to connect to the X server of the local host. Then you connect to the remote host using telnet. Next you set the <span class="caps">DISPLAY</span> variable on the remote host. You want to set this <span class="caps">DISPLAY</span> variable to the local host. Now when you start up a program on the remote host, its <span class="caps">GUI</span> will show up on the local host (not on the remote&nbsp;host).</p>
 <p>For example, assume the <span class="caps">IP</span> address of the local host is 128.100.2.16 and the <span class="caps">IP</span> address of the remote host is&nbsp;17.200.10.5.</p>
-<p>On the local host, type the following at the command line:
-<p style="padding-left:30px;"><code>xhost + 17.200.10.5</code></p>
-Log on to the remote host
-<p style="padding-left:30px;"><code>telnet 17.200.10.5</code></p>
-On the remote host (through the telnet connection), instruct the remote host to display windows on the local host by typing:
-<p style="padding-left:30px;"><code>export DISPLAY=128.100.2.16:0.0</code></p>
-Now when you type xterm on the remote host, you should see an xterm window on the local host.  You should remove the remote host from your access control list as follows.
-<p style="padding-left:30px;"><code>xhost - 17.200.10.5</code></p>
-Some additional xhost commands:
+<p>On the local host, type the following at the command&nbsp;line:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">xhost + 17.200.10.5
+</pre></div>
+
+
+<p>Log on to the remote&nbsp;host</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">telnet 17.200.10.5
+</pre></div>
+
+
+<p>On the remote host (through the telnet connection), instruct the remote host to display windows on the local host by&nbsp;typing:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">export DISPLAY=128.100.2.16:0.0
+</pre></div>
+
+
+<p>Now when you type xterm on the remote host, you should see an xterm window on the local host.  You should remove the remote host from your access control list as&nbsp;follows.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">xhost - 17.200.10.5
+</pre></div>
+
+
+<p>Some additional xhost commands:
 <p style="padding-left:30px;"><code>xhost</code>List all the hosts that have access to the X server
 <code>xhost + hostname</code>Adds hostname to X server access control list.
 <code>xhost - hostname</code>Removes hostname from X server access control list.
@@ -179,10 +192,12 @@ Xauth allows access to anyone who knows the right secret. Such a secret is calle
 Even with the <code>xhost</code> and <code>xauth</code> methods, the  the X protocol is transmitted over the network with no encryption.  If you&#8217;re  worried someone might snoop on your connections (and you should worry), use ssh.  <span class="caps">SSH</span>, or the Secure Shell, allows secure (<a href="http://en.wikipedia.org/wiki/Encryption">encrypted</a> and <a href="http://en.wikipedia.org/wiki/Authentication">authenticated</a>) connections between any two devices running <span class="caps">SSH</span>. These connections may include terminal sessions, file transfers, <span class="caps">TCP</span> port forwarding, or X Window System forwarding.  <span class="caps">SSH</span> supports a wide variety of encryption algorithms. It supports various <a href="http://en.wikipedia.org/wiki/Message_authentication_code"><span class="caps">MAC</span></a> algorithms, and it can use <a href="http://en.wikipedia.org/wiki/Public-key_cryptography">public-key cryptography</a> for authentication or the traditional&nbsp;username/password.</p>
 <p><span class="caps">SSH</span> can do something called &#8220;<a href="http://docstore.mik.ua/orelly/networking_2ndEd/ssh/ch09_01.htm#ch09-31407">X Forwarding</a>&#8221; makes the communication secure by &#8220;<a href="http://en.wikipedia.org/wiki/Tunneling_protocol">tunneling</a>&#8221; the X protocol over the <span class="caps">SSH</span> secure link.  Forwarding is a type of interaction with another network application, through a inter-mediator, in this case <span class="caps">SSH</span>. <span class="caps">SSH</span> intercepts a service request from some other program on one side of an <span class="caps">SSH</span> connection, sends it across the encrypted connection, and delivers it to the intended recipient on the other side. This process is mostly transparent to both sides of the connection: each believes it is talking directly to its partner and has no knowledge that forwarding is taking place.  This is called tunneling since X protocol is encapsulated within the a <span class="caps">SSH</span>&nbsp;protocol.</p>
 <p>When setting up an <span class="caps">SSH</span> tunnel for X11, the Xauth key will automatically be copied to the remote system(in a munged form to reduce the risk of forgery) and the <span class="caps">DISPLAY</span> variable will be&nbsp;set.</p>
-<p>To turn on X forwarding over ssh, use the command line switch <code>-X</code> or write the following in your local ssh configuration file:
-<p style="padding-left:30px;"><code>Host remote.host.name
-ForwardX11 yes</code></p>
-The current version of <span class="caps">SSH</span> supports the X11 <span class="caps">SECURITY</span> extension, which provides two classes of clients: trusted clients, which can do anything with the display, and untrusted clients, which cannot inject synthetic events (mouse movement, keypresses) or read data from other windows (e.g., take screenshots). It should be possible to run almost all clients as untrusted, leaving the trusted category for screencapture and screencast programs, macro recorders, and other specialized&nbsp;utilities.</p>
+<p>To turn on X forwarding over ssh, use the command line switch <code>-X</code> or write the following in your local ssh configuration&nbsp;file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">Host remote.host.name ForwardX11 yes
+</pre></div>
+
+
+<p>The current version of <span class="caps">SSH</span> supports the X11 <span class="caps">SECURITY</span> extension, which provides two classes of clients: trusted clients, which can do anything with the display, and untrusted clients, which cannot inject synthetic events (mouse movement, keypresses) or read data from other windows (e.g., take screenshots). It should be possible to run almost all clients as untrusted, leaving the trusted category for screencapture and screencast programs, macro recorders, and other specialized&nbsp;utilities.</p>
 <p>If you use <code>ssh -X remotemachine</code> the remote machine is treated as an untrusted client and <code>ssh -Y remotemachine</code> the remote machine is treated as trusted client.  &#8217;-X&#8217; is supposedly the safe alternative to &#8216;-Y&#8217;.  However, as a Cygwin/X maintainer says &#8220;this is widely considered to be not useful, because the Security extension uses an arbitrary and limited access control policy, which results in a lot of applications not working correctly and what is really a false sense of&nbsp;security&#8221;.</p>
 <p>You can configuring <span class="caps">SSH</span> via the following files:
 <ul>
@@ -203,70 +218,68 @@ The X Display Manager (<span class="caps">XDM</span>) is an optional part of the
 <h2>Enough of the X Journey &#8230; Now in&nbsp;Conclusion</h2>
 So what does the iSSH give me? I can now sit on the couch, watch <span class="caps">TV</span>, and simultaneously login into the RPi with full X Windows support.  Some would call this Nirvana but I call it just <span class="caps">VERY</span> <span class="caps">NICE</span>.  The iPad/iSSH combination isn&#8217;t the perfect user experience but Zingersoft did a good&nbsp;job.</p>
 <p>By the way &#8230;. the above iPad screen shot of the X Server display with a globe was rendered using the following&nbsp;code:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">#!/usr/bin/env python
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/usr/bin/env python</span>
 
-&#39;&#39;&#39;
-    Source: http://www.scipy.org/Cookbook/Matplotlib/Maps
-&#39;&#39;&#39;
+<span style="color: #0099FF; font-style: italic"># Source: http://www.scipy.org/Cookbook/Matplotlib/Maps</span>
 
-from mpl_toolkits.basemap import Basemap
-import matplotlib.pyplot as plt
-import numpy as np
+<span style="color: #006699; font-weight: bold">from</span> <span style="color: #00CCFF; font-weight: bold">mpl_toolkits.basemap</span> <span style="color: #006699; font-weight: bold">import</span> Basemap
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">plt</span>
+<span style="color: #006699; font-weight: bold">import</span> <span style="color: #00CCFF; font-weight: bold">numpy</span> <span style="color: #006699; font-weight: bold">as</span> <span style="color: #00CCFF; font-weight: bold">np</span>
 
-Use_NASA_blue_marble_image = False
+Use_NASA_blue_marble_image <span style="color: #555555">=</span> <span style="color: #336666">False</span>
 
-# set up orthographic map projection with
-# perspective of satellite looking down at 50N, 100W.
-# use low resolution coastlines.
-# don&#39;t plot features that are smaller than 1000 square km.
-map = Basemap(projection=&#39;ortho&#39;, lat_0=50, lon_0=-100, resolution=&#39;l&#39;, area_thresh=1000.)
+<span style="color: #0099FF; font-style: italic"># set up orthographic map projection with</span>
+<span style="color: #0099FF; font-style: italic"># perspective of satellite looking down at 50N, 100W.</span>
+<span style="color: #0099FF; font-style: italic"># use low resolution coastlines.</span>
+<span style="color: #0099FF; font-style: italic"># don&#39;t plot features that are smaller than 1000 square km.</span>
+<span style="color: #336666">map</span> <span style="color: #555555">=</span> Basemap(projection<span style="color: #555555">=</span><span style="color: #CC3300">&#39;ortho&#39;</span>, lat_0<span style="color: #555555">=</span><span style="color: #FF6600">50</span>, lon_0<span style="color: #555555">=-</span><span style="color: #FF6600">100</span>, resolution<span style="color: #555555">=</span><span style="color: #CC3300">&#39;l&#39;</span>, area_thresh<span style="color: #555555">=</span><span style="color: #FF6600">1000.</span>)
 
-# draw coastlines, country boundaries, fill continents.
-if Use_NASA_blue_marble_image:
-    map.bluemarble()
-else:
-    map.drawcoastlines()
-    map.drawcountries()
-    map.fillcontinents(color=&#39;coral&#39;)
+<span style="color: #0099FF; font-style: italic"># draw coastlines, country boundaries, fill continents.</span>
+<span style="color: #006699; font-weight: bold">if</span> Use_NASA_blue_marble_image:
+    <span style="color: #336666">map</span><span style="color: #555555">.</span>bluemarble()
+<span style="color: #006699; font-weight: bold">else</span>:
+    <span style="color: #336666">map</span><span style="color: #555555">.</span>drawcoastlines()
+    <span style="color: #336666">map</span><span style="color: #555555">.</span>drawcountries()
+    <span style="color: #336666">map</span><span style="color: #555555">.</span>fillcontinents(color<span style="color: #555555">=</span><span style="color: #CC3300">&#39;coral&#39;</span>)
 
-# draw the edge of the map projection region (the projection limb)
-map.drawmapboundary()
+<span style="color: #0099FF; font-style: italic"># draw the edge of the map projection region (the projection limb)</span>
+<span style="color: #336666">map</span><span style="color: #555555">.</span>drawmapboundary()
 
-# draw lat/lon grid lines every 30 degrees.
-map.drawmeridians(np.arange(0, 360, 30))
-map.drawparallels(np.arange(-90, 90, 30))
+<span style="color: #0099FF; font-style: italic"># draw lat/lon grid lines every 30 degrees.</span>
+<span style="color: #336666">map</span><span style="color: #555555">.</span>drawmeridians(np<span style="color: #555555">.</span>arange(<span style="color: #FF6600">0</span>, <span style="color: #FF6600">360</span>, <span style="color: #FF6600">30</span>))
+<span style="color: #336666">map</span><span style="color: #555555">.</span>drawparallels(np<span style="color: #555555">.</span>arange(<span style="color: #555555">-</span><span style="color: #FF6600">90</span>, <span style="color: #FF6600">90</span>, <span style="color: #FF6600">30</span>))
 
-# lat/lon coordinates of five cities.
-lats = [40.02, 32.73, 38.55, 48.25, 17.29]
-lons = [-105.16, -117.16, -77.00, -114.21, -88.10]
-cities = [&#39;Boulder, CO&#39;, &#39;San Diego, CA&#39;, &#39;Washington, DC&#39;, &#39;Whitefish, MT&#39;, &#39;Belize City, Belize&#39;]
+<span style="color: #0099FF; font-style: italic"># lat/lon coordinates of five cities.</span>
+lats <span style="color: #555555">=</span> [<span style="color: #FF6600">40.02</span>, <span style="color: #FF6600">32.73</span>, <span style="color: #FF6600">38.55</span>, <span style="color: #FF6600">48.25</span>, <span style="color: #FF6600">17.29</span>]
+lons <span style="color: #555555">=</span> [<span style="color: #555555">-</span><span style="color: #FF6600">105.16</span>, <span style="color: #555555">-</span><span style="color: #FF6600">117.16</span>, <span style="color: #555555">-</span><span style="color: #FF6600">77.00</span>, <span style="color: #555555">-</span><span style="color: #FF6600">114.21</span>, <span style="color: #555555">-</span><span style="color: #FF6600">88.10</span>]
+cities <span style="color: #555555">=</span> [<span style="color: #CC3300">&#39;Boulder, CO&#39;</span>, <span style="color: #CC3300">&#39;San Diego, CA&#39;</span>, <span style="color: #CC3300">&#39;Washington, DC&#39;</span>, <span style="color: #CC3300">&#39;Whitefish, MT&#39;</span>, <span style="color: #CC3300">&#39;Belize City, Belize&#39;</span>]
 
-# compute the native map projection coordinates for cities.
-x, y = map(lons, lats)
+<span style="color: #0099FF; font-style: italic"># compute the native map projection coordinates for cities.</span>
+x, y <span style="color: #555555">=</span> <span style="color: #336666">map</span>(lons, lats)
 
-# plot filled circles at the locations of the cities.
-map.plot(x, y, &#39;bo&#39;)
+<span style="color: #0099FF; font-style: italic"># plot filled circles at the locations of the cities.</span>
+<span style="color: #336666">map</span><span style="color: #555555">.</span>plot(x, y, <span style="color: #CC3300">&#39;bo&#39;</span>)
 
-# plot the names of those five cities.
-for name, xpt, ypt in zip(cities, x, y):
-        plt.text(xpt + 50000, ypt + 50000, name)
+<span style="color: #0099FF; font-style: italic"># plot the names of those five cities.</span>
+<span style="color: #006699; font-weight: bold">for</span> name, xpt, ypt <span style="color: #000000; font-weight: bold">in</span> <span style="color: #336666">zip</span>(cities, x, y):
+        plt<span style="color: #555555">.</span>text(xpt <span style="color: #555555">+</span> <span style="color: #FF6600">50000</span>, ypt <span style="color: #555555">+</span> <span style="color: #FF6600">50000</span>, name)
 
-# make up some data on a regular lat/lon grid.
-nlats = 73
-nlons = 145
-delta = 2. * np.pi / (nlons - 1)
-lats = (0.5 * np.pi - delta * np.indices((nlats, nlons))[0, :, :])
-lons = (delta * np.indices((nlats, nlons))[1, :, :])
-wave = 0.75 * (np.sin(2. * lats) ** 8 * np.cos(4. * lons))
-mean = 0.5 * np.cos(2. * lats) * ((np.sin(2. * lats)) ** 2 + 2.)
+<span style="color: #0099FF; font-style: italic"># make up some data on a regular lat/lon grid.</span>
+nlats <span style="color: #555555">=</span> <span style="color: #FF6600">73</span>
+nlons <span style="color: #555555">=</span> <span style="color: #FF6600">145</span>
+delta <span style="color: #555555">=</span> <span style="color: #FF6600">2.</span> <span style="color: #555555">*</span> np<span style="color: #555555">.</span>pi <span style="color: #555555">/</span> (nlons <span style="color: #555555">-</span> <span style="color: #FF6600">1</span>)
+lats <span style="color: #555555">=</span> (<span style="color: #FF6600">0.5</span> <span style="color: #555555">*</span> np<span style="color: #555555">.</span>pi <span style="color: #555555">-</span> delta <span style="color: #555555">*</span> np<span style="color: #555555">.</span>indices((nlats, nlons))[<span style="color: #FF6600">0</span>, :, :])
+lons <span style="color: #555555">=</span> (delta <span style="color: #555555">*</span> np<span style="color: #555555">.</span>indices((nlats, nlons))[<span style="color: #FF6600">1</span>, :, :])
+wave <span style="color: #555555">=</span> <span style="color: #FF6600">0.75</span> <span style="color: #555555">*</span> (np<span style="color: #555555">.</span>sin(<span style="color: #FF6600">2.</span> <span style="color: #555555">*</span> lats) <span style="color: #555555">**</span> <span style="color: #FF6600">8</span> <span style="color: #555555">*</span> np<span style="color: #555555">.</span>cos(<span style="color: #FF6600">4.</span> <span style="color: #555555">*</span> lons))
+mean <span style="color: #555555">=</span> <span style="color: #FF6600">0.5</span> <span style="color: #555555">*</span> np<span style="color: #555555">.</span>cos(<span style="color: #FF6600">2.</span> <span style="color: #555555">*</span> lats) <span style="color: #555555">*</span> ((np<span style="color: #555555">.</span>sin(<span style="color: #FF6600">2.</span> <span style="color: #555555">*</span> lats)) <span style="color: #555555">**</span> <span style="color: #FF6600">2</span> <span style="color: #555555">+</span> <span style="color: #FF6600">2.</span>)
 
-# compute native map projection coordinates of lat/lon grid.
-x, y = map(lons * 180. / np.pi, lats * 180. / np.pi)
+<span style="color: #0099FF; font-style: italic"># compute native map projection coordinates of lat/lon grid.</span>
+x, y <span style="color: #555555">=</span> <span style="color: #336666">map</span>(lons <span style="color: #555555">*</span> <span style="color: #FF6600">180.</span> <span style="color: #555555">/</span> np<span style="color: #555555">.</span>pi, lats <span style="color: #555555">*</span> <span style="color: #FF6600">180.</span> <span style="color: #555555">/</span> np<span style="color: #555555">.</span>pi)
 
-# contour data over the map.
-CS = map.contour(x, y, wave + mean, 15, linewidths=1.5)
+<span style="color: #0099FF; font-style: italic"># contour data over the map.</span>
+CS <span style="color: #555555">=</span> <span style="color: #336666">map</span><span style="color: #555555">.</span>contour(x, y, wave <span style="color: #555555">+</span> mean, <span style="color: #FF6600">15</span>, linewidths<span style="color: #555555">=</span><span style="color: #FF6600">1.5</span>)
 
-plt.show()
+plt<span style="color: #555555">.</span>show()
 </pre></div>
             </div>
             <!-- /.entry-content -->
@@ -396,9 +409,12 @@ plt.show()
             <a href="http://opensource.org/">
                 <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
             </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
             <small>
-                All my work is
-                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
                 except where indicated otherwise.
             </small>
             </p>

@@ -1,5 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jeff's Skinner Box</title><link>http://jeffskinnerbox.me/</link><description></description><atom:link href="http://jeffskinnerbox.me/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 29 Apr 2014 22:54:00 -0400</lastBuildDate><item><title>HowTo: Using Xephyr to Create a New Display in a Window</title><link>http://jeffskinnerbox.me/posts/2014/Apr/29/howto-using-xephyr-to-create-a-new-display-in-a-window/</link><description>&lt;p&gt;You might want to run one X Window System desktop environment on your local computer while accessing second computer,
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jeff's Skinner Box</title><link>http://jeffskinnerbox.me/</link><description></description><atom:link href="http://jeffskinnerbox.me/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 12 May 2014 12:42:00 -0400</lastBuildDate><item><title>Conky for Ubuntu</title><link>http://jeffskinnerbox.me/posts/2014/May/12/conky-for-ubuntu/</link><description>&lt;p&gt;Over a Year ago, I created a &lt;a href="http://jeffskinnerbox.me/posts/2012/Nov/02/conky-for-the-raspberry-pi/"&gt;Conky configuration file for the Raspberry Pi&lt;/a&gt;.
+I final got around to tailoring it for my desktop Linux box.
+You find both version on &lt;a href="https://github.com/jeffskinnerbox/dotconky"&gt;GitHub&lt;/a&gt;.
+Screen shot is at the&amp;nbsp;bottom.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# --------------------------------------------------------------------- #
+#
+# .conkyrc - derived from various examples across the &amp;#39;net
+#   Designed to support a 4 core processer running Ubunutu
+#
+# You can restart conky by running
+#       killall -SIGUSR1 conky
+#
+# --------------------------------------------------------------------- #
+
+
+# -------------------- Conky&amp;#39;s Run Time Parameters -------------------- #
+
+update_interval 2.0         # Conky update interval in seconds
+total_run_times 0           # Number of updates before quitting.  Set to zero to run forever.
+no_buffers yes              # Subtract file system buffers from used memory?
+cpu_avg_samples 2           # Number of cpu samples to average. Set to 1 to disable averaging
+net_avg_samples 2           # Number of net samples to average. Set to 1 to disable averaging
+
+
+# -------------------- Conky&amp;#39;s General Look &amp;amp; Feel -------------------- #
+
+# --- defualt values --- #
+default_color grey          # Default color and border color
+default_bar_size 0 6        # Specify a default width and height for bars.
+default_gauge_size 25 25    # Specify a default width and height for gauges.
+default_graph_size 0 25     # Specify a default width and height for graphs.
+default_outline_color green # Default border and text outline color
+default_shade_color yellow  # Default border and text shading color
+
+# --- predefined colors - http://www.kgym.jp/freesoft/xrgb.html --- #
+color0 FFFFFF               # white
+color1 FFA500               # orange
+color2 B22222               # firebrick
+color3 696969               # dim gray
+color4 D3D3D3               # light gray
+color5 2F4F4F               # dark slate gray
+color6 FFEC8B               # light golden rod
+color7 54FF9F               # sea green
+color8 FF8C69               # salmon
+color9 FFE7BA               # wheat
+
+# --- window layout &amp;amp; options --- #
+own_window yes              # Conky creates its own window instead of using desktop
+own_window_type normal      # If own_window is yes, use type normal, desktop, or override   
+own_window_transparent yes  # Use pseudo transparency with own_window?
+own_window_colour blue      # If own_window_transparent is no, set the background colour
+double_buffer yes           # Use double buffering (reduces flicker)
+use_spacer right            # Adds spaces to stop object from moving
+maximum_width 600           # Maximum width of window in pixels
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# --- window placment --- #
+alignment top_right         # window placement can be top_right, top_left, bottom_left, bottom_right
+
+# --- borders, margins, and outlines --- #
+draw_graph_borders yes      # Do you want to draw borders around graphs
+border_inner_margin 9       # Window&amp;#39;s inner border margin (in pixels)
+border_outer_margin 5       # Window&amp;#39;s outer border margin (in pixels)
+gap_x 10                    # Gap between borders of screen and text (on x-axis)
+gap_y 40                    # Gap between borders of screen and text (on y-axis)
+border_width 10             # Window&amp;#39;s border width (in pixels)
+
+# --- Text --- #
+draw_outline no             # Do you want ot draw outlines
+draw_shades no              # Do you want to draw shades
+draw_borders no             # Do you want to draw borders around text
+uppercase no                # set to yes if you want all text to be in uppercase
+use_xft yes                 # use the X FreeType interface library (anti-aliased font)
+xftfont Monospace:size=8:weight=bold    # Xft font to be used
+
+
+# -------------------- Conky&amp;#39;s Displayed System Monitoring Parameters -------------------- #
+TEXT
+# General system information
+${color1}SYSTEM INFORMATION ${hr 2}$color
+${color0}System: $color$nodename ${alignr}${color0}Uptime: $color$uptime
+${color0}Kernel: $color$kernel${alignr}${color0}Arch: $color$machine
+${color0}Distribution: $color${execi 99999 lsb_release --description | awk &amp;#39;{ print $2&amp;quot; &amp;quot;$3 }&amp;#39;}
+${color0}CPU Type: $color${execi 99999 grep &amp;#39;model name&amp;#39; /proc/cpuinfo | awk &amp;#39;{ print $6 }&amp;#39; | sed &amp;#39;2,$d&amp;#39;} / ${execi 99999 grep &amp;#39;model name&amp;#39; /proc/cpuinfo | wc -l} Cores
+${color0}CPU Speed: $color${freq 0} MHz Current / ${execi 99999 grep &amp;#39;model name&amp;#39; /proc/cpuinfo | awk &amp;#39;{ print $9 }&amp;#39; | sed &amp;#39;2,$d&amp;#39;} Max
+${color0}Processor Temperature: $color${acpitemp}°C
+#${color0}MAC Address (eth0): $color${execi 99999 cat /sys/class/net/eth0/address }
+#${color0}MAC Address (eth1): $color${execi 99999 cat /sys/class/net/eth1/address }
+#${color0}MAC Address (wlan0): $color${execi 99999 cat /sys/class/net/wlan0/address }
+
+# CPU information
+${color1}CPU ${hr 2}$color
+${color0}CPU Usage:$color ${cpu cpu0}% ${color7}${cpubar cpu0}
+${cpugraph cpu0 0000ff 00ff00}$color
+${color0}Core 1:$color ${freq 1} MHz ${cpu cpu1}% ${color5}${cpubar cpu1}$color
+${color0}Core 2:$color ${freq 2} MHz ${cpu cpu2}% ${color5}${cpubar cpu2}$color
+${color0}Core 3:$color ${freq 3} MHz ${cpu cpu3}% ${color5}${cpubar cpu3}$color
+${color0}Core 4:$color ${freq 4} MHz ${cpu cpu4}% ${color5}${cpubar cpu4}$color
+
+# Top running processes
+${color1}TOP 5 PROCESSES ${hr 2}$color
+${color0}Processes:$color $processes  ${color0}Running:$color $running_processes
+${color0}Threads:$color $threads  ${color0}Running:$color $running_threads
+${stippled_hr 2}
+${color0}CPU Usage$color
+${color3} NAME              PID    CPU %   MEM$color
+${color2} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}$color
+ ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+ ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+ ${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
+ ${top name 5} ${top pid 5} ${top cpu 5} ${top mem 5}
+${stippled_hr 2}
+${color0}Mem Usage$color
+${color3} NAME              PID    CPU %   MEM$color
+${color2} ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}$color
+ ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+ ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+ ${top_mem name 4} ${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}
+ ${top_mem name 5} ${top_mem pid 5} ${top_mem cpu 5} ${top_mem mem 5}
+
+# Memory and swap space untilization
+${color1}MEMORY &amp;amp; SWAP ${hr 2}$color
+${color0}RAM Usage: ${color}$mem / $memmax
+$memperc% ${color6}${membar}$color
+${color0}Swap Usage: ${color}$swap / $swapmax
+$swapperc% ${color6}${swapbar}$color
+
+# File System utilization
+${color1}FILE SYSTEM ${hr 2}$color
+${color0}root:$color ${fs_used /} / ${fs_size /}
+${fs_used_perc /}% ${color8}${fs_bar /}$color
+${color0}boot:$color ${fs_used /boot} / ${fs_size /boot}
+${fs_used_perc /boot}% ${color8}${fs_bar /boot}$color
+${color0}home:$color ${fs_used /home} / ${fs_size /home}
+${fs_used_perc /home}% ${color8}${fs_bar /home}$color
+${color0}backup:$color ${fs_used /mnt/backup} / ${fs_size /mnt/backup}
+${fs_used_perc /mnt/backup}% ${color8}${fs_bar /mnt/backup}$color
+
+# Hard Drive Utilization
+${color1}HARD DRIVE I/O ${hr 2}$color
+${color0}Device:$color /dev/sda
+${color0}Reads: $color${diskio_read /dev/sda}/s${alignr}${color0}Writes: $color${diskio_write /dev/sda}/s
+${color8}${diskiograph_read /dev/sda 20,100 33FF00 FF3333 scale -t}$color${alignr}${color8}${diskiograph_write /dev/sda 20,100 33FF00 FF3333 scale -t}$color
+${color0}Device:$color /dev/md0
+${color0}Reads: $color${diskio_read /dev/md0}/s${alignr}${color0}Writes: $color${diskio_write /dev/md0}/s
+${color8}${diskiograph_read /dev/md0 20,100 33FF00 FF3333 scale -t}$color${alignr}${color8}${diskiograph_write /dev/md0 20,100 33FF00 FF3333 scale -t}$color
+
+# Ethernet utilization
+${color1}NETWORKING ${hr 2}$color
+${color0}Wired (${addr eth0})
+${color0}Down:$color ${downspeed eth0}/s ${alignr}${color0}Up:$color ${upspeed eth0}/s
+${color0}Total:$color ${totaldown eth0} ${alignr}${color0}Total: $color${totalup eth0}
+${color0}${downspeedgraph eth0 25,120 000000 00ff00} ${alignr}${upspeedgraph eth0 25,120 000000 ff0000}$color
+${stippled_hr 2}
+${color0}Wireless (${addr wlan0})
+${color0}Down:$color ${downspeed wlan0}/s ${alignr}${color0}Up:$color ${upspeed wlan0}/s
+${color0}Total:$color ${totaldown wlan0} ${alignr}${color0}Total: $color${totalup wlan0}
+${color0}${downspeedgraph wlan0 25,120 000000 00ff00} ${alignr}${upspeedgraph wlan0 25,120 000000 ff0000}$color
+
+# Print the tail of the Linux system log
+${color1}LOG FILES ${hr 2}$color
+${color0}SysLog Messages$color
+${color4}${font Arial:size=7}${execi 30 tail -n3 /var/log/syslog | fold -w50}$color$font
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Screen shot is below with Corky instance on the right&amp;nbsp;side:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://jeffskinnerbox.me/images/corky-screen-shot.jpg"&gt;&lt;img alt="Corky Screen Shot" src="http://jeffskinnerbox.me/images/corky-screen-shot.jpg" title="Corky for Ubuntu on right of the desktop" /&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">"Jeff Irland"</dc:creator><pubDate>Mon, 12 May 2014 12:42:00 -0400</pubDate><guid>tag:jeffskinnerbox.me,2014-05-12:posts/2014/May/12/conky-for-ubuntu/</guid><category>Conky</category><category>Linux</category><category>Ubuntu</category></item><item><title>HowTo: Using Xephyr to Create a New Display in a Window</title><link>http://jeffskinnerbox.me/posts/2014/Apr/29/howto-using-xephyr-to-create-a-new-display-in-a-window/</link><description>&lt;p&gt;You might want to run one X Window System desktop environment on your local computer while accessing second computer,
 including its own desktop environment,
 all the while using the first computer’s screen and keyboard.
 This sounds like multiple X Servers running.
@@ -195,6 +362,9 @@ lsb_release -a
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;To get a broader, and potentially more detailed look at your system,
+consider the commands &lt;code&gt;[lshw][11]&lt;/code&gt;
+and the graphical tools &lt;code&gt;[lshw-gtk][12]&lt;/code&gt; and &lt;code&gt;[sysinfo][12]&lt;/code&gt;.&lt;/p&gt;
 &lt;h2&gt;&lt;span class="caps"&gt;OS&lt;/span&gt; and Application&amp;nbsp;Maintenance&lt;/h2&gt;
 &lt;p&gt;You should periodically update your Linux operating system (&lt;span class="caps"&gt;OS&lt;/span&gt;)
 and its&amp;nbsp;applications.&lt;/p&gt;
@@ -223,7 +393,7 @@ sudo reboot
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Note that once the firmware has been sucessfully updated,
+&lt;p&gt;Note that once the firmware has been successfully updated,
 you&amp;#8217;ll need to reboot to load the new&amp;nbsp;firmware.&lt;/p&gt;
 &lt;h2&gt;Filesystem&amp;nbsp;Maintenance&lt;/h2&gt;
 &lt;p&gt;Filesystems and disks should be check to make sure they are not running low on resources
@@ -281,6 +451,28 @@ Instead of repeating the previous section daily, we can setup &lt;code&gt;smartd
 Via the demon, you can run Smartmontools in the background,
 have it check drives, and email you when there are issues.
 See the Sources below to figure out what needs to be done to setup the &lt;code&gt;smartd&lt;/code&gt; demon.&lt;/p&gt;
+&lt;h4&gt;Filesystem Checks and&amp;nbsp;Repair&lt;/h4&gt;
+&lt;p&gt;The Linux filesystem can be damaged under various circumstances, e.g., system crash,
+power loss, disconnected disk, accidentally overwritten i-node, etc.
+Thus it is a good idea to check the integrity of the filesystem regularly
+to minimize the risk of filesystem corruption.
+You can check out the article &amp;#8220;&lt;a href="http://xmodulo.com/2014/03/automatic-filesystem-checks-repair-linux.html"&gt;How to set up automatic filesystem checks and repair on Linux&lt;/a&gt;&amp;#8221;
+but to do force a one-time filesystem check on the next reboot,
+do the&amp;nbsp;following&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo touch /forcefsck
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once you create an empty file named &lt;code&gt;forcefsck&lt;/code&gt; in the root directory,
+it will force filesystem check the next time you boot up.
+After successful booting, &lt;code&gt;/forcefsck&lt;/code&gt; will automatically be&amp;nbsp;removed.&lt;/p&gt;
+&lt;p&gt;An alternative is to shut down the system with the &lt;code&gt;-F&lt;/code&gt; option like&amp;nbsp;this:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo shutdown -r -F now
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTE&lt;/span&gt;:&lt;/strong&gt; A filesystem check can run for many minutes, if not hours,
+depending on the size of the&amp;nbsp;filesystem.&lt;/p&gt;
 &lt;h2&gt;Clean-Up&lt;/h2&gt;
 &lt;p&gt;Linux will leave some clutter around in the filesystem.
 While generally not a problem, it can eat-up disk space,
@@ -317,7 +509,7 @@ Assuming you aren&amp;#8217;t saving them for debugging, you can do this to get 
 
 
 &lt;h4&gt;Clean-Up Installation&amp;nbsp;Packages&lt;/h4&gt;
-&lt;p&gt;To remove partual packages, clean the cache, remove unused dependancies&amp;nbsp;use:&lt;/p&gt;
+&lt;p&gt;To remove partial packages, clean the cache, remove unused dependencies&amp;nbsp;use:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get autoclean
 sudo apt-get clean
 sudo apt-get autoremove
@@ -353,8 +545,8 @@ have an old kernel or two to fall back to
 (just in case the new one doesn&amp;#8217;t work with your system).
 At the very least, if you&amp;#8217;ve just upgraded the kernel,
 reboot before deleting the older&amp;nbsp;versions.&lt;/p&gt;
-&lt;p&gt;And if you happend to blow away all the kernel images (as I have done more than once),
-get your current kernel verison back by executing &lt;code&gt;uname -r&lt;/code&gt; and then reinstall it&amp;nbsp;with:&lt;/p&gt;
+&lt;p&gt;And if you happen to blow away all the kernel images (as I have done more than once),
+get your current kernel version back by executing &lt;code&gt;uname -r&lt;/code&gt; and then reinstall it&amp;nbsp;with:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install linux-image-x.x.x-xx
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -369,7 +561,7 @@ To do this, shut down the system with the -F option like&amp;nbsp;this:&lt;/p&gt
 
 &lt;p&gt;Linux reboots immediately and looks for disk errors with the &lt;a href="http://linux.die.net/man/8/fsck"&gt;&lt;code&gt;fsck&lt;/code&gt;&lt;/a&gt; command.
 Confirm fixing disk errors by pressing &amp;#8220;y&amp;#8221; and &amp;#8220;Enter&amp;#8221; if&amp;nbsp;prompted.&lt;/p&gt;
-&lt;p&gt;If this fails, read these articals &amp;#8220;&lt;a href="http://www.linuxjournal.com/article/193?page=0,0"&gt;Disk Maintenance under Linux (Disk Recovery&lt;/a&gt;&amp;#8220;,
+&lt;p&gt;If this fails, read these articles &amp;#8220;&lt;a href="http://www.linuxjournal.com/article/193?page=0,0"&gt;Disk Maintenance under Linux (Disk Recovery&lt;/a&gt;&amp;#8220;,
 &lt;a href="http://www.dedoimedo.com/computers/linux-data-recovery.html"&gt;How to recover partitions and data using Linux - Tutorial&lt;/a&gt;,
 and then follow the instructions&amp;nbsp;carefully!&lt;/p&gt;
 &lt;h2&gt;Sources&lt;/h2&gt;
@@ -1458,21 +1650,21 @@ git push -u origin master
 
 
 &lt;ul&gt;
-&lt;li&gt;Verify that your web page is availalbe by going to &lt;a href="http://jeffskinnerbox.github.com/"&gt;http://jeffskinnerbox.github.com/&lt;/a&gt;.  This could take up to 10 minutes for GitHub the first&amp;nbsp;time.&lt;/li&gt;
+&lt;li&gt;Verify that your web page is available by going to &lt;a href="http://jeffskinnerbox.github.com"&gt;&lt;code&gt;http://jeffskinnerbox.github.com&lt;/code&gt;&lt;/a&gt;.  This could take up to 10 minutes for GitHub the first&amp;nbsp;time.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3&gt;Using a Custom Domain&amp;nbsp;Name&lt;/h3&gt;
-&lt;p&gt;GitHub Pages allows you to direct a domain name of your choice at your GitHup Page.
+&lt;p&gt;GitHub Pages allows you to direct a domain name of your choice at your GitHub Page.
 My custom domain name is &lt;code&gt;www.jeffskinnerbox.me&lt;/code&gt;. To do the setup, I found the postings
 &lt;a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages"&gt;Setting up a custom domain with Pages&lt;/a&gt; and 
-&lt;a href="http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/"&gt;Setting the &lt;span class="caps"&gt;DNS&lt;/span&gt; for GitHub Pages on Namecheap&lt;/a&gt; helful.  It goes like&amp;nbsp;this:&lt;/p&gt;
+&lt;a href="http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/"&gt;Setting the &lt;span class="caps"&gt;DNS&lt;/span&gt; for GitHub Pages on Namecheap&lt;/a&gt; helpful.  It goes like&amp;nbsp;this:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Telling the GitHub server to serve from the custome domain by creating a file named &lt;code&gt;CNAME&lt;/code&gt; in the root of your site and put string with the domain (i.e. jeffskinnerbox.me) into the&amp;nbsp;file.&lt;/li&gt;
-&lt;li&gt;Go to your Domain Name Registrar and make the changes outline in the posts referance above.  It may take as long as 24 hours for these changes to take&amp;nbsp;effect.&lt;/li&gt;
+&lt;li&gt;Telling the GitHub server to serve from the custom domain by creating a file named &lt;code&gt;CNAME&lt;/code&gt; in the root of your site and put string with the domain (i.e. jeffskinnerbox.me) into the&amp;nbsp;file.&lt;/li&gt;
+&lt;li&gt;Go to your Domain Name Registrar and make the changes outline in the posts reference above.  It may take as long as 24 hours for these changes to take&amp;nbsp;effect.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h4&gt;Closing&lt;/h4&gt;
+&lt;h3&gt;Closing&lt;/h3&gt;
 &lt;p&gt;All in all, I am very pleased with Jekyll so far. It did take a little longer than I’d have thought to migrate this blog as it is from WordPress, while also preserving the site’s characteristics, but it didn’t take too long and I love the results.
 I doubt I would ever want to look&amp;nbsp;back! &lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Sun, 01 Sep 2013 00:01:00 -0400</pubDate><guid>tag:jeffskinnerbox.me,2013-09-01:posts/2013/Sep/01/im-moving-so-i-can-blog-with-ipython-notebook/</guid><category>IPython</category><category>Jekyll</category><category>Bootstrap</category><category>Blog</category></item><item><title>Building My Linux Box...The Implementation</title><link>http://jeffskinnerbox.me/posts/2013/Aug/01/building-my-linux-box-the-implementation/</link><description>&lt;p&gt;&lt;img class="img-rounded" style="margin: 0px 8px; float: left" alt="Ubuntu 13.04 Raring Ringtail" src="/images/ubuntu-13-04-raring-ringtail.jpg" width="15%" height="15%" /&gt;
-In an earlier post, I outlined &lt;a href="http://jeffskinnerbox.wordpress.com/2013/04/28/building-my-linux-box-the-plan/"&gt;my plan for building a Linux Box&lt;/a&gt;.  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
+In an earlier post, I outlined &lt;a href="http://jeffskinnerbox.me/posts/2013/Apr/28/building-my-linux-box-the-plan/"&gt;my plan for building a Linux Box&lt;/a&gt;.  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
 &lt;ul&gt;
 &lt;ul&gt;
     &lt;li&gt;After ordering all the hardware, it came to me that it was dumb to attempt to reuse my old semi-reliable, slow &lt;span class="caps"&gt;CD&lt;/span&gt; drive.  So I purchase the &lt;span class="caps"&gt;HP&lt;/span&gt; 24X Multiformat &lt;span class="caps"&gt;DVD&lt;/span&gt;/&lt;span class="caps"&gt;CD&lt;/span&gt; Writer (dvd1260i) at Best Buy for &lt;mathjax&gt;$40.&lt;/li&gt;
@@ -1497,9 +1689,12 @@ Like may, over the years I have made a large time investment in tuning my &lt;co
 Chromium is a fully open-source version of Google&amp;#8217;s Chrome, and for licensing reasons, it doesn&amp;#8217;t come packaged with the integrated Flash or a native &lt;span class="caps"&gt;PDF&lt;/span&gt; reader.  Lucky, there is a work around and that is documented here: &lt;a href="http://www.omgubuntu.co.uk/2010/07/use-google-chrome%E2%80%99s-native-pdf-reader-in-chromium"&gt;Use Google Chrome’s Native &lt;span class="caps"&gt;PDF&lt;/span&gt; reader in Chromium&lt;/a&gt;.
 &lt;h2&gt;Installing My Squeeze&amp;nbsp;Box&lt;/h2&gt;
 I have a &lt;a href="http://www.mysqueezebox.com/index/Home"&gt;SqueezeBox&lt;/a&gt; device in my workshop for playing music.  On my old &lt;span class="caps"&gt;PC&lt;/span&gt;, I had installed the SlimServer which would provide the music stream.  I want to now reestablish that capability on the Linux box. The post &lt;a href="http://www.ehow.com/how_7314755_use-squeezebox-ubuntu.html"&gt;How to Use Squeezebox With Ubuntu&lt;/a&gt; and the &lt;a href="http://wiki.slimdevices.com/index.php/DebianPackage"&gt;Logitech SqueezeBox Wiki&lt;/a&gt; gives you all the information you should&amp;nbsp;need.&lt;/p&gt;
-&lt;p&gt;The Ubuntu (Debian) software for the &lt;a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server"&gt;SqueezeCenter&lt;/a&gt; or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via &lt;code&gt;get-apt&lt;/code&gt;.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the &lt;a href="http://linux.die.net/man/5/sources.list"&gt;&lt;code&gt;sources.list&lt;/code&gt;&lt;/a&gt; file.  To do this, do the following:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo vim /etc/apt/sources.list&lt;/code&gt;&lt;/p&gt;
-Scroll to the bottom of the file and enter the following information and then&amp;nbsp;save:&lt;/p&gt;
+&lt;p&gt;The Ubuntu (Debian) software for the &lt;a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server"&gt;SqueezeCenter&lt;/a&gt; or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via &lt;code&gt;get-apt&lt;/code&gt;.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the &lt;a href="http://linux.die.net/man/5/sources.list"&gt;&lt;code&gt;sources.list&lt;/code&gt;&lt;/a&gt; file.  To do this, do the&amp;nbsp;following:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo vim /etc/apt/sources.list
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Scroll to the bottom of the file and enter the following information and then&amp;nbsp;save:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).
 deb http://debian.slimdevices.com stable main
 &lt;/pre&gt;&lt;/div&gt;
@@ -1514,9 +1709,112 @@ sudo apt-get install logitechmediaserver
 
 &lt;p&gt;Now open a browser and type &amp;#8220;&lt;code&gt;http://desktop:9000&lt;/code&gt;&amp;#8221; as the &lt;span class="caps"&gt;URL&lt;/span&gt;, where &amp;#8220;desktop&amp;#8221; is the name of your Linux system.  This brings you to a Squeezebox interface to configure the&amp;nbsp;system.&lt;/p&gt;
 &lt;p&gt;If you want to start/stop Logitech Media Server manually you can run:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo /etc/init.d/logitechmediaserver stop&lt;/code&gt;
+&lt;code&gt;sudo /etc/init.d/logitechmediaserver stop&lt;/code&gt;
 and
-&lt;code&gt;sudo /etc/init.d/logitechmediaserver start&lt;/code&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;code&gt;sudo /etc/init.d/logitechmediaserver start&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;Configuring Samsung &lt;span class="caps"&gt;SCX&lt;/span&gt;-4521F&amp;nbsp;Printer/Scanner&lt;/h2&gt;
+
+&lt;p&gt;When it comes to printers and scanners, Ubuntu advices that you should simply plug it in and try!
+Ubuntu claims that if it&amp;#8217;s a newer model &lt;span class="caps"&gt;USB&lt;/span&gt; scanner / printer,
+it is likely that it will work immediately without any further driver or software installations.
+I did this with my multifunction &lt;a href="http://www.samsung.com/levant/consumer/computers-peripherals/printers/mono-multi-function/SCX-4521F/XSG"&gt;Samsung &lt;span class="caps"&gt;SCX&lt;/span&gt;-4521F&lt;/a&gt;, which is a printer / scanner combination,
+and the printer function worked but the scanner did&amp;nbsp;not.&lt;/p&gt;
+&lt;p&gt;After a bit of research, I discovered that Ubuntu uses
+&lt;a href="https://help.ubuntu.com/13.10/serverguide/cups.html"&gt;Common &lt;span class="caps"&gt;UNIX&lt;/span&gt; Printing System (&lt;span class="caps"&gt;CUPS&lt;/span&gt;)&lt;/a&gt; for printer management.
+&lt;span class="caps"&gt;CUPS&lt;/span&gt; is the standards-based,
+open source printing system developed by Apple for &lt;span class="caps"&gt;OS&lt;/span&gt; X and other &lt;span class="caps"&gt;UNIX&lt;/span&gt;-like operating systems.
+Assuming &lt;span class="caps"&gt;CUPS&lt;/span&gt; is installed (and it appeares to be with the Ubuntu package),
+you can use a web browser to access it features.
+To do this, open your web browser and got to &lt;a href="http://localhost:631/"&gt;&lt;code&gt;http://localhost:631/&lt;/code&gt;&lt;/a&gt;.
+You&amp;#8217;ll find there an overview of &lt;span class="caps"&gt;CUPS&lt;/span&gt;, administrative functions, and even command-line&amp;nbsp;utilities.&lt;/p&gt;
+&lt;p&gt;I also discovered that &lt;a href="http://www.sane-project.org/"&gt;&lt;span class="caps"&gt;SANE&lt;/span&gt; (Scanner Access Now Easy)&lt;/a&gt; is the Linux way of scanning.
+&lt;span class="caps"&gt;SANE&lt;/span&gt; supports a great many scanners, and the community around &lt;span class="caps"&gt;SANE&lt;/span&gt; adds support for more scanners all the time.
+They claim, by and large, you should simple plug them in and your ready to scan.
+However, some scanners, like mine, require more&amp;nbsp;effort.&lt;/p&gt;
+&lt;p&gt;&lt;span class="caps"&gt;SANE&lt;/span&gt; isn&amp;#8217;t typically installed with the Ubuntu distribution,
+but you can install &lt;span class="caps"&gt;SANE&lt;/span&gt;&amp;nbsp;via&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install sane xsane libsane-extras
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;span class="caps"&gt;SANE&lt;/span&gt; supplies a utility called
+&lt;a href="http://linux.about.com/library/cmd/blcmdl1_scanimage.htm"&gt;&lt;code&gt;scanimage&lt;/code&gt;&lt;/a&gt; that is a command-line interface to control image acquisition
+devices such as flatbed scanners or cameras.
+When I ran it, I got the following&amp;nbsp;results&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;$ scanimage --list-devices
+
+No scanners were identified. If you were expecting something different,
+check that the scanner is plugged in, turned on and detected by the
+sane-find-scanner tool (if appropriate). Please read the documentation
+which came with this software (README, FAQ, manpages).
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Some more web research told me that my printer is a &lt;a href="http://www.bchemnet.com/suldr/supported.html"&gt;Xerox manufactured product&lt;/a&gt;
+and I needed to install the Samsung Unified Linux Driver.
+I did the repository setup and package install recommended at
+&lt;a href="http://www.bchemnet.com/suldr/index.html"&gt;The Samsung Unified Linux Driver Repository&lt;/a&gt;.
+The install I did&amp;nbsp;was&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install suld-driver-4.00.39 suld-configurator-2-qt4
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I then added my login user to the &lt;code&gt;scanner&lt;/code&gt; group via &lt;code&gt;sudo usermod -a -G scanner jeff&lt;/code&gt;.
+I ran the command &lt;code&gt;sane-find-scanner&lt;/code&gt; to see if I&amp;#8217;m now able to detect the scanner,
+and I got the following disappointing&amp;nbsp;results.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;$ sudo sane-find-scanner
+
+  # sane-find-scanner will now attempt to detect your scanner. If the
+  # result is different from what you expected, first make sure your
+  # scanner is powered up and properly connected to your computer.
+
+  # No SCSI scanners found. If you expected something different, make sure that
+  # you have loaded a kernel SCSI driver for your SCSI adapter.
+
+could not fetch string descriptor: Pipe error
+could not fetch string descriptor: Pipe error
+  # No USB scanners found. If you expected something different, make sure that
+  # you have loaded a kernel driver for your USB host controller and have setup
+  # the USB system correctly. See man sane-usb for details.
+
+  # Not checking for parallel port scanners.
+
+  # Most Scanners connected to the parallel port or other proprietary ports
+  # can&amp;#39;t be detected by this program.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;At this point, I did some back tracking and discovered the following article:
+&lt;a href="http://askubuntu.com/questions/231778/how-do-i-get-the-scanner-to-work-on-a-samsung-scx-4521f-multi-function-printer"&gt;How do I get the scanner to work on a Samsung &lt;span class="caps"&gt;SCX&lt;/span&gt; 4521F Multi function printer?&lt;/a&gt;
+The work already done above covers step 1 of this article
+and step 2 isn&amp;#8217;t relevant (since I can already print).
+I need to perform step 3, that&amp;nbsp;is&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install samsungmfp-scanner
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now I re-ran the command &lt;code&gt;scanimage --list-devices&lt;/code&gt; and got the&amp;nbsp;following&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;$ scanimage --list-devices
+device `smfp:SAMSUNG SCX-4x21 Series on USB:0&amp;#39; is a SAMSUNG SCX-4x21 Series on USB:0 Scanner
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;but the &lt;code&gt;sudo sane-find-scanner&lt;/code&gt; got the same
+&amp;#8220;could not fetch string descriptor: Pipe error&amp;#8221; error message when done&amp;nbsp;earlier.&lt;/p&gt;
+&lt;p&gt;After some more research and using &lt;code&gt;lsusb | grep Samsung&lt;/code&gt; and &lt;code&gt;cat /lib/udev/rules.d/40-libsane.rules | grep 3419&lt;/code&gt;,
+I discover there is no udev rule for the &lt;span class="caps"&gt;SCX&lt;/span&gt;-4521F scanner.
+Therefore, I place the following lines in &lt;code&gt;/lib/udev/rules.d/40-libsane.rules&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# Samsung SCX-4521F
+ATTRS{idVendor}==&amp;quot;04e8&amp;quot;, ATTRS{idProduct}==&amp;quot;3419&amp;quot;, ENV{libsane_matched}=&amp;quot;yes&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This still didn&amp;#8217;t give me a good run for &lt;code&gt;sudo sane-find-scanner&lt;/code&gt;
+but the command &lt;code&gt;scanimage --test&lt;/code&gt; did give passing results.
+Given this, I proceeded to using &lt;a href="http://linux.about.com/library/cmd/blcmdl1_xsane.htm"&gt;&lt;code&gt;xsane&lt;/code&gt;&lt;/a&gt; to test out some scanning (it worked!).
+xsane is a X Window application and produces it output in &lt;a href="http://en.wikipedia.org/wiki/Netpbm_format"&gt;&lt;span class="caps"&gt;PNM&lt;/span&gt; format&lt;/a&gt;.
+You can convert this format to &lt;span class="caps"&gt;PDF&lt;/span&gt; (and many other formats) via the utility &lt;a href="http://www.imagemagick.org/script/convert.php``"&gt;&lt;code&gt;convert&lt;/code&gt;&lt;/a&gt;
+(e.g. &lt;code&gt;convert outfile.pnm outfile.pdf&lt;/code&gt;).&lt;/p&gt;
 &lt;h2&gt;iPod&amp;nbsp;Support&lt;/h2&gt;
 
 &lt;p&gt;Ubuntu comes with &lt;a href="https://wiki.gnome.org/Apps/Rhythmbox"&gt;Rhythmbox&lt;/a&gt; as its music playing application and can be used to synch with a iPod. 
@@ -1561,23 +1859,26 @@ and the
 &lt;a href="http://www.logitech.com/en-us/product/wireless-mouse-m510"&gt;Logitech M510 Wireless Mouse&lt;/a&gt;.
 These devices use the &lt;a href="http://www.logitech.com/en-us/promotions/6072"&gt;Logitech Unifying wireless technology&lt;/a&gt;, which allows a single wireless receiver to connect with multiple Unifying devices.  I plugged in the mouse&amp;#8217;s receiver  and in short order the mouse was working.
 &lt;a href="http://jeffskinnerbox.files.wordpress.com/2013/06/logitech-m510-wireless-mouse.jpg"&gt;
-    &lt;img class="img-rounded" style="margin: 0px 8px; float: left" alt="Logitech M510 Wireless Mouse" src="/images/logitech-m510-wireless-mouse.jpg" width="75" height="57" /&gt;
+    &lt;img class="img-rounded" style="margin: 0px 8px; float: right" alt="Logitech M510 Wireless Mouse" src="/images/logitech-m510-wireless-mouse.jpg" width="75" height="57" /&gt;
 &lt;/a&gt;
 I was a bit concerned about the ability of the receiver to support multiple device (i.e. the keyboard) simultaneously under Linux.
 Doing a quick search I found a post discussing how to do the &lt;a href="http://askubuntu.com/questions/113984/is-logitechs-unifying-receiver-supported"&gt;device pairing under Linux&lt;/a&gt;.  &lt;a href="https://lekensteyn.nl/logitech-unifying.html#ltunify"&gt;To install&lt;/a&gt; the &lt;a href="https://git.lekensteyn.nl/ltunify/"&gt;&lt;code&gt;ltunify&lt;/code&gt;&lt;/a&gt; pairing software, and do the pairing, do the&amp;nbsp;following:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;cd ~/src
 git clone https://git.lekensteyn.nl/ltunify.git
 cd ltunify
-make install-home&amp;lt;/code&amp;gt;
+make install-home
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;To list the devices that are paired: &lt;code&gt;sudo ltunify list&lt;/code&gt;
-To pair a device: &lt;code&gt;sudo ltunify pair&lt;/code&gt;, then turn your wireless device off and on to start pairing.
-To unpair a device: &lt;code&gt;sudo ltunify unpair mouse&lt;/code&gt;
-To get help: &lt;code&gt;sudo ltunity --help&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;To list the devices that are paired: &lt;code&gt;sudo ltunify list&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;To pair a device: &lt;code&gt;sudo ltunify pair&lt;/code&gt;, then turn your wireless device off and on to start&amp;nbsp;pairing.&lt;/li&gt;
+&lt;li&gt;To unpair a device: &lt;code&gt;sudo ltunify unpair mouse&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;To get help: &lt;code&gt;sudo ltunity --help&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;Mouse&amp;nbsp;Xbindkeys&lt;/h2&gt;
-The M510 mouse has extra buttons on its left side and the scroll wheel  has a side-to-side click, but out of the box,the don&amp;#8217;t do anything under Linux.  It would be nice to make use of these extra buttons.  To address this problem, I found pointers in these posts: &lt;a href="http://ubuntuforums.org/showthread.php?t=1957300"&gt;How to get all those extra mouse buttons to work&lt;/a&gt;, &lt;a href="http://askubuntu.com/questions/24916/how-do-i-remap-certain-keys"&gt;How do I remap certain keys&lt;/a&gt;,  &lt;a href="http://blog.hanschen.org/2009/10/13/mouse-shortcuts-with-xbindkeys/"&gt;Mouse shortcuts with xbindkeys&lt;/a&gt;, and &lt;a href="http://forums.logitech.com/t5/Mice-and-Pointing-Devices/Guide-for-setup-Performance-MX-mouse-on-Linux-with-KDE/td-p/517167"&gt;Guide for setup Performance &lt;span class="caps"&gt;MX&lt;/span&gt; mouse on Linux (with &lt;span class="caps"&gt;KDE&lt;/span&gt;)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The M510 mouse has extra buttons on its left side and the scroll wheel  has a side-to-side click, but out of the box,the don&amp;#8217;t do anything under Linux.  It would be nice to make use of these extra buttons.  To address this problem, I found pointers in these posts: &lt;a href="http://ubuntuforums.org/showthread.php?t=1957300"&gt;How to get all those extra mouse buttons to work&lt;/a&gt;, &lt;a href="http://askubuntu.com/questions/24916/how-do-i-remap-certain-keys"&gt;How do I remap certain keys&lt;/a&gt;,  &lt;a href="http://blog.hanschen.org/2009/10/13/mouse-shortcuts-with-xbindkeys/"&gt;Mouse shortcuts with xbindkeys&lt;/a&gt;, and &lt;a href="http://forums.logitech.com/t5/Mice-and-Pointing-Devices/Guide-for-setup-Performance-MX-mouse-on-Linux-with-KDE/td-p/517167"&gt;Guide for setup Performance &lt;span class="caps"&gt;MX&lt;/span&gt; mouse on Linux (with &lt;span class="caps"&gt;KDE&lt;/span&gt;)&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Basically, using&lt;a href="http://www.nongnu.org/xbindkeys/#utilisation"&gt; Xbindkeys&lt;/a&gt;, I want to map the mouse buttons with desired actions. I want to setup the M510 mouse extra buttons as follows:
 &lt;ul&gt;
 &lt;ul&gt;
@@ -1597,15 +1898,24 @@ The M510 mouse has extra buttons on its left side and the scroll wheel  has a 
     &lt;li&gt;&lt;strong&gt;Scroll Wheel&lt;/strong&gt;: &lt;strong&gt;press&lt;/strong&gt; is known by the X Server as &lt;strong&gt;button&amp;nbsp;2&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/ul&gt;
-Now we need a mechanism to re-map mouse (or keyboard) button inputs.  &lt;a href="https://wiki.archlinux.org/index.php/Xbindkeys"&gt;&lt;code&gt;Xbindkeys&lt;/code&gt;&lt;/a&gt; is is a X Windows program that enables us to bind commands to certain keys or key combinations on the keyboard and it will also work for the mouse.  The file  &lt;code&gt;~/.xbindkeysrc&lt;/code&gt; is what &lt;code&gt;xbindkeys&lt;/code&gt; uses as a configuration file to link a command to a key/button on your keyboard/mouse.  There is also &lt;code&gt;xbindkeys_config&lt;/code&gt; is an easy to use gtk program for configuring &lt;code&gt;xbindkeys&lt;/code&gt;. To install these tools, do the following:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo apt-get install xautomation xbindkeys xbindkeys-config&lt;/code&gt;&lt;/p&gt;
-To create your initial xbindkeys configuration file, just run the following command:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;xbindkeys --defaults &amp;gt; $HOME/.xbindkeysrc&lt;/code&gt;&lt;/p&gt;
-The syntax of the contents of .xbindskesrc is simple and is illustrated below:
-&lt;pre style="padding-left:30px;"&gt;# short comment
-    "command to start"
-        associated key&lt;/pre&gt;
-The &lt;code&gt;"command to start"&lt;/code&gt; is simply a shell command (that you can run from a terminal),  and &lt;code&gt;"associated key"&lt;/code&gt; is the key or&amp;nbsp;button.&lt;/p&gt;
+Now we need a mechanism to re-map mouse (or keyboard) button inputs.  &lt;a href="https://wiki.archlinux.org/index.php/Xbindkeys"&gt;&lt;code&gt;Xbindkeys&lt;/code&gt;&lt;/a&gt; is is a X Windows program that enables us to bind commands to certain keys or key combinations on the keyboard and it will also work for the mouse.  The file  &lt;code&gt;~/.xbindkeysrc&lt;/code&gt; is what &lt;code&gt;xbindkeys&lt;/code&gt; uses as a configuration file to link a command to a key/button on your keyboard/mouse.  There is also &lt;code&gt;xbindkeys_config&lt;/code&gt; is an easy to use gtk program for configuring &lt;code&gt;xbindkeys&lt;/code&gt;. To install these tools, do the&amp;nbsp;following:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install xautomation xbindkeys xbindkeys-config
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To create your initial xbindkeys configuration file, just run the following&amp;nbsp;command:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;xbindkeys --defaults &amp;amp;gt; $HOME/.xbindkeysrc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The syntax of the contents of .xbindskesrc is simple and is illustrated&amp;nbsp;below:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# short comment
+    &amp;quot;command to start&amp;quot;
+        associated key
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The &lt;code&gt;"command to start"&lt;/code&gt; is simply a shell command (that you can run from a terminal),  and &lt;code&gt;"associated key"&lt;/code&gt; is the key or&amp;nbsp;button.&lt;/p&gt;
 &lt;p&gt;Now, using an editor, update the .xbindkeysrc file to include the&amp;nbsp;following:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# Do a Page Down when mouse left-side down button is pressed
 &amp;quot;xte &amp;#39;key Page_Down&amp;#39;&amp;quot;
@@ -1625,10 +1935,13 @@ The &lt;code&gt;"command to start"&lt;/code&gt; is simply a shell command (that 
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;To activate any modification of the .xbindkeysrc configuration file, your have to restart xbindkeys.   This can be done via:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;pkill xbindkeys
-xbindkeys&lt;/code&gt;&lt;/p&gt;
-Other useful resources are:
+&lt;p&gt;To activate any modification of the .xbindkeysrc configuration file, your have to restart xbindkeys.   This can be done&amp;nbsp;via:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;pkill xbindkeys
+xbindkeys
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Other useful resources are:
 &lt;ul&gt;
 &lt;ul&gt;
     &lt;li&gt;&lt;code&gt;xte&lt;/code&gt; is a program that generates fake input using the XTest&amp;nbsp;extension&lt;/li&gt;
@@ -1645,9 +1958,12 @@ I have been using the &lt;span class="caps"&gt;MS&lt;/span&gt; Windows based &l
     &lt;li&gt;&lt;a href="http://lifehacker.com/5063176/how-to-use-dropbox-as-the-ultimate-password-syncer"&gt;How to Use Dropbox as the Ultimate Password&amp;nbsp;Syncer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/ul&gt;
-The first step was to get KeePass installed in Ubuntu.  I found it on the &lt;a href="http://en.wikipedia.org/wiki/Ubuntu_Software_Center"&gt;Ubuntu Software Center&lt;/a&gt; or you can use:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo apt-get install keepass2 keepass2-doc&lt;/code&gt;&lt;/p&gt;
-I then exported the contents of my SplashID database to a &lt;a href="http://en.wikipedia.org/wiki/Comma-separated_values"&gt;&lt;span class="caps"&gt;CSV&lt;/span&gt; file&lt;/a&gt; and imported it into keepass2.  I set up the KeePass2 database within my Dropbox folder.  This way, it can be scych&amp;#8217;ed with my cell phone. I then installed KeePassDroid on my cell phone, pointing it at the database with the cell phones Dropbox.  &lt;a href="http://www.keepassdroid.com/"&gt;KeePassDroid&lt;/a&gt; is a port of the KeePass password safe for the Android&amp;nbsp;platform.&lt;/p&gt;
+The first step was to get KeePass installed in Ubuntu.  I found it on the &lt;a href="http://en.wikipedia.org/wiki/Ubuntu_Software_Center"&gt;Ubuntu Software Center&lt;/a&gt; or you can&amp;nbsp;use:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install keepass2 keepass2-doc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I then exported the contents of my SplashID database to a &lt;a href="http://en.wikipedia.org/wiki/Comma-separated_values"&gt;&lt;span class="caps"&gt;CSV&lt;/span&gt; file&lt;/a&gt; and imported it into keepass2.  I set up the KeePass2 database within my Dropbox folder.  This way, it can be scych&amp;#8217;ed with my cell phone. I then installed KeePassDroid on my cell phone, pointing it at the database with the cell phones Dropbox.  &lt;a href="http://www.keepassdroid.com/"&gt;KeePassDroid&lt;/a&gt; is a port of the KeePass password safe for the Android&amp;nbsp;platform.&lt;/p&gt;
 &lt;p&gt;There is some cleanup of the fields within the KeePass2 database, but the data is now accessable on both my &lt;span class="caps"&gt;PC&lt;/span&gt; and my cell phone.
 &lt;h2&gt;Installing&amp;nbsp;Wine&lt;/h2&gt;
 &lt;a href="http://www.winehq.org/"&gt;Wine&lt;/a&gt; allows you to run many Windows programs on Linux. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows &lt;span class="caps"&gt;API&lt;/span&gt; calls into Linux calls.  I used the following to install&amp;nbsp;Wine:&lt;/p&gt;
@@ -1689,15 +2005,20 @@ I had already installed one &lt;a href="http://en.wikipedia.org/wiki/Solid-state
     &lt;li&gt;Physically install the additional hard&amp;nbsp;drive.&lt;/li&gt;
     &lt;li&gt;Install &lt;a href="http://en.wikipedia.org/wiki/Mdadm"&gt;mdadm&lt;/a&gt;, which is the Linux utility used to manage software &lt;span class="caps"&gt;RAID&lt;/span&gt;&amp;nbsp;devices.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/ul&gt;
-&lt;p style="padding-left:90px;"&gt;&lt;code&gt;sudo apt-get install mdadm&lt;/code&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install mdadm
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;ul&gt;
 &lt;ul&gt;
     &lt;li&gt;Partition the newly installed disk. Use the following inputs: n to establish a logic partition, p to make it a primary partition, 1  should be the partition number, use the same sectors as the currently installed drive, t to set the partition type, fd hex code type, p to print what the partition table will look like, w to write all of the changes to&amp;nbsp;disk.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/ul&gt;
 
-&lt;p style="padding-left:90px;"&gt;&lt;code&gt;sudo fdisk /dev/sdc&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo fdisk /dev/sdc
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;ul&gt;
@@ -1705,7 +2026,9 @@ I had already installed one &lt;a href="http://en.wikipedia.org/wiki/Solid-state
 &lt;/ul&gt;
 &lt;/ul&gt;
 
-&lt;p style="padding-left:90px;"&gt;&lt;code&gt;sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 missing /dev/sdc1&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 missing /dev/sdc1
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;ul&gt;
@@ -1714,7 +2037,9 @@ I had already installed one &lt;a href="http://en.wikipedia.org/wiki/Solid-state
 &lt;/ul&gt;
 &lt;/ul&gt;
 
-&lt;p style="padding-left:90px;"&gt;&lt;code&gt;sudo mkfs -t ext3 -j -L RAID-ONE /dev/md0&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo mkfs -t ext3 -j -L RAID-ONE /dev/md0
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;ul&gt;
@@ -1733,7 +2058,9 @@ sudo mount /dev/md0 /mnt/raid1&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
 &lt;/ul&gt;
 &lt;/ul&gt;
 
-&lt;p style="padding-left:90px;"&gt;&lt;code&gt;sudo rsync -avxHAXS --delete --progress /home/* /mnt/raid1&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rsync -avxHAXS --delete --progress /home/* /mnt/raid1
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;ul&gt;
@@ -1741,7 +2068,9 @@ sudo mount /dev/md0 /mnt/raid1&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
 &lt;/ul&gt;
 &lt;/ul&gt;
 
-&lt;p style="padding-left:90px;"&gt;&lt;code&gt;sudo rsync -avxHAXS --delete --progress /home /home_backup&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo rsync -avxHAXS --delete --progress /home /home_backup
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;ul&gt;
@@ -1751,7 +2080,9 @@ sudo mount /dev/md0 /mnt/raid1&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
 &lt;/ul&gt;
 &lt;/ul&gt;
 
-&lt;p style="padding-left:90px;"&gt;&lt;code&gt;sudo fdisk /dev/sdb1&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo fdisk /dev/sdb1
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;ul&gt;
@@ -1759,7 +2090,9 @@ sudo mount /dev/md0 /mnt/raid1&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
 &lt;/ul&gt;
 &lt;/ul&gt;
 
-&lt;p style="padding-left:90px;"&gt;&lt;code&gt;mdadm /dev/md0 --add /dev/sdb1&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;mdadm /dev/md0 --add /dev/sdb1
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;ul&gt;
@@ -1767,7 +2100,9 @@ sudo mount /dev/md0 /mnt/raid1&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
 &lt;/ul&gt;
 &lt;/ul&gt;
 
-&lt;p style="padding-left:90px;"&gt;&lt;code&gt;sudo mdadm -D /dev/md0&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo mdadm -D /dev/md0
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;ul&gt;
 &lt;ul&gt;
@@ -1776,7 +2111,7 @@ sudo mount /dev/md0 /mnt/raid1&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
 &lt;/ul&gt;
 
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo cp /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf_backup
-sudo mdadm --detail --scan &amp;amp;gt;&amp;amp;gt; /etc/mdadm/mdadm.conf
+sudo mdadm --detail --scan &amp;gt;&amp;gt; /etc/mdadm/mdadm.conf
 &lt;/pre&gt;&lt;/div&gt;&lt;script type= "text/javascript"&gt;
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
@@ -2041,7 +2376,7 @@ make
 &lt;h2&gt;What&amp;#8217;s&amp;nbsp;Next&lt;/h2&gt;
 In this and the &lt;a href="http://jeffskinnerbox.wordpress.com/2013/05/26/rtl-sdr-software-defined-radio-sdr-for-20/"&gt;previous &lt;span class="caps"&gt;SDR&lt;/span&gt; posts&lt;/a&gt;, I focused on getting a taste of the technology without committing myself to much of an effort.  I really need to study and understand the tools that I have assembled. I still need to do a great deal more studying of  the radio spectrum itself &amp;#8230; I feel like I&amp;#8217;m wondering in the dark most of the&amp;nbsp;time.&lt;/p&gt;
 &lt;p&gt;Also, I feel that I&amp;#8217;m very limited by the antenna I&amp;#8217;m presently using (the &lt;a href="http://jeffskinnerbox.files.wordpress.com/2013/05/71ratxr2wjl-_sl1500_.jpg"&gt;pitiful dipole &lt;/a&gt;that came with the &lt;span class="caps"&gt;RTL&lt;/span&gt; dongle).  I&amp;#8217;m thinking of building a better antenna.  Maybe try to pickup a &lt;span class="caps"&gt;NOAA&lt;/span&gt; weather satellites, with its distinctive audio signal when demodulated, and decode one of its satellite weather photos &amp;#8230;.&amp;nbsp;maybe.&lt;/p&gt;
-&lt;p&gt;Another problem with the &lt;span class="caps"&gt;RTL&lt;/span&gt;-&lt;span class="caps"&gt;SDR&lt;/span&gt; is that its internal oscillator is cheap  and drifts, resulting in clock errors with  many kHz of frequency display error in &lt;span class="caps"&gt;SDR&lt;/span&gt; - depending on a band you&amp;#8217;re listening to.  This is very annoying if you use your dongle as a radio scanner - what&amp;#8217;s the point of knowing frequency of a transmitter if it&amp;#8217;s almost random on your &lt;span class="caps"&gt;SDR&lt;/span&gt;?   This frequency error is linear across the spectrum, and can be adjusted in most &lt;span class="caps"&gt;SDR&lt;/span&gt; programs by entering a &lt;span class="caps"&gt;PPM&lt;/span&gt; (parts per million) offset value.  So I need to calculate this error offset so I can  calibrate the &lt;span class="caps"&gt;SDR&lt;/span&gt;&amp;nbsp;software.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Mon, 08 Jul 2013 00:01:00 -0400</pubDate><guid>tag:jeffskinnerbox.me,2013-07-08:posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/</guid><category>RTL-SDR</category><category>Software Defined Radio</category></item><item><title>Linux Reboot ... or ... My System is Frozen and I Can't Get Up!</title><link>http://jeffskinnerbox.me/posts/2013/Jun/16/linux-reboot-or-my-system-is-frozen-and-i-cant-get%20up/</link><description>&lt;p&gt;&lt;a href="http://jeffskinnerbox.files.wordpress.com/2013/06/sysrq-key.jpg"&gt;
+&lt;p&gt;Another problem with the &lt;span class="caps"&gt;RTL&lt;/span&gt;-&lt;span class="caps"&gt;SDR&lt;/span&gt; is that its internal oscillator is cheap  and drifts, resulting in clock errors with  many kHz of frequency display error in &lt;span class="caps"&gt;SDR&lt;/span&gt; - depending on a band you&amp;#8217;re listening to.  This is very annoying if you use your dongle as a radio scanner - what&amp;#8217;s the point of knowing frequency of a transmitter if it&amp;#8217;s almost random on your &lt;span class="caps"&gt;SDR&lt;/span&gt;?   This frequency error is linear across the spectrum, and can be adjusted in most &lt;span class="caps"&gt;SDR&lt;/span&gt; programs by entering a &lt;span class="caps"&gt;PPM&lt;/span&gt; (parts per million) offset value.  So I need to calculate this error offset so I can  calibrate the &lt;span class="caps"&gt;SDR&lt;/span&gt;&amp;nbsp;software.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Mon, 08 Jul 2013 00:01:00 -0400</pubDate><guid>tag:jeffskinnerbox.me,2013-07-08:posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/</guid><category>RTL-SDR</category><category>Software Defined Radio</category></item><item><title>Linux Reboot ... or ... My System is Frozen and I Can't Get Up!</title><link>http://jeffskinnerbox.me/posts/2013/Jun/16/linux-reboot-or-my-system-is-frozen-and-i-cant-get-up/</link><description>&lt;p&gt;&lt;a href="http://jeffskinnerbox.files.wordpress.com/2013/06/sysrq-key.jpg"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" alt="sysrq-key" src="/images/sysrq-key.jpg" width="300" height="199" /&gt;
 &lt;/a&gt;
 While I was building the environment for my Linux box,  I ran into some problems with Ubuntu.  I found myself with frozen screens or booted up into blank screens and other such things.  Seems that Ubuntu 13.04 is currently a bit unstable or I just screwed things up badly &amp;#8230; a little of both I suspect. I managed to get through these problems, but too often I got desperate and I hitting the on/off switch to get the box rebooted.  Doing this can result in corrupted files and other such nasty things.  So this motivated me to research the &amp;#8220;correct&amp;#8221; way to get out of these Linux near&amp;nbsp;death experiences.&lt;/p&gt;
@@ -2125,7 +2460,7 @@ If your get &amp;#8220;&lt;code&gt;CONFIG_MAGIC_SYSRQ=y"&lt;/code&gt;, then its
     &lt;li&gt;&lt;strong&gt;B&lt;/strong&gt; -&amp;nbsp;Reboot&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/ul&gt;
-The magic SysRq key supports more then just the &lt;span class="caps"&gt;REISUB&lt;/span&gt; keys.  To see the larger range of thing you can do via Magic SysRq Key&amp;#8217;s direct communications with the kernel, &lt;a href="http://www.isotton.com/devel/docs/sysrq-cheatsheet/"&gt;check out here&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Sun, 16 Jun 2013 00:01:00 -0400</pubDate><guid>tag:jeffskinnerbox.me,2013-06-16:posts/2013/Jun/16/linux-reboot-or-my-system-is-frozen-and-i-cant-get up/</guid><category>Linux</category></item><item><title>RTL-SDR Software Defined Radio (SDR) for $20</title><link>http://jeffskinnerbox.me/posts/2013/May/26/rtl-sdr-software-defined-radio-SDR-for-20/</link><description>&lt;p&gt;While researching the &lt;span class="caps"&gt;GNU&lt;/span&gt; Radio project, I came upon references to the &lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/Hardware"&gt;&lt;span class="caps"&gt;RTL2832&lt;/span&gt; &lt;span class="caps"&gt;TV&lt;/span&gt; tuners&lt;/a&gt;. These dongle are made to receive and decode the European standard digital television, &lt;a href="http://en.wikipedia.org/wiki/DVB-T"&gt;Digital Video Broadcasting — Terrestrial (&lt;span class="caps"&gt;DVB&lt;/span&gt;-T)&lt;/a&gt;. (By the way, the North American standard is &lt;a href="http://en.wikipedia.org/wiki/ATSC_tuner"&gt;Advanced Television Systems Committee (&lt;span class="caps"&gt;ATSC&lt;/span&gt;)&lt;/a&gt;, and not  compatible with &lt;span class="caps"&gt;DVB&lt;/span&gt;-T, so this will not work in North America for &lt;span class="caps"&gt;TV&lt;/span&gt; reception.)  In 2012, &lt;a href="http://thread.gmane.org/gmane.linux.drivers.video-input-infrastructure/44461/focus=44461"&gt;Antii Palosaari&lt;/a&gt;, discovered that there is a device mode for the Realtek &lt;span class="caps"&gt;DVB&lt;/span&gt;-T device chip (&lt;a href="http://www.realtek.com.tw/products/productsView.aspx?Langid=1&amp;amp;PFid=35&amp;amp;Level=4&amp;amp;Conn=3&amp;amp;ProdID=257"&gt;&lt;span class="caps"&gt;RTL2832U&lt;/span&gt;&lt;/a&gt;) in which raw samples can be captured and transferred to a host computer. This feature enables this device to be used as an inexpensive &amp;#8220;front end&amp;#8221;  for a &lt;a href="http://en.wikipedia.org/wiki/Software-defined_radio"&gt;Software Defined Radio (&lt;span class="caps"&gt;SDR&lt;/span&gt;)&lt;/a&gt; that could be implemented on a &lt;span class="caps"&gt;PC&lt;/span&gt; or other&amp;nbsp;device.&lt;/p&gt;
+The magic SysRq key supports more then just the &lt;span class="caps"&gt;REISUB&lt;/span&gt; keys.  To see the larger range of thing you can do via Magic SysRq Key&amp;#8217;s direct communications with the kernel, &lt;a href="http://www.isotton.com/devel/docs/sysrq-cheatsheet/"&gt;check out here&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Sun, 16 Jun 2013 00:01:00 -0400</pubDate><guid>tag:jeffskinnerbox.me,2013-06-16:posts/2013/Jun/16/linux-reboot-or-my-system-is-frozen-and-i-cant-get-up/</guid><category>Linux</category></item><item><title>RTL-SDR Software Defined Radio (SDR) for $20</title><link>http://jeffskinnerbox.me/posts/2013/May/26/rtl-sdr-software-defined-radio-SDR-for-20/</link><description>&lt;p&gt;While researching the &lt;span class="caps"&gt;GNU&lt;/span&gt; Radio project, I came upon references to the &lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/Hardware"&gt;&lt;span class="caps"&gt;RTL2832&lt;/span&gt; &lt;span class="caps"&gt;TV&lt;/span&gt; tuners&lt;/a&gt;. These dongle are made to receive and decode the European standard digital television, &lt;a href="http://en.wikipedia.org/wiki/DVB-T"&gt;Digital Video Broadcasting — Terrestrial (&lt;span class="caps"&gt;DVB&lt;/span&gt;-T)&lt;/a&gt;. (By the way, the North American standard is &lt;a href="http://en.wikipedia.org/wiki/ATSC_tuner"&gt;Advanced Television Systems Committee (&lt;span class="caps"&gt;ATSC&lt;/span&gt;)&lt;/a&gt;, and not  compatible with &lt;span class="caps"&gt;DVB&lt;/span&gt;-T, so this will not work in North America for &lt;span class="caps"&gt;TV&lt;/span&gt; reception.)  In 2012, &lt;a href="http://thread.gmane.org/gmane.linux.drivers.video-input-infrastructure/44461/focus=44461"&gt;Antii Palosaari&lt;/a&gt;, discovered that there is a device mode for the Realtek &lt;span class="caps"&gt;DVB&lt;/span&gt;-T device chip (&lt;a href="http://www.realtek.com.tw/products/productsView.aspx?Langid=1&amp;amp;PFid=35&amp;amp;Level=4&amp;amp;Conn=3&amp;amp;ProdID=257"&gt;&lt;span class="caps"&gt;RTL2832U&lt;/span&gt;&lt;/a&gt;) in which raw samples can be captured and transferred to a host computer. This feature enables this device to be used as an inexpensive &amp;#8220;front end&amp;#8221;  for a &lt;a href="http://en.wikipedia.org/wiki/Software-defined_radio"&gt;Software Defined Radio (&lt;span class="caps"&gt;SDR&lt;/span&gt;)&lt;/a&gt; that could be implemented on a &lt;span class="caps"&gt;PC&lt;/span&gt; or other&amp;nbsp;device.&lt;/p&gt;
 &lt;p&gt;A &lt;span class="caps"&gt;SDR&lt;/span&gt; provide the ability to sample and record the electromagnetic energy (or &lt;a href="http://en.wikipedia.org/wiki/Radio_frequency"&gt;radio frequency&lt;/a&gt;, called &amp;#8220;&lt;span class="caps"&gt;RF&lt;/span&gt;&amp;#8221; for short) with no preconceived idea as to the structure of the &lt;span class="caps"&gt;RF&lt;/span&gt; &lt;a href="http://en.wikipedia.org/wiki/Signal_(information_theory)"&gt;signal&lt;/a&gt;.  In a sense, you can interact with the &lt;span class="caps"&gt;RF&lt;/span&gt; signal in its must fundamental form.  In addition, a &lt;span class="caps"&gt;SDR&lt;/span&gt; allows you to implement, by means of software, a radio communication system where components that have been typically implemented in&amp;nbsp;hardware.&lt;/p&gt;
 &lt;p&gt;&lt;span class="caps"&gt;SDR&lt;/span&gt; solutions for the professional-grade applications and amateur radio have been around for some time, but the appearance of cheap solutions for the hacker is new.  There are general purpose &lt;span class="caps"&gt;SDR&lt;/span&gt; platforms for over &lt;mathjax&gt;$1000, like the Ettus Research &lt;a href="http://www.ettus.com/"&gt;Universal Software Radio Peripheral (USRP)&lt;/a&gt;, the $&lt;/mathjax&gt;525 &lt;a href="http://www.rfspace.com/RFSPACE/SDR-IQ.html"&gt;&lt;span class="caps"&gt;SDR&lt;/span&gt;-&lt;span class="caps"&gt;IQ&lt;/span&gt; Receiver&lt;/a&gt;, to the &lt;mathjax&gt;$450 &lt;a href="http://nuand.com/bladeRF"&gt;bladeRF&lt;/a&gt; from the Kickstarter Nuand or Great Scott's &lt;a href="http://www.forbes.com/sites/andygreenberg/2012/10/19/darpa-funded-radio-hackrf-aims-to-be-a-300-wireless-swiss-army-knife-for-hackers/"&gt;DARPA-Funded&lt;/a&gt; &lt;a href="http://ossmann.blogspot.com/2012/06/introducing-hackrf.html"&gt;HackRF&lt;/a&gt; for an estimate $&lt;/mathjax&gt;300, and now the $20 hacker grade dongle discussed here.  But unlike most of the other referenced solutions,  the dongle  requires a &lt;span class="caps"&gt;PC&lt;/span&gt;, or some sort of attached processor, to provide the signal&amp;nbsp;processing.&lt;/p&gt;
 &lt;p&gt;In all &lt;span class="caps"&gt;SDR&lt;/span&gt; solutions, a significant amounts of the &lt;a href="http://en.wikipedia.org/wiki/Signal_processing"&gt;signal processing&lt;/a&gt; is handed over to a numerical processor, rather than being done in special-purpose &lt;span class="caps"&gt;RF&lt;/span&gt; hardware. Such a design produces a radio which can receive and transmit widely different radio protocols (referred to as a waveform) based solely on the software used.  So in a &lt;span class="caps"&gt;SDR&lt;/span&gt; solution, the electromagnetic waveform is rapidly sampled, the sample values are converted to numerical values, and these numbers are manipulated via a discipline called &lt;a href="http://en.wikipedia.org/wiki/Digital_signal_processing"&gt;digital signal processing (&lt;span class="caps"&gt;DSP&lt;/span&gt;)&lt;/a&gt;.  Ultimately, the resulting &lt;span class="caps"&gt;DSP&lt;/span&gt; numerical values produced are converted to an analog signal that goes to a speaker, &lt;span class="caps"&gt;TV&lt;/span&gt;, or other such output&amp;nbsp;device.&lt;/p&gt;
@@ -2270,7 +2605,7 @@ For reference purposes, below are screen shots of the &lt;span class="caps"&gt;R
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Sun, 26 May 2013 00:01:00 -0400</pubDate><guid>tag:jeffskinnerbox.me,2013-05-26:posts/2013/May/26/rtl-sdr-software-defined-radio-SDR-for-20/</guid><category>RTL-SDR</category><category>Software Defined Radio</category></item><item><title>Building My Linux Box...The Plan</title><link>http://jeffskinnerbox.me/posts/2013/Apr/28/building%20my%20linux%20box...the%20plan/</link><description>&lt;p&gt;I concluded it was time to retire my current &lt;span class="caps"&gt;PC&lt;/span&gt; (a &lt;a href="http://reviews.cnet.com/desktops/dell-xps-400-desktop/4505-3118_7-31530074.html"&gt;Dell Dimension &lt;span class="caps"&gt;XPS&lt;/span&gt; 400&lt;/a&gt;, Intel Pentium D 820, 2.8GHz w/Dual Core Technology, 2G of memory, purchased in January 2006 for  &lt;a href="http://www.pcmag.com/article2/0,2817,1864262,00.asp"&gt;~ &lt;mathjax&gt;$2,500&lt;/a&gt;) and replace it with something better, aka faster.  It's performing poorly, but most of all, I want to do some experimenting with &lt;a href="http://ipython.org/"&gt;iPython&lt;/a&gt; &amp;amp; &lt;a href="http://matplotlib.org/"&gt;matplotlib&lt;/a&gt;, as well as, &lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki"&gt;GNU Radio&lt;/a&gt; &amp;amp; &lt;a href="http://en.wikipedia.org/wiki/Digital_signal_processing"&gt;digital signal processing&lt;/a&gt;.  To do this justice, I need a faster box and ideally loaded with Linux and X&amp;nbsp;Windows.&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Sun, 26 May 2013 00:01:00 -0400</pubDate><guid>tag:jeffskinnerbox.me,2013-05-26:posts/2013/May/26/rtl-sdr-software-defined-radio-SDR-for-20/</guid><category>RTL-SDR</category><category>Software Defined Radio</category></item><item><title>Building My Linux Box...The Plan</title><link>http://jeffskinnerbox.me/posts/2013/Apr/28/building-my-linux-box-the-plan/</link><description>&lt;p&gt;I concluded it was time to retire my current &lt;span class="caps"&gt;PC&lt;/span&gt; (a &lt;a href="http://reviews.cnet.com/desktops/dell-xps-400-desktop/4505-3118_7-31530074.html"&gt;Dell Dimension &lt;span class="caps"&gt;XPS&lt;/span&gt; 400&lt;/a&gt;, Intel Pentium D 820, 2.8GHz w/Dual Core Technology, 2G of memory, purchased in January 2006 for  &lt;a href="http://www.pcmag.com/article2/0,2817,1864262,00.asp"&gt;~ &lt;mathjax&gt;$2,500&lt;/a&gt;) and replace it with something better, aka faster.  It's performing poorly, but most of all, I want to do some experimenting with &lt;a href="http://ipython.org/"&gt;iPython&lt;/a&gt; &amp;amp; &lt;a href="http://matplotlib.org/"&gt;matplotlib&lt;/a&gt;, as well as, &lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki"&gt;GNU Radio&lt;/a&gt; &amp;amp; &lt;a href="http://en.wikipedia.org/wiki/Digital_signal_processing"&gt;digital signal processing&lt;/a&gt;.  To do this justice, I need a faster box and ideally loaded with Linux and X&amp;nbsp;Windows.&lt;/p&gt;
 &lt;p&gt;I also think its time for me to &lt;a href="http://www.linuxplanet.com/linuxplanet/tutorials/6824/1"&gt;build my own box&lt;/a&gt;, instead of purchase it already&lt;a href="http://www.berkeleylug.com/?p=168"&gt; packaged and assembled&lt;/a&gt;.  They say you get more for your dollar, or at least you can invest the same money into things that will make a better system (instead of some more crappy speakers, mice, keyboards, etc.).  Given I'm building it, I want to pay special attention to getting the performance up.  I don't need the top of the line CPU (I don't believe you get sufficient value for your money), but I would invest in improving the predominate enemy of computer performance, that is I/O.  Also, I want the graphics to be fast and smooth.  The work on matplotlib and signal processing is likely to be graphically intensive.  I'm not going to be playing games on the system, but I'm going to keep an eye on the gaming communities hardware preferences.   I'm willing to go with a good (but not super, and therefore expensive) graphics&amp;nbsp;board.&lt;/p&gt;
 &lt;p&gt;A fancy sound system isn't a priority for me.  While my interest in GNU Radio &amp;amp; digital signal processing may have some use for a good sound system, I think I could live with the integrated sound system that will come on the motherboard.  Like graphics, if  it proves unacceptable, I'll make the investment on&amp;nbsp;another occasion.&lt;/p&gt;
 &lt;p&gt;Since I'm buying components and assembling it, I want to do some cherry picking.  When a vendor sells you an assembled box, they are often using cheaper / less functional components to save them cost.  I'm picking an Intel Core i5 CPU (I believe it has the best value for me).  Also, I'm going to get a -K Series Intel CPU and motherboard designed for overclocking and provide optimal performance for gamers and high-power users.  While I'm not doing gaming, I like the option to tuning the hardware and I have found the -K Series to be only slightly more expensive.  For a small amount of additional cash, I get some cool&amp;nbsp;capabilities.&lt;/p&gt;
@@ -2389,7 +2724,7 @@ Now that I have a plan, what will all this cost?  I estimate it will be $&lt;/m
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Sun, 28 Apr 2013 00:01:00 -0400</pubDate><guid>tag:jeffskinnerbox.me,2013-04-28:posts/2013/Apr/28/building my linux box...the plan/</guid><category>Linux</category></item><item><title>A Better Mobile Display for the Raspberry Pi</title><link>http://jeffskinnerbox.me/posts/2013/Apr/11/a-better-mobile-display-for-the-raspberry-pi/</link><description>&lt;p&gt;&lt;a href="http://jeffskinnerbox.files.wordpress.com/2013/04/2013-04-10-20-37-23.png"&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Sun, 28 Apr 2013 00:01:00 -0400</pubDate><guid>tag:jeffskinnerbox.me,2013-04-28:posts/2013/Apr/28/building-my-linux-box-the-plan/</guid><category>Linux</category></item><item><title>A Better Mobile Display for the Raspberry Pi</title><link>http://jeffskinnerbox.me/posts/2013/Apr/11/a-better-mobile-display-for-the-raspberry-pi/</link><description>&lt;p&gt;&lt;a href="http://jeffskinnerbox.files.wordpress.com/2013/04/2013-04-10-20-37-23.png"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" alt="2013-04-10 20.37.23" src="/images/2013-04-10-20-37-23.png?w=225" width="225" height="300" /&gt;
 &lt;/a&gt;
 As I described in an &lt;a href="http://jeffskinnerbox.wordpress.com/2012/10/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/"&gt;earlier post&lt;/a&gt;, I run my Raspberry Pi (RPi) as a &lt;a href="http://en.wikipedia.org/wiki/Headless_system"&gt;headless system&lt;/a&gt;, using &lt;a href="http://x.cygwin.com/"&gt;Cygwin/X&lt;/a&gt;&amp;#8216;s xterm for command line interaction with the RPi, with my &lt;span class="caps"&gt;PC&lt;/span&gt; being my X server to support any X Window applications.  I can move files between the &lt;span class="caps"&gt;PC&lt;/span&gt; and the RPi via my &lt;a href="http://jeffskinnerbox.wordpress.com/2012/11/11/dropbox-for-the-raspberry-pi-sort-of/"&gt;pseudo-Dropbox&lt;/a&gt;.  I really recommend this configuration and its working perfectly for&amp;nbsp;me.&lt;/p&gt;
@@ -2426,23 +2761,38 @@ It is important to remember that the X server is the is the software program whi
     &lt;li&gt;&lt;code&gt;screennumber&lt;/code&gt; is the screen number. A display can actually have multiple screens. Usually there&amp;#8217;s only one screen though where 0 is the&amp;nbsp;default.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/ul&gt;
-Setting the &lt;span class="caps"&gt;DISPLAY&lt;/span&gt; variable depends of your shell, but for the Bourne, Bash or Korn shell, you could do the following to connect with the systems local display:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;export DISPLAY=localhost:0.0&lt;/code&gt;&lt;/p&gt;
-The remote server knows where it have to redirect the X network traffic via the definition of the &lt;span class="caps"&gt;DISPLAY&lt;/span&gt; &lt;a title="linux:environment_variable" href="http://gerardnico.com/wiki/linux/environment_variable"&gt;environment variable&lt;/a&gt; which generally points to an X Display server located on your local computer.
+Setting the &lt;span class="caps"&gt;DISPLAY&lt;/span&gt; variable depends of your shell, but for the Bourne, Bash or Korn shell, you could do the following to connect with the systems local&amp;nbsp;display:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;export DISPLAY=localhost:0.0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The remote server knows where it have to redirect the X network traffic via the definition of the &lt;span class="caps"&gt;DISPLAY&lt;/span&gt; &lt;a title="linux:environment_variable" href="http://gerardnico.com/wiki/linux/environment_variable"&gt;environment variable&lt;/a&gt; which generally points to an X Display server located on your local computer.
 &lt;h2&gt;X&amp;nbsp;Security&lt;/h2&gt;
 So you see, as the user, you have full control over where you wish to display the X client window.   So what prevents you from doing something malicious,  like popping up window on someone else  terminal or read their key strokes?  After all, all you really need is their host name.  &lt;a href="http://www.linux-tutorial.info/modules.php?name=Howto&amp;amp;pagename=Remote-X-Apps/Remote-X-Apps-6.html"&gt;X servers have three ways of authenticating connections&lt;/a&gt; to it: the host list mechanism (xhost) and the magic cookie mechanism (xauth). Then there is ssh, that can forward X connections, providing a protected connection between client and server over a network using a secure &lt;a title="Tunnelling protocol" href="http://en.wikipedia.org/wiki/Tunnelling_protocol"&gt;tunnelling protocol&lt;/a&gt;.
 &lt;h2&gt;The xhost&amp;nbsp;Command&lt;/h2&gt;
 The &lt;a href="http://www.xfree86.org/current/xhost.1.html"&gt;&lt;code&gt;xhost&lt;/code&gt;&lt;/a&gt; program is used to add and delete host (computer) names or user names to the list of machines and users that are allowed to make connections to the X server. This provides a rudimentary form of privacy control and security.  A typical use is as follows: Let&amp;#8217;s call the computer you are sitting at the &amp;#8220;local host&amp;#8221; and the computer you want to connect to the &amp;#8220;remote host&amp;#8221;. You first use xhost to specify which computer you want to give permission to connect to the X server of the local host. Then you connect to the remote host using telnet. Next you set the &lt;span class="caps"&gt;DISPLAY&lt;/span&gt; variable on the remote host. You want to set this &lt;span class="caps"&gt;DISPLAY&lt;/span&gt; variable to the local host. Now when you start up a program on the remote host, its &lt;span class="caps"&gt;GUI&lt;/span&gt; will show up on the local host (not on the remote&amp;nbsp;host).&lt;/p&gt;
 &lt;p&gt;For example, assume the &lt;span class="caps"&gt;IP&lt;/span&gt; address of the local host is 128.100.2.16 and the &lt;span class="caps"&gt;IP&lt;/span&gt; address of the remote host is&amp;nbsp;17.200.10.5.&lt;/p&gt;
-&lt;p&gt;On the local host, type the following at the command line:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;xhost + 17.200.10.5&lt;/code&gt;&lt;/p&gt;
-Log on to the remote host
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;telnet 17.200.10.5&lt;/code&gt;&lt;/p&gt;
-On the remote host (through the telnet connection), instruct the remote host to display windows on the local host by typing:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;export DISPLAY=128.100.2.16:0.0&lt;/code&gt;&lt;/p&gt;
-Now when you type xterm on the remote host, you should see an xterm window on the local host.  You should remove the remote host from your access control list as follows.
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;xhost - 17.200.10.5&lt;/code&gt;&lt;/p&gt;
-Some additional xhost commands:
+&lt;p&gt;On the local host, type the following at the command&amp;nbsp;line:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;xhost + 17.200.10.5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Log on to the remote&amp;nbsp;host&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;telnet 17.200.10.5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;On the remote host (through the telnet connection), instruct the remote host to display windows on the local host by&amp;nbsp;typing:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;export DISPLAY=128.100.2.16:0.0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now when you type xterm on the remote host, you should see an xterm window on the local host.  You should remove the remote host from your access control list as&amp;nbsp;follows.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;xhost - 17.200.10.5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Some additional xhost commands:
 &lt;p style="padding-left:30px;"&gt;&lt;code&gt;xhost&lt;/code&gt;List all the hosts that have access to the X server
 &lt;code&gt;xhost + hostname&lt;/code&gt;Adds hostname to X server access control list.
 &lt;code&gt;xhost - hostname&lt;/code&gt;Removes hostname from X server access control list.
@@ -2458,10 +2808,12 @@ Xauth allows access to anyone who knows the right secret. Such a secret is calle
 Even with the &lt;code&gt;xhost&lt;/code&gt; and &lt;code&gt;xauth&lt;/code&gt; methods, the  the X protocol is transmitted over the network with no encryption.  If you&amp;#8217;re  worried someone might snoop on your connections (and you should worry), use ssh.  &lt;span class="caps"&gt;SSH&lt;/span&gt;, or the Secure Shell, allows secure (&lt;a href="http://en.wikipedia.org/wiki/Encryption"&gt;encrypted&lt;/a&gt; and &lt;a href="http://en.wikipedia.org/wiki/Authentication"&gt;authenticated&lt;/a&gt;) connections between any two devices running &lt;span class="caps"&gt;SSH&lt;/span&gt;. These connections may include terminal sessions, file transfers, &lt;span class="caps"&gt;TCP&lt;/span&gt; port forwarding, or X Window System forwarding.  &lt;span class="caps"&gt;SSH&lt;/span&gt; supports a wide variety of encryption algorithms. It supports various &lt;a href="http://en.wikipedia.org/wiki/Message_authentication_code"&gt;&lt;span class="caps"&gt;MAC&lt;/span&gt;&lt;/a&gt; algorithms, and it can use &lt;a href="http://en.wikipedia.org/wiki/Public-key_cryptography"&gt;public-key cryptography&lt;/a&gt; for authentication or the traditional&amp;nbsp;username/password.&lt;/p&gt;
 &lt;p&gt;&lt;span class="caps"&gt;SSH&lt;/span&gt; can do something called &amp;#8220;&lt;a href="http://docstore.mik.ua/orelly/networking_2ndEd/ssh/ch09_01.htm#ch09-31407"&gt;X Forwarding&lt;/a&gt;&amp;#8221; makes the communication secure by &amp;#8220;&lt;a href="http://en.wikipedia.org/wiki/Tunneling_protocol"&gt;tunneling&lt;/a&gt;&amp;#8221; the X protocol over the &lt;span class="caps"&gt;SSH&lt;/span&gt; secure link.  Forwarding is a type of interaction with another network application, through a inter-mediator, in this case &lt;span class="caps"&gt;SSH&lt;/span&gt;. &lt;span class="caps"&gt;SSH&lt;/span&gt; intercepts a service request from some other program on one side of an &lt;span class="caps"&gt;SSH&lt;/span&gt; connection, sends it across the encrypted connection, and delivers it to the intended recipient on the other side. This process is mostly transparent to both sides of the connection: each believes it is talking directly to its partner and has no knowledge that forwarding is taking place.  This is called tunneling since X protocol is encapsulated within the a &lt;span class="caps"&gt;SSH&lt;/span&gt;&amp;nbsp;protocol.&lt;/p&gt;
 &lt;p&gt;When setting up an &lt;span class="caps"&gt;SSH&lt;/span&gt; tunnel for X11, the Xauth key will automatically be copied to the remote system(in a munged form to reduce the risk of forgery) and the &lt;span class="caps"&gt;DISPLAY&lt;/span&gt; variable will be&amp;nbsp;set.&lt;/p&gt;
-&lt;p&gt;To turn on X forwarding over ssh, use the command line switch &lt;code&gt;-X&lt;/code&gt; or write the following in your local ssh configuration file:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;Host remote.host.name
-ForwardX11 yes&lt;/code&gt;&lt;/p&gt;
-The current version of &lt;span class="caps"&gt;SSH&lt;/span&gt; supports the X11 &lt;span class="caps"&gt;SECURITY&lt;/span&gt; extension, which provides two classes of clients: trusted clients, which can do anything with the display, and untrusted clients, which cannot inject synthetic events (mouse movement, keypresses) or read data from other windows (e.g., take screenshots). It should be possible to run almost all clients as untrusted, leaving the trusted category for screencapture and screencast programs, macro recorders, and other specialized&amp;nbsp;utilities.&lt;/p&gt;
+&lt;p&gt;To turn on X forwarding over ssh, use the command line switch &lt;code&gt;-X&lt;/code&gt; or write the following in your local ssh configuration&amp;nbsp;file:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;Host remote.host.name ForwardX11 yes
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The current version of &lt;span class="caps"&gt;SSH&lt;/span&gt; supports the X11 &lt;span class="caps"&gt;SECURITY&lt;/span&gt; extension, which provides two classes of clients: trusted clients, which can do anything with the display, and untrusted clients, which cannot inject synthetic events (mouse movement, keypresses) or read data from other windows (e.g., take screenshots). It should be possible to run almost all clients as untrusted, leaving the trusted category for screencapture and screencast programs, macro recorders, and other specialized&amp;nbsp;utilities.&lt;/p&gt;
 &lt;p&gt;If you use &lt;code&gt;ssh -X remotemachine&lt;/code&gt; the remote machine is treated as an untrusted client and &lt;code&gt;ssh -Y remotemachine&lt;/code&gt; the remote machine is treated as trusted client.  &amp;#8217;-X&amp;#8217; is supposedly the safe alternative to &amp;#8216;-Y&amp;#8217;.  However, as a Cygwin/X maintainer says &amp;#8220;this is widely considered to be not useful, because the Security extension uses an arbitrary and limited access control policy, which results in a lot of applications not working correctly and what is really a false sense of&amp;nbsp;security&amp;#8221;.&lt;/p&gt;
 &lt;p&gt;You can configuring &lt;span class="caps"&gt;SSH&lt;/span&gt; via the following files:
 &lt;ul&gt;
@@ -2482,70 +2834,68 @@ The X Display Manager (&lt;span class="caps"&gt;XDM&lt;/span&gt;) is an optional
 &lt;h2&gt;Enough of the X Journey &amp;#8230; Now in&amp;nbsp;Conclusion&lt;/h2&gt;
 So what does the iSSH give me? I can now sit on the couch, watch &lt;span class="caps"&gt;TV&lt;/span&gt;, and simultaneously login into the RPi with full X Windows support.  Some would call this Nirvana but I call it just &lt;span class="caps"&gt;VERY&lt;/span&gt; &lt;span class="caps"&gt;NICE&lt;/span&gt;.  The iPad/iSSH combination isn&amp;#8217;t the perfect user experience but Zingersoft did a good&amp;nbsp;job.&lt;/p&gt;
 &lt;p&gt;By the way &amp;#8230;. the above iPad screen shot of the X Server display with a globe was rendered using the following&amp;nbsp;code:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;#!/usr/bin/env python
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;#!/usr/bin/env python&lt;/span&gt;
 
-&amp;#39;&amp;#39;&amp;#39;
-    Source: http://www.scipy.org/Cookbook/Matplotlib/Maps
-&amp;#39;&amp;#39;&amp;#39;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# Source: http://www.scipy.org/Cookbook/Matplotlib/Maps&lt;/span&gt;
 
-from mpl_toolkits.basemap import Basemap
-import matplotlib.pyplot as plt
-import numpy as np
+&lt;span style="color: #006699; font-weight: bold"&gt;from&lt;/span&gt; &lt;span style="color: #00CCFF; font-weight: bold"&gt;mpl_toolkits.basemap&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;import&lt;/span&gt; Basemap
+&lt;span style="color: #006699; font-weight: bold"&gt;import&lt;/span&gt; &lt;span style="color: #00CCFF; font-weight: bold"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;as&lt;/span&gt; &lt;span style="color: #00CCFF; font-weight: bold"&gt;plt&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;import&lt;/span&gt; &lt;span style="color: #00CCFF; font-weight: bold"&gt;numpy&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;as&lt;/span&gt; &lt;span style="color: #00CCFF; font-weight: bold"&gt;np&lt;/span&gt;
 
-Use_NASA_blue_marble_image = False
+Use_NASA_blue_marble_image &lt;span style="color: #555555"&gt;=&lt;/span&gt; &lt;span style="color: #336666"&gt;False&lt;/span&gt;
 
-# set up orthographic map projection with
-# perspective of satellite looking down at 50N, 100W.
-# use low resolution coastlines.
-# don&amp;#39;t plot features that are smaller than 1000 square km.
-map = Basemap(projection=&amp;#39;ortho&amp;#39;, lat_0=50, lon_0=-100, resolution=&amp;#39;l&amp;#39;, area_thresh=1000.)
+&lt;span style="color: #0099FF; font-style: italic"&gt;# set up orthographic map projection with&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# perspective of satellite looking down at 50N, 100W.&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# use low resolution coastlines.&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# don&amp;#39;t plot features that are smaller than 1000 square km.&lt;/span&gt;
+&lt;span style="color: #336666"&gt;map&lt;/span&gt; &lt;span style="color: #555555"&gt;=&lt;/span&gt; Basemap(projection&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;#39;ortho&amp;#39;&lt;/span&gt;, lat_0&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #FF6600"&gt;50&lt;/span&gt;, lon_0&lt;span style="color: #555555"&gt;=-&lt;/span&gt;&lt;span style="color: #FF6600"&gt;100&lt;/span&gt;, resolution&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;#39;l&amp;#39;&lt;/span&gt;, area_thresh&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #FF6600"&gt;1000.&lt;/span&gt;)
 
-# draw coastlines, country boundaries, fill continents.
-if Use_NASA_blue_marble_image:
-    map.bluemarble()
-else:
-    map.drawcoastlines()
-    map.drawcountries()
-    map.fillcontinents(color=&amp;#39;coral&amp;#39;)
+&lt;span style="color: #0099FF; font-style: italic"&gt;# draw coastlines, country boundaries, fill continents.&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;if&lt;/span&gt; Use_NASA_blue_marble_image:
+    &lt;span style="color: #336666"&gt;map&lt;/span&gt;&lt;span style="color: #555555"&gt;.&lt;/span&gt;bluemarble()
+&lt;span style="color: #006699; font-weight: bold"&gt;else&lt;/span&gt;:
+    &lt;span style="color: #336666"&gt;map&lt;/span&gt;&lt;span style="color: #555555"&gt;.&lt;/span&gt;drawcoastlines()
+    &lt;span style="color: #336666"&gt;map&lt;/span&gt;&lt;span style="color: #555555"&gt;.&lt;/span&gt;drawcountries()
+    &lt;span style="color: #336666"&gt;map&lt;/span&gt;&lt;span style="color: #555555"&gt;.&lt;/span&gt;fillcontinents(color&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #CC3300"&gt;&amp;#39;coral&amp;#39;&lt;/span&gt;)
 
-# draw the edge of the map projection region (the projection limb)
-map.drawmapboundary()
+&lt;span style="color: #0099FF; font-style: italic"&gt;# draw the edge of the map projection region (the projection limb)&lt;/span&gt;
+&lt;span style="color: #336666"&gt;map&lt;/span&gt;&lt;span style="color: #555555"&gt;.&lt;/span&gt;drawmapboundary()
 
-# draw lat/lon grid lines every 30 degrees.
-map.drawmeridians(np.arange(0, 360, 30))
-map.drawparallels(np.arange(-90, 90, 30))
+&lt;span style="color: #0099FF; font-style: italic"&gt;# draw lat/lon grid lines every 30 degrees.&lt;/span&gt;
+&lt;span style="color: #336666"&gt;map&lt;/span&gt;&lt;span style="color: #555555"&gt;.&lt;/span&gt;drawmeridians(np&lt;span style="color: #555555"&gt;.&lt;/span&gt;arange(&lt;span style="color: #FF6600"&gt;0&lt;/span&gt;, &lt;span style="color: #FF6600"&gt;360&lt;/span&gt;, &lt;span style="color: #FF6600"&gt;30&lt;/span&gt;))
+&lt;span style="color: #336666"&gt;map&lt;/span&gt;&lt;span style="color: #555555"&gt;.&lt;/span&gt;drawparallels(np&lt;span style="color: #555555"&gt;.&lt;/span&gt;arange(&lt;span style="color: #555555"&gt;-&lt;/span&gt;&lt;span style="color: #FF6600"&gt;90&lt;/span&gt;, &lt;span style="color: #FF6600"&gt;90&lt;/span&gt;, &lt;span style="color: #FF6600"&gt;30&lt;/span&gt;))
 
-# lat/lon coordinates of five cities.
-lats = [40.02, 32.73, 38.55, 48.25, 17.29]
-lons = [-105.16, -117.16, -77.00, -114.21, -88.10]
-cities = [&amp;#39;Boulder, CO&amp;#39;, &amp;#39;San Diego, CA&amp;#39;, &amp;#39;Washington, DC&amp;#39;, &amp;#39;Whitefish, MT&amp;#39;, &amp;#39;Belize City, Belize&amp;#39;]
+&lt;span style="color: #0099FF; font-style: italic"&gt;# lat/lon coordinates of five cities.&lt;/span&gt;
+lats &lt;span style="color: #555555"&gt;=&lt;/span&gt; [&lt;span style="color: #FF6600"&gt;40.02&lt;/span&gt;, &lt;span style="color: #FF6600"&gt;32.73&lt;/span&gt;, &lt;span style="color: #FF6600"&gt;38.55&lt;/span&gt;, &lt;span style="color: #FF6600"&gt;48.25&lt;/span&gt;, &lt;span style="color: #FF6600"&gt;17.29&lt;/span&gt;]
+lons &lt;span style="color: #555555"&gt;=&lt;/span&gt; [&lt;span style="color: #555555"&gt;-&lt;/span&gt;&lt;span style="color: #FF6600"&gt;105.16&lt;/span&gt;, &lt;span style="color: #555555"&gt;-&lt;/span&gt;&lt;span style="color: #FF6600"&gt;117.16&lt;/span&gt;, &lt;span style="color: #555555"&gt;-&lt;/span&gt;&lt;span style="color: #FF6600"&gt;77.00&lt;/span&gt;, &lt;span style="color: #555555"&gt;-&lt;/span&gt;&lt;span style="color: #FF6600"&gt;114.21&lt;/span&gt;, &lt;span style="color: #555555"&gt;-&lt;/span&gt;&lt;span style="color: #FF6600"&gt;88.10&lt;/span&gt;]
+cities &lt;span style="color: #555555"&gt;=&lt;/span&gt; [&lt;span style="color: #CC3300"&gt;&amp;#39;Boulder, CO&amp;#39;&lt;/span&gt;, &lt;span style="color: #CC3300"&gt;&amp;#39;San Diego, CA&amp;#39;&lt;/span&gt;, &lt;span style="color: #CC3300"&gt;&amp;#39;Washington, DC&amp;#39;&lt;/span&gt;, &lt;span style="color: #CC3300"&gt;&amp;#39;Whitefish, MT&amp;#39;&lt;/span&gt;, &lt;span style="color: #CC3300"&gt;&amp;#39;Belize City, Belize&amp;#39;&lt;/span&gt;]
 
-# compute the native map projection coordinates for cities.
-x, y = map(lons, lats)
+&lt;span style="color: #0099FF; font-style: italic"&gt;# compute the native map projection coordinates for cities.&lt;/span&gt;
+x, y &lt;span style="color: #555555"&gt;=&lt;/span&gt; &lt;span style="color: #336666"&gt;map&lt;/span&gt;(lons, lats)
 
-# plot filled circles at the locations of the cities.
-map.plot(x, y, &amp;#39;bo&amp;#39;)
+&lt;span style="color: #0099FF; font-style: italic"&gt;# plot filled circles at the locations of the cities.&lt;/span&gt;
+&lt;span style="color: #336666"&gt;map&lt;/span&gt;&lt;span style="color: #555555"&gt;.&lt;/span&gt;plot(x, y, &lt;span style="color: #CC3300"&gt;&amp;#39;bo&amp;#39;&lt;/span&gt;)
 
-# plot the names of those five cities.
-for name, xpt, ypt in zip(cities, x, y):
-        plt.text(xpt + 50000, ypt + 50000, name)
+&lt;span style="color: #0099FF; font-style: italic"&gt;# plot the names of those five cities.&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;for&lt;/span&gt; name, xpt, ypt &lt;span style="color: #000000; font-weight: bold"&gt;in&lt;/span&gt; &lt;span style="color: #336666"&gt;zip&lt;/span&gt;(cities, x, y):
+        plt&lt;span style="color: #555555"&gt;.&lt;/span&gt;text(xpt &lt;span style="color: #555555"&gt;+&lt;/span&gt; &lt;span style="color: #FF6600"&gt;50000&lt;/span&gt;, ypt &lt;span style="color: #555555"&gt;+&lt;/span&gt; &lt;span style="color: #FF6600"&gt;50000&lt;/span&gt;, name)
 
-# make up some data on a regular lat/lon grid.
-nlats = 73
-nlons = 145
-delta = 2. * np.pi / (nlons - 1)
-lats = (0.5 * np.pi - delta * np.indices((nlats, nlons))[0, :, :])
-lons = (delta * np.indices((nlats, nlons))[1, :, :])
-wave = 0.75 * (np.sin(2. * lats) ** 8 * np.cos(4. * lons))
-mean = 0.5 * np.cos(2. * lats) * ((np.sin(2. * lats)) ** 2 + 2.)
+&lt;span style="color: #0099FF; font-style: italic"&gt;# make up some data on a regular lat/lon grid.&lt;/span&gt;
+nlats &lt;span style="color: #555555"&gt;=&lt;/span&gt; &lt;span style="color: #FF6600"&gt;73&lt;/span&gt;
+nlons &lt;span style="color: #555555"&gt;=&lt;/span&gt; &lt;span style="color: #FF6600"&gt;145&lt;/span&gt;
+delta &lt;span style="color: #555555"&gt;=&lt;/span&gt; &lt;span style="color: #FF6600"&gt;2.&lt;/span&gt; &lt;span style="color: #555555"&gt;*&lt;/span&gt; np&lt;span style="color: #555555"&gt;.&lt;/span&gt;pi &lt;span style="color: #555555"&gt;/&lt;/span&gt; (nlons &lt;span style="color: #555555"&gt;-&lt;/span&gt; &lt;span style="color: #FF6600"&gt;1&lt;/span&gt;)
+lats &lt;span style="color: #555555"&gt;=&lt;/span&gt; (&lt;span style="color: #FF6600"&gt;0.5&lt;/span&gt; &lt;span style="color: #555555"&gt;*&lt;/span&gt; np&lt;span style="color: #555555"&gt;.&lt;/span&gt;pi &lt;span style="color: #555555"&gt;-&lt;/span&gt; delta &lt;span style="color: #555555"&gt;*&lt;/span&gt; np&lt;span style="color: #555555"&gt;.&lt;/span&gt;indices((nlats, nlons))[&lt;span style="color: #FF6600"&gt;0&lt;/span&gt;, :, :])
+lons &lt;span style="color: #555555"&gt;=&lt;/span&gt; (delta &lt;span style="color: #555555"&gt;*&lt;/span&gt; np&lt;span style="color: #555555"&gt;.&lt;/span&gt;indices((nlats, nlons))[&lt;span style="color: #FF6600"&gt;1&lt;/span&gt;, :, :])
+wave &lt;span style="color: #555555"&gt;=&lt;/span&gt; &lt;span style="color: #FF6600"&gt;0.75&lt;/span&gt; &lt;span style="color: #555555"&gt;*&lt;/span&gt; (np&lt;span style="color: #555555"&gt;.&lt;/span&gt;sin(&lt;span style="color: #FF6600"&gt;2.&lt;/span&gt; &lt;span style="color: #555555"&gt;*&lt;/span&gt; lats) &lt;span style="color: #555555"&gt;**&lt;/span&gt; &lt;span style="color: #FF6600"&gt;8&lt;/span&gt; &lt;span style="color: #555555"&gt;*&lt;/span&gt; np&lt;span style="color: #555555"&gt;.&lt;/span&gt;cos(&lt;span style="color: #FF6600"&gt;4.&lt;/span&gt; &lt;span style="color: #555555"&gt;*&lt;/span&gt; lons))
+mean &lt;span style="color: #555555"&gt;=&lt;/span&gt; &lt;span style="color: #FF6600"&gt;0.5&lt;/span&gt; &lt;span style="color: #555555"&gt;*&lt;/span&gt; np&lt;span style="color: #555555"&gt;.&lt;/span&gt;cos(&lt;span style="color: #FF6600"&gt;2.&lt;/span&gt; &lt;span style="color: #555555"&gt;*&lt;/span&gt; lats) &lt;span style="color: #555555"&gt;*&lt;/span&gt; ((np&lt;span style="color: #555555"&gt;.&lt;/span&gt;sin(&lt;span style="color: #FF6600"&gt;2.&lt;/span&gt; &lt;span style="color: #555555"&gt;*&lt;/span&gt; lats)) &lt;span style="color: #555555"&gt;**&lt;/span&gt; &lt;span style="color: #FF6600"&gt;2&lt;/span&gt; &lt;span style="color: #555555"&gt;+&lt;/span&gt; &lt;span style="color: #FF6600"&gt;2.&lt;/span&gt;)
 
-# compute native map projection coordinates of lat/lon grid.
-x, y = map(lons * 180. / np.pi, lats * 180. / np.pi)
+&lt;span style="color: #0099FF; font-style: italic"&gt;# compute native map projection coordinates of lat/lon grid.&lt;/span&gt;
+x, y &lt;span style="color: #555555"&gt;=&lt;/span&gt; &lt;span style="color: #336666"&gt;map&lt;/span&gt;(lons &lt;span style="color: #555555"&gt;*&lt;/span&gt; &lt;span style="color: #FF6600"&gt;180.&lt;/span&gt; &lt;span style="color: #555555"&gt;/&lt;/span&gt; np&lt;span style="color: #555555"&gt;.&lt;/span&gt;pi, lats &lt;span style="color: #555555"&gt;*&lt;/span&gt; &lt;span style="color: #FF6600"&gt;180.&lt;/span&gt; &lt;span style="color: #555555"&gt;/&lt;/span&gt; np&lt;span style="color: #555555"&gt;.&lt;/span&gt;pi)
 
-# contour data over the map.
-CS = map.contour(x, y, wave + mean, 15, linewidths=1.5)
+&lt;span style="color: #0099FF; font-style: italic"&gt;# contour data over the map.&lt;/span&gt;
+CS &lt;span style="color: #555555"&gt;=&lt;/span&gt; &lt;span style="color: #336666"&gt;map&lt;/span&gt;&lt;span style="color: #555555"&gt;.&lt;/span&gt;contour(x, y, wave &lt;span style="color: #555555"&gt;+&lt;/span&gt; mean, &lt;span style="color: #FF6600"&gt;15&lt;/span&gt;, linewidths&lt;span style="color: #555555"&gt;=&lt;/span&gt;&lt;span style="color: #FF6600"&gt;1.5&lt;/span&gt;)
 
-plt.show()
+plt&lt;span style="color: #555555"&gt;.&lt;/span&gt;show()
 &lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Thu, 11 Apr 2013 00:01:00 -0400</pubDate><guid>tag:jeffskinnerbox.me,2013-04-11:posts/2013/Apr/11/a-better-mobile-display-for-the-raspberry-pi/</guid><category>Linux</category><category>Raspberry Pi</category><category>X Window System</category></item><item><title>The Simplest XBee Network</title><link>http://jeffskinnerbox.me/posts/2013/Mar/20/the-simplest-xbee-network/</link><description>&lt;p&gt;&lt;a href="http://jeffskinnerbox.files.wordpress.com/2013/03/2013-03-20-21-14-05.jpg"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" alt="SAMSUNG" src="/images/2013-03-20-21-14-05.jpg?w=500" width="250" height="188" /&gt;
 &lt;/a&gt;
@@ -2752,12 +3102,18 @@ Above you&amp;#8217;ll find a picture of the configuration, and below is the A
 
 &lt;p&gt;While the &lt;span class="caps"&gt;MS&lt;/span&gt; Windows based Digi X-&lt;span class="caps"&gt;CTU&lt;/span&gt; tool is just fine, I want to use the RPi&amp;#8217;s and Python to access the XBee serial communication &lt;span class="caps"&gt;API&lt;/span&gt;, and its advanced features, for one or more XBee devices.  I prefer simple utilities, that can be scripted within the Linux shell.  Call me a Linux snob if you wish, but I don&amp;#8217;t care for &lt;span class="caps"&gt;MS&lt;/span&gt;&amp;nbsp;Windows!&lt;/p&gt;
 &lt;p&gt;In my post &amp;#8220;&lt;a href="http://jeffskinnerbox.wordpress.com/2012/12/22/selecting-xbee-radios-and-supporting-softwaretools/"&gt;Selecting XBee Radios and Supporting Software Tools&lt;/a&gt;&amp;#8220;, I referenced a Python package that could be used to create my utilitiesd, call python-xbee, and I will be using it here. It claims to provides a semi-complete implementation of the XBee binary &lt;span class="caps"&gt;API&lt;/span&gt; protocol and allows a developer to send and receive the information they desire without dealing with the raw communication details. It also claims the  library is compatible with both XBee 802.15.4 (Series 1) and XBee ZigBee (Series 2) modules, normal and &lt;span class="caps"&gt;PRO&lt;/span&gt;.&lt;/p&gt;
-&lt;p&gt;First, we need to load some additional required Python Packages, that being &lt;a href="http://pyserial.sourceforge.net/"&gt;pySerial&lt;/a&gt; and &lt;a href="https://nose.readthedocs.org/en/latest/"&gt;Nose&lt;/a&gt;. pySerial extends python&amp;#8217;s capabilities to include interacting with a serial port and Nose is a package providing a very easy way to build tests, based on the Python class &lt;a href="http://docs.python.org/2/library/unittest.html"&gt;unittest&lt;/a&gt;.  (Don&amp;#8217;t let this all scare you away, these are necessary but your not going to use them directly).  To load these package:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo pip install pySerial
-sudo pip install nose&lt;/code&gt;&lt;/p&gt;
-Download the python-xbee tools from &lt;a href="http://code.google.com/p/python-xbee/"&gt;Google Code&lt;/a&gt; or &lt;a href="http://pypi.python.org/pypi/XBee/2.0.0"&gt;Python Org&lt;/a&gt; and place them into the RPi&amp;#8217;s $&lt;span class="caps"&gt;HOME&lt;/span&gt;/src.  The &lt;span class="caps"&gt;README&lt;/span&gt; file provides installation instructions.  It states that the following command automatically test and install the package for you:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo python setup.py install&lt;/code&gt;&lt;/p&gt;
-There is a simple to use RPi platform tool that I have modified for my needs, that is a XBee serial command shell for interacting with XBee radios.  It performs the core functions of the official configuration tool, &lt;a href="https://sites.google.com/site/xbeetutorial/xctu"&gt;X-&lt;span class="caps"&gt;CTU&lt;/span&gt;&lt;/a&gt;, which only runs on Windows. (There happens to be a cross-platform version of X-&lt;span class="caps"&gt;CTU&lt;/span&gt; called &lt;a href="http://www.moltosenso.com/client/fe/browser.php?pc=/client/fe/download.php"&gt;moltosenso Network Manager&lt;/a&gt; but I don&amp;#8217;t need all this horse power.)  I&amp;#8217;ll use this X-&lt;span class="caps"&gt;CTU&lt;/span&gt;-alternative to configure the individual XBee radios.  With the X-&lt;span class="caps"&gt;CTU&lt;/span&gt;, you can update firmware, etc. but most of the time you need the program to do simple configuration tasks. You could use Linux&amp;#8217;s &lt;a href="http://linux.die.net/man/1/minicom"&gt;&lt;code&gt;minicom&lt;/code&gt;&lt;/a&gt;, but I prefer a simpler tool which can be scripted so I can configure several XBee radios identically.  I found much of what I wanted in an existing &lt;a href="https://github.com/sensestage/xbee-tools"&gt;Python XBee tools for configuration&lt;/a&gt;.  I made some modification/improvements, I call it the XBeeTerm, and its listed&amp;nbsp;below:&lt;/p&gt;
+&lt;p&gt;First, we need to load some additional required Python Packages, that being &lt;a href="http://pyserial.sourceforge.net/"&gt;pySerial&lt;/a&gt; and &lt;a href="https://nose.readthedocs.org/en/latest/"&gt;Nose&lt;/a&gt;. pySerial extends python&amp;#8217;s capabilities to include interacting with a serial port and Nose is a package providing a very easy way to build tests, based on the Python class &lt;a href="http://docs.python.org/2/library/unittest.html"&gt;unittest&lt;/a&gt;.  (Don&amp;#8217;t let this all scare you away, these are necessary but your not going to use them directly).  To load these&amp;nbsp;package:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo pip install pySerial
+sudo pip install nose
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Download the python-xbee tools from &lt;a href="http://code.google.com/p/python-xbee/"&gt;Google Code&lt;/a&gt; or &lt;a href="http://pypi.python.org/pypi/XBee/2.0.0"&gt;Python Org&lt;/a&gt; and place them into the RPi&amp;#8217;s $&lt;span class="caps"&gt;HOME&lt;/span&gt;/src.  The &lt;span class="caps"&gt;README&lt;/span&gt; file provides installation instructions.  It states that the following command automatically test and install the package for&amp;nbsp;you:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo python setup.py install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There is a simple to use RPi platform tool that I have modified for my needs, that is a XBee serial command shell for interacting with XBee radios.  It performs the core functions of the official configuration tool, &lt;a href="https://sites.google.com/site/xbeetutorial/xctu"&gt;X-&lt;span class="caps"&gt;CTU&lt;/span&gt;&lt;/a&gt;, which only runs on Windows. (There happens to be a cross-platform version of X-&lt;span class="caps"&gt;CTU&lt;/span&gt; called &lt;a href="http://www.moltosenso.com/client/fe/browser.php?pc=/client/fe/download.php"&gt;moltosenso Network Manager&lt;/a&gt; but I don&amp;#8217;t need all this horse power.)  I&amp;#8217;ll use this X-&lt;span class="caps"&gt;CTU&lt;/span&gt;-alternative to configure the individual XBee radios.  With the X-&lt;span class="caps"&gt;CTU&lt;/span&gt;, you can update firmware, etc. but most of the time you need the program to do simple configuration tasks. You could use Linux&amp;#8217;s &lt;a href="http://linux.die.net/man/1/minicom"&gt;&lt;code&gt;minicom&lt;/code&gt;&lt;/a&gt;, but I prefer a simpler tool which can be scripted so I can configure several XBee radios identically.  I found much of what I wanted in an existing &lt;a href="https://github.com/sensestage/xbee-tools"&gt;Python XBee tools for configuration&lt;/a&gt;.  I made some modification/improvements, I call it the XBeeTerm, and its listed&amp;nbsp;below:&lt;/p&gt;
 &lt;p&gt;&lt;script src="https://gist.github.com/jeffskinnerbox/6663016.js"&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;The XBeeTerm.py module imports functions from the pretty.py package, specifically to colorize the output for xterm on the Raspberry Pi.  This package is provided&amp;nbsp;here:&lt;/p&gt;
@@ -2765,13 +3121,19 @@ There is a simple to use RPi platform tool that I have modified for my needs, th
 
 &lt;h2&gt;Identifying the RPi &lt;span class="caps"&gt;USB&lt;/span&gt; device used by the&amp;nbsp;XBee&lt;/h2&gt;
 
-&lt;p&gt;Since the python-xbee library wants to talk to the via a Linux serial devices, I&amp;#8217;m using the &lt;a href="http://www.adafruit.com/products/70"&gt;&lt;span class="caps"&gt;USB&lt;/span&gt; &lt;span class="caps"&gt;FTDI&lt;/span&gt; &lt;span class="caps"&gt;TTL&lt;/span&gt;-232 Cable&lt;/a&gt; (&lt;a href="http://www.ftdichip.com/"&gt;&lt;span class="caps"&gt;FTDI&lt;/span&gt;&lt;/a&gt; is the &lt;a href="http://en.wikipedia.org/wiki/Universal_Serial_Bus"&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/a&gt; chip manufacturer) used in the XBee configuration step done earlier.  I connected the cable to the RPi &lt;span class="caps"&gt;USB&lt;/span&gt; port  and then we need to find the serial tty the cable is associated with.  To do this, it takes a bit of detective work. Run the commands:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;lsusb
+&lt;p&gt;Since the python-xbee library wants to talk to the via a Linux serial devices, I&amp;#8217;m using the &lt;a href="http://www.adafruit.com/products/70"&gt;&lt;span class="caps"&gt;USB&lt;/span&gt; &lt;span class="caps"&gt;FTDI&lt;/span&gt; &lt;span class="caps"&gt;TTL&lt;/span&gt;-232 Cable&lt;/a&gt; (&lt;a href="http://www.ftdichip.com/"&gt;&lt;span class="caps"&gt;FTDI&lt;/span&gt;&lt;/a&gt; is the &lt;a href="http://en.wikipedia.org/wiki/Universal_Serial_Bus"&gt;&lt;span class="caps"&gt;USB&lt;/span&gt;&lt;/a&gt; chip manufacturer) used in the XBee configuration step done earlier.  I connected the cable to the RPi &lt;span class="caps"&gt;USB&lt;/span&gt; port  and then we need to find the serial tty the cable is associated with.  To do this, it takes a bit of detective work. Run the&amp;nbsp;commands:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;lsusb
 dmesg | grep Manufacturer
-dmesg | grep FTDI&lt;/code&gt;&lt;/p&gt;
-A better command might be (but I&amp;#8217;m not sure it will work every time):
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;dmesg | grep -i usb | grep -i tty&lt;/code&gt;&lt;/p&gt;
-The interpretation of the output tells us the cable is attached to serial device &lt;code&gt;/dev/ttyUSB0&lt;/code&gt;.  See the output&amp;nbsp;below.&lt;/p&gt;
+dmesg | grep FTDI
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;A better command might be (but I&amp;#8217;m not sure it will work every&amp;nbsp;time):&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;dmesg | grep -i usb | grep -i tty
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The interpretation of the output tells us the cable is attached to serial device &lt;code&gt;/dev/ttyUSB0&lt;/code&gt;.  See the output&amp;nbsp;below.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://jeffskinnerbox.wordpress.com/2013/01/30/configuration-utilities-for-xbee-radios/best-use-of-dmesg/" rel="attachment wp-att-1070"&gt;&lt;img class="aligncenter size-full wp-image-1070" alt="best use of dmesg" src="http://jeffskinnerbox.files.wordpress.com/2012/12/best-use-of-dmesg.jpg" width="500" height="192" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Another possibility is to use &lt;a href="http://linux.die.net/man/8/udevadm"&gt;&lt;code&gt;udevadm&lt;/code&gt;&lt;/a&gt; to gather information about specific devices but I never figured out exactly how to use it to answer my question.  Python also has a package called &lt;a href="http://sourceforge.net/apps/trac/pyusb/"&gt;PyUSB&lt;/a&gt; that might provide some help, but also here you&amp;#8217;ll still need the vendor and product identification&amp;nbsp;information.&lt;/p&gt;
 &lt;p&gt;Chances are that when you plug the cable into the same &lt;span class="caps"&gt;USB&lt;/span&gt; port the next time, it will default to the same tty but there is no certainty.  To assign a permanent tty name to the device, and never do any of this again, check out &lt;a href="http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/"&gt;Persistent names for usb-serial devices&lt;/a&gt;.
@@ -3322,10 +3684,18 @@ The RPi built-in sound chips don&amp;#8217;t have a &amp;#8220;master volume&amp
     &lt;img class="aligncenter size-full wp-image-746" title="orginal asound.conf" alt="asound conf" src="http://jeffskinnerbox.files.wordpress.com/2012/11/orginal-asound-conf.jpg" width="545" height="223" /&gt;
 &lt;/a&gt;
 &lt;/center&gt;&lt;/p&gt;
-&lt;p&gt;For most changes to &lt;code&gt;/etc/asound.conf&lt;/code&gt; you will need to restart the sound server (ie. &lt;code&gt;sudo /etc/init.d/alsa-utils restart&lt;/code&gt;) for the changes to take&amp;nbsp;effect.&lt;/p&gt;
-&lt;p&gt;I attempted to implement the software volume controls outline in a &lt;a href="http://www.gentoo-wiki.info/HOWTO_Softvol"&gt;softvol how-to&lt;/a&gt; that I found, but I couldn&amp;#8217;t get it to work.  I did some additional digging, and I found a solution buried within a python script for a &lt;a href="http://learn.adafruit.com/reading-a-analog-in-and-controlling-audio-volume-with-the-raspberry-pi/overview"&gt;Adafruit project&lt;/a&gt;.  The following works for controlling the volume (in this case, reducing the volume to 80% of maximum):
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;amixer cset numid=1 -- 80%&lt;/code&gt;&lt;/p&gt;
-Note that you can use this command to change the volume while sound is being played an its effect takes place immediately.  Also, I noticed that once the volume has been adjusted, its effect remains even after a reboot.
+&lt;p&gt;For most changes to &lt;code&gt;/etc/asound.conf&lt;/code&gt; you will need to restart the sound server for the changes to take effect.
+You can do this&amp;nbsp;via&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo /etc/init.d/alsa-utils restart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I attempted to implement the software volume controls outline in a &lt;a href="http://www.gentoo-wiki.info/HOWTO_Softvol"&gt;softvol how-to&lt;/a&gt; that I found, but I couldn&amp;#8217;t get it to work.  I did some additional digging, and I found a solution buried within a python script for a &lt;a href="http://learn.adafruit.com/reading-a-analog-in-and-controlling-audio-volume-with-the-raspberry-pi/overview"&gt;Adafruit project&lt;/a&gt;.  The following works for controlling the volume (in this case, reducing the volume to 80% of&amp;nbsp;maximum):&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;amixer cset numid=1 -- 80%
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note that you can use this command to change the volume while sound is being played an its effect takes place immediately.  Also, I noticed that once the volume has been adjusted, its effect remains even after a reboot.
 &lt;h2&gt;&lt;span class="caps"&gt;WAV&lt;/span&gt; and &lt;span class="caps"&gt;MP3&lt;/span&gt;&amp;nbsp;Conversion&lt;/h2&gt;
 The &lt;span class="caps"&gt;MP3&lt;/span&gt; player &lt;a href="http://linux.die.net/man/1/mpg321"&gt;&lt;code&gt;mpg321&lt;/code&gt;&lt;/a&gt; can convert &lt;span class="caps"&gt;MP3&lt;/span&gt; files to &lt;span class="caps"&gt;WAV&lt;/span&gt; files but the &lt;span class="caps"&gt;WAV&lt;/span&gt; player, &lt;a href="http://linux.die.net/man/1/aplay"&gt;&lt;code&gt;aplay&lt;/code&gt;&lt;/a&gt;, can not do a conversion.  To make a &lt;span class="caps"&gt;MP3&lt;/span&gt; file from a &lt;span class="caps"&gt;WAV&lt;/span&gt; file, you&amp;#8217;ll need the tool &lt;a href="http://linux.die.net/man/1/lame"&gt;&lt;code&gt;lame&lt;/code&gt;&lt;/a&gt;.
 &lt;ul&gt;
@@ -3349,15 +3719,21 @@ This specific post has gotten about 25% of all the viewings of my blog. I&amp;#8
 For me, nothing needs to be done here.  I already have Dropbox running on my &lt;span class="caps"&gt;PC&lt;/span&gt;, and via Cygwin/X, I have the foundations required for the host side of the &lt;span class="caps"&gt;SSHFS&lt;/span&gt; solution.  If you need help with this, &lt;a href="http://db.tt/WG4dR9shttp://db.tt/WG4dR9s"&gt;signup for Dropbox here&lt;/a&gt; and find out&lt;a href="http://jeffskinnerbox.wordpress.com/2012/10/04/establishing-an-x-window-system-environment-for-my-pc-and-raspberry-pi/"&gt; how I&amp;#8217;m using Cygwin/X here&lt;/a&gt;.
 &lt;h2&gt;Installation Required on the&amp;nbsp;RPi&lt;/h2&gt;
 On the client side of the solution, you&amp;#8217;ll need to install &lt;a href="http://fuse.sourceforge.net/sshfs.html"&gt;&lt;span class="caps"&gt;SSHFS&lt;/span&gt;&lt;/a&gt; and &lt;a href="http://fuse.sourceforge.net/"&gt;&lt;span class="caps"&gt;FUSE&lt;/span&gt;&lt;/a&gt;. &lt;span class="caps"&gt;FUSE&lt;/span&gt; is the user-space filesystem framework and is the foundation on which &lt;span class="caps"&gt;SSHFS&lt;/span&gt; resides. &lt;span class="caps"&gt;FUSE&lt;/span&gt; allows user-space software, &lt;span class="caps"&gt;SSH&lt;/span&gt; in this case, to present a virtual file system interface to the user; something generally only done by the Linux kernel.  &lt;span class="caps"&gt;SSHFS&lt;/span&gt; connects to the remote system and provide the look and feel of a regular file system interface for remote files. On the RPi, install &lt;span class="caps"&gt;SSHFS&lt;/span&gt; via the&amp;nbsp;command:&lt;/p&gt;
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo apt-get install sshfs &lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get install sshfs
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;&lt;span class="caps"&gt;FUSE&lt;/span&gt; appear to be already installed on the RPi or maybe comes with &lt;span class="caps"&gt;SSHFS&lt;/span&gt;. Next you need to add required users to the &lt;span class="caps"&gt;FUSE&lt;/span&gt; usergroup.  In my case, that is the user pi.  You can see the existing groups pi is part of via the command &lt;code&gt;groups pi&lt;/code&gt;.  You can validate that the &lt;span class="caps"&gt;FUSE&lt;/span&gt; user group has been created by using the command &lt;code&gt;cat /etc/group | grep fuse&lt;/code&gt;.  To add pi to the &lt;span class="caps"&gt;FUSE&lt;/span&gt; user group, use the&amp;nbsp;command:&lt;/p&gt;
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo gpasswd -a pi fuse&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo gpasswd -a pi fuse
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;The fuse group lets you limit which users are allowed to use &lt;span class="caps"&gt;FUSE&lt;/span&gt;-based file systems, in my case the Dropbox. This is important because &lt;span class="caps"&gt;FUSE&lt;/span&gt; installs &lt;a href="http://www.acm.uiuc.edu/workshops/security/setuid.html"&gt;setuid programs&lt;/a&gt;, which always carry security implications.
 &lt;h2&gt;Configuring the Dropbox File&amp;nbsp;System&lt;/h2&gt;
 Now its time to make your Dropbox directory on the RPi, and mount it to the &lt;span class="caps"&gt;PC&lt;/span&gt;&amp;#8217;s instance of Dropbox. On the RPi, use this command to create the&amp;nbsp;Dropbox:&lt;/p&gt;
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;mkdir ~/Dropbox&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;mkdir ~/Dropbox
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;p&gt;The next thing to do is to make sure that you can connect to the &lt;span class="caps"&gt;PC&lt;/span&gt; via ssh.  When I installed Cygwin, my focus was on using it as an X Server and making ssh connections from the &lt;span class="caps"&gt;PC&lt;/span&gt; to RPi.  I never tried the inverse (connect from the RPi to the &lt;span class="caps"&gt;PC&lt;/span&gt;) and that is what &lt;span class="caps"&gt;SSHFS&lt;/span&gt; is effectively doing.  So check for two things:
 &lt;ul&gt;
@@ -3367,11 +3743,17 @@ Now its time to make your Dropbox directory on the RPi, and mount it to the &lt;
 &lt;/ul&gt;
 &lt;/ul&gt;
 There is another Cygwin sublimity that has to be taken into consideration.  When using the Cygwin, Windows drive letters are mapped to a &lt;a href="http://znark.com/tech/cygwin.html"&gt;special directory&lt;/a&gt;.  In my case, the Dropbox directory appears to Cygwin to have the following path: &lt;code&gt;/cygdrive/c/Users/Jeff/Dropbox&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;With this all addressed, &lt;span style="text-decoration:underline;"&gt;reboot the RPi&lt;/span&gt;, and then you can now fire up you RPi Dropbox via:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sshfs Jeff@HomePC.home:/cygdrive/c/Users/Jeff/Dropbox ~/Dropbox&lt;/code&gt;&lt;/p&gt;
-After you supply the &lt;span class="caps"&gt;PC&lt;/span&gt;&amp;#8217;s password, you should now be able to access the Dropbox directory on the &lt;span class="caps"&gt;PC&lt;/span&gt;.  If you wish, you can remove the file system connection to the &lt;span class="caps"&gt;PC&lt;/span&gt; via the command:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;fusermount -u ~/Dropbox&lt;/code&gt;&lt;/p&gt;
-This connection will stay established as long as you don&amp;#8217;t do the &lt;code&gt;fusermount -u&lt;/code&gt; or reboot the RPi.  If you wish to mount the file system upon boot-up, and avoid executing the &lt;code&gt;sshfs&lt;/code&gt; when you log-in, you can follow the procedure outline in the article that initially inspired me: &lt;a href="http://mitchtech.net/dropbox-on-raspberry-pi-via-sshfs/"&gt;Dropbox on Raspberry Pi via &lt;span class="caps"&gt;SSHFS&lt;/span&gt;&lt;/a&gt;
+&lt;p&gt;With this all addressed, &lt;span style="text-decoration:underline;"&gt;reboot the RPi&lt;/span&gt;, and then you can now fire up you RPi Dropbox&amp;nbsp;via:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sshfs Jeff@HomePC.home:/cygdrive/c/Users/Jeff/Dropbox ~/Dropbox
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;After you supply the &lt;span class="caps"&gt;PC&lt;/span&gt;&amp;#8217;s password, you should now be able to access the Dropbox directory on the &lt;span class="caps"&gt;PC&lt;/span&gt;.  If you wish, you can remove the file system connection to the &lt;span class="caps"&gt;PC&lt;/span&gt; via the&amp;nbsp;command:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;fusermount -u ~/Dropbox
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This connection will stay established as long as you don&amp;#8217;t do the &lt;code&gt;fusermount -u&lt;/code&gt; or reboot the RPi.  If you wish to mount the file system upon boot-up, and avoid executing the &lt;code&gt;sshfs&lt;/code&gt; when you log-in, you can follow the procedure outline in the article that initially inspired me: &lt;a href="http://mitchtech.net/dropbox-on-raspberry-pi-via-sshfs/"&gt;Dropbox on Raspberry Pi via &lt;span class="caps"&gt;SSHFS&lt;/span&gt;&lt;/a&gt;
 &lt;h2&gt;Something to Keep in&amp;nbsp;Mind&lt;/h2&gt;
 While for the most part, moving between Windows/&lt;span class="caps"&gt;DOS&lt;/span&gt; and the Linux file systems isn&amp;#8217;t a problem, there is one thing to remember. Windows-based text editors put one set of special characters at the end of lines (i.e. carriage return and line break = &amp;#8216;\r\n&amp;#8217;), while Unix/Linux puts other characters (i.e. line break = &amp;#8216;\n&amp;#8217;).  This &lt;a href="http://www.codinghorror.com/blog/2010/01/the-great-newline-schism.html"&gt;odd anomaly&lt;/a&gt; is normally harmless, but some applications on a Linux cannot understand these characters and can cause Linux to not respond&amp;nbsp;correctly.&lt;/p&gt;
 &lt;p&gt;The best example of Linux behaving badly (and the only one I know) is the execution of “&lt;a href="http://bash.cyberciti.biz/guide/Shebang"&gt;shebang&lt;/a&gt;” or the “#!&amp;#8230;” at the top of a bash, python, perl, etc. script.  If you edit these files in &lt;span class="caps"&gt;DOS&lt;/span&gt;, then move them to Linux, shebang will stop working.  Editing them under &lt;span class="caps"&gt;DOS&lt;/span&gt; is the origin of the problem, since a &lt;span class="caps"&gt;DOS&lt;/span&gt; based text editor will inject the extra carriage return character at the end of the text&amp;nbsp;line.&lt;/p&gt;
@@ -3488,7 +3870,9 @@ iface wlan0 inet dhcp
 
 &lt;p&gt;The wireless device now has an &lt;span class="caps"&gt;IP&lt;/span&gt; address and data seems to be flowing.  In an effort to further convince myself that the WiFi was working, I disconnected the wired ethernet connection and attempted to re-login in via &lt;code&gt;ssh -X pi@RedRPi.local&lt;/code&gt;, over the wireless interface. This failed, giving the&amp;nbsp;message:&lt;/p&gt;
 
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;ssh: Could not resolve hostname RedRPi.local: hostname nor servname provided, or not known&lt;/code&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;ssh: Could not resolve hostname RedRPi.local: hostname nor servname provided, or not known
+&lt;/pre&gt;&lt;/div&gt;
+
 
 &lt;h2&gt;Working For&amp;nbsp;Sure&lt;/h2&gt;
 
@@ -3512,12 +3896,13 @@ iface wlan0 inet dhcp
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" title="Conky Window" src="/images/conky-window.jpg" width="77" height="300" /&gt;
 &lt;/a&gt;
 &lt;a href="http://conky.sourceforge.net/"&gt;Conky&lt;/a&gt;  is a Linux system monitor tool using X Windows.  Conky is highly configurable and is able to monitor many system variables including the status of the &lt;span class="caps"&gt;CPU&lt;/span&gt;, memory, swap space, disk storage, temperatures, processes, network interfaces, battery power, system messages, e-mail in-boxes  Linux updates, runs many popular music players, and much more. Unlike system monitors that use high-level widget tool-kits to render their information, Conky is drawn directly in an X window, allowing it to consume relatively fewer system&amp;nbsp;resources.&lt;/p&gt;
-&lt;p&gt;To install the standard Conky package, use the following:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo apt-get install conky-std&lt;/code&gt;&lt;/p&gt;
-Two sites you will want to read, beyond the &lt;a href="http://conky.sourceforge.net/docs.html"&gt;Conky manual page&lt;/a&gt; are the lists of &lt;a href="http://conky.sourceforge.net/config_settings.html"&gt;Config Settings&lt;/a&gt; and &lt;a href="http://conky.sourceforge.net/variables.html"&gt;Variables&lt;/a&gt;. You use the Config Settings to describe general features of how you want your Conky to appear, and the variables to define what actually gets&amp;nbsp;displayed.&lt;/p&gt;
+&lt;p&gt;To install the standard Conky package, use the&amp;nbsp;following:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install conky-std&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Two sites you will want to read, beyond the &lt;a href="http://conky.sourceforge.net/docs.html"&gt;Conky manual page&lt;/a&gt; are the lists of &lt;a href="http://conky.sourceforge.net/config_settings.html"&gt;Config Settings&lt;/a&gt; and &lt;a href="http://conky.sourceforge.net/variables.html"&gt;Variables&lt;/a&gt;. You use the Config Settings to describe general features of how you want your Conky to appear, and the variables to define what actually gets&amp;nbsp;displayed.&lt;/p&gt;
 &lt;p&gt;The color names that are used within Conky are the X11 colors located in &lt;code&gt;/usr/share/X11/rgb.txt&lt;/code&gt;.  There isn&amp;#8217;t a standard set of colors to be found on any X Window system, so you&amp;#8217;ll need to inspect this file to get some idea of what color names you can use.  This &lt;a href="http://www.kgym.jp/freesoft/xrgb.html"&gt;X color name list&lt;/a&gt;, which appears to be larger than what is in the RPi&amp;#8217;s &lt;code&gt;rgb.txt&lt;/code&gt; file, could help you visualized the&amp;nbsp;colors.&lt;/p&gt;
-&lt;p&gt;Conky uses a configuration file location in &lt;code&gt;$HOME/.conkyrc&lt;/code&gt;.  Conky can be configured in an amazing number of way but I&amp;#8217;m using the following configuration on the RPi:
-&lt;p&gt;&lt;script src="https://gist.github.com/jeffskinnerbox/6603187.js"&gt;&lt;/script&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;Conky uses a configuration file location in &lt;code&gt;$HOME/.conkyrc&lt;/code&gt;.  Conky can be configured in an amazing number of way but I&amp;#8217;m using the following configuration on the&amp;nbsp;RPi:&lt;/p&gt;
+&lt;p&gt;&lt;script src="https://gist.github.com/jeffskinnerbox/6603187.js"&gt;&lt;/script&gt;&lt;/p&gt;
+
 &lt;h2&gt;Debugging&amp;nbsp;Conky&lt;/h2&gt;
 
 &lt;p&gt;An easy way to force Conky to reload your &lt;code&gt;~/.conkyrc&lt;/code&gt; configuration file is to us the command &lt;code&gt;killall -SIGUSR1 conky&lt;/code&gt;. This saves you the trouble of having to kill and then restart.  I also discovered that  while conky is running and your concurrently editing the &lt;code&gt;.conkyrc&lt;/code&gt; file in vi, saving the file appears to cause conky to restart and read the new &lt;code&gt;.conkyrc&lt;/code&gt; &amp;#8230;&amp;nbsp;nice.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Jeff Irland</dc:creator><pubDate>Fri, 02 Nov 2012 00:01:00 -0400</pubDate><guid>tag:jeffskinnerbox.me,2012-11-02:posts/2012/Nov/02/conky-for-the-raspberry-pi/</guid><category>Conky</category><category>Raspberry Pi</category></item><item><title>Controlling and Viewing the Raspberry Pi GPIO via PC Browser</title><link>http://jeffskinnerbox.me/posts/2012/Oct/19/controlling-and-viewing-the-raspberry-pi-gpio-via-pc-browser/</link><description>&lt;p&gt;&lt;center&gt;
@@ -3525,13 +3910,22 @@ Two sites you will want to read, beyond the &lt;a href="http://conky.sourceforge
 &lt;/center&gt;
 This idea of controlling my Raspberry Pi (RPi), and the things its networked with, via an internet browser is at the heart of what I would like to do with the assortment of Arduino and Xbee devices I&amp;#8217;m assembling.  To explore how best to do this, I&amp;#8217;m considering using &lt;a href="http://code.google.com/p/webiopi/"&gt;WebIOPi&lt;/a&gt;, which is a web application used to control your RPi’s &lt;span class="caps"&gt;GPIO&lt;/span&gt;.  I believe it could be useful as a test tool, but more importantly, I suspect that I could learn how to engineer my application by studying its design.
 &lt;h2&gt;Install&amp;nbsp;WebIOPi&lt;/h2&gt;
-When installing WebIOPi on my RPi, I followed the &lt;a href="http://code.google.com/p/webiopi/wiki/INSTALL#PHP/Apache"&gt;installation&lt;/a&gt; instructions for the Apache version.  I choose this version since  I&amp;#8217;ll be using the Apache web server for other features as my project evolves. Note that there is a small error on the instructions if you use a symbolic link to the webiopi directory.  Create this link using
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo ln -s /home/pi/webiopi /var/www/webiopi&lt;/code&gt;&lt;/p&gt;
-Immediately after installation,  you can test to see if you can render a web page.  Assuming that your  Raspberry Pi is connected to your network  and its named &lt;code&gt;raspberrypi&lt;/code&gt;, you can open a browser to &lt;code&gt;&lt;a href="http://raspberrypi/webiopi/" rel="nofollow"&gt;http://raspberrypi/webiopi/&lt;/a&gt;&lt;/code&gt; with your network &lt;span class="caps"&gt;PC&lt;/span&gt;.  It might work but your likely to get a error, something like &amp;#8220;&amp;#8230;Could not reliably determine the server’s fully qualified domain name&amp;#8230;&amp;#8221; and the &lt;a href="http://scottlinux.com/2011/02/16/could-not-reliably-determine-the-servers-fully-qualified-domain-name/"&gt;solution&lt;/a&gt; is to give your web server a&amp;nbsp;name.&lt;/p&gt;
-&lt;p&gt;To do this,  create this Apache config file:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo vi /etc/apache2/conf.d/fqdn&lt;/code&gt;&lt;/p&gt;
-Enter &lt;code&gt;ServerName raspberrypi&lt;/code&gt; into this file and restart Apache using
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo /etc/init.d/apache2 restart&lt;/code&gt;&lt;/p&gt;&lt;/p&gt;
+When installing WebIOPi on my RPi, I followed the &lt;a href="http://code.google.com/p/webiopi/wiki/INSTALL#PHP/Apache"&gt;installation&lt;/a&gt; instructions for the Apache version.  I choose this version since  I&amp;#8217;ll be using the Apache web server for other features as my project evolves. Note that there is a small error on the instructions if you use a symbolic link to the webiopi directory.  Create this link&amp;nbsp;using&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo ln -s /home/pi/webiopi /var/www/webiopi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Immediately after installation,  you can test to see if you can render a web page.  Assuming that your  Raspberry Pi is connected to your network  and its named &lt;code&gt;raspberrypi&lt;/code&gt;, you can open a browser to &lt;code&gt;&lt;a href="http://raspberrypi/webiopi/" rel="nofollow"&gt;http://raspberrypi/webiopi/&lt;/a&gt;&lt;/code&gt; with your network &lt;span class="caps"&gt;PC&lt;/span&gt;.  It might work but your likely to get a error, something like &amp;#8220;&amp;#8230;Could not reliably determine the server’s fully qualified domain name&amp;#8230;&amp;#8221; and the &lt;a href="http://scottlinux.com/2011/02/16/could-not-reliably-determine-the-servers-fully-qualified-domain-name/"&gt;solution&lt;/a&gt; is to give your web server a&amp;nbsp;name.&lt;/p&gt;
+&lt;p&gt;To do this,  create this Apache config&amp;nbsp;file:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo vi /etc/apache2/conf.d/fqdn
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Enter &lt;code&gt;ServerName raspberrypi&lt;/code&gt; into this file and restart Apache&amp;nbsp;using&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo /etc/init.d/apache2 restart
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;Installing &lt;span class="caps"&gt;GPIO&lt;/span&gt;&amp;nbsp;Utilities&lt;/h2&gt;
 
 &lt;p&gt;While checking on the status of of the Python based &lt;span class="caps"&gt;GPIO&lt;/span&gt; package on the &lt;span class="caps"&gt;RPI&lt;/span&gt; using the command &lt;code&gt;dpkg -l | grep gpio&lt;/code&gt;, I concluded that the  &lt;a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview"&gt;Occidentalis&lt;/a&gt; distribution I&amp;#8217;m using doesn&amp;#8217;t have any Python libraries for &lt;span class="caps"&gt;GPIO&lt;/span&gt;.&lt;/p&gt;
@@ -3542,11 +3936,16 @@ sudo apt-get install python-pip
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;With this done, now its time to install the required Python libraries but first, update the Python distribution by running
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo easy_install -U distribute&lt;/code&gt;&lt;/p&gt;
-Finally you can install the Raspberry Pi &lt;span class="caps"&gt;GPIO&lt;/span&gt; (General Purpose Input/Ouput) library:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;sudo pip install RPi.GPIO
-&lt;/code&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;With this done, now its time to install the required Python libraries but first, update the Python distribution by&amp;nbsp;running&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo easy_install -U distribute
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Finally you can install the Raspberry Pi &lt;span class="caps"&gt;GPIO&lt;/span&gt; (General Purpose Input/Ouput)&amp;nbsp;library:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo pip install RPi.GPIO
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;What did I&amp;nbsp;find&lt;/h2&gt;
 
 &lt;p&gt;WebIOPi  supports binary GPIOs, in both input and output.  That is, you can set a &lt;span class="caps"&gt;GPIO&lt;/span&gt; output pin high/low via a browser pick.  Also, you can see the state of a &lt;span class="caps"&gt;GPIO&lt;/span&gt; pin.  Equally important to me is that WebIOPi auto-refreshes, via &lt;a href="http://www.kendoui.com/blogs/teamblog/posts/12-05-11/hello_services_webapi_rest_json_and_ajax.aspx"&gt;WebAPI, &lt;span class="caps"&gt;REST&lt;/span&gt;, &lt;span class="caps"&gt;JSON&lt;/span&gt; and &lt;span class="caps"&gt;AJAX&lt;/span&gt;&lt;/a&gt; I assume.  Therefore, when the &lt;span class="caps"&gt;GPIO&lt;/span&gt; pins change state, the browser automatically is updated with the new status.  And this happens for all browsers displaying WebIOPi.  You can demonstrate this by opening two browsers pointing at WebIOPi.  Action performed in one browser will also appear in the other.
@@ -3751,17 +4150,23 @@ fatal: HTTP request failed
 
 
 &lt;p&gt;If you get the above error, &lt;a href="http://codeforthesoul.blogspot.com/2012/09/git-error-about-missing-certificates-on.html"&gt;the problem&lt;/a&gt; is that Cygwin hasn&amp;#8217;t installed the ca-certificates package.  Run the &lt;a href="http://www.cygwin.com/install.html"&gt;Cygwin installer&lt;/a&gt; again, and add that package; after that &lt;code&gt;git clone&lt;/code&gt; should start&amp;nbsp;working.&lt;/p&gt;
-&lt;p&gt;The next step is to commit your files to the git local repository within the &lt;span class="caps"&gt;PC&lt;/span&gt; under Cygwin.  To do this, execute the following command:
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;git commit&lt;/code&gt;&lt;/p&gt;
-You will be put into vim to provide a comment that will be posted with the git version.  Why vim?  Because you executed the command &lt;code&gt;git config --global core.editor vim&lt;/code&gt;  earlier.  If you don&amp;#8217;t want to use vim for adding comments under git, supply another editor when you do the configuration&amp;nbsp;step.&lt;/p&gt;
+&lt;p&gt;The next step is to commit your files to the git local repository within the &lt;span class="caps"&gt;PC&lt;/span&gt; under Cygwin.  To do this, execute the following&amp;nbsp;command:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;git commit
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You will be put into vim to provide a comment that will be posted with the git version.  Why vim?  Because you executed the command &lt;code&gt;git config --global core.editor vim&lt;/code&gt;  earlier.  If you don&amp;#8217;t want to use vim for adding comments under git, supply another editor when you do the configuration&amp;nbsp;step.&lt;/p&gt;
 &lt;p&gt;The next step, which strictly isn&amp;#8217;t required but a nice to have, is to associate a descriptive identifier with the github repository.  The descriptor I used is &amp;#8220;Cygwin-Configuration-Files&amp;#8221;.  The command I used&amp;nbsp;is:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;git remote add Cygwin-Configuration-Files https://github.com/jeffskinnerbox/Cygwin-Configuration-Files.git
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;The final step is to push your local files to the github repository,
-&lt;p style="padding-left:30px;"&gt;&lt;code&gt;git push Cygwin-Configuration-Files&lt;/code&gt;&lt;/p&gt;
-&lt;em&gt;Warning &amp;#8230; &lt;/em&gt; It was during the &lt;code&gt;git push&lt;/code&gt; that I ran into another problem, but it could happen nearly any time.  I discovered that sometimes, after multiple Cygwin updating or installing packages, you&amp;#8217;ll start to get strange errors related to &amp;#8220;fork()&amp;#8221; or .dll loading. After some research, I discoved these errors are usually solved by &lt;a href="http://cygwin.wikia.com/wiki/Rebaseall"&gt;rebasing your packages&lt;/a&gt;.  While rebasing, which is executed using the Cygwin &lt;code&gt;rebaseall&lt;/code&gt; command, is is a bit of a mystery, it does appear to work
+&lt;p&gt;The final step is to push your local files to the&amp;nbsp;github repository,&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;git push Cygwin-Configuration-Files
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Warning &amp;#8230; &lt;/em&gt; It was during the &lt;code&gt;git push&lt;/code&gt; that I ran into another problem, but it could happen nearly any time.  I discovered that sometimes, after multiple Cygwin updating or installing packages, you&amp;#8217;ll start to get strange errors related to &amp;#8220;fork()&amp;#8221; or .dll loading. After some research, I discoved these errors are usually solved by &lt;a href="http://cygwin.wikia.com/wiki/Rebaseall"&gt;rebasing your packages&lt;/a&gt;.  While rebasing, which is executed using the Cygwin &lt;code&gt;rebaseall&lt;/code&gt; command, is is a bit of a mystery, it does appear to work
 &lt;h2&gt;Rebasing&amp;nbsp;Cygwin&lt;/h2&gt;
 Before you can run the &lt;code&gt;&lt;a href="http://inamidst.com/eph/cygwin"&gt;rebaseall&lt;/a&gt;&lt;/code&gt; command, you&amp;#8217;ll need to make sure no Cygwin-based services are running.   To do this, you need to run two cygwin command, &lt;a href="http://cygwin.com/faq/faq.setup.html#faq.setup.uninstall-service"&gt;cygrunsrc&lt;/a&gt; and &lt;a href="http://superuser.com/questions/194529/cygwin-fatal-error-unable-to-remap-what-does-it-mean"&gt;rebaseall&lt;/a&gt;,  under the ash command in &lt;span class="caps"&gt;MS&lt;/span&gt; Windows command prompt, not in a Cygwin Terminal window.   The sequence of activity is as follows:
 &lt;ol&gt;

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
@@ -21,14 +21,14 @@
         <script src='http://1.rp-api.com/rjs/repostus.js' type='text/javascript'></script>
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Font Awesome and Google Fonts -->
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
     <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
@@ -52,9 +52,7 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About Me
-                          </a></li>
+                    <li><a href="/pages/about-me.html">About Me</a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
@@ -208,18 +206,18 @@ git push -u origin master
 
 
 <ul>
-<li>Verify that your web page is availalbe by going to <a href="http://jeffskinnerbox.github.com/">http://jeffskinnerbox.github.com/</a>.  This could take up to 10 minutes for GitHub the first&nbsp;time.</li>
+<li>Verify that your web page is available by going to <a href="http://jeffskinnerbox.github.com"><code>http://jeffskinnerbox.github.com</code></a>.  This could take up to 10 minutes for GitHub the first&nbsp;time.</li>
 </ul>
 <h3>Using a Custom Domain&nbsp;Name</h3>
-<p>GitHub Pages allows you to direct a domain name of your choice at your GitHup Page.
+<p>GitHub Pages allows you to direct a domain name of your choice at your GitHub Page.
 My custom domain name is <code>www.jeffskinnerbox.me</code>. To do the setup, I found the postings
 <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">Setting up a custom domain with Pages</a> and 
-<a href="http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/">Setting the <span class="caps">DNS</span> for GitHub Pages on Namecheap</a> helful.  It goes like&nbsp;this:</p>
+<a href="http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/">Setting the <span class="caps">DNS</span> for GitHub Pages on Namecheap</a> helpful.  It goes like&nbsp;this:</p>
 <ol>
-<li>Telling the GitHub server to serve from the custome domain by creating a file named <code>CNAME</code> in the root of your site and put string with the domain (i.e. jeffskinnerbox.me) into the&nbsp;file.</li>
-<li>Go to your Domain Name Registrar and make the changes outline in the posts referance above.  It may take as long as 24 hours for these changes to take&nbsp;effect.</li>
+<li>Telling the GitHub server to serve from the custom domain by creating a file named <code>CNAME</code> in the root of your site and put string with the domain (i.e. jeffskinnerbox.me) into the&nbsp;file.</li>
+<li>Go to your Domain Name Registrar and make the changes outline in the posts reference above.  It may take as long as 24 hours for these changes to take&nbsp;effect.</li>
 </ol>
-<h4>Closing</h4>
+<h3>Closing</h3>
 <p>All in all, I am very pleased with Jekyll so far. It did take a little longer than I’d have thought to migrate this blog as it is from WordPress, while also preserving the site’s characteristics, but it didn’t take too long and I love the results.
 I doubt I would ever want to look&nbsp;back! </p>
             </div>
@@ -350,9 +348,12 @@ I doubt I would ever want to look&nbsp;back! </p>
             <a href="http://opensource.org/">
                 <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
             </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
             <small>
-                All my work is
-                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
                 except where indicated otherwise.
             </small>
             </p>

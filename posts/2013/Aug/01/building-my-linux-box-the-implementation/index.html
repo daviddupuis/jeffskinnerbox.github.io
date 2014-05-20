@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
@@ -21,14 +21,14 @@
         <script src='http://1.rp-api.com/rjs/repostus.js' type='text/javascript'></script>
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Font Awesome and Google Fonts -->
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
     <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
@@ -52,9 +52,7 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About Me
-                          </a></li>
+                    <li><a href="/pages/about-me.html">About Me</a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
@@ -123,7 +121,7 @@ Jeff's Skinner Box&nbsp;            </a>
     <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
 </a>                </div>
                 <p><img class="img-rounded" style="margin: 0px 8px; float: left" alt="Ubuntu 13.04 Raring Ringtail" src="/images/ubuntu-13-04-raring-ringtail.jpg" width="15%" height="15%" />
-In an earlier post, I outlined <a href="http://jeffskinnerbox.wordpress.com/2013/04/28/building-my-linux-box-the-plan/">my plan for building a Linux Box</a>.  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
+In an earlier post, I outlined <a href="http://jeffskinnerbox.me/posts/2013/Apr/28/building-my-linux-box-the-plan/">my plan for building a Linux Box</a>.  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
 <ul>
 <ul>
     <li>After ordering all the hardware, it came to me that it was dumb to attempt to reuse my old semi-reliable, slow <span class="caps">CD</span> drive.  So I purchase the <span class="caps">HP</span> 24X Multiformat <span class="caps">DVD</span>/<span class="caps">CD</span> Writer (dvd1260i) at Best Buy for <mathjax>$40.</li>
@@ -148,9 +146,12 @@ Like may, over the years I have made a large time investment in tuning my <code>
 Chromium is a fully open-source version of Google&#8217;s Chrome, and for licensing reasons, it doesn&#8217;t come packaged with the integrated Flash or a native <span class="caps">PDF</span> reader.  Lucky, there is a work around and that is documented here: <a href="http://www.omgubuntu.co.uk/2010/07/use-google-chrome%E2%80%99s-native-pdf-reader-in-chromium">Use Google Chrome’s Native <span class="caps">PDF</span> reader in Chromium</a>.
 <h2>Installing My Squeeze&nbsp;Box</h2>
 I have a <a href="http://www.mysqueezebox.com/index/Home">SqueezeBox</a> device in my workshop for playing music.  On my old <span class="caps">PC</span>, I had installed the SlimServer which would provide the music stream.  I want to now reestablish that capability on the Linux box. The post <a href="http://www.ehow.com/how_7314755_use-squeezebox-ubuntu.html">How to Use Squeezebox With Ubuntu</a> and the <a href="http://wiki.slimdevices.com/index.php/DebianPackage">Logitech SqueezeBox Wiki</a> gives you all the information you should&nbsp;need.</p>
-<p>The Ubuntu (Debian) software for the <a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server">SqueezeCenter</a> or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via <code>get-apt</code>.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the <a href="http://linux.die.net/man/5/sources.list"><code>sources.list</code></a> file.  To do this, do the following:
-<p style="padding-left:30px;"><code>sudo vim /etc/apt/sources.list</code></p>
-Scroll to the bottom of the file and enter the following information and then&nbsp;save:</p>
+<p>The Ubuntu (Debian) software for the <a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server">SqueezeCenter</a> or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via <code>get-apt</code>.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the <a href="http://linux.die.net/man/5/sources.list"><code>sources.list</code></a> file.  To do this, do the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo vim /etc/apt/sources.list
+</pre></div>
+
+
+<p>Scroll to the bottom of the file and enter the following information and then&nbsp;save:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).
 deb http://debian.slimdevices.com stable main
 </pre></div>
@@ -165,9 +166,112 @@ sudo apt-get install logitechmediaserver
 
 <p>Now open a browser and type &#8220;<code>http://desktop:9000</code>&#8221; as the <span class="caps">URL</span>, where &#8220;desktop&#8221; is the name of your Linux system.  This brings you to a Squeezebox interface to configure the&nbsp;system.</p>
 <p>If you want to start/stop Logitech Media Server manually you can run:
-<p style="padding-left:30px;"><code>sudo /etc/init.d/logitechmediaserver stop</code>
+<code>sudo /etc/init.d/logitechmediaserver stop</code>
 and
-<code>sudo /etc/init.d/logitechmediaserver start</code></p></p>
+<code>sudo /etc/init.d/logitechmediaserver start</code></p>
+<h2>Configuring Samsung <span class="caps">SCX</span>-4521F&nbsp;Printer/Scanner</h2>
+
+<p>When it comes to printers and scanners, Ubuntu advices that you should simply plug it in and try!
+Ubuntu claims that if it&#8217;s a newer model <span class="caps">USB</span> scanner / printer,
+it is likely that it will work immediately without any further driver or software installations.
+I did this with my multifunction <a href="http://www.samsung.com/levant/consumer/computers-peripherals/printers/mono-multi-function/SCX-4521F/XSG">Samsung <span class="caps">SCX</span>-4521F</a>, which is a printer / scanner combination,
+and the printer function worked but the scanner did&nbsp;not.</p>
+<p>After a bit of research, I discovered that Ubuntu uses
+<a href="https://help.ubuntu.com/13.10/serverguide/cups.html">Common <span class="caps">UNIX</span> Printing System (<span class="caps">CUPS</span>)</a> for printer management.
+<span class="caps">CUPS</span> is the standards-based,
+open source printing system developed by Apple for <span class="caps">OS</span> X and other <span class="caps">UNIX</span>-like operating systems.
+Assuming <span class="caps">CUPS</span> is installed (and it appeares to be with the Ubuntu package),
+you can use a web browser to access it features.
+To do this, open your web browser and got to <a href="http://localhost:631/"><code>http://localhost:631/</code></a>.
+You&#8217;ll find there an overview of <span class="caps">CUPS</span>, administrative functions, and even command-line&nbsp;utilities.</p>
+<p>I also discovered that <a href="http://www.sane-project.org/"><span class="caps">SANE</span> (Scanner Access Now Easy)</a> is the Linux way of scanning.
+<span class="caps">SANE</span> supports a great many scanners, and the community around <span class="caps">SANE</span> adds support for more scanners all the time.
+They claim, by and large, you should simple plug them in and your ready to scan.
+However, some scanners, like mine, require more&nbsp;effort.</p>
+<p><span class="caps">SANE</span> isn&#8217;t typically installed with the Ubuntu distribution,
+but you can install <span class="caps">SANE</span>&nbsp;via</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install sane xsane libsane-extras
+</pre></div>
+
+
+<p><span class="caps">SANE</span> supplies a utility called
+<a href="http://linux.about.com/library/cmd/blcmdl1_scanimage.htm"><code>scanimage</code></a> that is a command-line interface to control image acquisition
+devices such as flatbed scanners or cameras.
+When I ran it, I got the following&nbsp;results</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ scanimage --list-devices
+
+No scanners were identified. If you were expecting something different,
+check that the scanner is plugged in, turned on and detected by the
+sane-find-scanner tool (if appropriate). Please read the documentation
+which came with this software (README, FAQ, manpages).
+</pre></div>
+
+
+<p>Some more web research told me that my printer is a <a href="http://www.bchemnet.com/suldr/supported.html">Xerox manufactured product</a>
+and I needed to install the Samsung Unified Linux Driver.
+I did the repository setup and package install recommended at
+<a href="http://www.bchemnet.com/suldr/index.html">The Samsung Unified Linux Driver Repository</a>.
+The install I did&nbsp;was</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install suld-driver-4.00.39 suld-configurator-2-qt4
+</pre></div>
+
+
+<p>I then added my login user to the <code>scanner</code> group via <code>sudo usermod -a -G scanner jeff</code>.
+I ran the command <code>sane-find-scanner</code> to see if I&#8217;m now able to detect the scanner,
+and I got the following disappointing&nbsp;results.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ sudo sane-find-scanner
+
+  # sane-find-scanner will now attempt to detect your scanner. If the
+  # result is different from what you expected, first make sure your
+  # scanner is powered up and properly connected to your computer.
+
+  # No SCSI scanners found. If you expected something different, make sure that
+  # you have loaded a kernel SCSI driver for your SCSI adapter.
+
+could not fetch string descriptor: Pipe error
+could not fetch string descriptor: Pipe error
+  # No USB scanners found. If you expected something different, make sure that
+  # you have loaded a kernel driver for your USB host controller and have setup
+  # the USB system correctly. See man sane-usb for details.
+
+  # Not checking for parallel port scanners.
+
+  # Most Scanners connected to the parallel port or other proprietary ports
+  # can&#39;t be detected by this program.
+</pre></div>
+
+
+<p>At this point, I did some back tracking and discovered the following article:
+<a href="http://askubuntu.com/questions/231778/how-do-i-get-the-scanner-to-work-on-a-samsung-scx-4521f-multi-function-printer">How do I get the scanner to work on a Samsung <span class="caps">SCX</span> 4521F Multi function printer?</a>
+The work already done above covers step 1 of this article
+and step 2 isn&#8217;t relevant (since I can already print).
+I need to perform step 3, that&nbsp;is</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install samsungmfp-scanner
+</pre></div>
+
+
+<p>Now I re-ran the command <code>scanimage --list-devices</code> and got the&nbsp;following</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">$ scanimage --list-devices
+device `smfp:SAMSUNG SCX-4x21 Series on USB:0&#39; is a SAMSUNG SCX-4x21 Series on USB:0 Scanner
+</pre></div>
+
+
+<p>but the <code>sudo sane-find-scanner</code> got the same
+&#8220;could not fetch string descriptor: Pipe error&#8221; error message when done&nbsp;earlier.</p>
+<p>After some more research and using <code>lsusb | grep Samsung</code> and <code>cat /lib/udev/rules.d/40-libsane.rules | grep 3419</code>,
+I discover there is no udev rule for the <span class="caps">SCX</span>-4521F scanner.
+Therefore, I place the following lines in <code>/lib/udev/rules.d/40-libsane.rules</code></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Samsung SCX-4521F
+ATTRS{idVendor}==&quot;04e8&quot;, ATTRS{idProduct}==&quot;3419&quot;, ENV{libsane_matched}=&quot;yes&quot;
+</pre></div>
+
+
+<p>This still didn&#8217;t give me a good run for <code>sudo sane-find-scanner</code>
+but the command <code>scanimage --test</code> did give passing results.
+Given this, I proceeded to using <a href="http://linux.about.com/library/cmd/blcmdl1_xsane.htm"><code>xsane</code></a> to test out some scanning (it worked!).
+xsane is a X Window application and produces it output in <a href="http://en.wikipedia.org/wiki/Netpbm_format"><span class="caps">PNM</span> format</a>.
+You can convert this format to <span class="caps">PDF</span> (and many other formats) via the utility <a href="http://www.imagemagick.org/script/convert.php``"><code>convert</code></a>
+(e.g. <code>convert outfile.pnm outfile.pdf</code>).</p>
 <h2>iPod&nbsp;Support</h2>
 
 <p>Ubuntu comes with <a href="https://wiki.gnome.org/Apps/Rhythmbox">Rhythmbox</a> as its music playing application and can be used to synch with a iPod. 
@@ -212,23 +316,26 @@ and the
 <a href="http://www.logitech.com/en-us/product/wireless-mouse-m510">Logitech M510 Wireless Mouse</a>.
 These devices use the <a href="http://www.logitech.com/en-us/promotions/6072">Logitech Unifying wireless technology</a>, which allows a single wireless receiver to connect with multiple Unifying devices.  I plugged in the mouse&#8217;s receiver  and in short order the mouse was working.
 <a href="http://jeffskinnerbox.files.wordpress.com/2013/06/logitech-m510-wireless-mouse.jpg">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Logitech M510 Wireless Mouse" src="/images/logitech-m510-wireless-mouse.jpg" width="75" height="57" />
+    <img class="img-rounded" style="margin: 0px 8px; float: right" alt="Logitech M510 Wireless Mouse" src="/images/logitech-m510-wireless-mouse.jpg" width="75" height="57" />
 </a>
 I was a bit concerned about the ability of the receiver to support multiple device (i.e. the keyboard) simultaneously under Linux.
 Doing a quick search I found a post discussing how to do the <a href="http://askubuntu.com/questions/113984/is-logitechs-unifying-receiver-supported">device pairing under Linux</a>.  <a href="https://lekensteyn.nl/logitech-unifying.html#ltunify">To install</a> the <a href="https://git.lekensteyn.nl/ltunify/"><code>ltunify</code></a> pairing software, and do the pairing, do the&nbsp;following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~/src
 git clone https://git.lekensteyn.nl/ltunify.git
 cd ltunify
-make install-home&lt;/code&gt;
+make install-home
 </pre></div>
 
 
-<p>To list the devices that are paired: <code>sudo ltunify list</code>
-To pair a device: <code>sudo ltunify pair</code>, then turn your wireless device off and on to start pairing.
-To unpair a device: <code>sudo ltunify unpair mouse</code>
-To get help: <code>sudo ltunity --help</code>
+<ul>
+<li>To list the devices that are paired: <code>sudo ltunify list</code></li>
+<li>To pair a device: <code>sudo ltunify pair</code>, then turn your wireless device off and on to start&nbsp;pairing.</li>
+<li>To unpair a device: <code>sudo ltunify unpair mouse</code></li>
+<li>To get help: <code>sudo ltunity --help</code></li>
+</ul>
 <h2>Mouse&nbsp;Xbindkeys</h2>
-The M510 mouse has extra buttons on its left side and the scroll wheel  has a side-to-side click, but out of the box,the don&#8217;t do anything under Linux.  It would be nice to make use of these extra buttons.  To address this problem, I found pointers in these posts: <a href="http://ubuntuforums.org/showthread.php?t=1957300">How to get all those extra mouse buttons to work</a>, <a href="http://askubuntu.com/questions/24916/how-do-i-remap-certain-keys">How do I remap certain keys</a>,  <a href="http://blog.hanschen.org/2009/10/13/mouse-shortcuts-with-xbindkeys/">Mouse shortcuts with xbindkeys</a>, and <a href="http://forums.logitech.com/t5/Mice-and-Pointing-Devices/Guide-for-setup-Performance-MX-mouse-on-Linux-with-KDE/td-p/517167">Guide for setup Performance <span class="caps">MX</span> mouse on Linux (with <span class="caps">KDE</span>)</a>.</p>
+
+<p>The M510 mouse has extra buttons on its left side and the scroll wheel  has a side-to-side click, but out of the box,the don&#8217;t do anything under Linux.  It would be nice to make use of these extra buttons.  To address this problem, I found pointers in these posts: <a href="http://ubuntuforums.org/showthread.php?t=1957300">How to get all those extra mouse buttons to work</a>, <a href="http://askubuntu.com/questions/24916/how-do-i-remap-certain-keys">How do I remap certain keys</a>,  <a href="http://blog.hanschen.org/2009/10/13/mouse-shortcuts-with-xbindkeys/">Mouse shortcuts with xbindkeys</a>, and <a href="http://forums.logitech.com/t5/Mice-and-Pointing-Devices/Guide-for-setup-Performance-MX-mouse-on-Linux-with-KDE/td-p/517167">Guide for setup Performance <span class="caps">MX</span> mouse on Linux (with <span class="caps">KDE</span>)</a>.</p>
 <p>Basically, using<a href="http://www.nongnu.org/xbindkeys/#utilisation"> Xbindkeys</a>, I want to map the mouse buttons with desired actions. I want to setup the M510 mouse extra buttons as follows:
 <ul>
 <ul>
@@ -248,15 +355,24 @@ The M510 mouse has extra buttons on its left side and the scroll wheel  has a 
     <li><strong>Scroll Wheel</strong>: <strong>press</strong> is known by the X Server as <strong>button&nbsp;2</strong></li>
 </ul>
 </ul>
-Now we need a mechanism to re-map mouse (or keyboard) button inputs.  <a href="https://wiki.archlinux.org/index.php/Xbindkeys"><code>Xbindkeys</code></a> is is a X Windows program that enables us to bind commands to certain keys or key combinations on the keyboard and it will also work for the mouse.  The file  <code>~/.xbindkeysrc</code> is what <code>xbindkeys</code> uses as a configuration file to link a command to a key/button on your keyboard/mouse.  There is also <code>xbindkeys_config</code> is an easy to use gtk program for configuring <code>xbindkeys</code>. To install these tools, do the following:
-<p style="padding-left:30px;"><code>sudo apt-get install xautomation xbindkeys xbindkeys-config</code></p>
-To create your initial xbindkeys configuration file, just run the following command:
-<p style="padding-left:30px;"><code>xbindkeys --defaults &gt; $HOME/.xbindkeysrc</code></p>
-The syntax of the contents of .xbindskesrc is simple and is illustrated below:
-<pre style="padding-left:30px;"># short comment
-    "command to start"
-        associated key</pre>
-The <code>"command to start"</code> is simply a shell command (that you can run from a terminal),  and <code>"associated key"</code> is the key or&nbsp;button.</p>
+Now we need a mechanism to re-map mouse (or keyboard) button inputs.  <a href="https://wiki.archlinux.org/index.php/Xbindkeys"><code>Xbindkeys</code></a> is is a X Windows program that enables us to bind commands to certain keys or key combinations on the keyboard and it will also work for the mouse.  The file  <code>~/.xbindkeysrc</code> is what <code>xbindkeys</code> uses as a configuration file to link a command to a key/button on your keyboard/mouse.  There is also <code>xbindkeys_config</code> is an easy to use gtk program for configuring <code>xbindkeys</code>. To install these tools, do the&nbsp;following:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install xautomation xbindkeys xbindkeys-config
+</pre></div>
+
+
+<p>To create your initial xbindkeys configuration file, just run the following&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">xbindkeys --defaults &amp;gt; $HOME/.xbindkeysrc
+</pre></div>
+
+
+<p>The syntax of the contents of .xbindskesrc is simple and is illustrated&nbsp;below:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># short comment
+    &quot;command to start&quot;
+        associated key
+</pre></div>
+
+
+<p>The <code>"command to start"</code> is simply a shell command (that you can run from a terminal),  and <code>"associated key"</code> is the key or&nbsp;button.</p>
 <p>Now, using an editor, update the .xbindkeysrc file to include the&nbsp;following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Do a Page Down when mouse left-side down button is pressed
 &quot;xte &#39;key Page_Down&#39;&quot;
@@ -276,10 +392,13 @@ The <code>"command to start"</code> is simply a shell command (that you can run 
 </pre></div>
 
 
-<p>To activate any modification of the .xbindkeysrc configuration file, your have to restart xbindkeys.   This can be done via:
-<p style="padding-left:30px;"><code>pkill xbindkeys
-xbindkeys</code></p>
-Other useful resources are:
+<p>To activate any modification of the .xbindkeysrc configuration file, your have to restart xbindkeys.   This can be done&nbsp;via:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">pkill xbindkeys
+xbindkeys
+</pre></div>
+
+
+<p>Other useful resources are:
 <ul>
 <ul>
     <li><code>xte</code> is a program that generates fake input using the XTest&nbsp;extension</li>
@@ -296,9 +415,12 @@ I have been using the <span class="caps">MS</span> Windows based <a href="https
     <li><a href="http://lifehacker.com/5063176/how-to-use-dropbox-as-the-ultimate-password-syncer">How to Use Dropbox as the Ultimate Password&nbsp;Syncer</a></li>
 </ul>
 </ul>
-The first step was to get KeePass installed in Ubuntu.  I found it on the <a href="http://en.wikipedia.org/wiki/Ubuntu_Software_Center">Ubuntu Software Center</a> or you can use:
-<p style="padding-left:30px;"><code>sudo apt-get install keepass2 keepass2-doc</code></p>
-I then exported the contents of my SplashID database to a <a href="http://en.wikipedia.org/wiki/Comma-separated_values"><span class="caps">CSV</span> file</a> and imported it into keepass2.  I set up the KeePass2 database within my Dropbox folder.  This way, it can be scych&#8217;ed with my cell phone. I then installed KeePassDroid on my cell phone, pointing it at the database with the cell phones Dropbox.  <a href="http://www.keepassdroid.com/">KeePassDroid</a> is a port of the KeePass password safe for the Android&nbsp;platform.</p>
+The first step was to get KeePass installed in Ubuntu.  I found it on the <a href="http://en.wikipedia.org/wiki/Ubuntu_Software_Center">Ubuntu Software Center</a> or you can&nbsp;use:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install keepass2 keepass2-doc
+</pre></div>
+
+
+<p>I then exported the contents of my SplashID database to a <a href="http://en.wikipedia.org/wiki/Comma-separated_values"><span class="caps">CSV</span> file</a> and imported it into keepass2.  I set up the KeePass2 database within my Dropbox folder.  This way, it can be scych&#8217;ed with my cell phone. I then installed KeePassDroid on my cell phone, pointing it at the database with the cell phones Dropbox.  <a href="http://www.keepassdroid.com/">KeePassDroid</a> is a port of the KeePass password safe for the Android&nbsp;platform.</p>
 <p>There is some cleanup of the fields within the KeePass2 database, but the data is now accessable on both my <span class="caps">PC</span> and my cell phone.
 <h2>Installing&nbsp;Wine</h2>
 <a href="http://www.winehq.org/">Wine</a> allows you to run many Windows programs on Linux. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows <span class="caps">API</span> calls into Linux calls.  I used the following to install&nbsp;Wine:</p>
@@ -340,15 +462,20 @@ I had already installed one <a href="http://en.wikipedia.org/wiki/Solid-state_dr
     <li>Physically install the additional hard&nbsp;drive.</li>
     <li>Install <a href="http://en.wikipedia.org/wiki/Mdadm">mdadm</a>, which is the Linux utility used to manage software <span class="caps">RAID</span>&nbsp;devices.</li>
 </ul>
-</ul>
-<p style="padding-left:90px;"><code>sudo apt-get install mdadm</code></p></p>
+</ul></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install mdadm
+</pre></div>
+
+
 <ul>
 <ul>
     <li>Partition the newly installed disk. Use the following inputs: n to establish a logic partition, p to make it a primary partition, 1  should be the partition number, use the same sectors as the currently installed drive, t to set the partition type, fd hex code type, p to print what the partition table will look like, w to write all of the changes to&nbsp;disk.</li>
 </ul>
 </ul>
 
-<p style="padding-left:90px;"><code>sudo fdisk /dev/sdc</code></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo fdisk /dev/sdc
+</pre></div>
+
 
 <ul>
 <ul>
@@ -356,7 +483,9 @@ I had already installed one <a href="http://en.wikipedia.org/wiki/Solid-state_dr
 </ul>
 </ul>
 
-<p style="padding-left:90px;"><code>sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 missing /dev/sdc1</code></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 missing /dev/sdc1
+</pre></div>
+
 
 <ul>
 <ul>
@@ -365,7 +494,9 @@ I had already installed one <a href="http://en.wikipedia.org/wiki/Solid-state_dr
 </ul>
 </ul>
 
-<p style="padding-left:90px;"><code>sudo mkfs -t ext3 -j -L RAID-ONE /dev/md0</code></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mkfs -t ext3 -j -L RAID-ONE /dev/md0
+</pre></div>
+
 
 <ul>
 <ul>
@@ -384,7 +515,9 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </ul>
 </ul>
 
-<p style="padding-left:90px;"><code>sudo rsync -avxHAXS --delete --progress /home/* /mnt/raid1</code></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -avxHAXS --delete --progress /home/* /mnt/raid1
+</pre></div>
+
 
 <ul>
 <ul>
@@ -392,7 +525,9 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </ul>
 </ul>
 
-<p style="padding-left:90px;"><code>sudo rsync -avxHAXS --delete --progress /home /home_backup</code></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo rsync -avxHAXS --delete --progress /home /home_backup
+</pre></div>
+
 
 <ul>
 <ul>
@@ -402,7 +537,9 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </ul>
 </ul>
 
-<p style="padding-left:90px;"><code>sudo fdisk /dev/sdb1</code></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo fdisk /dev/sdb1
+</pre></div>
+
 
 <ul>
 <ul>
@@ -410,7 +547,9 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </ul>
 </ul>
 
-<p style="padding-left:90px;"><code>mdadm /dev/md0 --add /dev/sdb1</code></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mdadm /dev/md0 --add /dev/sdb1
+</pre></div>
+
 
 <ul>
 <ul>
@@ -418,7 +557,9 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </ul>
 </ul>
 
-<p style="padding-left:90px;"><code>sudo mdadm -D /dev/md0</code></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo mdadm -D /dev/md0
+</pre></div>
+
 
 <ul>
 <ul>
@@ -427,7 +568,7 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 </ul>
 
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo cp /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf_backup
-sudo mdadm --detail --scan &amp;gt;&amp;gt; /etc/mdadm/mdadm.conf
+sudo mdadm --detail --scan &gt;&gt; /etc/mdadm/mdadm.conf
 </pre></div><script type= "text/javascript">
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
@@ -587,9 +728,12 @@ sudo mdadm --detail --scan &amp;gt;&amp;gt; /etc/mdadm/mdadm.conf
             <a href="http://opensource.org/">
                 <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
             </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
             <small>
-                All my work is
-                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
                 except where indicated otherwise.
             </small>
             </p>

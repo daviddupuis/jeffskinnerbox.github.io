@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
@@ -21,14 +21,14 @@
         <script src='http://1.rp-api.com/rjs/repostus.js' type='text/javascript'></script>
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Font Awesome and Google Fonts -->
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
     <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
@@ -52,9 +52,7 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About Me
-                          </a></li>
+                    <li><a href="/pages/about-me.html">About Me</a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
@@ -111,13 +109,22 @@ Jeff's Skinner Box&nbsp;            </a>
 </center>
 This idea of controlling my Raspberry Pi (RPi), and the things its networked with, via an internet browser is at the heart of what I would like to do with the assortment of Arduino and Xbee devices I&#8217;m assembling.  To explore how best to do this, I&#8217;m considering using <a href="http://code.google.com/p/webiopi/">WebIOPi</a>, which is a web application used to control your RPi’s <span class="caps">GPIO</span>.  I believe it could be useful as a test tool, but more importantly, I suspect that I could learn how to engineer my application by studying its design.
 <h2>Install&nbsp;WebIOPi</h2>
-When installing WebIOPi on my RPi, I followed the <a href="http://code.google.com/p/webiopi/wiki/INSTALL#PHP/Apache">installation</a> instructions for the Apache version.  I choose this version since  I&#8217;ll be using the Apache web server for other features as my project evolves. Note that there is a small error on the instructions if you use a symbolic link to the webiopi directory.  Create this link using
-<p style="padding-left:30px;"><code>sudo ln -s /home/pi/webiopi /var/www/webiopi</code></p>
-Immediately after installation,  you can test to see if you can render a web page.  Assuming that your  Raspberry Pi is connected to your network  and its named <code>raspberrypi</code>, you can open a browser to <code><a href="http://raspberrypi/webiopi/" rel="nofollow">http://raspberrypi/webiopi/</a></code> with your network <span class="caps">PC</span>.  It might work but your likely to get a error, something like &#8220;&#8230;Could not reliably determine the server’s fully qualified domain name&#8230;&#8221; and the <a href="http://scottlinux.com/2011/02/16/could-not-reliably-determine-the-servers-fully-qualified-domain-name/">solution</a> is to give your web server a&nbsp;name.</p>
-<p>To do this,  create this Apache config file:
-<p style="padding-left:30px;"><code>sudo vi /etc/apache2/conf.d/fqdn</code></p>
-Enter <code>ServerName raspberrypi</code> into this file and restart Apache using
-<p style="padding-left:30px;"><code>sudo /etc/init.d/apache2 restart</code></p></p>
+When installing WebIOPi on my RPi, I followed the <a href="http://code.google.com/p/webiopi/wiki/INSTALL#PHP/Apache">installation</a> instructions for the Apache version.  I choose this version since  I&#8217;ll be using the Apache web server for other features as my project evolves. Note that there is a small error on the instructions if you use a symbolic link to the webiopi directory.  Create this link&nbsp;using</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo ln -s /home/pi/webiopi /var/www/webiopi
+</pre></div>
+
+
+<p>Immediately after installation,  you can test to see if you can render a web page.  Assuming that your  Raspberry Pi is connected to your network  and its named <code>raspberrypi</code>, you can open a browser to <code><a href="http://raspberrypi/webiopi/" rel="nofollow">http://raspberrypi/webiopi/</a></code> with your network <span class="caps">PC</span>.  It might work but your likely to get a error, something like &#8220;&#8230;Could not reliably determine the server’s fully qualified domain name&#8230;&#8221; and the <a href="http://scottlinux.com/2011/02/16/could-not-reliably-determine-the-servers-fully-qualified-domain-name/">solution</a> is to give your web server a&nbsp;name.</p>
+<p>To do this,  create this Apache config&nbsp;file:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo vi /etc/apache2/conf.d/fqdn
+</pre></div>
+
+
+<p>Enter <code>ServerName raspberrypi</code> into this file and restart Apache&nbsp;using</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo /etc/init.d/apache2 restart
+</pre></div>
+
+
 <h2>Installing <span class="caps">GPIO</span>&nbsp;Utilities</h2>
 
 <p>While checking on the status of of the Python based <span class="caps">GPIO</span> package on the <span class="caps">RPI</span> using the command <code>dpkg -l | grep gpio</code>, I concluded that the  <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview">Occidentalis</a> distribution I&#8217;m using doesn&#8217;t have any Python libraries for <span class="caps">GPIO</span>.</p>
@@ -128,11 +135,16 @@ sudo apt-get install python-pip
 </pre></div>
 
 
-<p>With this done, now its time to install the required Python libraries but first, update the Python distribution by running
-<p style="padding-left:30px;"><code>sudo easy_install -U distribute</code></p>
-Finally you can install the Raspberry Pi <span class="caps">GPIO</span> (General Purpose Input/Ouput) library:
-<p style="padding-left:30px;"><code>sudo pip install RPi.GPIO
-</code></p></p>
+<p>With this done, now its time to install the required Python libraries but first, update the Python distribution by&nbsp;running</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo easy_install -U distribute
+</pre></div>
+
+
+<p>Finally you can install the Raspberry Pi <span class="caps">GPIO</span> (General Purpose Input/Ouput)&nbsp;library:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo pip install RPi.GPIO
+</pre></div>
+
+
 <h2>What did I&nbsp;find</h2>
 
 <p>WebIOPi  supports binary GPIOs, in both input and output.  That is, you can set a <span class="caps">GPIO</span> output pin high/low via a browser pick.  Also, you can see the state of a <span class="caps">GPIO</span> pin.  Equally important to me is that WebIOPi auto-refreshes, via <a href="http://www.kendoui.com/blogs/teamblog/posts/12-05-11/hello_services_webapi_rest_json_and_ajax.aspx">WebAPI, <span class="caps">REST</span>, <span class="caps">JSON</span> and <span class="caps">AJAX</span></a> I assume.  Therefore, when the <span class="caps">GPIO</span> pins change state, the browser automatically is updated with the new status.  And this happens for all browsers displaying WebIOPi.  You can demonstrate this by opening two browsers pointing at WebIOPi.  Action performed in one browser will also appear in the other.
@@ -340,9 +352,12 @@ i <span style="color: #555555">=</span> <span style="color: #FF6600">0</span>
             <a href="http://opensource.org/">
                 <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
             </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
             <small>
-                All my work is
-                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
                 except where indicated otherwise.
             </small>
             </p>

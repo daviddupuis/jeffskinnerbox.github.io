@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
@@ -21,14 +21,14 @@
         <script src='http://1.rp-api.com/rjs/repostus.js' type='text/javascript'></script>
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Font Awesome and Google Fonts -->
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
     <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
@@ -52,9 +52,7 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About Me
-                          </a></li>
+                    <li><a href="/pages/about-me.html">About Me</a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
@@ -223,12 +221,18 @@ Above you&#8217;ll find a picture of the configuration, and below is the Ardui
 
 <p>While the <span class="caps">MS</span> Windows based Digi X-<span class="caps">CTU</span> tool is just fine, I want to use the RPi&#8217;s and Python to access the XBee serial communication <span class="caps">API</span>, and its advanced features, for one or more XBee devices.  I prefer simple utilities, that can be scripted within the Linux shell.  Call me a Linux snob if you wish, but I don&#8217;t care for <span class="caps">MS</span>&nbsp;Windows!</p>
 <p>In my post &#8220;<a href="http://jeffskinnerbox.wordpress.com/2012/12/22/selecting-xbee-radios-and-supporting-softwaretools/">Selecting XBee Radios and Supporting Software Tools</a>&#8220;, I referenced a Python package that could be used to create my utilitiesd, call python-xbee, and I will be using it here. It claims to provides a semi-complete implementation of the XBee binary <span class="caps">API</span> protocol and allows a developer to send and receive the information they desire without dealing with the raw communication details. It also claims the  library is compatible with both XBee 802.15.4 (Series 1) and XBee ZigBee (Series 2) modules, normal and <span class="caps">PRO</span>.</p>
-<p>First, we need to load some additional required Python Packages, that being <a href="http://pyserial.sourceforge.net/">pySerial</a> and <a href="https://nose.readthedocs.org/en/latest/">Nose</a>. pySerial extends python&#8217;s capabilities to include interacting with a serial port and Nose is a package providing a very easy way to build tests, based on the Python class <a href="http://docs.python.org/2/library/unittest.html">unittest</a>.  (Don&#8217;t let this all scare you away, these are necessary but your not going to use them directly).  To load these package:
-<p style="padding-left:30px;"><code>sudo pip install pySerial
-sudo pip install nose</code></p>
-Download the python-xbee tools from <a href="http://code.google.com/p/python-xbee/">Google Code</a> or <a href="http://pypi.python.org/pypi/XBee/2.0.0">Python Org</a> and place them into the RPi&#8217;s $<span class="caps">HOME</span>/src.  The <span class="caps">README</span> file provides installation instructions.  It states that the following command automatically test and install the package for you:
-<p style="padding-left:30px;"><code>sudo python setup.py install</code></p>
-There is a simple to use RPi platform tool that I have modified for my needs, that is a XBee serial command shell for interacting with XBee radios.  It performs the core functions of the official configuration tool, <a href="https://sites.google.com/site/xbeetutorial/xctu">X-<span class="caps">CTU</span></a>, which only runs on Windows. (There happens to be a cross-platform version of X-<span class="caps">CTU</span> called <a href="http://www.moltosenso.com/client/fe/browser.php?pc=/client/fe/download.php">moltosenso Network Manager</a> but I don&#8217;t need all this horse power.)  I&#8217;ll use this X-<span class="caps">CTU</span>-alternative to configure the individual XBee radios.  With the X-<span class="caps">CTU</span>, you can update firmware, etc. but most of the time you need the program to do simple configuration tasks. You could use Linux&#8217;s <a href="http://linux.die.net/man/1/minicom"><code>minicom</code></a>, but I prefer a simpler tool which can be scripted so I can configure several XBee radios identically.  I found much of what I wanted in an existing <a href="https://github.com/sensestage/xbee-tools">Python XBee tools for configuration</a>.  I made some modification/improvements, I call it the XBeeTerm, and its listed&nbsp;below:</p>
+<p>First, we need to load some additional required Python Packages, that being <a href="http://pyserial.sourceforge.net/">pySerial</a> and <a href="https://nose.readthedocs.org/en/latest/">Nose</a>. pySerial extends python&#8217;s capabilities to include interacting with a serial port and Nose is a package providing a very easy way to build tests, based on the Python class <a href="http://docs.python.org/2/library/unittest.html">unittest</a>.  (Don&#8217;t let this all scare you away, these are necessary but your not going to use them directly).  To load these&nbsp;package:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo pip install pySerial
+sudo pip install nose
+</pre></div>
+
+
+<p>Download the python-xbee tools from <a href="http://code.google.com/p/python-xbee/">Google Code</a> or <a href="http://pypi.python.org/pypi/XBee/2.0.0">Python Org</a> and place them into the RPi&#8217;s $<span class="caps">HOME</span>/src.  The <span class="caps">README</span> file provides installation instructions.  It states that the following command automatically test and install the package for&nbsp;you:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo python setup.py install
+</pre></div>
+
+
+<p>There is a simple to use RPi platform tool that I have modified for my needs, that is a XBee serial command shell for interacting with XBee radios.  It performs the core functions of the official configuration tool, <a href="https://sites.google.com/site/xbeetutorial/xctu">X-<span class="caps">CTU</span></a>, which only runs on Windows. (There happens to be a cross-platform version of X-<span class="caps">CTU</span> called <a href="http://www.moltosenso.com/client/fe/browser.php?pc=/client/fe/download.php">moltosenso Network Manager</a> but I don&#8217;t need all this horse power.)  I&#8217;ll use this X-<span class="caps">CTU</span>-alternative to configure the individual XBee radios.  With the X-<span class="caps">CTU</span>, you can update firmware, etc. but most of the time you need the program to do simple configuration tasks. You could use Linux&#8217;s <a href="http://linux.die.net/man/1/minicom"><code>minicom</code></a>, but I prefer a simpler tool which can be scripted so I can configure several XBee radios identically.  I found much of what I wanted in an existing <a href="https://github.com/sensestage/xbee-tools">Python XBee tools for configuration</a>.  I made some modification/improvements, I call it the XBeeTerm, and its listed&nbsp;below:</p>
 <p><script src="https://gist.github.com/jeffskinnerbox/6663016.js"></script></p>
 
 <p>The XBeeTerm.py module imports functions from the pretty.py package, specifically to colorize the output for xterm on the Raspberry Pi.  This package is provided&nbsp;here:</p>
@@ -236,13 +240,19 @@ There is a simple to use RPi platform tool that I have modified for my needs, th
 
 <h2>Identifying the RPi <span class="caps">USB</span> device used by the&nbsp;XBee</h2>
 
-<p>Since the python-xbee library wants to talk to the via a Linux serial devices, I&#8217;m using the <a href="http://www.adafruit.com/products/70"><span class="caps">USB</span> <span class="caps">FTDI</span> <span class="caps">TTL</span>-232 Cable</a> (<a href="http://www.ftdichip.com/"><span class="caps">FTDI</span></a> is the <a href="http://en.wikipedia.org/wiki/Universal_Serial_Bus"><span class="caps">USB</span></a> chip manufacturer) used in the XBee configuration step done earlier.  I connected the cable to the RPi <span class="caps">USB</span> port  and then we need to find the serial tty the cable is associated with.  To do this, it takes a bit of detective work. Run the commands:
-<p style="padding-left:30px;"><code>lsusb
+<p>Since the python-xbee library wants to talk to the via a Linux serial devices, I&#8217;m using the <a href="http://www.adafruit.com/products/70"><span class="caps">USB</span> <span class="caps">FTDI</span> <span class="caps">TTL</span>-232 Cable</a> (<a href="http://www.ftdichip.com/"><span class="caps">FTDI</span></a> is the <a href="http://en.wikipedia.org/wiki/Universal_Serial_Bus"><span class="caps">USB</span></a> chip manufacturer) used in the XBee configuration step done earlier.  I connected the cable to the RPi <span class="caps">USB</span> port  and then we need to find the serial tty the cable is associated with.  To do this, it takes a bit of detective work. Run the&nbsp;commands:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">lsusb
 dmesg | grep Manufacturer
-dmesg | grep FTDI</code></p>
-A better command might be (but I&#8217;m not sure it will work every time):
-<p style="padding-left:30px;"><code>dmesg | grep -i usb | grep -i tty</code></p>
-The interpretation of the output tells us the cable is attached to serial device <code>/dev/ttyUSB0</code>.  See the output&nbsp;below.</p>
+dmesg | grep FTDI
+</pre></div>
+
+
+<p>A better command might be (but I&#8217;m not sure it will work every&nbsp;time):</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">dmesg | grep -i usb | grep -i tty
+</pre></div>
+
+
+<p>The interpretation of the output tells us the cable is attached to serial device <code>/dev/ttyUSB0</code>.  See the output&nbsp;below.</p>
 <p><a href="http://jeffskinnerbox.wordpress.com/2013/01/30/configuration-utilities-for-xbee-radios/best-use-of-dmesg/" rel="attachment wp-att-1070"><img class="aligncenter size-full wp-image-1070" alt="best use of dmesg" src="http://jeffskinnerbox.files.wordpress.com/2012/12/best-use-of-dmesg.jpg" width="500" height="192" /></a></p>
 <p>Another possibility is to use <a href="http://linux.die.net/man/8/udevadm"><code>udevadm</code></a> to gather information about specific devices but I never figured out exactly how to use it to answer my question.  Python also has a package called <a href="http://sourceforge.net/apps/trac/pyusb/">PyUSB</a> that might provide some help, but also here you&#8217;ll still need the vendor and product identification&nbsp;information.</p>
 <p>Chances are that when you plug the cable into the same <span class="caps">USB</span> port the next time, it will default to the same tty but there is no certainty.  To assign a permanent tty name to the device, and never do any of this again, check out <a href="http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/">Persistent names for usb-serial devices</a>.
@@ -433,9 +443,12 @@ General Documentation
             <a href="http://opensource.org/">
                 <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
             </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
             <small>
-                All my work is
-                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
                 except where indicated otherwise.
             </small>
             </p>

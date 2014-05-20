@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
@@ -20,14 +20,14 @@
         <script src='http://1.rp-api.com/rjs/repostus.js' type='text/javascript'></script>
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
 
     <!-- Font Awesome and Google Fonts -->
     <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
 
     <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://jeffskinnerbox.me/theme/css/style.css" type="text/css"/>
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
         <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
 
         <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
@@ -51,9 +51,7 @@ Jeff's Skinner Box&nbsp;            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://jeffskinnerbox.me/pages/about-me.html">
-                             About Me
-                          </a></li>
+                    <li><a href="/pages/about-me.html">About Me</a></li>
                     <li><a href="/index.html">Blog</a></li>
                     <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
             </ul>
@@ -133,20 +131,20 @@ sudo apt-get upgrade
 </pre></div>
 
 
-<h5>Search for Package or Package&nbsp;Description</h5>
+<h4>Search for Package or Package&nbsp;Description</h4>
 <p>Some times you don&#8217;t know package name but aware of some keywords to search the package.  To search for packages, use the&nbsp;following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">apt-cache search <span style="color: #CC3300">&quot;text-to-search&quot;</span>
 apt-cache search <span style="color: #CC3300">&quot;text-to-search&quot;</span> | grep <span style="color: #CC3300">&quot;more-search-text&quot;</span>
 </pre></div>
 
 
-<h5>Erase Package and Configuration&nbsp;File</h5>
+<h4>Erase Package and Configuration&nbsp;File</h4>
 <p>To completely erase from you Linux system, you can use&nbsp;the following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">apt-get --purge remove <span style="color: #555555">{</span>package-name<span style="color: #555555">}</span>
 </pre></div>
 
 
-<h5>List All Installed&nbsp;Packages</h5>
+<h4>List All Installed&nbsp;Packages</h4>
 <p>You can use following command to find out all Linux package names available on your&nbsp;system:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">dpkg -l
 </pre></div>
@@ -163,7 +161,7 @@ apt-cache search <span style="color: #CC3300">&quot;text-to-search&quot;</span> 
 
 
 <h3>Linux and Python&nbsp;Packages</h3>
-<h5>Python</h5>
+<h4>Python</h4>
 <p>Python is an interpreted, object-oriented, high-level programming language  attractive for rapid application development, as well as for use as a scripting or glue language to connect existing components together. Python&#8217;s simple, easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance.  While the Raspberry Pi Linux distribution is likely to already have some python packages installed, execute the following to make sure you have all that is needed (see
 <a href="http://www.youtube.com/watch?v=jI8VBP1wEZU">distribute and easy_install</a>
  more&nbsp;details).</p>
@@ -215,7 +213,7 @@ cross platform framework that is widely used for developing application softwar
 </pre></div>
 
 
-<h5>IPython</h5>
+<h4>IPython</h4>
 <p><a href="http://ipython.org/">IPython</a>
 can do much more than the standard Python. IPython is an interactive shell for the Python programming language that offers enhanced introspection, additional shell syntax, tab completion and rich history. IPython allows non-blocking interaction with Tkinter, <span class="caps">GTK</span>, Qt and wxWidgets (the standard Python shell only allows interaction with Tkinter).  IPython provide a rich
 <a href="http://en.wikipedia.org/wiki/Rich_Internet_application">text web interface</a>
@@ -224,7 +222,7 @@ can do much more than the standard Python. IPython is an interactive shell for t
 </pre></div>
 
 
-<h5>Markdown</h5>
+<h4>Markdown</h4>
 <p>Markdown is a text-to-<span class="caps">HTML</span> conversion tool for web writers, and its useful for software documentation.
 Markdown allows you to write using an easy-to-read, easy-to-write plain text format,
 then convert it to structurally valid <span class="caps">XHTML</span> (or <span class="caps">HTML</span>).
@@ -235,7 +233,7 @@ I use it extensively for my software&nbsp;documentationm.</p>
 </pre></div>
 
 
-<h5>X Window&nbsp;Utilities</h5>
+<h4>X Window&nbsp;Utilities</h4>
 <p>The <code>x11-apps</code> package provides a miscellaneous assortment of X applications that ship with the X Window System, including <code>xclock</code> (graphical clocks), <code>xconsole</code> (monitors system console messages), <code>xeyes</code> (demo program &#8230; eyes track the pointer), <code>xload</code> (monitor for the system load average), <code>xwd</code> (utility for taking screenshots), etc. <code>xterm</code> is the standard terminal emulator for the X Window System. The <code>x11-xserver-utils</code> package provides a miscellaneous assortment of X Server utilities that ship with the X Window System, including <code>xrdb</code> (a tool to manage the X server resource database), <code>xsetroot</code> (a tool for tailoring the appearance of the root&nbsp;window)</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install x11-apps
 sudo apt-get install x11-xserver-utils
@@ -243,7 +241,7 @@ sudo apt-get install xterm
 </pre></div>
 
 
-<h5>Synaptic</h5>
+<h4>Synaptic</h4>
 <p>Synaptic is a graphical package management program for Linux software. It provides the same features as the <code>apt-get</code> command line utility with a X Windows <span class="caps">GUI</span> front-end.  While I will not be using X Windows at this moment, in the future I will and
 <a href="http://en.wikipedia.org/wiki/Synaptic_(software)">synaptic</a>
 is a very nice alternative to <code>apt-get</code> when in in X&nbsp;Windows.</p>
@@ -251,7 +249,7 @@ is a very nice alternative to <code>apt-get</code> when in in X&nbsp;Windows.</p
 </pre></div>
 
 
-<h5>Vim</h5>
+<h4>Vim</h4>
 <p>Vim is a highly configurable text editor and widely available for many different platforms.
 <a href="http://en.wikipedia.org/wiki/Emacs">Emacs</a>
 also has a large following, but I think everyone needs to be prepared to use
@@ -265,13 +263,13 @@ sudo apt-get install vim-gtk
 <p><code>vim</code> will work for you just fine right out of the box but its real power is demonstrated by tapping into it configuration via the <code>.vimrc</code> file.
 Configuring vim is a major topic, covered by many web sites and books, but you&#8217;ll find my <code>.vimrc</code> file on
 <a href="https://github.com/jeffskinnerbox/dotvim">GitHub</a>.</p>
-<h5>PyRoom</h5>
+<h4>PyRoom</h4>
 <p>PyRoom is a a fullscreen editor without buttons, widgets, formatting options, menus and with only the minimum of required dialog windows, it doesn&#8217;t have any distractions and lets you focus on writing and only writing.  It is the polar opposite of Vim, and as such, is a good editor for the novice or casual user, but requires X Windows and&nbsp;Python.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install pyroom
 </pre></div>
 
 
-<h5>Git</h5>
+<h4>Git</h4>
 <p>Given that I plan to hack some <em>to-be-determined</em> applications using the RPi, I should consider establish some tools for  source code management. The last time I did serious software development in Linux (really Unix), I was using Source Code Control System (<span class="caps">SCCS</span>). The tools are much improved now and
 <a href="http://git-scm.com/documentation"><code>git</code></a>
 is hands down the way to&nbsp;go.</p>
@@ -279,7 +277,7 @@ is hands down the way to&nbsp;go.</p>
 </pre></div>
 
 
-<h5>Chromium</h5>
+<h4>Chromium</h4>
 <p>We all have a favorite browser and I choose
 <a href="http://www.chromium.org/Home"><code>chromium</code></a>
 for my RPi.  Chromium serves as a base for Google Chrome, which is Chromium re-branded (name and logo) with very few&nbsp;additions.</p>
@@ -287,20 +285,20 @@ for my RPi.  Chromium serves as a base for Google Chrome, which is Chromium re
 </pre></div>
 
 
-<h5>Apache</h5>
+<h4>Apache</h4>
 <p>Apache is a very popular web server and I will make use of it for any web application that are required. It can be installed, along with its required scripting language, via the command&nbsp;below.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo aptitude install apache2 php5
 </pre></div>
 
 
-<h5>Conky</h5>
+<h4>Conky</h4>
 <p><a href="http://conky.sourceforge.net/">Conky</a>
 is a system monitor tool for X Windows.  Conky is highly configurable and is able to monitor many system variables including the status of the <span class="caps">CPU</span>, memory, swap space, disk storage, temperatures, processes, network interfaces, battery power, system messages, e-mail inboxes, Linux updates, runs many popular music players, and much more.  To install the standard Conky package, use the&nbsp;following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install conky-std
 </pre></div>
 
 
-<h5>SendEmail</h5>
+<h4>SendEmail</h4>
 <p><a href="http://www.debianadmin.com/how-to-sendemail-from-the-command-line-using-a-gmail-account-and-others.html">sendEmail</a>
 is a command-line outgoing email
 <a href="http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol"><span class="caps">SMTP</span></a>
@@ -309,14 +307,14 @@ client. It is used for sending e-mails from the command line, and can therefore 
 </pre></div>
 
 
-<h5><span class="caps">SSHFS</span></h5>
+<h4><span class="caps">SSHFS</span></h4>
 <p><a href="https://help.ubuntu.com/community/SSHFS"><span class="caps">SSHFS</span></a> (<span class="caps">SSH</span> Filesystem)
 is a file system client to mount and interact with directories and files located on a remote server or workstation. <span class="caps">SSHFS</span> requires no special software on the remote side, just a <span class="caps">SSH</span> server with support for the <span class="caps">SFTP</span> extension. <span class="caps">SSHFS</span> is an alternative to traditional network file system, such as <span class="caps">NFS</span>, OpenAFS or Samba. Setting up these network file systems requires administrator access on both systems, but not for <span class="caps">SSHFS</span>.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install sshfs
 </pre></div>
 
 
-<h5>Advanced Linux Sound Architecture (<span class="caps">ALSA</span>)</h5>
+<h4>Advanced Linux Sound Architecture (<span class="caps">ALSA</span>)</h4>
 <p>The <a href="http://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture">Advanced Linux Sound Architecture (<span class="caps">ALSA</span>)</a>
 provides audio and <span class="caps">MIDI</span> functionality to the Linux operating system. Is structured as Linux kernel module and provides an <span class="caps">API</span> for device drivers for sound&nbsp;cards.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install alsa-utils
@@ -325,7 +323,7 @@ sudo apt-get install lame
 </pre></div>
 
 
-<h5>Festival /&nbsp;Flite</h5>
+<h4>Festival /&nbsp;Flite</h4>
 <p>The <a href="http://www.cstr.ed.ac.uk/projects/festival/">Festival</a>
 Speech Synthesis System offers a general framework for building
 <a href="http://en.wikipedia.org/wiki/Speech_synthesis">speech synthesis</a>
@@ -339,7 +337,7 @@ sudo apt-get install flite
 </pre></div>
 
 
-<h5>Wireshark</h5>
+<h4>Wireshark</h4>
 <p><a href="http://www.wireshark.org/">Wireshark</a>
 (originally named Ethereal) is a free and open-source packet analyzer. Wireshark is very similar to
 <a href="http://en.wikipedia.org/wiki/Tcpdump">tcpdump</a>,
@@ -352,14 +350,14 @@ into that mode, in order to see all traffic visible on that interface, not just 
 </pre></div>
 
 
-<h5>Microcom</h5>
+<h4>Microcom</h4>
 <p><a href="http://manpages.ubuntu.com/manpages/lucid/man1/microcom.1.html">Microcom</a>
 is a minimalistic terminal program for accessing devices (e.g. switches) via a serial connection. it features connection via rs232 serial interfaces (including setting of transferrates) as well as in &#8220;telnetmode&#8221; as specified in&nbsp;rfc2217.</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install microcom
 </pre></div>
 
 
-<h5>Arduino</h5>
+<h4>Arduino</h4>
 <p>Arduino is a single-board microcontroller designed to make the process of using electronics in multidisciplinary projects more accessible. The hardware consists of a simple open source hardware design for the Arduino board with an Atmel <span class="caps">AVR</span> processor and on-board input/output support. Arduino is a descendant of the open-source
 <a href="http://en.wikipedia.org/wiki/Wiring_(development_platform)">Wiring</a>
 platform and is programmed using a Wiring-based language (syntax and libraries), similar to C++ with some slight simplifications and modifications.  What is installed here is the Arduino 
@@ -369,7 +367,7 @@ platform and is programmed using a Wiring-based language (syntax and libraries)
 
 
 <p>To run the Arduino <span class="caps">IDE</span>, simple type the following on the RPi command line: <code>arduino &amp;</code>.</p>
-<h5>Dos2Unix</h5>
+<h4>Dos2Unix</h4>
 <p>I <a href="http://jeffskinnerbox.wordpress.com/2012/11/11/dropbox-for-the-raspberry-pi-sort-of/">mount my Window <span class="caps">PC</span>’s Dropbox directory</a>
 on my RPi so I can work in both environments at will. While editing files on a machine running some form of Windows and uploading them to a Linux server is convenient, it can cause unforeseen complications. Windows-based text editors put one set of special characters at the end of lines (i.e. carriage return and line break = <code>\r\n</code>), while Unix/Linux puts other characters (i.e. line break = <code>\n</code>). This is normally harmless, but some applications on a Linux cannot understand these characters and can cause Linux to not respond&nbsp;correctly.</p>
 <p>The best example of Linux behaving badly (and the only one I know)  is the execution of “shebang” or the “<code>#!...</code>” at the top of a bash, python, perl, etc. script.  If you edit these files in <span class="caps">DOS</span>, then move them to Linux,
@@ -380,7 +378,7 @@ will stop working.  Editing them under <span class="caps">DOS</span> is the ori
 </pre></div>
 
 
-<h5>Fonts</h5>
+<h4>Fonts</h4>
 <p>The native fonts on RPi are nothing to get excited about and can be hard on the eyes. I prefer
 <a href="http://www.levien.com/type/myfonts/inconsolata.html">Inconsolata</a>
 which claims to be designed primarily for use on the screen and high resolution rendering. It is a
@@ -491,9 +489,12 @@ font designed for source code listing, terminal emulators, and similar&nbsp;uses
             <a href="http://opensource.org/">
                 <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
             </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
             <small>
-                All my work is
-                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT licensed, Open, and Free</a>,
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
                 except where indicated otherwise.
             </small>
             </p>

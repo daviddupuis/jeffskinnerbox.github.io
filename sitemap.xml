@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>http://jeffskinnerbox.me/posts/2014/May/12/conky-for-ubuntu/</loc>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
         <loc>http://jeffskinnerbox.me/posts/2014/Apr/29/howto-using-xephyr-to-create-a-new-display-in-a-window/</loc>
         <priority>0.8</priority>
     </url>
@@ -42,7 +47,7 @@
     </url>
 
     <url>
-        <loc>http://jeffskinnerbox.me/posts/2013/Jun/16/linux-reboot-or-my-system-is-frozen-and-i-cant-get up/</loc>
+        <loc>http://jeffskinnerbox.me/posts/2013/Jun/16/linux-reboot-or-my-system-is-frozen-and-i-cant-get-up/</loc>
         <priority>0.8</priority>
     </url>
 
@@ -52,7 +57,7 @@
     </url>
 
     <url>
-        <loc>http://jeffskinnerbox.me/posts/2013/Apr/28/building my linux box...the plan/</loc>
+        <loc>http://jeffskinnerbox.me/posts/2013/Apr/28/building-my-linux-box-the-plan/</loc>
         <priority>0.8</priority>
     </url>
 
@@ -171,11 +176,6 @@
         <priority>0.8</priority>
     </url>
 
-
-    <url>
-        <loc>http://jeffskinnerbox.me/pages/about-me.html</loc>
-        <priority>1.0</priority>
-    </url>
 
 
 
