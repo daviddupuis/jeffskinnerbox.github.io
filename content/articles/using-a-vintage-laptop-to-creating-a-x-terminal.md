@@ -4,30 +4,29 @@ Category: Software
 Tags: Linux
 Slug: using-a-vintage-laptop-to-creating-a-x-terminal
 Author: "Jeff Irland"
-Image: DRAFT_stamp.svg
-Summary: bla bla bla
-Status: draft
+Image: DRAFT_stamp.png
+Summary: bla bla bla 
 
-On a whim, I visited a web aution site dealing in surplus government property. 
+On a whim, I visited a web auction site dealing in surplus government property. 
 I spotted two old laptops, which claimed to be still operational,
 and I place a bid of $40.
-A few days later, I recieved an email saying I was the proud owner of two 
+A few days later, I received an email saying I was the proud owner of two 
 Hp Omni Book XE3 loaded with a Celeron[^A] 32bit processor!
 By todays standards, the Hp Omni Book XE3 isn't exactly a race horse with its
 1066 MHz clock, 128M of RAM running at 100 MHz, and 10/100 Ethernet LAN communications.
-These laptops date back to 2000, the early days of the internet,
-and are unashamedly equiped with a builtin phone jack / modem, [PCMCIA card slots][20],
+These laptops date back to 2000, the early days of the Internet,
+and are unashamedly equipped with a built in phone jack / modem, [PCMCIA card slots][20],
 a 1.44-MB floppy disk drive, and proudly hosting Microsoft Windows 98 Second Edition!
-Here is a more complete discription of the laptops:
+Here is a more complete description of the laptops:
 
-[^A]
+[^A]:
     Celeron is a brand name given by Intel Corp. to a number of different microprocessor models
     targeted at budget personal computers.
     [Introduced in April 1998][09], the first Celeron branded CPU was based on the Pentium II branded core.
     Subsequent Celeron branded CPUs were based on the Pentium III, Pentium 4, Pentium M,
     and Intel Core branded processors. 
     With Damn Small Linux loaded and running `cat /proc/cpuinfo`,
-    it shows the processor is of Intel cpu family 6 and model 11.
+    it shows the processor is of Intel CPU family 6 and model 11.
     This maps to Intel product code 80530, which [makes it a Pentium III (codename Tualatin)][10].
 
 | Feature | Description|
@@ -47,7 +46,7 @@ Here is a more complete discription of the laptops:
 | Dimensions | 13.03 × 10.76 × 1.59in |
 | Operating System | Microsoft Windows 98, Second Edition |
 
-The installed 10G drive was wiped clean but the laptops did come with the orginal recovery disk.
+The installed 10G drive was wiped clean but the laptops did come with the ordinal recovery disk.
 Using the recovery disk, I quickly got the Microsoft Windows 98 operating system installed.
 There was no login prompt / password required ... wow.
 I activated the browser, that being Microsoft Internet Explorer 6.0.
@@ -56,17 +55,17 @@ Initially, this old browser only partly worked.
 I then set it to accept all cookies and it behave much better and was usable,
 but it would hang sometime and it wasn't at all pretty.
 
-With the browser and the slow internet connection,
+With the browser and the slow Internet connection,
 I figured that I could then down load the Linux distribution that I need, and boot it from the disk.
 My plan is to get a light-weight Linux distro installed and use it as X server with my desktop
 Linux system as its X client, aka X Terminal[^B].
 I choose [Lubuntu][04] as my Linux distro.
 The [alternate version of Lubuntu][05] is for computers with less than 700 MB of RAM,
 so I'm hoping it will do the job.
-It may not be the lightest Linux distribution but I'm currently using Ubunutu,
-I'm happy with it, and I figured I'll stick will the fimiluar.
+It may not be the lightest Linux distribution but I'm currently using Ubuntu,
+I'm happy with it, and I figured I'll stick will the familiar.
 
-[^B]
+[^B]:
     Generally, a [X Terminal][22], a predecessor to todays [thin client][23], is a low-powered,
     diskless, quieter, and more reliable than desktop computers
     because they do not have any moving parts.
@@ -74,7 +73,7 @@ I'm happy with it, and I figured I'll stick will the fimiluar.
 
 What I shortly discovered is that the antique hardware and OS (Microsoft Windows 98)
 got in the way.
-All the method I tryed to install Lubuntu ran into walls.
+All the method I tried to install Lubuntu ran into walls.
 First, the [ISO image][06] was to large to burn to a CD-ROM, it required a DVD,
 but this old laptop isn't DVD equiped.
 Booting the ISO from a USB thumb drive wasn't posible with the laptop BIOS.
@@ -86,25 +85,25 @@ I found that tools and methods wouldn't work within Windows 98.
 I concluded that it would be best to burn the Linux distro onto a CD-ROM using
 my curent desktop computer and boot the laptop with the CD-ROM as a [live system][18].
 My desire is to use Lubuntu, but give the limitations of this laptop,
-I'll also try out Damn Samll Linux (DSL), Puppy Linux, and Tiny Core Linux.
+I'll also try out Damn Small Linux (DSL), Puppy Linux, and Tiny Core Linux.
 
 ## Installing Damn Small Linux (DSL)
 As my first trial, I choose to install [Damn Small Linux (DSL)][07].
 DSL (based on the Debian distro)[^C] was released in 2003 to specifically create a
 Linux operating system for [older hardware][08].
-DSL supports older machines with minimal memeory by disables all unnecessary daemons or services.
+DSL supports older machines with minimal memory by disables all unnecessary daemons or services.
 It gives you a tool to directly manage daemons,
 and bundled applications were chosen specifically for their stingy resource use.
 DSL was designed, tested, and runs on old computers by retains support for many old devices. 
 
-[^C]
+[^C]:
     Damn Small Linux also uses by default [Busybox][11].
     BusyBox provides several stripped-down Unix tools in a single executable file. 
     Its originally aim was to provide a complete bootable system on a single floppy
     that would serve both as a rescue disk and as an installer for the Debian distribution.
     Busybox's use now is more focused on embedded operating systems with very limited resources.
 
-The installation of DSL on the laptop happend without any difficulties.
+The installation of DSL on the laptop happened without any difficulties.
 I followed the excellent instructions give in the article
 [How to Download and Install DSL Linux][13].
 Every thing came up nicely.
@@ -123,7 +122,7 @@ The article [Lubuntu: Finally, a Lightweight Ubuntu][12]
 claims that Lubuntu has snappy responsiveness on older computers.
 This seems to be dependent on having a Pentium III processor
 and 128M or more of memory.
-This laptop seems to just meet this critera and so I pushed forward.
+This laptop seems to just meet this criteria and so I pushed forward.
 
 I down loaded the Alternate version of Lubuntu from the site
 [Lubuntu Alternate ISOs for low-RAM PCs][05], created the CD-ROM, and booted the laptop with teh CD-ROM.
@@ -135,9 +134,9 @@ It appears the 128M of RAM is just too small for Lubuntu.
 ## Install Puppy Linux
 [Puppy Linux][21] is a popular light-weight Linux distro.
 I successfully installed Puppy Linux, but once installed,
-it perfromed badly when I fired up applications like a browser.
+it performed badly when I fired up applications like a browser.
 A closer reading of the Puppy Linux documentation informed me that
-the Linux Kernal is going to require 100M of RAM.
+the Linux Kernel is going to require 100M of RAM.
 So any reasonable size application will cause performance problems.
 
 ## Installing Tiny Core Linux (TCL)
@@ -156,11 +155,11 @@ reboot
 
 TCL install without a hitch and ran very nicely.
 It has a very smaller RAM footprint like DSL but is actively supported,
-well documented, includeing a book call [Into the Core: A look at Tiny Core Linux][26].
+well documented, including a book call [Into the Core: A look at Tiny Core Linux][26].
 Given all this, TCL seems like a good choose for my X Terminal plans.
 
 # Establishing the TCL Operating System
-Install the WiFi adapter and plugin Ethernet cable
+Install the WiFi adapter and plug-in Ethernet cable
 
 So it appears that Tiny Core Linux (TCL) will be my best choose for this vintage laptop conversion into a X Terminal.
 Like Damn Small Linux, [Tiny Core Linux (TCL)][14] is a minimal Linux operating system
@@ -175,7 +174,7 @@ Besides being fast, this protects system files from changes and ensures a pristi
 Easy, fast, and simple renew-ability and stability is a principle goal of Tiny Core. 
 The core system provides most of what you need for a working environment,
 which they can then tweak from there via applications.
-The vidoe provides an excelent but quick into to [Tiny Core Linux File Architecture and Boot Process][24].
+The video provides an excellent but quick into to [Tiny Core Linux File Architecture and Boot Process][24].
 
 Once TCL is booted, the user is then able to connect to the online repositories
 in order to install the applications they desire and configure their system.
@@ -234,11 +233,11 @@ configure files in /usr/local/etc/ssh
 [Setting Up WiFi](http://wiki.tinycorelinux.net/wiki:setting_up_wifi)
 [How to get wireless working when no other network access is available](http://tinycorelinux.net/4.x/armv7/README/README-wifi.txt)
 
-# [The X Environment][^D]
-[^D]
-    A typical X Window System implementation consists of the following compoents:
+# The X Environment[^D]
+[^D]:
+    A typical X Window System implementation consists of the following components:
     * **X Window System (aka X, X11, X-Windows)** - [X Window System][38] provides the basic [framework, primatives, and protocals][42]
-    for a graphical user interfacea (GUI) environment.
+    for a graphical user interface (GUI) environment.
     X does not mandate the user interface — this is handled by individual programs.
     As such, the visual styling of X-based environments varies greatly;
     different programs may present radically different interfaces.
@@ -266,7 +265,7 @@ configure files in /usr/local/etc/ssh
     The local servers are started by the display manager,
     which then connects to them to present the user the login screen.
     * **Desktop Environment** - A desktop environment such as LXDE, XFCE, KDE or GNOME are a suite of
-    applications and configuration files designed to integrate the X Window System compoents
+    applications and configuration files designed to integrate the X Window System components
     to provide a consistent experience.
 
 As stated earlier, my objective is to use the TCL laptop as a
@@ -285,14 +284,14 @@ A session starts when the user successfully enters a valid combination of userna
 The X Display Manager function was established, in part, to support standalone X Terminals.
 
 A display manager can run on the local computer where the user sits or on a remote one.
-WHen local, the display manager starts one or more X servers,
+When local, the display manager starts one or more X servers,
 displaying the login screen.
 When the display manager is remote, the display manager works according to the
 X Display Manager Control Protocol (XDMCP)[^E].
 Unlike [vncviewer][31] that just duplicates the current screen on a remote system,
 XDMCP allows several different users to login and run different X sessions at the same time.
 
-[^E]
+[^E]:
     XDMCP is inherently insecure as it does not encrypt your traffic.
     Therefore, only use XDMCP on a wired network that you you trust. Also,
     consider using alternatives that feature security (and often compression) such as [FreeNX][35].
@@ -319,18 +318,18 @@ or `ps -A | grep dm`).
 
 For my [desktop environment][43], I'm using Unity
 Lightweight X11 Desktop Environment (LXDE).
-It consits of:
+It consists of:
 Window Manager
 :   Openbox, the default window manager of LXDE
 Display Manager
-:   lxdm is the disaplay manager for LXDE
+:   lxdm is the display manager for LXDE
 Session Manager
 :   [LXSession][37] is the standard session manager used by LXDE
     and it's desktop-independent and can be used with any window manager.
 
 
-What is happending when you start up Unity?
-The following is an abrivated [summary of startup activites][44].
+What is happening when you start up Unity?
+The following is an abbreviated [summary of startup activites][44].
 
 1. The kernel starts the `init` process as process number 1, and it is responsible for starting all other processes.
 2. `init` starts the LXDE Display Manager `/usr/sbin/lightdm` fairly late in the init process (the system dbus, filesystem and the graphics display system all must be ready).
@@ -342,7 +341,7 @@ The following is an abrivated [summary of startup activites][44].
 8. `lightdm-session` starts a Window Manager, or for Unity, starts the `gnome-session` Session Manager. The Window Manager uses the Unity `/usr/share/xsessions/ubuntu.desktop` configuration file.
 9. `gnome-session` starts the specified program from `/usr/share/gnome-session/sessions/` and starts applications from `~/.config/autostart/` and `/etc/xdg/autostart`.
 
-* [Running X](http://www.tldp.org/HOWTO/XWindow-User-HOWTO/runningx.html) - see the section on Display Manager if you need to run with X Terminal that has a different resolution.
+[Running X](http://www.tldp.org/HOWTO/XWindow-User-HOWTO/runningx.html) - see the section on Display Manager if you need to run with X Terminal that has a different resolution.
 [Linux-Based X Terminals with XDMCP](http://www.linuxjournal.com/article/6713)
 [Linux-Based X Terminals with XDMCP](http://blog.joseluisperezdiaz.com/linux-based-x-terminals-with-xdmcp/)
 
@@ -361,7 +360,7 @@ ssh -X login@remote-computer
 This will give a terminal session within the `xterm` window on the remote computer.
 The `-X` switch says to export graphics from the remote computer (remote-computer)
 to the computer you at actually sitting on (i.e. the local-computer).
-For many uses, this works fine, but it doesn't give you the full login experiance on the remote computer.
+For many uses, this works fine, but it doesn't give you the full login experience on the remote computer.
 Specifically, the desktop is still the local computer,
 so picking any desktop icon or menu will result in a local X client.
 This isn't what I want ... I want access to the remote desktop.
@@ -456,6 +455,29 @@ init -> tc-config -> init -> /root/.profile -> /home/tc/.profile -> /home/tc/.xs
 [Windows Managers vs Login Managers Vs Display Managers Vs Session Manager Vs Desktop Environment](http://unix.stackexchange.com/questions/20385/windows-managers-vs-login-managers-vs-display-managers-vs-desktop-environment)
 [Multiseat Configuration/Xnest](http://en.wikibooks.org/wiki/Multiseat_Configuration/Xnest)
 
+## Xvesa X Server
+Xvesa X Server is NOT a normal [XFree86][47] X Server.
+It is part of the [TinyX series of X Servers][45].
+Xvesa accepts all the [standard options accepted by all X Servers][46],
+along with some specail options.
+They are part of the XFree86 package, but they are very different.
+They are designed for low memory use.
+It also turns out that they work better for some video chips than the normal
+XF86 xservers.
+
+But one very important thing is they do NOT use the XF86Config
+file, like their bigger brothers.
+
+Xvesa -query desktop -br -screen 1024x768x32 -shadow
+
+-nolisten trans-type
+:   disables a transport type. For example, TCP/IP connections can be disabled with -nolisten tcp. This option may be issued multiple times to disable listening to different transport types.
+-br
+:   sets the default root window to solid black instead of the standard root weave pattern.
+-shadow
+:   use a shadow framebuffer even if it is not strictly necessary. This may dramatically improve performance on some hardware.
+-I
+:   ignore all remaining arguments
 
 
 
@@ -503,9 +525,9 @@ init -> tc-config -> init -> /root/.profile -> /home/tc/.profile -> /home/tc/.xs
 [42]:http://en.wikipedia.org/wiki/X_Window_System_protocols_and_architecture
 [43]:http://en.wikipedia.org/wiki/Desktop_environment
 [44]:http://askubuntu.com/questions/150487/what-happens-under-the-covers-to-log-me-in-and-start-up-the-unity-graphics-user?r
-[45]:
-[46]:
-[47]:
+[45]:http://www.xfree86.org/current/TinyX.1.html
+[46]:http://www.xfree86.org/current/Xserver.1.html
+[47]:http://www.xfree86.org/
 [48]:
 [49]:
 [50]:

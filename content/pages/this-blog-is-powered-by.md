@@ -11,11 +11,11 @@ Status: hidden
 [![Python Logo](/images/logos/thumbnail/python_logo.jpg)](http://ipython.org/)
 :   **Python** is a general-purpose interpreted, interactive, object-oriented, and high-level programming language.  Its high-level built in data structures, many modules and package, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together.
 
-[![Markdown Logo](/images/logos/thumbnail/markdown_logo_white.png)](http://daringfireball.net/projects/markdown/)
-:   **Markdown** is a web-writing language giving you a easy-to-read, easy-to-write plain text format, that converts to structurally HTML.
-
 [![IPython Logo](/images/logos/thumbnail/ipython_notebook_logo.png)](http://ipython.org/)
 :   **IPython** Notebook in a browser-based environment with support for code, text, mathematical expressions, inline plots, and other rich media.
+
+[![Markdown Logo](/images/logos/thumbnail/markdown_logo_white.png)](http://daringfireball.net/projects/markdown/)
+:   **Markdown** is a web-writing language giving you a easy-to-read, easy-to-write plain text format, that converts to structurally HTML.
 
 [![GitHub Logo](/images/logos/thumbnail/github_logo.png)](https://github.com/)
 :   **GitHub** Pages are public webpages freely hosted and easily published through GitHub. You can manage your site’s content locally on your PC and use GitHub's tools and workflow for posting.

@@ -1,13 +1,14 @@
 Title: Animating a Luxo Lamp
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Pages
 Tags: 
 Slug: animating-a-luxo-lamp
 Author: Jeff Irland
+Image: DRAFT_stamp.png
 Summary: bla bla bla
 
 In 1937, Jac Jacobsen (1901-1996), the founder of [Luxo][02], invented the [Luxo L-1 lamp][01].
-This iconic lamp
+This iconic lamp is still a staple at places like [Ikea][03] and [Staples][04]. 
 
 #### Luxo History
 * [Anglepoise lamp](http://en.wikipedia.org/wiki/Anglepoise_lamp)
@@ -48,3 +49,11 @@ http://support.robotis.com/en/techsupport_eng.htm#product/dynamixel/ax_series/dx
 
 [01]:http://glamox.com/ie/the-l-1-story
 [02]:http://www.luxous.com/
+[03]:http://www.ikea.com/us/en/catalog/products/20370383/#
+[04]:http://www.staples.com/Tensor-Black-Swing-Arm-Incandescent-CFL-Clamp-Lamp/product_408203
+[05]:
+[06]:
+[07]:
+[08]:
+[09]:
+[10]:

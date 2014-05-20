@@ -15,8 +15,8 @@ LOGOS = $(INPUTDIR)/images/logos
 SUMMARY = $(INPUTDIR)/images/summary
 
 BACKUPDIR = "/home/jeff/tmp/blog_backup_$(shell date | tr ': ' '_')"
-SLUG = $(shell echo "$(TITLE)" | tr -d '!@$%^&*()?:;|{}[]",.' | tr '[:upper:]' '[:lower:]' | tr -s ' ' | tr '_ ' '-')
-AUTHOR = "Jeff Irland"
+SLUG = $(shell echo "$(TITLE)" | tr -d '!@$%^&*()?:;|{}[]",.' | tr '[:upper:]' '[:lower:]' | tr -s ' ' | tr '_ ' '-' | tr -s '-' )
+AUTHOR = Jeff Irland
 TMPFILE = "$(TMP)/temp.file"
 DATETIME =  $(shell date "+%Y-%m-%d %H:%M")
 
@@ -36,7 +36,7 @@ help:
 	@echo '   make regenerate                   regenerate files upon modification'
 	@echo '   make publish                      generate content for production server'
 	@echo '   make serve [PORT=8000]            serve site at http://localhost:8000'
-	@echo '   make devserver [PORT=8000]        start/restart develop_server.sh'
+	@echo '   make startserver [PORT=8000]      start/restart develop_server.sh'
 	@echo '   make stopserver                   stop the local server'
 	@echo '   make backup                       create a backup of the blogs content and tools'
 	@echo '   make github [COMMENT="<string>"]  upload the content to production server'
@@ -87,12 +87,13 @@ else
 	cd $(OUTPUTDIR) && $(PY) -m pelican.server
 endif
 
-devserver:
+startserver:
 ifdef PORT
 	$(BASEDIR)/develop_server.sh restart $(PORT)
 else
 	$(BASEDIR)/develop_server.sh restart
 endif
+	@echo 'Started Pelican and SimpleHTTPServer processes running in background.'
 
 stopserver:
 	kill -9 `cat .pelican.pid`
@@ -130,4 +131,4 @@ else
 endif
 	git push origin master:source
 
-.PHONY: html help clean regenerate serve devserver publish backup process github
+.PHONY: html help clean regenerate serve startserver publish backup process github

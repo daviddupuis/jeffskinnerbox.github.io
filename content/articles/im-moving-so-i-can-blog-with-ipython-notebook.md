@@ -105,20 +105,22 @@ git remote add origin http://github.com/jeffskinnerbox/jeffskinnerbox.github.com
 git push -u origin master
 ```
 
-* Verify that your web page is availalbe by going to <http://jeffskinnerbox.github.com/>.  This could take up to 10 minutes for GitHub the first time.
+* Verify that your web page is available by going to [`http://jeffskinnerbox.github.com`](http://jeffskinnerbox.github.com).  This could take up to 10 minutes for GitHub the first time.
 
 ### Using a Custom Domain Name
-GitHub Pages allows you to direct a domain name of your choice at your GitHup Page.
+GitHub Pages allows you to direct a domain name of your choice at your GitHub Page.
 My custom domain name is `www.jeffskinnerbox.me`. To do the setup, I found the postings
 [Setting up a custom domain with Pages][02] and 
-[Setting the DNS for GitHub Pages on Namecheap][03] helful.  It goes like this:
+[Setting the DNS for GitHub Pages on Namecheap][03] helpful.  It goes like this:
 
-1. Telling the GitHub server to serve from the custome domain by creating a file named `CNAME` in the root of your site and put string with the domain (i.e. jeffskinnerbox.me) into the file.
-2. Go to your Domain Name Registrar and make the changes outline in the posts referance above.  It may take as long as 24 hours for these changes to take effect.
+1. Telling the GitHub server to serve from the custom domain by creating a file named `CNAME` in the root of your site and put string with the domain (i.e. jeffskinnerbox.me) into the file.
+2. Go to your Domain Name Registrar and make the changes outline in the posts reference above.  It may take as long as 24 hours for these changes to take effect.
 
-#### Closing
+### Closing
 All in all, I am very pleased with Jekyll so far. It did take a little longer than I’d have thought to migrate this blog as it is from WordPress, while also preserving the site’s characteristics, but it didn’t take too long and I love the results.
 I doubt I would ever want to look back! 
+
+
 
 [gr]:http://gnuradio.org/redmine/projects/gnuradio/wiki "GNU Radio home page"
 [ss]:http://www.dummies.com/store/product/Signals-and-Systems-For-Dummies.productCd-111847581X,navId-322489,descCd-description.html "The book Signals and Systems For Dummies web site"

@@ -1,9 +1,10 @@
 Title: Getting Started With Bus Pirate
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Electronics
 Tags: Bus Pirate
 Slug: getting-started-with-bus-pirate
 Author: Jeff Irland
+Image: DRAFT_stamp.png
 Summary: The Bus Pirate is an open source hacker multi-tool that talks to electronic stuff using 1-Wire, I2C, SPI, JTAG, Asynchronous serial, MIDI, PC keyboard, HD44780 LCD, and more. It has a ton of other capabilities like low-speed logic analyzer, 1Hz-40MHz frequency measurement, Bus traffic sniffers (SPI, I2C), and more.
 
 <a href="/img/posts/jekyll-posts/bus-pirate.jpg"><img align="left" title="bus priate board" src="/img/posts/jekyll-posts/bus-pirate.jpg" width="200px" height="149px" class="img-rounded floatLeft" /></a>

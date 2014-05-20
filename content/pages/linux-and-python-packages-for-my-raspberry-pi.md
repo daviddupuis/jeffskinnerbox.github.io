@@ -48,7 +48,7 @@ To do similar updates for Python, use the following:
 sudo easy_install -U distribute
 ```
 
-##### Search for Package or Package Description
+#### Search for Package or Package Description
 Some times you don't know package name but aware of some keywords to search the package.  To search for packages, use the following:
 
 ``` bash
@@ -56,14 +56,14 @@ apt-cache search "text-to-search"
 apt-cache search "text-to-search" | grep "more-search-text"
 ```
 
-##### Erase Package and Configuration File
+#### Erase Package and Configuration File
 To completely erase from you Linux system, you can use the following:
 
 ``` bash
 apt-get --purge remove {package-name}
 ```
 
-##### List All Installed Packages
+#### List All Installed Packages
 You can use following command to find out all Linux package names available on your system:
 
 ``` bash
@@ -83,7 +83,7 @@ pip freeze --local
 ```
 
 ### Linux and Python Packages
-##### Python
+#### Python
 Python is an interpreted, object-oriented, high-level programming language  attractive for rapid application development, as well as for use as a scripting or glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance.  While the Raspberry Pi Linux distribution is likely to already have some python packages installed, execute the following to make sure you have all that is needed (see
 [distribute and easy_install](http://www.youtube.com/watch?v=jI8VBP1wEZU)
  more details).
@@ -140,7 +140,7 @@ cross platform framework that is widely used for developing application softwar
 sudo apt-get install python-qt4
 ```
 
-##### IPython
+#### IPython
 [IPython](http://ipython.org/)
 can do much more than the standard Python. IPython is an interactive shell for the Python programming language that offers enhanced introspection, additional shell syntax, tab completion and rich history. IPython allows non-blocking interaction with Tkinter, GTK, Qt and wxWidgets (the standard Python shell only allows interaction with Tkinter).  IPython provide a rich
 [text web interface](http://en.wikipedia.org/wiki/Rich_Internet_application)
@@ -150,7 +150,7 @@ can do much more than the standard Python. IPython is an interactive shell for t
 sudo apt-get install ipython ipython-doc ipython-notebook ipython-qtconsole
 ```
 
-##### Markdown
+#### Markdown
 Markdown is a text-to-HTML conversion tool for web writers, and its useful for software documentation.
 Markdown allows you to write using an easy-to-read, easy-to-write plain text format,
 then convert it to structurally valid XHTML (or HTML).
@@ -162,7 +162,7 @@ I use it extensively for my software documentationm.
 sudo apt-get install markdown
 ```
 
-##### X Window Utilities
+#### X Window Utilities
 The `x11-apps` package provides a miscellaneous assortment of X applications that ship with the X Window System, including `xclock` (graphical clocks), `xconsole` (monitors system console messages), `xeyes` (demo program ... eyes track the pointer), `xload` (monitor for the system load average), `xwd` (utility for taking screenshots), etc. `xterm` is the standard terminal emulator for the X Window System. The `x11-xserver-utils` package provides a miscellaneous assortment of X Server utilities that ship with the X Window System, including `xrdb` (a tool to manage the X server resource database), `xsetroot` (a tool for tailoring the appearance of the root window)
 
 ``` bash
@@ -171,7 +171,7 @@ sudo apt-get install x11-xserver-utils
 sudo apt-get install xterm
 ```
 
-##### Synaptic
+#### Synaptic
 Synaptic is a graphical package management program for Linux software. It provides the same features as the `apt-get` command line utility with a X Windows GUI front-end.  While I will not be using X Windows at this moment, in the future I will and
 [synaptic](http://en.wikipedia.org/wiki/Synaptic_(software))
 is a very nice alternative to `apt-get` when in in X Windows.
@@ -180,7 +180,7 @@ is a very nice alternative to `apt-get` when in in X Windows.
 sudo apt-get install synaptic
 ```
 
-##### Vim
+#### Vim
 Vim is a highly configurable text editor and widely available for many different platforms.
 [Emacs](http://en.wikipedia.org/wiki/Emacs)
 also has a large following, but I think everyone needs to be prepared to use
@@ -196,14 +196,14 @@ sudo apt-get install vim-gtk
 Configuring vim is a major topic, covered by many web sites and books, but you'll find my `.vimrc` file on
 [GitHub](https://github.com/jeffskinnerbox/dotvim).
 
-##### PyRoom
+#### PyRoom
 PyRoom is a a fullscreen editor without buttons, widgets, formatting options, menus and with only the minimum of required dialog windows, it doesn't have any distractions and lets you focus on writing and only writing.  It is the polar opposite of Vim, and as such, is a good editor for the novice or casual user, but requires X Windows and Python.
 
 ``` bash
 sudo apt-get install pyroom
 ```
 
-##### Git
+#### Git
 Given that I plan to hack some _to-be-determined_ applications using the RPi, I should consider establish some tools for  source code management. The last time I did serious software development in Linux (really Unix), I was using Source Code Control System (SCCS). The tools are much improved now and
 [`git`](http://git-scm.com/documentation)
 is hands down the way to go.
@@ -212,7 +212,7 @@ is hands down the way to go.
 sudo apt-get install git
 ```
 
-##### Chromium
+#### Chromium
 We all have a favorite browser and I choose
 [`chromium`](http://www.chromium.org/Home)
 for my RPi.  Chromium serves as a base for Google Chrome, which is Chromium re-branded (name and logo) with very few additions.
@@ -221,14 +221,14 @@ for my RPi.  Chromium serves as a base for Google Chrome, which is Chromium re
 sudo apt-get install chromium
 ```
 
-##### Apache
+#### Apache
 Apache is a very popular web server and I will make use of it for any web application that are required. It can be installed, along with its required scripting language, via the command below.
 
 ``` bash
 sudo aptitude install apache2 php5
 ```
 
-##### Conky
+#### Conky
 [Conky](http://conky.sourceforge.net/)
 is a system monitor tool for X Windows.  Conky is highly configurable and is able to monitor many system variables including the status of the CPU, memory, swap space, disk storage, temperatures, processes, network interfaces, battery power, system messages, e-mail inboxes, Linux updates, runs many popular music players, and much more.  To install the standard Conky package, use the following:
 
@@ -236,7 +236,7 @@ is a system monitor tool for X Windows.  Conky is highly configurable and is a
 sudo apt-get install conky-std
 ```
 
-##### SendEmail
+#### SendEmail
 [sendEmail](http://www.debianadmin.com/how-to-sendemail-from-the-command-line-using-a-gmail-account-and-others.html)
 is a command-line outgoing email
 [SMTP](http://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol)
@@ -246,7 +246,7 @@ client. It is used for sending e-mails from the command line, and can therefore 
 sudo apt-get install sendemail
 ```
 
-##### SSHFS
+#### SSHFS
 [SSHFS](https://help.ubuntu.com/community/SSHFS) (SSH Filesystem)
 is a file system client to mount and interact with directories and files located on a remote server or workstation. SSHFS requires no special software on the remote side, just a SSH server with support for the SFTP extension. SSHFS is an alternative to traditional network file system, such as NFS, OpenAFS or Samba. Setting up these network file systems requires administrator access on both systems, but not for SSHFS.
 
@@ -254,7 +254,7 @@ is a file system client to mount and interact with directories and files located
 sudo apt-get install sshfs
 ```
 
-##### Advanced Linux Sound Architecture (ALSA)
+#### Advanced Linux Sound Architecture (ALSA)
 The [Advanced Linux Sound Architecture (ALSA)](http://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture)
 provides audio and MIDI functionality to the Linux operating system. Is structured as Linux kernel module and provides an API for device drivers for sound cards.
 
@@ -264,7 +264,7 @@ sudo apt-get install mpg321
 sudo apt-get install lame
 ```
 
-##### Festival / Flite
+#### Festival / Flite
 The [Festival](http://www.cstr.ed.ac.uk/projects/festival/)
 Speech Synthesis System offers a general framework for building
 [speech synthesis](http://en.wikipedia.org/wiki/Speech_synthesis)
@@ -280,7 +280,7 @@ sudo apt-get install festival
 sudo apt-get install flite
 ```
 
-##### Wireshark
+#### Wireshark
 [Wireshark](http://www.wireshark.org/)
 (originally named Ethereal) is a free and open-source packet analyzer. Wireshark is very similar to
 [tcpdump](http://en.wikipedia.org/wiki/Tcpdump),
@@ -294,7 +294,7 @@ into that mode, in order to see all traffic visible on that interface, not just 
 sudo apt-get install wireshark
 ```
 
-##### Microcom
+#### Microcom
 [Microcom](http://manpages.ubuntu.com/manpages/lucid/man1/microcom.1.html)
 is a minimalistic terminal program for accessing devices (e.g. switches) via a serial connection. it features connection via rs232 serial interfaces (including setting of transferrates) as well as in "telnetmode" as specified in rfc2217.
 
@@ -302,7 +302,7 @@ is a minimalistic terminal program for accessing devices (e.g. switches) via a s
 sudo apt-get install microcom
 ```
 
-##### Arduino
+#### Arduino
 Arduino is a single-board microcontroller designed to make the process of using electronics in multidisciplinary projects more accessible. The hardware consists of a simple open source hardware design for the Arduino board with an Atmel AVR processor and on-board input/output support. Arduino is a descendant of the open-source
 [Wiring](http://en.wikipedia.org/wiki/Wiring_(development_platform))
 platform and is programmed using a Wiring-based language (syntax and libraries), similar to C++ with some slight simplifications and modifications.  What is installed here is the Arduino 
@@ -314,7 +314,7 @@ sudo apt-get install arduino
 
 To run the Arduino IDE, simple type the following on the RPi command line: `arduino &`.
 
-##### Dos2Unix
+#### Dos2Unix
 I [mount my Window PC’s Dropbox directory](http://jeffskinnerbox.wordpress.com/2012/11/11/dropbox-for-the-raspberry-pi-sort-of/)
 on my RPi so I can work in both environments at will. While editing files on a machine running some form of Windows and uploading them to a Linux server is convenient, it can cause unforeseen complications. Windows-based text editors put one set of special characters at the end of lines (i.e. carriage return and line break = `\r\n`), while Unix/Linux puts other characters (i.e. line break = `\n`). This is normally harmless, but some applications on a Linux cannot understand these characters and can cause Linux to not respond correctly.
 
@@ -328,7 +328,7 @@ To fix this problem, you can quickly convert an ASCII text file from DOS format 
 sudo apt-get install dos2unix
 ```
 
-##### Fonts
+#### Fonts
 The native fonts on RPi are nothing to get excited about and can be hard on the eyes. I prefer
 [Inconsolata](http://www.levien.com/type/myfonts/inconsolata.html)
 which claims to be designed primarily for use on the screen and high resolution rendering. It is a

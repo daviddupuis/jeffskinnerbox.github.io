@@ -1,9 +1,10 @@
 Title: Raspberry Pi Battery Backup
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Electronics
 Tags: Raspberry Pi 
 Slug: raspberry-pi-battery-backup
 Author: Jeff Irland
+Image: DRAFT_stamp.png
 Summary: abla bla bla
 
 * [Battery Backup for RasPi Keeps Your Data Safe](http://hackaday.com/2013/11/17/battery-backup-for-raspi-keeps-your-data-safe/)

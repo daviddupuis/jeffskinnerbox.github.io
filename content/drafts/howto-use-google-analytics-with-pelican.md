@@ -1,12 +1,12 @@
 Title: HOWTO Use Google Analytics With Pelican
 Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: HowTo, Blogging
 Tags: Pelican, Google Analytics 
 Slug: howto-use-google-analytics-with-pelican
 Author: Jeff Irland
 Image: how-too.jpg
 Summary: bla bla bla
-Status: draft
 
 [Google Analytics Academy](https://analyticsacademy.withgoogle.com/explorer)
 * [Digital Analytics Fundamentals](https://analyticsacademy.withgoogle.com/course01)

@@ -2,7 +2,7 @@ Title: Linux Reboot ... or ... My System is Frozen and I Can't Get Up!
 Date: 2013-06-16 00:01
 Category: Software
 Tags: Linux
-Slug: linux-reboot-or-my-system-is-frozen-and-i-cant-get up
+Slug: linux-reboot-or-my-system-is-frozen-and-i-cant-get-up
 Author: Jeff Irland
 Image: sysrq-key.jpg
 Summary: This posting list the several options you have when you find yourself with a frozen Linux screen.  There is no need to do a hard reboot of your system and I show you how this can be done.

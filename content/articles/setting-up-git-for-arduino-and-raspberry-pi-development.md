@@ -50,7 +50,11 @@ fatal: HTTP request failed
 If you get the above error, <a href="http://codeforthesoul.blogspot.com/2012/09/git-error-about-missing-certificates-on.html">the problem</a> is that Cygwin hasn't installed the ca-certificates package.  Run the <a href="http://www.cygwin.com/install.html">Cygwin installer</a> again, and add that package; after that <code>git clone</code> should start working.
 
 The next step is to commit your files to the git local repository within the PC under Cygwin.  To do this, execute the following command:
-<p style="padding-left:30px;"><code>git commit</code></p>
+
+```
+git commit
+```
+
 You will be put into vim to provide a comment that will be posted with the git version.  Why vim?  Because you executed the command <code>git config --global core.editor vim</code>  earlier.  If you don't want to use vim for adding comments under git, supply another editor when you do the configuration step.
 
 The next step, which strictly isn't required but a nice to have, is to associate a descriptive identifier with the github repository.  The descriptor I used is "Cygwin-Configuration-Files".  The command I used is:
@@ -60,7 +64,11 @@ git remote add Cygwin-Configuration-Files https://github.com/jeffskinnerbox/Cygw
 ```
 
 The final step is to push your local files to the github repository,
-<p style="padding-left:30px;"><code>git push Cygwin-Configuration-Files</code></p>
+
+```
+git push Cygwin-Configuration-Files
+```
+
 <em>Warning ... </em> It was during the <code>git push</code> that I ran into another problem, but it could happen nearly any time.  I discovered that sometimes, after multiple Cygwin updating or installing packages, you'll start to get strange errors related to "fork()" or .dll loading. After some research, I discoved these errors are usually solved by <a href="http://cygwin.wikia.com/wiki/Rebaseall">rebasing your packages</a>.  While rebasing, which is executed using the Cygwin <code>rebaseall</code> command, is is a bit of a mystery, it does appear to work
 <h2>Rebasing Cygwin</h2>
 Before you can run the <code><a href="http://inamidst.com/eph/cygwin">rebaseall</a></code> command, you'll need to make sure no Cygwin-based services are running.   To do this, you need to run two cygwin command, <a href="http://cygwin.com/faq/faq.setup.html#faq.setup.uninstall-service">cygrunsrc</a> and <a href="http://superuser.com/questions/194529/cygwin-fatal-error-unable-to-remap-what-does-it-mean">rebaseall</a>,  under the ash command in MS Windows command prompt, not in a Cygwin Terminal window.   The sequence of activity is as follows:

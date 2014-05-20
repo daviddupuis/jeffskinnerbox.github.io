@@ -82,10 +82,19 @@ The <code>/etc/asound.conf</code> file is a configuration files for ALSA driver
 </a>
 </center>
 
-For most changes to <code>/etc/asound.conf</code> you will need to restart the sound server (ie. <code>sudo /etc/init.d/alsa-utils restart</code>) for the changes to take effect.
+For most changes to `/etc/asound.conf` you will need to restart the sound server for the changes to take effect.
+You can do this via
+
+```
+sudo /etc/init.d/alsa-utils restart
+```
 
 I attempted to implement the software volume controls outline in a <a href="http://www.gentoo-wiki.info/HOWTO_Softvol">softvol how-to</a> that I found, but I couldn't get it to work.  I did some additional digging, and I found a solution buried within a python script for a <a href="http://learn.adafruit.com/reading-a-analog-in-and-controlling-audio-volume-with-the-raspberry-pi/overview">Adafruit project</a>.  The following works for controlling the volume (in this case, reducing the volume to 80% of maximum):
-<p style="padding-left:30px;"><code>amixer cset numid=1 -- 80%</code></p>
+
+```
+amixer cset numid=1 -- 80%
+```
+
 Note that you can use this command to change the volume while sound is being played an its effect takes place immediately.  Also, I noticed that once the volume has been adjusted, its effect remains even after a reboot.
 <h2>WAV and MP3 Conversion</h2>
 The MP3 player <a href="http://linux.die.net/man/1/mpg321"><code>mpg321</code></a> can convert MP3 files to WAV files but the WAV player, <a href="http://linux.die.net/man/1/aplay"><code>aplay</code></a>, can not do a conversion.  To make a MP3 file from a WAV file, you'll need the tool <a href="http://linux.die.net/man/1/lame"><code>lame</code></a>.

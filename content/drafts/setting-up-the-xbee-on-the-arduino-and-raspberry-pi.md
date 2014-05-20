@@ -1,9 +1,10 @@
 Title: Setting up the XBee on the Arduino and Raspberry Pi
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Electronics
 Tags: XBee, Arduino, Raspberry Pi 
 Slug: setting-up-the-xbee-on-the-arduino-and-baspberry-pi
 Author: Jeff Irland
+Image: DRAFT_stamp.png
 Summary: abla bla bla
 
 ## Installing  xbee-arduino Tools for the Arduino

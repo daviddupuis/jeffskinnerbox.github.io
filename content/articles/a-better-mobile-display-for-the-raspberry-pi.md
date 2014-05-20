@@ -54,7 +54,11 @@ So the environment variable "DISPLAY" stores the address for X clients to connec
 </ul>
 </ul>
 Setting the DISPLAY variable depends of your shell, but for the Bourne, Bash or Korn shell, you could do the following to connect with the systems local display:
-<p style="padding-left:30px;"><code>export DISPLAY=localhost:0.0</code></p>
+
+```
+export DISPLAY=localhost:0.0
+```
+
 The remote server knows where it have to redirect the X network traffic via the definition of the DISPLAY <a title="linux:environment_variable" href="http://gerardnico.com/wiki/linux/environment_variable">environment variable</a> which generally points to an X Display server located on your local computer.
 <h2>X Security</h2>
 So you see, as the user, you have full control over where you wish to display the X client window.   So what prevents you from doing something malicious,  like popping up window on someone else  terminal or read their key strokes?  After all, all you really need is their host name.  <a href="http://www.linux-tutorial.info/modules.php?name=Howto&amp;pagename=Remote-X-Apps/Remote-X-Apps-6.html">X servers have three ways of authenticating connections</a> to it: the host list mechanism (xhost) and the magic cookie mechanism (xauth). Then there is ssh, that can forward X connections, providing a protected connection between client and server over a network using a secure <a title="Tunnelling protocol" href="http://en.wikipedia.org/wiki/Tunnelling_protocol">tunnelling protocol</a>.
@@ -64,13 +68,29 @@ The <a href="http://www.xfree86.org/current/xhost.1.html"><code>xhost</code></a>
 For example, assume the IP address of the local host is 128.100.2.16 and the IP address of the remote host is 17.200.10.5.
 
 On the local host, type the following at the command line:
-<p style="padding-left:30px;"><code>xhost + 17.200.10.5</code></p>
+
+```
+xhost + 17.200.10.5
+```
+
 Log on to the remote host
-<p style="padding-left:30px;"><code>telnet 17.200.10.5</code></p>
+
+```
+telnet 17.200.10.5
+```
+
 On the remote host (through the telnet connection), instruct the remote host to display windows on the local host by typing:
-<p style="padding-left:30px;"><code>export DISPLAY=128.100.2.16:0.0</code></p>
+
+```
+export DISPLAY=128.100.2.16:0.0
+```
+
 Now when you type xterm on the remote host, you should see an xterm window on the local host.  You should remove the remote host from your access control list as follows.
-<p style="padding-left:30px;"><code>xhost - 17.200.10.5</code></p>
+
+```
+xhost - 17.200.10.5
+```
+
 Some additional xhost commands:
 <p style="padding-left:30px;"><code>xhost</code>List all the hosts that have access to the X server
 <code>xhost + hostname</code>Adds hostname to X server access control list.
@@ -94,8 +114,11 @@ SSH can do something called "<a href="http://docstore.mik.ua/orelly/networking_2
 When setting up an SSH tunnel for X11, the Xauth key will automatically be copied to the remote system(in a munged form to reduce the risk of forgery) and the DISPLAY variable will be set.
 
 To turn on X forwarding over ssh, use the command line switch <code>-X</code> or write the following in your local ssh configuration file:
-<p style="padding-left:30px;"><code>Host remote.host.name
-ForwardX11 yes</code></p>
+
+```
+Host remote.host.name ForwardX11 yes
+```
+
 The current version of SSH supports the X11 SECURITY extension, which provides two classes of clients: trusted clients, which can do anything with the display, and untrusted clients, which cannot inject synthetic events (mouse movement, keypresses) or read data from other windows (e.g., take screenshots). It should be possible to run almost all clients as untrusted, leaving the trusted category for screencapture and screencast programs, macro recorders, and other specialized utilities.
 
 If you use <code>ssh -X remotemachine</code> the remote machine is treated as an untrusted client and <code>ssh -Y remotemachine</code> the remote machine is treated as trusted client.  '-X' is supposedly the safe alternative to '-Y'.  However, as a Cygwin/X maintainer says "this is widely considered to be not useful, because the Security extension uses an arbitrary and limited access control policy, which results in a lot of applications not working correctly and what is really a false sense of security".
@@ -124,13 +147,11 @@ So what does the iSSH give me? I can now sit on the couch, watch TV, and simult
 
 By the way .... the above iPad screen shot of the X Server display with a globe was rendered using the following code:
 
-```pthon
+```python
 
 #!/usr/bin/env python
 
-'''
-    Source: http://www.scipy.org/Cookbook/Matplotlib/Maps
-'''
+# Source: http://www.scipy.org/Cookbook/Matplotlib/Maps
 
 from mpl_toolkits.basemap import Basemap
 import matplotlib.pyplot as plt

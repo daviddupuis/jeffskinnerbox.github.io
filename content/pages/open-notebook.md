@@ -2,7 +2,7 @@ Title: Open Notebook
 Slug: open-notebook
 Status: hidden
 
-Your standard web page is woefully unprepared to capture complex technical concepts
+Your standard web page creation tool is woefully unprepared to capture complex technical concepts
 that require data, math, and graphs, but that is exactly what I would like to do.
 I started playing around with [IPython Notebook][01] with [nbconvert][06]
 as a way to document complex ideas on my website that required a mixture of 
@@ -43,12 +43,12 @@ ipython nbconvert "Configuring IPython.ipynb" --to html
 * [nbconvert: PDF from iPython Notebook](http://technicaltidbit.blogspot.com/2013/07/nbconvert-pdf-from-ipython-notebook.html)
 * [Quick link to download nbconvert](http://technicaltidbit.blogspot.com/2013/07/quick-link-to-download-nbconvert_15.html)
 
-### A gallery of interesting IPython Notebooks and Questions
+### A Gallery of Interesting IPython Notebooks and Questions
 * https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks
 * http://nbviewer.ipython.org/
 * http://stackoverflow.com/questions/tagged/ipython-notebook?sort=votes&amp;pagesize=50
 
-### Blogging with the IPython notebook
+### Blogging with the IPython Notebook
 * [Blogging an iPython notebook with Jekyll](http://www.davidketcheson.info/2012/10/11/blogging_ipython_notebooks_with_jekyll.html)
 * [Blogging with IPython-notebook](http://home.badc.rl.ac.uk/spascoe/blog/blogging-with-ipython-notebook.html)
 * [Ben Morris' lab notebook](http://www.bendmorris.com/2013/05/blogging-with-ipython-distances-in.html)

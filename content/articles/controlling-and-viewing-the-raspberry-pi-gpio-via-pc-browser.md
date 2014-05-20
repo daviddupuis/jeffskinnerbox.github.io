@@ -13,13 +13,24 @@ Summary: In this article, I use a tool called WebIOPi, I control my Raspberry Pi
 This idea of controlling my Raspberry Pi (RPi), and the things its networked with, via an internet browser is at the heart of what I would like to do with the assortment of Arduino and Xbee devices I'm assembling.  To explore how best to do this, I'm considering using <a href="http://code.google.com/p/webiopi/">WebIOPi</a>, which is a web application used to control your RPi’s GPIO.  I believe it could be useful as a test tool, but more importantly, I suspect that I could learn how to engineer my application by studying its design.
 <h2>Install WebIOPi</h2>
 When installing WebIOPi on my RPi, I followed the <a href="http://code.google.com/p/webiopi/wiki/INSTALL#PHP/Apache">installation</a> instructions for the Apache version.  I choose this version since  I'll be using the Apache web server for other features as my project evolves. Note that there is a small error on the instructions if you use a symbolic link to the webiopi directory.  Create this link using
-<p style="padding-left:30px;"><code>sudo ln -s /home/pi/webiopi /var/www/webiopi</code></p>
+
+```
+sudo ln -s /home/pi/webiopi /var/www/webiopi
+```
+
 Immediately after installation,  you can test to see if you can render a web page.  Assuming that your  Raspberry Pi is connected to your network  and its named <code>raspberrypi</code>, you can open a browser to <code><a href="http://raspberrypi/webiopi/" rel="nofollow">http://raspberrypi/webiopi/</a></code> with your network PC.  It might work but your likely to get a error, something like "...Could not reliably determine the server’s fully qualified domain name..." and the <a href="http://scottlinux.com/2011/02/16/could-not-reliably-determine-the-servers-fully-qualified-domain-name/">solution</a> is to give your web server a name.
 
 To do this,  create this Apache config file:
-<p style="padding-left:30px;"><code>sudo vi /etc/apache2/conf.d/fqdn</code></p>
+
+```
+sudo vi /etc/apache2/conf.d/fqdn
+```
+
 Enter <code>ServerName raspberrypi</code> into this file and restart Apache using
-<p style="padding-left:30px;"><code>sudo /etc/init.d/apache2 restart</code></p>
+
+```
+sudo /etc/init.d/apache2 restart
+```
 
 <h2>Installing GPIO Utilities</h2>
 While checking on the status of of the Python based GPIO package on the RPI using the command <code>dpkg -l | grep gpio</code>, I concluded that the  <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview">Occidentalis</a> distribution I'm using doesn't have any Python libraries for GPIO.
@@ -33,10 +44,16 @@ sudo apt-get install python-pip
 ```
 
 With this done, now its time to install the required Python libraries but first, update the Python distribution by running
-<p style="padding-left:30px;"><code>sudo easy_install -U distribute</code></p>
+
+```
+sudo easy_install -U distribute
+```
+
 Finally you can install the Raspberry Pi GPIO (General Purpose Input/Ouput) library:
-<p style="padding-left:30px;"><code>sudo pip install RPi.GPIO
-</code></p>
+
+```
+sudo pip install RPi.GPIO
+```
 
 <h2>What did I find</h2>
 WebIOPi  supports binary GPIOs, in both input and output.  That is, you can set a GPIO output pin high/low via a browser pick.  Also, you can see the state of a GPIO pin.  Equally important to me is that WebIOPi auto-refreshes, via <a href="http://www.kendoui.com/blogs/teamblog/posts/12-05-11/hello_services_webapi_rest_json_and_ajax.aspx">WebAPI, REST, JSON and AJAX</a> I assume.  Therefore, when the GPIO pins change state, the browser automatically is updated with the new status.  And this happens for all browsers displaying WebIOPi.  You can demonstrate this by opening two browsers pointing at WebIOPi.  Action performed in one browser will also appear in the other.

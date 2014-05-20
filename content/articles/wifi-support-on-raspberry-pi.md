@@ -67,7 +67,13 @@ iface wlan0 inet dhcp
 <a href="http://jeffskinnerbox.files.wordpress.com/2012/11/ifconfig-a-this-time-it-worked.jpg"><img class="aligncenter size-full wp-image-585" title="ifconfig -a (this time it worked)" alt="it worked" src="http://jeffskinnerbox.files.wordpress.com/2012/11/ifconfig-a-this-time-it-worked.jpg" width="545" height="322" /></a>
 </center>
 </p>
-<p>The wireless device now has an IP address and data seems to be flowing.  In an effort to further convince myself that the WiFi was working, I disconnected the wired ethernet connection and attempted to re-login in via <code>ssh -X pi@RedRPi.local</code>, over the wireless interface. This failed, giving the message:</p><p style="padding-left:30px;"><code>ssh: Could not resolve hostname RedRPi.local: hostname nor servname provided, or not known</code></p><h2>Working For Sure</h2>
+<p>The wireless device now has an IP address and data seems to be flowing.  In an effort to further convince myself that the WiFi was working, I disconnected the wired ethernet connection and attempted to re-login in via <code>ssh -X pi@RedRPi.local</code>, over the wireless interface. This failed, giving the message:</p>
+
+```
+ssh: Could not resolve hostname RedRPi.local: hostname nor servname provided, or not known
+```
+
+<h2>Working For Sure</h2>
 <p>I suspected (after more thrashing about) it was Ssh or <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/occidentalis-v0-dot-1#bonjour-support">Avahi/Bonjour</a> or both that was getting in the way.  So I did the following:</p><ol><ol><li>I cleaned out the <code>~/.ssh/known_hosts</code> file on the PC from which I'm accessing the RPi (I'm using Cygwin with Openssh). With the entries in the file removed  ssh keys would need to be recreated on next login.</li><li>I then logged into the RPi in via <code>ssh -X pi@RedRPi.local.</code> The login created an entry the <code>~/.ssh/known_hosts</code> file on the PC.</li><li>Using vi, I edited the  <code>~/.ssh/known_hosts</code> file.  I duplicated the one existing record but changed the  IP address to the wireless address.</li><li>I restarted the openssh on the PC.  (I terminated all the Cygwin window and restarted them.  I could get anything else to work short of a PC reboot).</li><li>I then logged in using <code>ssh -X pi@192.168.1.7</code>. Now I'm wireless!!</li></ol></ol>
 <p>My <code>~/.ssh/known_hosts</code> file looks like this:</p>
 <p>

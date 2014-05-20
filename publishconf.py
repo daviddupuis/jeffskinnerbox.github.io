@@ -10,7 +10,9 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
+# Domain name of the site (this will be placed in output/CNAME)
 SITEURL = 'http://jeffskinnerbox.me'
+
 RELATIVE_URLS = False
 
 FEED_DOMAIN = SITEURL
@@ -23,6 +25,9 @@ FEED_MAX_ITEMS = 100
 # List of templates that are used directly to render content.
 DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'archives', 'sitemap')
 SITEMAP_SAVE_AS = 'sitemap.xml'
+
+# content with dates in the future should not be generated
+WITH_FUTURE_DATES = False
 
 DELETE_OUTPUT_DIRECTORY = True
 DISPLAY_REPOST_BUTTON = True

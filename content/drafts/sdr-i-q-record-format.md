@@ -1,9 +1,10 @@
 Title: SDR I/Q Record Format
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Electronics
 Tags: SDR, Software Defined Radio
 Slug: sdr-iq-record-format
 Author: Jeff Irland
+Image: DRAFT_stamp.png
 Summary: abla bla bla
 
 [Accelerating Fourier transforms using the Raspberry Pi's GPU](http://www.raspberrypi.org/archives/5934)

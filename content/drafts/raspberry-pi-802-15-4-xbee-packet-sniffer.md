@@ -1,9 +1,10 @@
 Title: Raspberry Pi 802.15.4 (XBee) Packet Sniffer
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Electronics
 Tags: Raspberry Pi, XBee
 Slug: raspberry-pi-802-15-4-xbee-packet-sniffer
 Author: Jeff Irland
+Image: DRAFT_stamp.png
 Summary: abla bla bla
 
 <a href="/img/posts/jekyll-posts/RPi-XBee-Sniffer.jpg"><img align="left" title="bus priate board" src="/img/posts/jekyll-posts/RPi-XBee-Sniffer.jpg" width="250px" height="187px" class="img-rounded floatLeft" /></a>

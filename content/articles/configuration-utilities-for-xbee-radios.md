@@ -126,10 +126,18 @@ While the MS Windows based Digi X-CTU tool is just fine, I want to use the RPi
 In my post "<a href="http://jeffskinnerbox.wordpress.com/2012/12/22/selecting-xbee-radios-and-supporting-softwaretools/">Selecting XBee Radios and Supporting Software Tools</a>", I referenced a Python package that could be used to create my utilitiesd, call python-xbee, and I will be using it here. It claims to provides a semi-complete implementation of the XBee binary API protocol and allows a developer to send and receive the information they desire without dealing with the raw communication details. It also claims the  library is compatible with both XBee 802.15.4 (Series 1) and XBee ZigBee (Series 2) modules, normal and PRO.
 
 First, we need to load some additional required Python Packages, that being <a href="http://pyserial.sourceforge.net/">pySerial</a> and <a href="https://nose.readthedocs.org/en/latest/">Nose</a>. pySerial extends python's capabilities to include interacting with a serial port and Nose is a package providing a very easy way to build tests, based on the Python class <a href="http://docs.python.org/2/library/unittest.html">unittest</a>.  (Don't let this all scare you away, these are necessary but your not going to use them directly).  To load these package:
-<p style="padding-left:30px;"><code>sudo pip install pySerial
-sudo pip install nose</code></p>
+
+```
+sudo pip install pySerial
+sudo pip install nose
+```
+
 Download the python-xbee tools from <a href="http://code.google.com/p/python-xbee/">Google Code</a> or <a href="http://pypi.python.org/pypi/XBee/2.0.0">Python Org</a> and place them into the RPi's $HOME/src.  The README file provides installation instructions.  It states that the following command automatically test and install the package for you:
-<p style="padding-left:30px;"><code>sudo python setup.py install</code></p>
+
+```
+sudo python setup.py install
+```
+
 There is a simple to use RPi platform tool that I have modified for my needs, that is a XBee serial command shell for interacting with XBee radios.  It performs the core functions of the official configuration tool, <a href="https://sites.google.com/site/xbeetutorial/xctu">X-CTU</a>, which only runs on Windows. (There happens to be a cross-platform version of X-CTU called <a href="http://www.moltosenso.com/client/fe/browser.php?pc=/client/fe/download.php">moltosenso Network Manager</a> but I don't need all this horse power.)  I'll use this X-CTU-alternative to configure the individual XBee radios.  With the X-CTU, you can update firmware, etc. but most of the time you need the program to do simple configuration tasks. You could use Linux's <a href="http://linux.die.net/man/1/minicom"><code>minicom</code></a>, but I prefer a simpler tool which can be scripted so I can configure several XBee radios identically.  I found much of what I wanted in an existing <a href="https://github.com/sensestage/xbee-tools">Python XBee tools for configuration</a>.  I made some modification/improvements, I call it the XBeeTerm, and its listed below:
 
 <p><script src="https://gist.github.com/jeffskinnerbox/6663016.js"></script></p>
@@ -140,11 +148,19 @@ The XBeeTerm.py module imports functions from the pretty.py package, specificall
 
 <h2>Identifying the RPi USB device used by the XBee</h2>
 Since the python-xbee library wants to talk to the via a Linux serial devices, I'm using the <a href="http://www.adafruit.com/products/70">USB FTDI TTL-232 Cable</a> (<a href="http://www.ftdichip.com/">FTDI</a> is the <a href="http://en.wikipedia.org/wiki/Universal_Serial_Bus">USB</a> chip manufacturer) used in the XBee configuration step done earlier.  I connected the cable to the RPi USB port  and then we need to find the serial tty the cable is associated with.  To do this, it takes a bit of detective work. Run the commands:
-<p style="padding-left:30px;"><code>lsusb
+
+```
+lsusb
 dmesg | grep Manufacturer
-dmesg | grep FTDI</code></p>
+dmesg | grep FTDI
+```
+
 A better command might be (but I'm not sure it will work every time):
-<p style="padding-left:30px;"><code>dmesg | grep -i usb | grep -i tty</code></p>
+
+```
+dmesg | grep -i usb | grep -i tty
+```
+
 The interpretation of the output tells us the cable is attached to serial device <code>/dev/ttyUSB0</code>.  See the output below.
 
 <a href="http://jeffskinnerbox.wordpress.com/2013/01/30/configuration-utilities-for-xbee-radios/best-use-of-dmesg/" rel="attachment wp-att-1070"><img class="aligncenter size-full wp-image-1070" alt="best use of dmesg" src="http://jeffskinnerbox.files.wordpress.com/2012/12/best-use-of-dmesg.jpg" width="500" height="192" /></a>

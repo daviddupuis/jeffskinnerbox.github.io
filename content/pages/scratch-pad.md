@@ -20,6 +20,7 @@ Status: hidden
 * [3D Printering: Making A Thing In FreeCAD, Part II](http://hackaday.com/2014/02/15/3d-printering-making-a-thing-in-freecad-part-ii/)
 * [3D Printering: Making A Thing With Solidworks, Part I](http://hackaday.com/2014/02/19/3d-printering-making-a-thing-with-solidworks/#more-114836)
 * [3D Printering: Making A Thing With Solidworks, Part II](http://hackaday.com/2014/02/26/3d-printering-making-a-thing-with-solidworks-part-ii/)
+* [ Autodesk 123D / 123D Circuits](http://123d.circuits.io/)
 
 ---
 
@@ -91,9 +92,11 @@ Laser Rangefinder (aka LIght Detection And Ranging - LIDAR)
 * [LIDAR-Lite by PulsedLight](http://www.dragoninnovation.com/projects/32-pulsedlight-single-board-range-finder-minimodule)
 * [Hacking the Neato XV-11](http://xv11hacking.wikispaces.com/)
 * [Ultra Low-Cost Laser Rangefinders Actualized by Neato Robotics](http://www.hizook.com/blog/2009/12/20/ultra-low-cost-laser-rangefinders-actualized-neato-robotics)
+* [360 Degree Laser Scanner Development Kit (RPLIDAR)](http://www.dfrobot.com/index.php?route=product/product&product_id=1125#.U2vOZt_umam)
 
 Laser Writing
 
+* [ArduLASER](http://unsigned.io/?p=9)
 * [SpectraBeat: LaserRumbler projector](http://spectrabeat.com/)
 * [DIY pillbox laser projector](http://makezine.com/2010/09/16/diy-pillbox-laser-projector/)
 * [RGB laser projector is a jaw-dropping build](http://www.edaboard.com/thread230353.html)
@@ -254,6 +257,16 @@ Also check out the [CC1101 433M Wireless Modules](http://www.electrodragon.com/?
 
 ---
 
+#### Automatic Packet Reporting System
+* [APRS Beginner Guide 2011](http://k9dci.home.comcast.net/~k9dci/APRS%20Beginner%20Guide%20-%20K9DCI%20Ver%205-1.pdf)
+* [APRS contact with International Space Station](http://fiquett.com/2014/01/aprs-contact-with-international-space-station/)
+* [Get Started with APRS for only $30!](http://www.southgatearc.org/news/october2013/get_started_with_ham_radio_aprs_for_only_$30.htm#.U3lOAd_umak)
+* [Automatic Packet Reporting System](http://www.aprs.org/)
+* [APRS.if real-time APRS map](http://aprs.fi/#!lat=39.17480&lng=-77.53260)
+* [MicroModem](http://unsigned.io/?p=77)
+
+---
+
 #### Video and Camera Processing
 All Canon Powershots (such as the SD750) released after mid 2009 are not capable of remote control anymore.
 See [Remote controlling cameras][01].
@@ -264,6 +277,10 @@ See [Remote controlling cameras][01].
 * [webcam - capture images and upload them](http://linux.about.com/od/commands/l/blcmdl1_webcam.htm)
 * [Use Your Digital Camera with Linux](http://www.linuxdevcenter.com/pub/a/linux/2005/01/06/digicam.html)
 * [How to Remote Control Your Camera with Darktable on Linux](http://www.linux.com/learn/tutorials/750195-how-to-remote-control-your-camera-with-darktable-on-linux-)
+
+* [Deep Belief image recognition framework](https://github.com/jetpacapp/DeepBeliefSDK/tree/master)
+* [Caffe: Convolutional Architecture for Fast Feature Embedding](https://github.com/BVLC/caffe)
+* [OverFeat is an image recognizer and feature extractor](http://cilvr.nyu.edu/doku.php?id=code:start)
 
 ---
 
@@ -328,8 +345,9 @@ In the August 2009  Aclara Technologies white paper [Metering and More: How 
 * [White Paper: Discone Antenna Design](http://www.hipoint.ca/whitepapers/WhitePaper_DisconeAntenna.pdf)
 * [Notes on HF Discone Antennas](http://w4rnl.net46.net/download/discone.pdf)
 
-###### Utility Metere Reading
+###### Household Utility Measurement
 * [RTLAMR: An RTL-SDR receiver for smart meters operating in the 900MHz ISM band](http://bemasher.github.io/rtlamr/)
+* [Arduino Based Wireless Power Meter](http://people.ece.cornell.edu/land/courses/eceprojectsland/STUDENTPROJ/2009to2010/csm44/index.html)
 
 ###### Long Wave Reciver
 * [A $40 Software-Defined Radio](http://spectrum.ieee.org/geek-life/hands-on/a-40-softwaredefined-radio)

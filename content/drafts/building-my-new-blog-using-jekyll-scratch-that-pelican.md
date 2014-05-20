@@ -224,7 +224,6 @@ Slug: my-super-post
 Author: Jeff Irland
 Image: DRAFT_stamp.svg
 Summary: Short discription that will appear in a listing of all articles on the home page.
-Status: draft
 ```
     
 This metadata is placed as a header for the article or page.
@@ -485,48 +484,47 @@ EXTRA_PATH_METADATA = { 'extra/CNAME': { 'path': 'CNAME' }, }
 ```
 
 #### Set Up for Your Domain Name Provider
+An importiant issue for me was my domain name.
+I didn't want my URL changing to `jeffskinnerbox.github.io`.
+I have purchased the domain name `www.jeffskinnerbox.me` [Namecheap][57] and I want to make use of it.
+Github know this and they have provided a super easy method to let you use your own domain.
+Follow the advice at the GitHub page "[Setting up a Custom Domain with GitHub Pages][58]".
 
-run this command `dig www.jeffskinnerbox.me +nostats +nocomments +nocmd`
-to perform a DNS lookup.
+I created a `CNAME` file in the top level of your github repository for your site.
+In my case this is `$(HOME)/blogging/output` directory.
+In the `CNAME` file you will see it just contains `jeffskinnerbox.me`.
+That's all there is need within you Pelican web site. 
 
-A big issue for me was my domain name and existing links. I was able to keep my 
-perma-link structure the same which is nice, but I didn't want my URL changing 
-to gkwelding.github.com. I'd had the in-the-attic.co.uk domain for years and years 
-and had just recently managed to acquire the .com after many years of watching it 
-sit idle in the hands of someone else. Github know this. they have provided a super 
-easy method to let you use your own domain.
+As for how to set things up with your DNS provider,
+as an example, mine now looks like this:
 
-Create a CNAME file in the top level of your github repository for your site. In 
-my CNAME file you will see it just contains in-the-attic.com. That's all it needs. 
-Follow the advice at
-[https://help.github.com/articles/setting-up-a-custom-domain-with-pages](https://help.github.com/articles/setting-up-a-custom-domain-with-pages) 
-for how to set up your DNS, however, as an example mine now looks like this:
+| HOST NAME | IP ADDRESS/URL | RECORD TYPE | MX PREF | TTL  |
+|:---------:|:--------------:|:-----------:|:-------:|:----:|
+|     @     | 204.232.175.78 | A (Address) |   n/a   | 1800 |
+|    www    | jeffskinnerbox.github.io. | CNAME (Alias) | n/a | 1800 |
 
-    @       A 204.232.175.78
-    www     A 204.232.175.78
-    www     C gkwelding.github.com
+And that's it; just give your DNS time to update and away you go.
 
-And that's it. Give your DNS time to update and away you go.
+You can use the `[dig][59]` command to confirm that you have set it correctly.
+In my case, I run this command `dig www.jeffskinnerbox.me +nostats +nocomments +nocmd`
+to perform a DNS lookup and got the following results:
 
-One thing about this is you can only have one TLd pointing to your Github page. 
-This was a problem for me because I've used the in-the-attic.co.uk domain for years. 
-All of my traffic comes through the .co.uk domain, but i now wanted to use the .com 
-domain for various reasons. I'd already set up all the 301 redirects on the .co.uk 
-domain and I had to piggy back on a server I ran for other clients. I pointed my .co.uk 
-domain there and redirected via HTACCESS to the .com, URI string and all.
+```shell
+$ dig www.jeffskinnerbox.me +nostats +nocomments +nocmd
 
-For those interested the code in the .htaccess is as follows:
-
-    RewriteEngine On
-    RewriteBase /
-
-    RewriteCond %{HTTP_HOST} ^(www\.)?in-the-attic\.co\.uk$ [NC]
-    RewriteRule ^(.*)$ http://www.in-the-attic.com/$1 [R=301,L]
+; <<>> DiG 9.9.3-rpz2+rl.13214.22-P2-Ubuntu-1:9.9.3.dfsg.P2-4ubuntu1.1 <<>> www.jeffskinnerbox.me +nostats +nocomments +nocmd
+;; global options: +cmd
+;www.jeffskinnerbox.me.         IN  A
+www.jeffskinnerbox.me.    772   IN  CNAME   jeffskinnerbox.github.io.
+jeffskinnerbox.github.io. 2572  IN  CNAME   github.map.fastly.net.
+github.map.fastly.net.    8     IN  A       199.27.76.133
+```
 
 #### Upgrading Packages
 If you installed a stable Pelican, Markdown, or other package release via pip or easy_install
 and wish to upgrade to the latest stable release,
-you can do so by adding `--upgrade` to the relevant command. For Pelican, that would be:
+you can do so by adding `--upgrade` to the relevant command.
+For Pelican, that would be:
 
 ```shell
 pip install --upgrade pelican
@@ -592,8 +590,17 @@ To upgrade Bootstrap, Bootwatch, .....
 [54]:http://stackoverflow.com/questions/8596794/customizing-bootstrap-css-template
 [55]:http://ipython.org/ipython-doc/rel-1.0.0/interactive/nbconvert.html
 [56]:http://ipython.org/
-[57]:
-[58]:
-[59]:
+[57]:https://www.namecheap.com/
+[58]:https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages
+[59]:http://www.madboa.com/geek/dig/
 [60]:
-
+[61]:
+[62]:
+[63]:
+[64]:
+[65]:
+[66]:
+[67]:
+[68]:
+[69]:
+[70]:

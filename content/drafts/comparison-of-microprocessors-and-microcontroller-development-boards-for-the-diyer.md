@@ -1,5 +1,5 @@
 Title: Comparison of Microprocessors and Microcontroller Development Boards for the DIY'er
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: 
 Tags: 
 Slug: comparison-of-microprocessors-and-microcontroller-development-boards-for-the-diyer
@@ -17,6 +17,7 @@ The new site is project oriented, allowing developers to sort and select paramet
 
 Parameters include processor type and speed; number of analog and digital inputs; wireless options including WiFi and Bluetooth; USB ports including host, client, and/or OTG; video connectivity; and more.
 
+* [Embedded Linux board comparison chart and more!](http://www.adafruit.com/blog/2014/05/06/embedded-linux-board-comparison-chart-and-more/)
 * [Fubarino SD Development Board](http://www.microchip.com/stellent/idcplg?IdcService=SS_GET_PAGE&nodeId=1406&dDocName=en566210)
 * [iMX233-OLinuXino-NANO](https://www.olimex.com/Products/OLinuXino/iMX233/iMX233-OLinuXino-NANO/)
 * [TE-TM4C123](http://community.arm.com/docs/DOC-8010)
@@ -29,6 +30,9 @@ Parameters include processor type and speed; number of analog and digital inputs
 * [chipKIT Uno32](https://digilentinc.com/Products/Detail.cfm?NavPath=2,892,893&Prod=CHIPKIT-UNO32)
 * [UDOO](http://www.udoo.org/)
 * [BananaPi](http://bananapi.org/)
+* [CubieTruck](http://www.cubietruck.com/)
+* [BeagleBone]()
+* [ Tiva C Series Connected LaunchPad](http://www.automationworld.com/control/prototype-internet-things-apps-20)
 
 Wireless Enabled
 * [RFduino](http://www.rfduino.com/)

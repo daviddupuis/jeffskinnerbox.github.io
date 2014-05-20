@@ -29,9 +29,6 @@ DISPLAY_BREADCRUMBS = False
 # Web site icon (aka tab icon or bookmark icon)
 FAVICON = 'favicon.ico'
 
-# If False, content with dates in the future will get default status of draft.
-WITH_FUTURE_DATES = False
-
 # Site title to appear in the header
 HIDE_SITENAME = False
 SITENAME = u"Jeff's Skinner Box"
@@ -97,9 +94,10 @@ jeffskinnerbox.github.io/tree/source'
 
 COPYRIGHT = 'Copyright Jeffrey C. Irland, 2014'
 
-#A list of tuples (Title, URL) for additional menu items
-# to appear at the beginning of the main menu.
-MENUITEMS = (('Blog', '/index.html'),
+# A list of tuples (Title, URL) for additional menu items to appear
+# at the beginning of the main menu.
+MENUITEMS = (('About Me', '/pages/about-me.html'),
+            ('Blog', '/index.html'),
             ('Open Notebook', '/pages/open-notebook.html'),)
 
 # Provide Google Analytics Tracking ID (i.e. ‘UA-XXXX-YYYY’)
@@ -172,8 +170,9 @@ DELETE_OUTPUT_DIRECTORY = True
 # into the generated HTML via the Typogrify
 TYPOGRIFY = True
 
-# If False, content with dates in the future will have "Status: draft"
-WITH_FUTURE_DATES = False
+# If False, content with dates in the future will have "Status: draft",
+# and therefore will not be generated
+WITH_FUTURE_DATES = True
 
 #LOGOIMAGE = '/theme/macdrifter-logo-art/macdrifter-logo_280px.png'
 

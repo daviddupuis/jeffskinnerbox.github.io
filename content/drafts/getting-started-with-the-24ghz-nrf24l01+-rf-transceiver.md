@@ -1,9 +1,10 @@
 Title: Getting Started with the 2.4Ghz nRF24L01+ RF Transceiver
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Electronics
 Tags: nRF24L01, Wireless
 Slug: getting-started-with-the-2.4ghz-nrf24l01-rf-transceiver
 Author: Jeff Irland
+Image: DRAFT_stamp.png
 Summary: bla bla bla
 
 Check out

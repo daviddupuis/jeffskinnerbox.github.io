@@ -8,7 +8,7 @@ Image: ubuntu-13-04-raring-ringtail.jpg
 Summary: In this posting, I show how I implemented my plans to build my custom made Linux system.  I review where I deviated from my plans, and give some of the details on software configration.
 
 <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Ubuntu 13.04 Raring Ringtail" src="/images/ubuntu-13-04-raring-ringtail.jpg" width="15%" height="15%" />
-In an earlier post, I outlined <a href="http://jeffskinnerbox.wordpress.com/2013/04/28/building-my-linux-box-the-plan/">my plan for building a Linux Box</a>.  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
+In an earlier post, I outlined [my plan for building a Linux Box][11].  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
 <ul>
 <ul>
 	<li>After ordering all the hardware, it came to me that it was dumb to attempt to reuse my old semi-reliable, slow CD drive.  So I purchase the HP 24X Multiformat DVD/CD Writer (dvd1260i) at Best Buy for $40.</li>
@@ -35,7 +35,11 @@ Chromium is a fully open-source version of Google's Chrome, and for licensing 
 I have a <a href="http://www.mysqueezebox.com/index/Home">SqueezeBox</a> device in my workshop for playing music.  On my old PC, I had installed the SlimServer which would provide the music stream.  I want to now reestablish that capability on the Linux box. The post <a href="http://www.ehow.com/how_7314755_use-squeezebox-ubuntu.html">How to Use Squeezebox With Ubuntu</a> and the <a href="http://wiki.slimdevices.com/index.php/DebianPackage">Logitech SqueezeBox Wiki</a> gives you all the information you should need.
 
 The Ubuntu (Debian) software for the <a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server">SqueezeCenter</a> or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via <code>get-apt</code>.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the <a href="http://linux.die.net/man/5/sources.list"><code>sources.list</code></a> file.  To do this, do the following:
-<p style="padding-left:30px;"><code>sudo vim /etc/apt/sources.list</code></p>
+
+```shell
+sudo vim /etc/apt/sources.list
+```
+
 Scroll to the bottom of the file and enter the following information and then save:
 
 ```shell
@@ -54,9 +58,123 @@ sudo apt-get install logitechmediaserver
 Now open a browser and type "<code>http://desktop:9000</code>" as the URL, where "desktop" is the name of your Linux system.  This brings you to a Squeezebox interface to configure the system.
 
 If you want to start/stop Logitech Media Server manually you can run:
-<p style="padding-left:30px;"><code>sudo /etc/init.d/logitechmediaserver stop</code>
+<code>sudo /etc/init.d/logitechmediaserver stop</code>
 and
-<code>sudo /etc/init.d/logitechmediaserver start</code></p>
+<code>sudo /etc/init.d/logitechmediaserver start</code>
+
+<h2>Configuring Samsung SCX-4521F Printer/Scanner</h2>
+When it comes to printers and scanners, Ubuntu advices that you should simply plug it in and try!
+Ubuntu claims that if it's a newer model USB scanner / printer,
+it is likely that it will work immediately without any further driver or software installations.
+I did this with my multifunction [Samsung SCX-4521F][03], which is a printer / scanner combination,
+and the printer function worked but the scanner did not.
+
+After a bit of research, I discovered that Ubuntu uses
+[Common UNIX Printing System (CUPS)][01] for printer management.
+CUPS is the standards-based,
+open source printing system developed by Apple for OS X and other UNIX-like operating systems.
+Assuming CUPS is installed (and it appeares to be with the Ubuntu package),
+you can use a web browser to access it features.
+To do this, open your web browser and got to [`http://localhost:631/`](http://localhost:631/).
+You'll find there an overview of CUPS, administrative functions, and even command-line utilities.
+
+I also discovered that [SANE (Scanner Access Now Easy)][06] is the Linux way of scanning.
+SANE supports a great many scanners, and the community around SANE adds support for more scanners all the time.
+They claim, by and large, you should simple plug them in and your ready to scan.
+However, some scanners, like mine, require more effort.
+
+SANE isn't typically installed with the Ubuntu distribution,
+but you can install SANE via
+
+```
+sudo apt-get install sane xsane libsane-extras
+```
+
+SANE supplies a utility called
+[`scanimage`][02] that is a command-line interface to control image acquisition
+devices such as flatbed scanners or cameras.
+When I ran it, I got the following results
+
+```
+$ scanimage --list-devices
+
+No scanners were identified. If you were expecting something different,
+check that the scanner is plugged in, turned on and detected by the
+sane-find-scanner tool (if appropriate). Please read the documentation
+which came with this software (README, FAQ, manpages).
+```
+
+Some more web research told me that my printer is a [Xerox manufactured product][04]
+and I needed to install the Samsung Unified Linux Driver.
+I did the repository setup and package install recommended at
+[The Samsung Unified Linux Driver Repository][05].
+The install I did was
+
+```
+sudo apt-get install suld-driver-4.00.39 suld-configurator-2-qt4
+```
+
+I then added my login user to the `scanner` group via `sudo usermod -a -G scanner jeff`.
+I ran the command `sane-find-scanner` to see if I'm now able to detect the scanner,
+and I got the following disappointing results.
+
+```
+$ sudo sane-find-scanner
+
+  # sane-find-scanner will now attempt to detect your scanner. If the
+  # result is different from what you expected, first make sure your
+  # scanner is powered up and properly connected to your computer.
+
+  # No SCSI scanners found. If you expected something different, make sure that
+  # you have loaded a kernel SCSI driver for your SCSI adapter.
+
+could not fetch string descriptor: Pipe error
+could not fetch string descriptor: Pipe error
+  # No USB scanners found. If you expected something different, make sure that
+  # you have loaded a kernel driver for your USB host controller and have setup
+  # the USB system correctly. See man sane-usb for details.
+
+  # Not checking for parallel port scanners.
+
+  # Most Scanners connected to the parallel port or other proprietary ports
+  # can't be detected by this program.
+```
+
+At this point, I did some back tracking and discovered the following article:
+[How do I get the scanner to work on a Samsung SCX 4521F Multi function printer?][07]
+The work already done above covers step 1 of this article
+and step 2 isn't relevant (since I can already print).
+I need to perform step 3, that is
+
+```
+sudo apt-get install samsungmfp-scanner
+```
+
+Now I re-ran the command `scanimage --list-devices` and got the following
+
+```
+$ scanimage --list-devices
+device `smfp:SAMSUNG SCX-4x21 Series on USB:0' is a SAMSUNG SCX-4x21 Series on USB:0 Scanner
+```
+
+but the `sudo sane-find-scanner` got the same
+"could not fetch string descriptor: Pipe error" error message when done earlier.
+
+After some more research and using `lsusb | grep Samsung` and `cat /lib/udev/rules.d/40-libsane.rules | grep 3419`,
+I discover there is no udev rule for the SCX-4521F scanner.
+Therefore, I place the following lines in `/lib/udev/rules.d/40-libsane.rules`
+
+```
+# Samsung SCX-4521F
+ATTRS{idVendor}=="04e8", ATTRS{idProduct}=="3419", ENV{libsane_matched}="yes"
+```
+
+This still didn't give me a good run for `sudo sane-find-scanner`
+but the command `scanimage --test` did give passing results.
+Given this, I proceeded to using [`xsane`][08] to test out some scanning (it worked!).
+xsane is a X Window application and produces it output in [PNM format][09].
+You can convert this format to PDF (and many other formats) via the utility [`convert`][10]
+(e.g. `convert outfile.pnm outfile.pdf`).
 
 <h2>iPod Support</h2>
 Ubuntu comes with <a href="https://wiki.gnome.org/Apps/Rhythmbox">Rhythmbox</a> as its music playing application and can be used to synch with a iPod. 
@@ -106,7 +224,7 @@ and the
 <a href="http://www.logitech.com/en-us/product/wireless-mouse-m510">Logitech M510 Wireless Mouse</a>.
 These devices use the <a href="http://www.logitech.com/en-us/promotions/6072">Logitech Unifying wireless technology</a>, which allows a single wireless receiver to connect with multiple Unifying devices.  I plugged in the mouse's receiver  and in short order the mouse was working.
 <a href="http://jeffskinnerbox.files.wordpress.com/2013/06/logitech-m510-wireless-mouse.jpg">
-    <img class="img-rounded" style="margin: 0px 8px; float: left" alt="Logitech M510 Wireless Mouse" src="/images/logitech-m510-wireless-mouse.jpg" width="75" height="57" />
+    <img class="img-rounded" style="margin: 0px 8px; float: right" alt="Logitech M510 Wireless Mouse" src="/images/logitech-m510-wireless-mouse.jpg" width="75" height="57" />
 </a>
 I was a bit concerned about the ability of the receiver to support multiple device (i.e. the keyboard) simultaneously under Linux.
 Doing a quick search I found a post discussing how to do the <a href="http://askubuntu.com/questions/113984/is-logitechs-unifying-receiver-supported">device pairing under Linux</a>.  <a href="https://lekensteyn.nl/logitech-unifying.html#ltunify">To install</a> the <a href="https://git.lekensteyn.nl/ltunify/"><code>ltunify</code></a> pairing software, and do the pairing, do the following:
@@ -115,13 +233,14 @@ Doing a quick search I found a post discussing how to do the <a href="http://ask
 cd ~/src
 git clone https://git.lekensteyn.nl/ltunify.git
 cd ltunify
-make install-home</code>
+make install-home
 ```
 
-To list the devices that are paired: <code>sudo ltunify list</code>
-To pair a device: <code>sudo ltunify pair</code>, then turn your wireless device off and on to start pairing.
-To unpair a device: <code>sudo ltunify unpair mouse</code>
-To get help: <code>sudo ltunity --help</code>
+* To list the devices that are paired: <code>sudo ltunify list</code>
+* To pair a device: <code>sudo ltunify pair</code>, then turn your wireless device off and on to start pairing.
+* To unpair a device: <code>sudo ltunify unpair mouse</code>
+* To get help: <code>sudo ltunity --help</code>
+
 <h2>Mouse Xbindkeys</h2>
 The M510 mouse has extra buttons on its left side and the scroll wheel  has a side-to-side click, but out of the box,the don't do anything under Linux.  It would be nice to make use of these extra buttons.  To address this problem, I found pointers in these posts: <a href="http://ubuntuforums.org/showthread.php?t=1957300">How to get all those extra mouse buttons to work</a>, <a href="http://askubuntu.com/questions/24916/how-do-i-remap-certain-keys">How do I remap certain keys</a>,  <a href="http://blog.hanschen.org/2009/10/13/mouse-shortcuts-with-xbindkeys/">Mouse shortcuts with xbindkeys</a>, and <a href="http://forums.logitech.com/t5/Mice-and-Pointing-Devices/Guide-for-setup-Performance-MX-mouse-on-Linux-with-KDE/td-p/517167">Guide for setup Performance MX mouse on Linux (with KDE)</a>.
 
@@ -145,13 +264,25 @@ Basically, using<a href="http://www.nongnu.org/xbindkeys/#utilisation"> Xbindkey
 </ul>
 </ul>
 Now we need a mechanism to re-map mouse (or keyboard) button inputs.  <a href="https://wiki.archlinux.org/index.php/Xbindkeys"><code>Xbindkeys</code></a> is is a X Windows program that enables us to bind commands to certain keys or key combinations on the keyboard and it will also work for the mouse.  The file  <code>~/.xbindkeysrc</code> is what <code>xbindkeys</code> uses as a configuration file to link a command to a key/button on your keyboard/mouse.  There is also <code>xbindkeys_config</code> is an easy to use gtk program for configuring <code>xbindkeys</code>. To install these tools, do the following:
-<p style="padding-left:30px;"><code>sudo apt-get install xautomation xbindkeys xbindkeys-config</code></p>
+
+```shell
+sudo apt-get install xautomation xbindkeys xbindkeys-config
+```
+
 To create your initial xbindkeys configuration file, just run the following command:
-<p style="padding-left:30px;"><code>xbindkeys --defaults &gt; $HOME/.xbindkeysrc</code></p>
+
+```shell
+xbindkeys --defaults &gt; $HOME/.xbindkeysrc
+```
+
 The syntax of the contents of .xbindskesrc is simple and is illustrated below:
-<pre style="padding-left:30px;"># short comment
+
+```shell
+# short comment
     "command to start"
-        associated key</pre>
+        associated key
+```
+
 The <code>"command to start"</code> is simply a shell command (that you can run from a terminal),  and <code>"associated key"</code> is the key or button.
 
 Now, using an editor, update the .xbindkeysrc file to include the following:
@@ -175,8 +306,12 @@ Now, using an editor, update the .xbindkeysrc file to include the following:
 ```
 
 To activate any modification of the .xbindkeysrc configuration file, your have to restart xbindkeys.   This can be done via:
-<p style="padding-left:30px;"><code>pkill xbindkeys
-xbindkeys</code></p>
+
+```shell
+pkill xbindkeys
+xbindkeys
+```
+
 Other useful resources are:
 <ul>
 <ul>
@@ -195,7 +330,11 @@ I have been using the MS Windows based <a href="https://www.splashid.com/">Spla
 </ul>
 </ul>
 The first step was to get KeePass installed in Ubuntu.  I found it on the <a href="http://en.wikipedia.org/wiki/Ubuntu_Software_Center">Ubuntu Software Center</a> or you can use:
-<p style="padding-left:30px;"><code>sudo apt-get install keepass2 keepass2-doc</code></p>
+
+```shell
+sudo apt-get install keepass2 keepass2-doc
+```
+
 I then exported the contents of my SplashID database to a <a href="http://en.wikipedia.org/wiki/Comma-separated_values">CSV file</a> and imported it into keepass2.  I set up the KeePass2 database within my Dropbox folder.  This way, it can be scych'ed with my cell phone. I then installed KeePassDroid on my cell phone, pointing it at the database with the cell phones Dropbox.  <a href="http://www.keepassdroid.com/">KeePassDroid</a> is a port of the KeePass password safe for the Android platform.
 
 There is some cleanup of the fields within the KeePass2 database, but the data is now accessable on both my PC and my cell phone.
@@ -243,21 +382,30 @@ Description of the procedures I used to create the RAID is as follows:
 	<li>Install <a href="http://en.wikipedia.org/wiki/Mdadm">mdadm</a>, which is the Linux utility used to manage software RAID devices.</li>
 </ul>
 </ul>
-<p style="padding-left:90px;"><code>sudo apt-get install mdadm</code></p>
+
+```
+sudo apt-get install mdadm
+```
 
 <ul>
 <ul>
 	<li>Partition the newly installed disk. Use the following inputs: n to establish a logic partition, p to make it a primary partition, 1  should be the partition number, use the same sectors as the currently installed drive, t to set the partition type, fd hex code type, p to print what the partition table will look like, w to write all of the changes to disk.</li>
 </ul>
 </ul>
-<p style="padding-left:90px;"><code>sudo fdisk /dev/sdc</code></p>
+
+```
+sudo fdisk /dev/sdc
+```
 
 <ul>
 <ul>
 	<li>Create a single-disk RAID-1 array (aka degraded array) with the existing hard drive. (Note the "missing" keyword is specified as one of the devices. We are going to fill this missing device later with the new drive.)</li>
 </ul>
 </ul>
-<p style="padding-left:90px;"><code>sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 missing /dev/sdc1</code></p>
+
+```
+sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 missing /dev/sdc1
+```
 
 <ul>
 <ul>
@@ -265,7 +413,10 @@ Description of the procedures I used to create the RAID is as follows:
 	<li>Make the file system (ext3 type like the currently installed hard drive) on the RAID device.</li>
 </ul>
 </ul>
-<p style="padding-left:90px;"><code>sudo mkfs -t ext3 -j -L RAID-ONE /dev/md0</code></p>
+
+```
+sudo mkfs -t ext3 -j -L RAID-ONE /dev/md0
+```
 
 <ul>
 <ul>
@@ -283,14 +434,20 @@ sudo mount /dev/md0 /mnt/raid1</code></p>
 	<li>Copy over the files form the original hard drive to the new hard drive using <a href="http://en.wikipedia.org/wiki/Rsync">rsync</a>.</li>
 </ul>
 </ul>
-<p style="padding-left:90px;"><code>sudo rsync -avxHAXS --delete --progress /home/* /mnt/raid1</code></p>
+
+```
+sudo rsync -avxHAXS --delete --progress /home/* /mnt/raid1
+```
 
 <ul>
 <ul>
 	<li>Just  in case of a disaster, copy the original hard drive to the SSD <code>/dev/sda1</code> root file system as /<code>home_backup.</code></li>
 </ul>
 </ul>
-<p style="padding-left:90px;"><code>sudo rsync -avxHAXS --delete --progress /home /home_backup</code></p>
+
+```
+sudo rsync -avxHAXS --delete --progress /home /home_backup
+```
 
 <ul>
 <ul>
@@ -299,21 +456,30 @@ sudo mount /dev/md0 /mnt/raid1</code></p>
 	<li>With fdisk, re-partition /dev/sdb1 with a partition of type fd. Use the following inputs: n to establish a logic partition, p to make it a primary partition, 1  should be the partition number, use the same sectors as the currently installed drive, t to set the partition type, fd hex code type, p to print what the partition table will look like, w to write all of the changes to disk.</li>
 </ul>
 </ul>
-<p style="padding-left:90px;"><code>sudo fdisk /dev/sdb1</code></p>
+
+```
+sudo fdisk /dev/sdb1
+```
 
 <ul>
 <ul>
 	<li>Add <code>/dev/sdb1</code> to your existing RAID array.</li>
 </ul>
 </ul>
-<p style="padding-left:90px;"><code>mdadm /dev/md0 --add /dev/sdb1</code></p>
+
+```
+mdadm /dev/md0 --add /dev/sdb1
+```
 
 <ul>
 <ul>
 	<li>The RAID array will now start to rebuild so that the two drives have the same data. Use the following command to check the status of the rebuild.</li>
 </ul>
 </ul>
-<p style="padding-left:90px;"><code>sudo mdadm -D /dev/md0</code></p>
+
+```
+sudo mdadm -D /dev/md0
+```
 
 <ul>
 <ul>
@@ -323,5 +489,18 @@ sudo mount /dev/md0 /mnt/raid1</code></p>
 
 ```shell
 sudo cp /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf_backup
-sudo mdadm --detail --scan &gt;&gt; /etc/mdadm/mdadm.conf
+sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf
 ```
+
+
+[01]:https://help.ubuntu.com/13.10/serverguide/cups.html
+[02]:http://linux.about.com/library/cmd/blcmdl1_scanimage.htm
+[03]:http://www.samsung.com/levant/consumer/computers-peripherals/printers/mono-multi-function/SCX-4521F/XSG
+[04]:http://www.bchemnet.com/suldr/supported.html
+[05]:http://www.bchemnet.com/suldr/index.html
+[06]:http://www.sane-project.org/
+[07]:http://askubuntu.com/questions/231778/how-do-i-get-the-scanner-to-work-on-a-samsung-scx-4521f-multi-function-printer
+[08]:http://linux.about.com/library/cmd/blcmdl1_xsane.htm
+[09]:http://en.wikipedia.org/wiki/Netpbm_format
+[10]:http://www.imagemagick.org/script/convert.php``
+[11]:http://jeffskinnerbox.me/posts/2013/Apr/28/building-my-linux-box-the-plan/

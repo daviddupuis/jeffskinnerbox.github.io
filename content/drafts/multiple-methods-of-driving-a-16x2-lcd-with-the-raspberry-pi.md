@@ -1,9 +1,10 @@
 Title: Multiple Methods of Driving a 16x2 LCD with the Raspberry Pi
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Electronics
 Tags: LCD, Raspberry Pi
 Slug: multiple-methods-of-driving-a-16x2-lcd-with-the-raspberry-pi
 Author: Jeff Irland
+Image: DRAFT_stamp.png
 Summary: bla bla bla
 
 In this post, I will describe two ways to drive this popular LCD display via the Raspberry Pi GPIO pins.

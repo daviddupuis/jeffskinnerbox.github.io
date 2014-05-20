@@ -2,7 +2,7 @@ Title: Building My Linux Box...The Plan
 Date: 2013-04-28 00:01
 Category: Software
 Tags: Linux
-Slug: building my linux box...the plan
+Slug: building-my-linux-box-the-plan
 Author: Jeff Irland
 Image: intel_core-i5-3570k_retail.jpg
 Summary: In this post, I outline my logic, and some time my pasions, concerning the building of my Linux system. I list all the compoents selected and why I made that choice.

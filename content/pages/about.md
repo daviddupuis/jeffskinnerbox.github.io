@@ -1,5 +1,6 @@
 Title: About Me
 Slug: about-me
+Status: hidden
 
 ### Welcome to my Skinner Box!
 <a href="http://webspace.ship.edu/cgboer/skinner.html">
@@ -38,9 +39,14 @@ I'll be using this website as my scratch pad to capture what I discover or relea
 It may have some use for others, but I can't promise that.
 Never the less, I hope you find it useful.
 
+<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+<script type="IN/MemberProfile" data-id="http://www.linkedin.com/in/jeffreyirland" data-format="hover" data-text="Jeffrey Irland"></script>
+[Resume][05]
+
 
 
 [01]:http://en.wikipedia.org/wiki/Skinner_box "Description of the Classic Skinner Box"
 [02]:https://en.wikipedia.org/wiki/B._F._Skinner "Biography of the inventor of the Skinner Box"
 [03]:http://www.raspberrypi.org/faqs
 [04]:http://en.wikipedia.org/wiki/Maker_culture
+[05]:http://resume.linkedinlabs.com/ga2hv9ric

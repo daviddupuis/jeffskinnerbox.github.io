@@ -1,9 +1,10 @@
 Title: Converting Audio Files
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Audio
 Tags: 
 Slug: converting-audio-files
 Author: Jeff Irland
+Image: DRAFT_stamp.png
 Summary: bla bla bla
 
 * [Accelerating Fourier transforms using the Raspberry Pi's GPU](http://www.raspberrypi.org/archives/5934)
@@ -87,6 +88,7 @@ If you want to convert between different compressed audio formats, generally the
 ## Waveform Viewer
 A waveform viewer is a software tool for viewing a signals waveform.
 http://en.wikipedia.org/wiki/Waveform_viewer
+[Browser-based audio waveform visualisation](http://waveform.prototyping.bbc.co.uk/)
 
 ## Capturing Still Images and Streamming Video from WebCam
 You can capture still images and videos with the webcam using `cheese` or `memcoder`.

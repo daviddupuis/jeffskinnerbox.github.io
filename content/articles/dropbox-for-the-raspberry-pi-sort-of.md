@@ -19,15 +19,24 @@ For me, nothing needs to be done here.  I already have Dropbox running on my PC
 <h2>Installation Required on the RPi</h2>
 On the client side of the solution, you'll need to install <a href="http://fuse.sourceforge.net/sshfs.html">SSHFS</a> and <a href="http://fuse.sourceforge.net/">FUSE</a>. FUSE is the user-space filesystem framework and is the foundation on which SSHFS resides. FUSE allows user-space software, SSH in this case, to present a virtual file system interface to the user; something generally only done by the Linux kernel.  SSHFS connects to the remote system and provide the look and feel of a regular file system interface for remote files. On the RPi, install SSHFS via the command:
 
-<p style="padding-left:30px;"><code>sudo apt-get install sshfs </code></p>
+```
+sudo apt-get install sshfs
+```
+
 FUSE appear to be already installed on the RPi or maybe comes with SSHFS. Next you need to add required users to the FUSE usergroup.  In my case, that is the user pi.  You can see the existing groups pi is part of via the command <code>groups pi</code>.  You can validate that the FUSE user group has been created by using the command <code>cat /etc/group | grep fuse</code>.  To add pi to the FUSE user group, use the command:
 
-<p style="padding-left:30px;"><code>sudo gpasswd -a pi fuse</code></p>
+```
+sudo gpasswd -a pi fuse
+```
+
 The fuse group lets you limit which users are allowed to use FUSE-based file systems, in my case the Dropbox. This is important because FUSE installs <a href="http://www.acm.uiuc.edu/workshops/security/setuid.html">setuid programs</a>, which always carry security implications.
 <h2>Configuring the Dropbox File System</h2>
 Now its time to make your Dropbox directory on the RPi, and mount it to the PC's instance of Dropbox. On the RPi, use this command to create the Dropbox:
 
-<p style="padding-left:30px;"><code>mkdir ~/Dropbox</code></p>
+```
+mkdir ~/Dropbox
+```
+
 The next thing to do is to make sure that you can connect to the PC via ssh.  When I installed Cygwin, my focus was on using it as an X Server and making ssh connections from the PC to RPi.  I never tried the inverse (connect from the RPi to the PC) and that is what SSHFS is effectively doing.  So check for two things:
 <ul>
 <ul>
@@ -38,9 +47,17 @@ The next thing to do is to make sure that you can connect to the PC via ssh.  W
 There is another Cygwin sublimity that has to be taken into consideration.  When using the Cygwin, Windows drive letters are mapped to a <a href="http://znark.com/tech/cygwin.html">special directory</a>.  In my case, the Dropbox directory appears to Cygwin to have the following path: <code>/cygdrive/c/Users/Jeff/Dropbox</code>.
 
 With this all addressed, <span style="text-decoration:underline;">reboot the RPi</span>, and then you can now fire up you RPi Dropbox via:
-<p style="padding-left:30px;"><code>sshfs Jeff@HomePC.home:/cygdrive/c/Users/Jeff/Dropbox ~/Dropbox</code></p>
+
+```
+sshfs Jeff@HomePC.home:/cygdrive/c/Users/Jeff/Dropbox ~/Dropbox
+```
+
 After you supply the PC's password, you should now be able to access the Dropbox directory on the PC.  If you wish, you can remove the file system connection to the PC via the command:
-<p style="padding-left:30px;"><code>fusermount -u ~/Dropbox</code></p>
+
+```
+fusermount -u ~/Dropbox
+```
+
 This connection will stay established as long as you don't do the <code>fusermount -u</code> or reboot the RPi.  If you wish to mount the file system upon boot-up, and avoid executing the <code>sshfs</code> when you log-in, you can follow the procedure outline in the article that initially inspired me: <a href="http://mitchtech.net/dropbox-on-raspberry-pi-via-sshfs/">Dropbox on Raspberry Pi via SSHFS</a>
 <h2>Something to Keep in Mind</h2>
 While for the most part, moving between Windows/DOS and the Linux file systems isn't a problem, there is one thing to remember. Windows-based text editors put one set of special characters at the end of lines (i.e. carriage return and line break = '\r\n'), while Unix/Linux puts other characters (i.e. line break = '\n').  This <a href="http://www.codinghorror.com/blog/2010/01/the-great-newline-schism.html">odd anomaly</a> is normally harmless, but some applications on a Linux cannot understand these characters and can cause Linux to not respond correctly.

@@ -37,6 +37,10 @@ For the Raspberry Pi, you can list the installed firmware version via:
 
     /opt/vc/bin/vcgencmd version
 
+To get a broader, and potentially more detailed look at your system,
+consider the commands `[lshw][11]`
+and the graphical tools `[lshw-gtk][12]` and `[sysinfo][12]`.
+
 ## OS and Application Maintenance
 You should periodically update your Linux operating system (OS)
 and its applications.
@@ -63,7 +67,7 @@ Once the tool has been installed, periodically you can update the firmware via t
     sudo BRANCH=next rpi-update
     sudo reboot
 
-Note that once the firmware has been sucessfully updated,
+Note that once the firmware has been successfully updated,
 you'll need to reboot to load the new firmware.
 
 ## Filesystem Maintenance
@@ -118,6 +122,28 @@ Via the demon, you can run Smartmontools in the background,
 have it check drives, and email you when there are issues.
 See the Sources below to figure out what needs to be done to setup the `smartd` demon.
 
+#### Filesystem Checks and Repair
+The Linux filesystem can be damaged under various circumstances, e.g., system crash,
+power loss, disconnected disk, accidentally overwritten i-node, etc.
+Thus it is a good idea to check the integrity of the filesystem regularly
+to minimize the risk of filesystem corruption.
+You can check out the article "[How to set up automatic filesystem checks and repair on Linux][10]"
+but to do force a one-time filesystem check on the next reboot,
+do the following
+
+    sudo touch /forcefsck
+
+Once you create an empty file named `forcefsck` in the root directory,
+it will force filesystem check the next time you boot up.
+After successful booting, `/forcefsck` will automatically be removed.
+
+An alternative is to shut down the system with the `-F` option like this:
+
+    sudo shutdown -r -F now
+
+**NOTE:** A filesystem check can run for many minutes, if not hours,
+depending on the size of the filesystem.
+
 ## Clean-Up
 Linux will leave some clutter around in the filesystem.
 While generally not a problem, it can eat-up disk space,
@@ -150,7 +176,7 @@ You can also remove old compress log files from the system with
     sudo rm -v /var/log/*.gz
 
 #### Clean-Up Installation Packages
-To remove partual packages, clean the cache, remove unused dependancies use:
+To remove partial packages, clean the cache, remove unused dependencies use:
 
     sudo apt-get autoclean
     sudo apt-get clean
@@ -182,12 +208,10 @@ have an old kernel or two to fall back to
 At the very least, if you've just upgraded the kernel,
 reboot before deleting the older versions.
 
-And if you happend to blow away all the kernel images (as I have done more than once),
-get your current kernel verison back by executing `uname -r` and then reinstall it with:
+And if you happen to blow away all the kernel images (as I have done more than once),
+get your current kernel version back by executing `uname -r` and then reinstall it with:
 
-```shell
-sudo apt-get install linux-image-x.x.x-xx
-```
+    sudo apt-get install linux-image-x.x.x-xx
 
 where `x.x.x-xx` is the kernel version number give by the `uname -r` command.
 
@@ -200,7 +224,7 @@ To do this, shut down the system with the -F option like this:
 Linux reboots immediately and looks for disk errors with the [`fsck`][05] command.
 Confirm fixing disk errors by pressing "y" and "Enter" if prompted.
 
-If this fails, read these articals "[Disk Maintenance under Linux (Disk Recovery][01]",
+If this fails, read these articles "[Disk Maintenance under Linux (Disk Recovery][01]",
 [How to recover partitions and data using Linux - Tutorial][04],
 and then follow the instructions carefully!
 
@@ -227,3 +251,6 @@ I consulted the following sources to create this posting:
 [07]:http://www.raspbian.org/
 [08]:http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview
 [09]:https://github.com/Hexxeh/rpi-update
+[10]:http://xmodulo.com/2014/03/automatic-filesystem-checks-repair-linux.html
+[11]:http://www.thegeekstuff.com/2008/12/how-to-get-hardware-specs-of-your-system-using-lshw-hardware-lister/
+[12]:http://www.webupd8.org/2011/07/how-to-get-hardware-information-in.html

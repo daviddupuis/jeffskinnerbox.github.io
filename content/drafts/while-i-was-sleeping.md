@@ -1,11 +1,11 @@
 Title: While I Was Sleeping
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Misc
 Tags: Making
 Slug: while-i-was-sleeping
 Author: Jeff Irland
+Image: DRAFT_stamp.png
 Summary: bla bla bla
-Status: draft
 
 Andrew McAfee and Erik Brynjolfsson, from MIT's Center for Digital Business, have a new book out called,
 The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies.
@@ -44,6 +44,7 @@ Digital repositories are especially useful where data is used to directly reprod
 * []()
 
 #### Local Maker Spaces
+* [HacDC - The Capital's Hackerspace](http://www.hacdc.org/)
 * [Reverse Space](http://sphereroute.com/) - 13505 Dulles Technology Drive #3 Herndon, VA 
 * [NOVA Labs](http://www.nova-labs.org/blog/) - 1881-F Metro Center Drive, Reston, VA
     * [Hackaday Visits NOVA Labs And Small Batch Assembly](http://hackaday.com/2014/03/21/hackaday-visits-nova-labs-and-small-batch-assembly/)
@@ -89,7 +90,7 @@ Digital repositories are especially useful where data is used to directly reprod
     * [Inspiring a Maker Movement](http://www.youtube.com/watch?v=yYd25q9lMTI)
 * Nick Pinkston
     * [What is the New Industrial Revolution?](http://makezine.com/2013/06/24/what-is-the-new-industrial-revolution/)
-* CHris Anderson
+* Chris Anderson
     * [Wired’s Chris Anderson: Today’s ‘Maker Movement’ Is The New Industrial Revolution](http://techcrunch.com/2012/10/09/wireds-chris-anderson-todays-maker-movement-is-the-new-industrial-revolution-tctv/)
     * [Chris Anderson & Bre Pettis "From Maker Movement to New Industrial Revolution"](http://www.youtube.com/watch?v=qRkCXo_nbQg)
 
@@ -101,6 +102,7 @@ Digital repositories are especially useful where data is used to directly reprod
 
 #### Is It A New Industral Revolution?
 * [What is the New Industrial Revolution?](http://makezine.com/2013/06/24/what-is-the-new-industrial-revolution/)
+* [Why the Maker Movement Is Important to America’s Future](http://time.com/104210/maker-faire-maker-movement/)
 
 #### MicroFactory (aka 3rd Industrial Revolution)
 * [Local Motors](https://localmotors.com/)

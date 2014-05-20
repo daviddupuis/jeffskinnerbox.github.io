@@ -1,9 +1,10 @@
 Title: Arduino From the Command Line, Revisited
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Pages
 Tags: Arduino
 Slug: arduino-from-the-command-line-revisited
 Author: Jeff Irland
+Image: DRAFT_stamp.png
 Summary: bla bla bla
 
 For someone like myself, who is at home with Linux as my OS and Vim as my editor,

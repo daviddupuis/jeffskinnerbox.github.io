@@ -1,9 +1,10 @@
 Title: Making a Discone Antenna for RTL-SDR
-Date: 2014-02-21 18:20
+Date: 2100-01-01 00:00
 Category: Electronics
 Tags: Antenna, RTL-SDR
 Slug: making-a-discone-antenna-for-rtl-sdr
 Author: Jeff Irland
+Image: DRAFT_stamp.png
 Summary: bla bla bla
 
 Need a SMA Panel Jack connector

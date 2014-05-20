@@ -1,11 +1,12 @@
----
-layout: post
-title: Tuning the RTL-SDR for Optimal Use
-summary: bla, bla, bla
-tags: [RTL-SDR, Software Defined Radio]
-categories: [Electronics]
-image: 'DRAFT_stamp.svg'
----
+Title: Tuning the RTL-SDR for Optimal Use
+Date: 2100-01-01 00:00
+Category: xxx
+Tags: Electronics
+Slug: RTL-SDR, Software Defined Radio
+Author: Jeff Irland
+Image: DRAFT_stamp.png
+Summary: bla bla bla
+
 You'll find that the dongle is limited by the following:
 
 * frequency offset
