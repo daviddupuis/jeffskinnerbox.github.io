@@ -14,6 +14,41 @@ This can be fixed with a little custom CSS.
 My fix is in `content/extra/custom.css` and is listed blow:
 
 ```css
+/* This allows for a wider range of font sizes for the Tag Cloud.
+ * Make sure to change the TAG_CLOUD_STEPS value in pelicanconf.py
+ * to to the number of tags here (i.e. 8) */
+.tag-1 {
+    font-size: 20pt;
+}
+
+.tag-2 {
+    font-size: 18pt;
+}
+
+.tag-3 {
+    font-size: 16pt;
+}
+
+.tag-4 {
+    font-size: 14pt;
+}
+
+.tag-5 {
+    font-size: 12pt;
+}
+
+.tag-6 {
+    font-size: 10pt;
+}
+
+.tag-7 {
+    font-size: 8pt;
+}
+
+.tag-8 {
+    font-size: 6pt;
+}
+
 /* This will provide some visual improvements to Markdown's formating of tables */
 table, th, td {
     margin-left: auto; 
@@ -41,6 +76,18 @@ td {
     padding-left: 15px;
     background-color: #FFFFFF;
     color: black;
+}
+
+/* This will make the in-text code more aesthetically appealing */
+code {
+    font-family: monospace, monospace;
+    color: black;
+}
+
+/* This will make the code blocks more aesthetically appealing */
+.codehilite {
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #888888;
 }
 ```
 

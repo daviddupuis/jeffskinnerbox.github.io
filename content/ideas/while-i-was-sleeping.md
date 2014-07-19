@@ -11,9 +11,37 @@ Andrew McAfee and Erik Brynjolfsson, from MIT's Center for Digital Business, hav
 The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies.
 Its thesis: If the first machine age was about the automation of manual labor and horsepower, the second machine age is about the automation of knowledge work, thanks to the proliferation of real time, predictive data analytics, machine learning and the Internet of Things -- an estimated 200 billion devices connected to the Internet by 2020, all of them generating unimaginable quantities of data.
 
+Many public web services now offer tools called APIs, or application programming interfaces,
+that make it easier for anyone to build other software and services.
+APIs make it easier to, say, build an application that combines data from both Facebook and Spotify,— and many other applications.
+Even non-developers can get in on the action through services like IFTTT
+— short for “If This, Then That” — which makes it easy to connect different services without writing code.
+But physically building hardware that connects to such web services is still challenging.
+
+For Internet of Things products to be successful, user and data interfaces must be simple,
+just as in any other product. The complexity that lies underneath should be tucked away.
+That's the problem with the name Internet of Things or connected devices.
+The majority of the user value isn't about the things at all, but the services that power the things.
+In fact, the most successful connected devices should disappear from a user's mind altogether.
+That the devices are connected at all or even exist should simply be forgotten.
+
+#### How Will It Change Us
+[Benedict Evans said it well](http://ben-evans.com/benedictevans/2014/5/26/the-internet-of-things):
+> My grandfather could probably have told you how many electric motors he owned. There was one in the car, one in the fridge, one in his drill and so on. 
+>My father, when I was a child, might have struggled to list all the motors he owned (how many, exactly, are in a car?) but could have told you how many devices were in the house that had a chip in it. 
+>Today, I have no idea how many devices I own with a chip, but I could tell you how many have a network connection. And I doubt my children will know that, in their turn. 
+
 We have a software defined tommarow.
 * http://www.skyfire.com/blog/skyfires-john-metzger-on-icap-architecture-and-the-path-to-virtualization/
 * http://www.huffingtonpost.com/bill-teuber/the-coming-of-the-second-machine-age_b_4648207.html
+
+
+
+#### Core Ideas
+* Zero Marginal Cost
+* Community Commons
+* Machine Data
+* untethered, low/long power, cheap silicon
 
 #### What's Really New Here?
 Hobbyists have made custom things for a long time.
@@ -103,6 +131,8 @@ Digital repositories are especially useful where data is used to directly reprod
 #### Is It A New Industral Revolution?
 * [What is the New Industrial Revolution?](http://makezine.com/2013/06/24/what-is-the-new-industrial-revolution/)
 * [Why the Maker Movement Is Important to America’s Future](http://time.com/104210/maker-faire-maker-movement/)
+* [The Third Industrial Revolution: How Lateral Power Is Transforming Energy, the Economy, and the World](http://www.amazon.com/dp/B005BOQBGW/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=2TC29QWHAZ8X5&coliid=I2W43LRCIKLT7B)
+* [The Zero Marginal Cost Society: The Internet of Things, the Collaborative Commons, and the Eclipse of Capitalism](http://www.amazon.com/dp/1137278463/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=2TC29QWHAZ8X5&coliid=I3RE17UVEQ24L5)
 
 #### MicroFactory (aka 3rd Industrial Revolution)
 * [Local Motors](https://localmotors.com/)
@@ -116,3 +146,17 @@ This pretty much covers every aspect of what being a Maker is all about. Woodwor
 
 [Airbnb](https://www.airbnb.co.uk/)
 From flats and rooms to treehouses and boats: stay in unique spaces in 192 countries.
+
+Internet of Things (IoT)
+* [Are the Internet of Things (IoT) & Internet of Everything (IoE) the Same Thing?](http://viodi.com/2014/05/23/are-the-internet-of-things-iot-internet-of-everything-iot-the-same-thing/)
+* [The Internet of Things is all about business transformation](http://www.computing.co.uk/ctg/news/2346588/intel-forget-internet-connected-fridges-the-internet-of-things-is-all-about-business-transformation)
+* [RFID Stakeholders Need to Prepare for the Internet of Things](http://www.rfidjournal.com/articles/view?11806)
+* [Here's What The Internet Of Things Will Need To Really Work](http://www.businessinsider.com/what-the-internet-of-things-will-need-to-really-work-2014-5)
+* [Why Tech’s Best Minds Are Very Worried About the Internet of Things](http://www.wired.com/2014/05/iot-report/)
+* [The Internet of Things Will Lead Us into a New Industrial Revolution](http://smartdatacollective.com/bigdatastartups/200641/internet-things-will-lead-us-new-industrial-revolution)
+* [What's Wrong with the Internet of Things](https://www.linkedin.com/today/post/article/20140520161156-4444200-what-s-wrong-with-the-internet-of-things?trk=eml-ced-b-art-Ch-6-8974734281995079217&midToken=AQFNblHgIt9-6A&fromEmail=fromEmail&ut=0rD1ya0nbmkmg1&_mSplash=1)
+* [Bezos: People Don’t Want Gadgets, They Want Services](http://allthingsd.com/20120906/bezos-people-dont-want-gadgets-they-want-services/)
+
+Videos
+* [Jeremy Rifkin on the Fall of Capitalism and the Internet of Things](https://www.youtube.com/watch?v=3xOK2aJ-0Js)
+* [Splunk Videos](http://www.splunk.com/view/SP-CAAAH7S)

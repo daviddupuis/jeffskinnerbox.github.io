@@ -36,6 +36,11 @@ This iconic lamp is still a staple at places like [Ikea][03] and [Staples][04].
 #### Tracking Objects
 * [Project Sentry Gun](http://psg.rudolphlabs.com/)
 
+#### Other
+* [This Friendly Robot Could One Day Be Your Family’s Personal Assistant](http://www.wired.com/2014/07/jibo-family-robot/)
+    * [Jimbo](http://www.myjibo.com/)
+* []()
+
 #### Heavy Duty Servo
 Stall torque is the maximum instantaneous and static torque.
 Stable motions are possible with robots designed for loads with 1/5 or less of the stall torque.
@@ -45,6 +50,7 @@ http://support.robotis.com/en/techsupport_eng.htm#product/dynamixel/ax_series/dx
 * [ez-robot - Heavy Duty Servo](http://www.ez-robot.com/Shop/AccessoriesDetails.aspx?prevCat=1&productNumber=7) - Stall Torque: 15.0kg-cm/529 oz-in.(7.4V), Operating speed: 0.24sec/60degree (7.4V)
 * [RobotShop - HS-485HB Servo Motor](http://www.robotshop.com/en/hitec-hs-485hb-servo-motor.html) - Torque (Kg-cm/Oz-in): 4.8/66.65(4.8V), 6/83.32(6V), Speed (sec/60o): 0.22(4.8V), 0.18(6V)
 * [DYNAMIXEL AX-12A](http://www.trossenrobotics.com/dynamixel-ax-12-robot-actuator.aspx?feed=Froogle&gclid=CKTIrZrwsL0CFWuhOgodjxsA-w) - Stall Torque 15.3 kg·cm / 212 oz·in (at 12.0V, 1.5A)
+
 
 
 [01]:http://glamox.com/ie/the-l-1-story

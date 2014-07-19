@@ -1,11 +1,23 @@
 Title: A Slow Walk Though the Garden of IoT - Part 1
 Date: 2100-01-01 00:00
 Category: Software
-Tags: Internet of Things
+Tags: Internet of Things, REST API
 Slug: a-slow-walk-though-the-garden-of-iot-part-1
 Author: Jeff Irland
 Image: internet-of-things.png
 Summary: bla bla bla   
+
+[A REST API FOR ARDUINO AND THE CC3000 WIFI CHIP](http://blog.arduino.cc/2014/06/05/a-rest-api-for-arduino-and-cc3000/?utm_content=bufferc97c1&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+
+[Face Recognition API to integrate facial recognition into any web service](https://www.keylemon.com/)
+
+Read more: http://www.programmableweb.com/api/keylemon#ixzz37atW6GGC 
+Follow us: @ProgrammableWeb on Twitter | ProgrammableWeb on Facebook
+
+Device Cloud Platform to be explored:
+Pushover
+Bug Labs dweet.io and Freeboard
+[Node-RED](http://www.infoq.com/news/2014/05/ibm-node-red-qconlondon)
 
 The broadest definition for the [Internet of Things (IoT)][46] that I have come accross is as follows:
 
@@ -14,9 +26,12 @@ We are all familiar with the web as a network of hyper-text documents and applic
 (think blogs, online email, social sites, e-commerce sites etc.).
 It is widely believed that the next step for the Internet is ‘smart’ objects (or ‘things’)
 being accessible to human beings, and the things to each other, over the Internet.
-This is the Internet of Things_
+This is the Internet of Things._
 <footer>[Internet of Things: Philosophy][35]</footer>
 
+<a href="http://en.wikipedia.org/wiki/Internet_of_Things">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="" alt="IoT Picture" src="http://www.techweekeurope.co.uk/wp-content/uploads/2013/10/InternetofThings2.png" width="200" height="200" />
+</a>
 There are more elaborate definition, such as [Mark Weiser's concept of Ubiquitous Computing][47],
 which I find too lofty and not sufficiently discriptive. 
 On the other hand, the definition given in the post
@@ -33,10 +48,21 @@ will likely have a significant changes on how we work, play, and stay informed.
 Some say that the new rule for the future is going to be
 “anything that can be connected, will be connected.”
 
+The IoT is the natural outcome of cheap,
+embedded electronics and a maturing global network that allows devices to exchange data.
+Some of these devices connect directly to the Internet, while others connect via gateways.
+Under this vision, the typical RFID reader is merely an IoT gateway,
+with RFID just one of many "last-meter" sensors.
+
+Developing applications for the “Internet of Things” (IoT) is far too complicated.
+In most cases it requires very specialized (i.e. expensive) skills sets,
+in both hardware and software, to get even the most rudimentary prototypes up and running.
+
 The Internet of Things is supposed to escort in a world where connected devices improve our lives.
-While very inviting, this vision is proving slow in coming,
-in part because of the [sub-optimal embedded technology chooses, connectivity challenges, and configuration complexity][34].
-Also it very difficult to put a boundary around IoT; so that you know when you have arrived.
+While very inviting, this vision is proving slow in coming, in part because of the
+[sub-optimal embedded technology chooses, connectivity challenges, and configuration complexity][34].
+Also it very difficult to put a boundary around IoT;
+so that you know when you have arrived.
 It is a vast garden of technologies, both old and new, simple and complex, hardware and software.
 What I want to do here is simple touch on some of the more elementary IoT implementations.
 In subsequent articles,
@@ -51,16 +77,6 @@ APIs that enforce this constraint are referred to as HATEOAS-compliant APIs.
 More generally, APIs that adopt the characteristics of HATEOAS are called “Hypermedia APIs.”
 HATEOAS is a good vision, and is the [most mature form of REST][50] and [solves some real challenges][42],
 but it isn't applied often, but there are increasingly [examples HATOAS implementations][45].
-
-## Security
-Security is big issues that is oftentimes brought up.
-With billions of devices being connect together what can people to do make sure that their information stays secure?
-Then we have the issue of privacy and data sharing.
-This is a hot button topic even today so one can only imagine how the conversation and concerns will escalate when we are talking about many billions of devices being connected.
- 
-## Data Volumes
-Another issue that many companies specifically are going to be faced with is around the massive amounts data that all of these devices are going to produce.
-Companies need to figure out a way to store, track, analyze, and make sense of the vast amounts of data that will be generated.
 
 # Pushover
 <a href="https://pushover.net/">
@@ -105,7 +121,9 @@ I can use SendEmail, which is a lightweight, completely command line based, SMTP
 It is written in Perl and designed to be used on the command line, in bash scripts,
 Perl programs, within web sites, etc.
 
-    sendEmail -f jeff@desktop -t <my_user_key>@api.pushover.net -u "Test Email from Desktop" -m "A simple test message sent via SMPT mail relay on Google Mail." -s smtp.gmail.com:587 -o tls=yes -xu jeff.irland -xp <my_password>
+```bash
+sendEmail -f jeff@desktop -t <my_user_key>@api.pushover.net -u "Test Email from Desktop" -m "A simple test message sent via SMPT mail relay on Google Mail." -s smtp.gmail.com:587 -o tls=yes -xu jeff.irland -xp <my_password>
+```
 
 Use of the Pushover email gateway doesn't require any application API key,
 but if I do create an application, I'll need to [register it with Pushover][32].
@@ -114,11 +132,13 @@ my Linux desktop to Pushover.
 That script, called `apprise`, could be used to provide filesystem backup status.
 It should have a title and message and could look like this:
 
-    apprise -t "Backup Status" -m "Filesystem backup completed successfully on `date`."
+```bash
+apprise -t "Backup Status" -m "Filesystem backup completed successfully on `date`."
+```
 
 Using the [Pushover API][25] within [cURL][33], the `apprise` script is listed below:
 
-```shell
+```bash
 #!/bin/bash
 
 APPTOKEN="<my_app_token>"
@@ -170,7 +190,9 @@ fi
 Note that the `curl` command in the script above, when successful,
 does return a [JSON][49] object that looks something like
 
-    { "status":1, "request":"e9bfdc05dbed57f9465f1528bcd746fd" }
+```json
+{ "status":1, "request":"e9bfdc05dbed57f9465f1528bcd746fd" }
+```
 
 If this message is successfully parsed by `grep`,
 then I assume `apprise` successfully sent the message.
@@ -203,6 +225,72 @@ You can play with dweet.io and learn its operation by using using the [dweet.io 
 Note that dweet.io only holds on to the last 500 dweets over a 24 hour period.
 If the thing hasn't dweeted in the last 24 hours, its history will be removed.
 
+Unlike Pushover, there isn't any signing up, keys, or any configuration necessary.
+For example, if you want to send a message to Bug Labs message board (aka dweet a message)
+like the one performed for Pushover
+
+```bash
+curl --silent 'https://dweet.io/dweet/for/jeffskinnerbox?title=Backup%20Status&message=Filesystem%20backup%20completed%20successfully'
+```
+
+This cURL command will require a JSON string like this[^A]
+[^A]:
+    The format below was produced by piping the curl output through
+    the command `python -mjson.tool | pygmentize -l javascript`.
+    This will colorize and pretty print the JSON script.
+
+```json
+{
+    "by": "dweeting",
+    "the": "dweet",
+    "this": "succeeded",
+    "with": {
+        "content": {
+            "message": "Filesystem backup completed successfully",
+            "title": "Backup Status"
+        },
+        "created": "2014-06-01T21:51:49.239Z",
+        "thing": "jeffskinnerbox"
+    }
+}
+```
+
+To read the latest dweet for the dweeter "jeffskinnerbox", you can call
+
+```bash
+curl --silent 'https://dweet.io/get/latest/dweet/for/jeffskinnerbox'
+```
+
+and this returns the JSON string
+
+```json
+{
+    "by": "getting",
+    "the": "dweets",
+    "this": "succeeded",
+    "with": [
+        {
+            "content": {
+                "message": "Filesystem backup completed successfully",
+                "title": "Backup Status"
+            },
+            "created": "2014-06-01T21:51:49.239Z",
+            "thing": "jeffskinnerbox"
+        }
+    ]
+}
+```
+
+You can also create a real-time subscription to dweets using
+HTTP 1.1's [chunked transfer encoding][52].
+The server will keep the connection alive and send you dweets as they arrive.
+You can simple listen to the connection an process the JSON messages as they arrive.
+This can be done with the following command:
+
+```bash
+curl --silent 'https://dweet.io/listen/for/dweets/from/jeffskinnerbox'
+```
+
 Bug Labs also offer a web-based tool called [Freeboard][03] that allows you to build
 interactive user-interfaces for connected devices.
 Bug Labs claims combining dweet.io + Freeboard,
@@ -210,9 +298,34 @@ give you everything you need to put together an IoT application quickly and easi
 Never the less, they can be used individually or in conjunction with other platforms. 
 It's interesting that Bug Labs positions Freeboard as an open source alternative to [Geckoboard][04].
 
-https://dweet.io/
-https://freeboard.io/
-https://github.com/Freeboard/freeboard
+* [dweet.io](https://dweet.io/)
+* [Freeboard](https://freeboard.io/)
+* [Freeboard's GitHub](https://github.com/Freeboard/freeboard)
+
+# AT&T Speech API 
+<a href="https://developer.att.com/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="AT&T Developer Web Site" alt="AT&T Developer Logo" src="/images/att-developer-logo.png" width="100" height="100" />
+</a>
+This code was inspired by the [Jasper Project][53].
+Jasper, an open-source, crowd developed, [Siri-like][54] virtual assistant for Raspberry Pi.
+The concept is to have an always-on system constantly waiting for
+voice commands that you can hack together to use in your home.
+The Jasper Project anticipates contribution form carry out
+any kind of automated task you can think of using voice commands,
+such as reading you news headlines, sending commands for home automation, etc.
+
+In it's current implementation, Jasper uses a Linux based text-to-speech and speech-to-text package.
+It has been [recommended to use a web-based API instead][55],
+specifically the [AT&T Speech API][56].
+This API is being used by [Jibbigo][57], a smart phone language translation app.
+The API is well documented, requires your registration for an API key, but free for limited use.
+The main limitation with this free Speech API is its rate limit,
+but it's very difficult to run up to the limit for most applications.
+You're limited to 1 request per second and your audio file must be less than a minute in length.
+
+Here I'm going to exercise the AT&T Speech API outside of Jasper just to demonstrate its use.
+With a little imagination, you should see how it can turn a Raspberry Pi into an
+interesting Internet-enabled speech application using this API.
 
 # Where to Begin
 * Stating Points and Foundational Knowledge
@@ -305,12 +418,12 @@ https://github.com/Freeboard/freeboard
 [49]:http://www.w3schools.com/json/
 [50]:http://martinfowler.com/articles/richardsonMaturityModel.html
 [51]:http://bestoked.blogspot.com/2012/02/restful-resources-required-reading.html
-[52]:
-[53]:
-[54]:
-[55]:
-[56]:
-[57]:
+[52]:http://en.wikipedia.org/wiki/Chunked_transfer_encoding
+[53]:http://jasperproject.github.io/
+[54]:http://www.apple.com/ios/siri/
+[55]:http://changingjasper.blogspot.com/2014/06/making-jasper-use-at-speech-api.html
+[56]:http://developer.att.com/apis/speech
+[57]:http://jibbigo.com/
 [58]:
 [59]:
 [60]:

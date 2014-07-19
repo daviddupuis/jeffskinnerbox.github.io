@@ -11,8 +11,8 @@ Summary: In this posting, I show how I implemented my plans to build my custom m
 In an earlier post, I outlined [my plan for building a Linux Box][11].  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
 <ul>
 <ul>
-	<li>After ordering all the hardware, it came to me that it was dumb to attempt to reuse my old semi-reliable, slow CD drive.  So I purchase the HP 24X Multiformat DVD/CD Writer (dvd1260i) at Best Buy for $40.</li>
-	<li>I discovered that the my old PC had <a href="http://www.webopedia.com/TERM/A/ATA.html">ATA</a> hard drives (commonly called an IDE drive) and my new Mobo only supports <a href="http://www.webopedia.com/TERM/S/Serial_ATA.html">SATA</a> (SATA 3Gb/s &amp; 6GB/s and it includes an external eSATA port).   This blows my plan to reuse my existing hard drives ... stupid me, I should have checked.  I did a quick scan for ATA controller cards and found a few (not many) for $15 to $30.  I could buy the card and make this work but it doesn't seem like a good investment.  The drives are 400G drives and has a maximum data transfer rate of about 133MB/s (i.e. ATA/66).  The maximum data transfer rates of SATA II and SATA III are 300 MB/s and 600 MB/s, respectively.  I can buy a Seagate - Barracuda 500GB SATA II Internal Hard Drive for $70.  Given my objective to increase the performance of my computing experience, buying a new SATA III hard drive should have been part of the original plan.</li>
+	<li>After ordering all the hardware, it came to me that it was dumb to attempt to reuse my old semi-reliable, slow CD drive.  So I purchase the HP 24X Multiformat DVD/CD Writer (dvd1260i) at Best Buy for 40 dollars.</li>
+	<li>I discovered that the my old PC had <a href="http://www.webopedia.com/TERM/A/ATA.html">ATA</a> hard drives (commonly called an IDE drive) and my new Mobo only supports <a href="http://www.webopedia.com/TERM/S/Serial_ATA.html">SATA</a> (SATA 3Gb/s &amp; 6GB/s and it includes an external eSATA port).   This blows my plan to reuse my existing hard drives ... stupid me, I should have checked.  I did a quick scan for ATA controller cards and found a few (not many) for 15 to 30 dollars.  I could buy the card and make this work but it doesn't seem like a good investment.  The drives are 400G drives and has a maximum data transfer rate of about 133MB/s (i.e. ATA/66).  The maximum data transfer rates of SATA II and SATA III are 300 MB/s and 600 MB/s, respectively.  I can buy a Seagate - Barracuda 500GB SATA II Internal Hard Drive for $70.  Given my objective to increase the performance of my computing experience, buying a new SATA III hard drive should have been part of the original plan.</li>
 	<li>After <a href="http://www.cyberciti.biz/tips/raid-hardware-vs-raid-software.html">reading up on RAID</a> and the Intel Rapid Storage Technology (RST), I concluded that it would be best to do a Software Raid and not use RST.</li>
 	<li>While I assumed in my original plan that I would dual boot the box with Linux and MS Windows, the <a href="http://jeffskinnerbox.wordpress.com/2013/04/28/building-my-linux-box-the-plan/">comment from armahillo@gmail.com </a>convinced me of what I suspected I should do; and that was to make <a href="http://www.winehq.org/">wine</a>, <a href="http://www.mono-project.com/Main_Page">mono</a>, and <a href="http://www.playonlinux.com/">PlayOnLinux</a> work for me.  While I haven't stressed them, so far so good.  I have not installed VirtualBox and I suspect I will not ... unless I get desperate.</li>
 	<li>I was planning to reuse my old keyboard and mouse, but you know, I hated that keyboard and the mouse was already acting badly and about to die on me.  So I ended up replacing them with sometime worthy of my new system.</li>
@@ -34,22 +34,22 @@ Chromium is a fully open-source version of Google's Chrome, and for licensing 
 <h2>Installing My Squeeze Box</h2>
 I have a <a href="http://www.mysqueezebox.com/index/Home">SqueezeBox</a> device in my workshop for playing music.  On my old PC, I had installed the SlimServer which would provide the music stream.  I want to now reestablish that capability on the Linux box. The post <a href="http://www.ehow.com/how_7314755_use-squeezebox-ubuntu.html">How to Use Squeezebox With Ubuntu</a> and the <a href="http://wiki.slimdevices.com/index.php/DebianPackage">Logitech SqueezeBox Wiki</a> gives you all the information you should need.
 
-The Ubuntu (Debian) software for the <a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server">SqueezeCenter</a> or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via <code>get-apt</code>.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the <a href="http://linux.die.net/man/5/sources.list"><code>sources.list</code></a> file.  To do this, do the following:
+The Ubuntu (Debian) software for the <a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server">SqueezeCenter</a> or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via <code>get-apt</code>.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the <a href="http://linux.die.net/man/5/sources.list"><code>/etc/apt/sources.list</code></a> file.  To do this, do the following:
 
-```shell
+```bash
 sudo vim /etc/apt/sources.list
 ```
 
 Scroll to the bottom of the file and enter the following information and then save:
 
-```shell
+```bash
 ## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).
 deb http://debian.slimdevices.com stable main
 ```
 
 Now do the following:
 
-```shell
+```bash
 sudo apt-get remove --purge logitechmediaserver
 sudo apt-get update
 sudo apt-get install logitechmediaserver
@@ -181,7 +181,7 @@ Ubuntu comes with <a href="https://wiki.gnome.org/Apps/Rhythmbox">Rhythmbox</a> 
 Also, you'll want to install several Rhythmbox <a href="http://www.webupd8.org/2012/08/rhythmbox-third-party-plugins-ubuntu-ppa.html">plugins</a>.
 That can be done via
 
-```shell
+```bash
 sudo add-apt-repository ppa:fossfreedom/rhythmbox-plugins
 sudo add-apt-repository ppa:phw/musicbrainz
 sudo apt-get update
@@ -194,7 +194,7 @@ After installing any of the above Rhythmbox plugins, enable them from the main m
 <h2>Setting-Up Harmony Remote</h2>
 I have the <a href="http://www.logitech.com/en-us/product/harmony-remote-650">Logitech Harmony 650 Universal Remote Control</a> for my home theater system.  To program the device, it must be tethered to a web site via a Windows or Mac PC.  The Harmony web site does reference some <a href="http://forums.logitech.com/t5/Harmony-Remotes/Harmony-Linux-support/td-p/294061">Linux support done by others</a>.  The posting "<a href="http://openattitude.com/2011/01/27/how-to-set-up-a-harmony-remote-using-linux/">How to set up a Harmony remote using Linux</a>" and "<a href="http://madabar.com/techblog/2011/09/09/logitech-harmony-universal-remote-linux-software-support/">Logitech Harmony Universal Remote Linux Software Support</a>" give you the basics of what you need to do.  Within these sites you lean about the utilities <a href="http://www.phildev.net/harmony/"><code>concordance</code></a> and <code><a href="http://sourceforge.net/projects/congruity/">congruity</a></code>. The first utility provides most of the functionality of the Windows software provided by Logitech and the second is a GUI application for programming Logitech Harmony remote using concordance.  To install these utilities, do the following:
 
-```shell
+```bash
 sudo apt-get install concordance
 sudo apt-get install congruity
 ```
@@ -229,7 +229,7 @@ These devices use the <a href="http://www.logitech.com/en-us/promotions/6072">L
 I was a bit concerned about the ability of the receiver to support multiple device (i.e. the keyboard) simultaneously under Linux.
 Doing a quick search I found a post discussing how to do the <a href="http://askubuntu.com/questions/113984/is-logitechs-unifying-receiver-supported">device pairing under Linux</a>.  <a href="https://lekensteyn.nl/logitech-unifying.html#ltunify">To install</a> the <a href="https://git.lekensteyn.nl/ltunify/"><code>ltunify</code></a> pairing software, and do the pairing, do the following:
 
-```shell
+```bash
 cd ~/src
 git clone https://git.lekensteyn.nl/ltunify.git
 cd ltunify
@@ -265,19 +265,19 @@ Basically, using<a href="http://www.nongnu.org/xbindkeys/#utilisation"> Xbindkey
 </ul>
 Now we need a mechanism to re-map mouse (or keyboard) button inputs.  <a href="https://wiki.archlinux.org/index.php/Xbindkeys"><code>Xbindkeys</code></a> is is a X Windows program that enables us to bind commands to certain keys or key combinations on the keyboard and it will also work for the mouse.  The file  <code>~/.xbindkeysrc</code> is what <code>xbindkeys</code> uses as a configuration file to link a command to a key/button on your keyboard/mouse.  There is also <code>xbindkeys_config</code> is an easy to use gtk program for configuring <code>xbindkeys</code>. To install these tools, do the following:
 
-```shell
+```bash
 sudo apt-get install xautomation xbindkeys xbindkeys-config
 ```
 
 To create your initial xbindkeys configuration file, just run the following command:
 
-```shell
+```bash
 xbindkeys --defaults &gt; $HOME/.xbindkeysrc
 ```
 
 The syntax of the contents of .xbindskesrc is simple and is illustrated below:
 
-```shell
+```bash
 # short comment
     "command to start"
         associated key
@@ -285,7 +285,7 @@ The syntax of the contents of .xbindskesrc is simple and is illustrated below:
 
 The <code>"command to start"</code> is simply a shell command (that you can run from a terminal),  and <code>"associated key"</code> is the key or button.
 
-Now, using an editor, update the .xbindkeysrc file to include the following:
+Now, using an editor, update the `.xbindkeysrc` file to include the following:
 
 ```
 # Do a Page Down when mouse left-side down button is pressed
@@ -305,9 +305,9 @@ Now, using an editor, update the .xbindkeysrc file to include the following:
     b:2
 ```
 
-To activate any modification of the .xbindkeysrc configuration file, your have to restart xbindkeys.   This can be done via:
+To activate any modification of the `.xbindkeysrc` configuration file, your have to restart xbindkeys.   This can be done via:
 
-```shell
+```bash
 pkill xbindkeys
 xbindkeys
 ```
@@ -331,7 +331,7 @@ I have been using the MS Windows based <a href="https://www.splashid.com/">Spla
 </ul>
 The first step was to get KeePass installed in Ubuntu.  I found it on the <a href="http://en.wikipedia.org/wiki/Ubuntu_Software_Center">Ubuntu Software Center</a> or you can use:
 
-```shell
+```bash
 sudo apt-get install keepass2 keepass2-doc
 ```
 
@@ -341,7 +341,7 @@ There is some cleanup of the fields within the KeePass2 database, but the data i
 <h2>Installing Wine</h2>
 <a href="http://www.winehq.org/">Wine</a> allows you to run many Windows programs on Linux. Instead of simulating internal Windows logic like a virtual machine or emulator, Wine translates Windows API calls into Linux calls.  I used the following to install Wine:
 
-```shell
+```bash
 sudo add-apt-repository ppa:ubuntu-wine/ppa
 sudo apt-get update
 sudo apt-get install wine
@@ -424,7 +424,7 @@ sudo mkfs -t ext3 -j -L RAID-ONE /dev/md0
 </ul>
 </ul>
 
-```shell
+```bash
 sudo mkdir /mnt/raid1
 sudo mount /dev/md0 /mnt/raid1</code></p>
 ```
@@ -487,7 +487,7 @@ sudo mdadm -D /dev/md0
 </ul>
 </ul>
 
-```shell
+```bash
 sudo cp /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf_backup
 sudo mdadm --detail --scan >> /etc/mdadm/mdadm.conf
 ```

@@ -12,7 +12,7 @@ I final got around to tailoring it for my desktop Linux box.
 You find both version on [GitHub][02].
 Screen shot is at the bottom.
 
-```shell
+```bash
 # --------------------------------------------------------------------- #
 #
 # .conkyrc - derived from various examples across the 'net

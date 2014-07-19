@@ -6,8 +6,8 @@
 # image during the conversion process. Convert recognizes the image formats supported
 # by ImageMagick.
 # 
-#     See [ImageMagick](http://linux.about.com/library/cmd/blcmdl1_ImageMagick.htm)
-#         [convert](http://linux.about.com/od/commands/l/blcmdl1_convert.htm)
+#     See http://linux.about.com/library/cmd/blcmdl1_ImageMagick.htm
+#         http://linux.about.com/od/commands/l/blcmdl1_convert.htm
 #
 
 IMAGESRC="."

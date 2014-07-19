@@ -48,6 +48,8 @@ Status: hidden
         * [Inventables](https://www.inventables.com/)
         * [Hobby Wireless](http://www.hobbywireless.com/)
         * [Vernier - afforable scientific data collection](http://www.vernier.com/)
+        * [NooElec](http://www.nooelec.com/store/)
+        * [Phidgets](http://www.phidgets.com/)
     * Local Stores
         * [Hobby Hangar, 14014-D Sullyfield Circle, Chantilly, VA 20151](http://www.hhvastore.com/)
         * [Micro Center, 3089 Nutley Street, Pan Am Plaza, Fairfax, VA 22031](http://www.microcenter.com/)

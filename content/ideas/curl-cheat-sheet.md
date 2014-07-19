@@ -59,7 +59,7 @@ will produce
     }
 
 The `-M` option will give you monochrome output.
-`jq -C` outputs colored JSON, if writing to a terminal.
+`jq` or `jq -C` outputs colored JSON, if writing to a terminal.
 
 # Example Uses of cURL
 

@@ -50,6 +50,12 @@ Status: hidden
     * [Ramsey SG7 Speedy Personal Speed Radar Kit](http://www.amazon.com/Ramsey-Speedy-Personal-Speed-Radar/dp/B0002NRL7K)
 * Other Radar
     * [Pocket Radar](http://pocketradar.com/)
+    * [Bike Radar - Backtracker by iKubu](http://www.dragoninnovation.com/projects/41-backtracker-by-ikubu)
+
+---
+
+#### Electric Imp
+* [Build Instructions for TempBug: Internet-Connected Thermometer](http://downloads.deusm.com/designnews/20140619-build-instructions.pdf)
 
 ---
 
@@ -69,6 +75,13 @@ Status: hidden
 
 #### Field-Programmable Gate Array (FPGA) / VHSIC Hardware Description Language (VHDL)
 * [FleaFPGA Experimenters Board](http://www.fleasystems.com/fleaFPGA.html)
+* [ISE WebPACK Design Software](http://www.xilinx.com/products/design-tools/ise-design-suite/ise-webpack.htm)
+
+---
+
+#### WiFi Controlled Electrical Outlet
+* [Building a WiFi Outlet](http://nordness.net/posts/building-a-wifi-outlet)
+* [Belkin WeMo Switch](http://www.amazon.com/dp/B00BB2MMNE)
 
 ---
 
@@ -81,6 +94,8 @@ Status: hidden
 
 Laser Rangefinder (aka LIght Detection And Ranging - LIDAR)
 
+* [YEAH BITCH! LAZERS!](http://www.berryjam.eu/2014/06/oslrf-01/)
+* [Prototype of OSLRF01 Arduino Scanning LIDAR (Under $150)](http://arduino-pi.blogspot.com/2014/03/prototype-of-oslrf01-arduino-scanning.html)
 * [11 gram Arduino-powered laser rangefinder](http://diydrones.com/profiles/blogs/11-gram-arduino-powered-laser-rangefinder)
 * [Webcam Based DIY Laser Rangefinder](https://sites.google.com/site/todddanko/home/webcam_laser_ranger)
 * [Homemade Laser Rangefinder](http://letsmakerobots.com/node/2651)
@@ -100,6 +115,7 @@ Laser Writing
 * [SpectraBeat: LaserRumbler projector](http://spectrabeat.com/)
 * [DIY pillbox laser projector](http://makezine.com/2010/09/16/diy-pillbox-laser-projector/)
 * [RGB laser projector is a jaw-dropping build](http://www.edaboard.com/thread230353.html)
+* [Wicked Laser](http://www.wickedlasers.com/)
 
 ---
 
@@ -110,6 +126,16 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 * [TI LDC1000 inductance-to-digital converter](http://dangerousprototypes.com/2013/09/17/ti-ldc1000-inductance-to-digital-converter/)
 * [LDC1000 Evaluation Module User's Guide](http://www.ti.com/lit/ug/snau150/snau150.pdf)
 * [EVAL BOARD, LDC1000 DATA CONVERTER](http://www.newark.com/texas-instruments/ldc1000evm/eval-board-ldc1000-data-converter/dp/06X2690?CMP=AFC-JY6146109556)
+
+---
+
+####  Field-Programmable Gate Array (FPGA) 
+A field-programmable gate array (FPGA) is an integrated circuit designed
+to be configured by a customer or a designer after manufacturing – hence "field-programmable".
+The FPGA configuration is generally specified using a hardware description language (HDL),
+similar to that used for an application-specific integrated circuit (ASIC).
+
+* [FPGA projects and tutorials](http://www.fpga4fun.com/index.html)
 
 ---
 
@@ -126,6 +152,7 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 * [Installing Kali Linux on a Raspberry Pi and Connecting to it Remotely](http://cyberarms.wordpress.com/2013/03/14/installing-kali-linux-on-a-raspberry-pi-and-connecting-to-it-remotely/)
 * [Kali Linux - advanced and versatile penetration testing Linux distribution](http://www.kali.org/)
 * [USB Rubber Ducky](http://192.64.85.110/index.php)
+* [horst](http://br1.einfach.org/tech/horst/?show=slide)
 
 ---
 
@@ -183,6 +210,7 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 * [PyPot: A library for Dynamixel motors control](http://poppy-project.github.io/pypot/index.html)
 * [OSkAR: OpenCV Based Speaking Robot](http://webpages.shepherd.edu/ccrite03/Project%20Website/index.html)
 * [Micromagic Systems Robotics Store](http://www.hexapodrobot.com/index.html)
+* [Stubby the Hexapod](http://hackaday.io/project/770-Stubby-the-Hexapod)
 
 ---
 
@@ -192,12 +220,23 @@ The module includes an example of a PCB sensor coil. An MSP430 microcontroller i
 
 ---
 
+#### Open Source Lightning Detectors
+* [A Cloud Of Lightning Detectors](http://hackaday.com/2014/06/29/a-cloud-of-lightning-detectors/)
+
+---
+
 #### Open Source Magnetometer
 * [Magnetometer - DIY geomagnetic storm monitoring](http://avtanski.net/projects/magnetometer/index.html)
 
 ---
 
+#### Open Source Radiation Monitoring
+* [Global radiation monitoring network](http://hackaday.io/project/1662--Global-radiation-monitoring-network)
+
+---
+
 #### Self Balacing Robots
+* [PID Controllers Deep Dive - Nice Layman Description](http://hackaday.com/2014/07/07/droning-on-pid-controllers-and-bullet-connectors/)
 * [PIDDYBOT – A Self Balancing Teaching Tool](http://hackaday.com/2014/01/17/piddybot-a-self-balancing-teaching-tool/#more-112629)
 * [Self-balancing Arduino does it without an IMU](http://hackaday.com/2013/09/26/self-balancing-arduino-does-it-without-an-imu/)
 * [Self balancing Raspberry Pi OpenCV image processing Robot](http://roboticssamy.blogspot.pt/)
@@ -281,6 +320,7 @@ See [Remote controlling cameras][01].
 * [Deep Belief image recognition framework](https://github.com/jetpacapp/DeepBeliefSDK/tree/master)
 * [Caffe: Convolutional Architecture for Fast Feature Embedding](https://github.com/BVLC/caffe)
 * [OverFeat is an image recognizer and feature extractor](http://cilvr.nyu.edu/doku.php?id=code:start)
+* [Hedgehog Pi Recipe](http://blog.pistuffing.co.uk/?p=3646)
 
 ---
 
@@ -412,6 +452,7 @@ In the August 2009  Aclara Technologies white paper [Metering and More: How 
 
 ###### Hacking
 * [Cracking GSM with RTL-SDR for Thirty Dollars](http://hackaday.com/2013/10/22/cracking-gsm-with-rtl-sdr-for-thirty-dollars/)
+* [HOWTO: GSM Base Station with the BeagleBone Black, Debian GNU/Linux and a USRP](http://discourse.criticalengineering.org/t/howto-gsm-base-station-with-the-beaglebone-black-debian-gnu-linux-and-a-usrp/56)
 * [pytacle – alpha2](http://www.insinuator.net/2013/10/pytacle-alpha2/) automates the task of sniffing GSM frames of the air, extracting the key exchange, feeding kraken with the key material and finally decode/decrypt the voice data.
 
 ---
@@ -550,6 +591,7 @@ So as you can see, I'm certainly <a href="http://secretengineer.com/?page_id=51
 
 #### Car Monitoring
 * [Zubie](http://zubie.co/)
+* [Power a Car Diagnostics System with a Raspberry Pi](http://lifehacker.com/power-a-car-diagnostics-system-with-a-raspberry-pi-1598020131)
 
 ---
 

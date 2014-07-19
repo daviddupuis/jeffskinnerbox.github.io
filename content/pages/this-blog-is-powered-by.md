@@ -11,20 +11,26 @@ Status: hidden
 [![Python Logo](/images/logos/thumbnail/python_logo.jpg)](http://ipython.org/)
 :   **Python** is a general-purpose interpreted, interactive, object-oriented, and high-level programming language.  Its high-level built in data structures, many modules and package, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together.
 
+[![Virtualenv Logo](/images/logos/thumbnail/virtualenv_logo.jpg)](https://pypi.python.org/pypi/virtualenv)
+:   **Virtualenv** creates is an isolated working copy of Python which allows you to work on a specific project without worry of affecting other system default libraries or projects. Virtualenv makes creating and managing new Python environments inexpensive and easy.
+
 [![IPython Logo](/images/logos/thumbnail/ipython_notebook_logo.png)](http://ipython.org/)
-:   **IPython** Notebook in a browser-based environment with support for code, text, mathematical expressions, inline plots, and other rich media.
+:   **IPython** Notebook s a web-based interactive computational environment where you can combine code execution, text, mathematics, plots and rich media into a single document. These notebooks are normal files that can be shared with colleagues, converted to other formats such as HTML or PDF, etc. 
 
 [![Markdown Logo](/images/logos/thumbnail/markdown_logo_white.png)](http://daringfireball.net/projects/markdown/)
-:   **Markdown** is a web-writing language giving you a easy-to-read, easy-to-write plain text format, that converts to structurally HTML.
-
-[![GitHub Logo](/images/logos/thumbnail/github_logo.png)](https://github.com/)
-:   **GitHub** Pages are public webpages freely hosted and easily published through GitHub. You can manage your site’s content locally on your PC and use GitHub's tools and workflow for posting.
-
-[![Gist Logo](/images/logos/thumbnail/gist_logo.jpg)](https://github.com/signup/free?return_to=gist)
-:   **Gist** is a simple way to share snippets of code with others. All gists are Git repositories, so they are automatically versioned, forkable and usable from Git.
+:   **Markdown** is a web-writing language giving you a easy-to-read, easy-to-write plain text format, that converts to structurally HTML.  At its core, Markdown is a super simple way to add formatting like headers, bold, bulleted lists, and so on to plain text. 
 
 [![Git Logo](/images/logos/thumbnail/git_logo.jpg)](http://git-scm.com/)
 :   **Git** is a free and open source distributed version control system designed to handle everything from small to very large projects.  Every Git working directory is a full-fledged repository with complete history and full version tracking capabilities, not dependent on network access or a central server.
+
+[![GitHub Logo](/images/logos/thumbnail/github_logo.png)](https://github.com/)
+:   **GitHub** is a web-based hosting service for software development projects that use the Git revision control system. Also, public webpages are freely hosted and easily published through GitHub. You can manage your site’s content locally on your PC and use GitHub's tools and workflow for posting.
+
+[![GitHub Pages Logo](/images/logos/thumbnail/github_pages_logo.jpg)](https://pages.github.com/)
+:   **GitHub Pages** are public webpages freely hosted and easily published. You can create and publish them online using the Automatic Page Generator, or like I do for this site, it's straightforward to manually create it on your local computer and publish the web site using Git, Github, and Github Pages. 
+
+[![Gist Logo](/images/logos/thumbnail/gist_logo.jpg)](https://github.com/signup/free?return_to=gist)
+:   **Gist** is a simple way to share snippets of code with others. All gists are Git repositories, so they are automatically versioned, forkable and usable from Git.
 
 [![HTML Logo](/images/logos/thumbnail/html5_logo.png)](http://www.w3.org/html/)
 :   **HTML5** (HyperText Markup Language, version 5) is a markup language used for structuring and presenting content for the World Wide Web and a core technology of the Internet. It is the fifth revision of the HTML standard and, as of December 2012, is a candidate recommendation of the World Wide Web Consortium (W3C).
@@ -64,3 +70,13 @@ Status: hidden
 
 [![MathJax Logo](/images/logos/thumbnail/mathjax_logo.jpg)](http://www.mathjax.org/)
 :   **MathJax** is an open source JavaScript display engine for mathematics that works in all browsers. It use Latex, and renders it directly into HTML source, when content is embedded inline or for displayed math.
+
+[![Make Logo](/images/logos/thumbnail/make_logo.jpg)](http://web.sarathlakshman.com/Articles/Makefile.pdf)
+:   **Make** is a utility that automatically builds executable programs and libraries from source code by reading files called makefiles which specify how to derive the target program. Besides building programs, Make can be used to manage any project where some files must be updated automatically from others whenever the others change.
+
+[![Vim Logo](/images/logos/thumbnail/vim_editor_logo.png)](http://www.vim.org/)
+:   **Vim** is highly configurable text editor built to enable efficient text editing, with the power of the [de-facto Unix editor 'Vi'][01] and a more complete feature set. Vim is often called a "programmer's editor," and so useful for programming that many consider it an entire Integrated Development Environment (IDE).
+
+
+
+[01]:http://www.slate.com/articles/technology/bitwise/2014/05/oldest_software_rivalry_emacs_and_vi_two_text_editors_used_by_programmers.html

@@ -7,6 +7,9 @@ Author: Jeff Irland
 Image: how-too.jpg
 Summary: bla bla bla
 
+* [HOWTO: GSM Base Station with the BeagleBone Black, Debian GNU/Linux and a USRP](http://discourse.criticalengineering.org/t/howto-gsm-base-station-with-the-beaglebone-black-debian-gnu-linux-and-a-usrp/56)
+* [Obtaining a SIM](https://learn.adafruit.com/adafruit-fona-mini-gsm-gprs-cellular-phone-module/obtaining-a-sim)
+
 The [Session Initiation Protocol (SIP)][01] is a signaling communications protocol,
 widely used for controlling multimedia communication sessions such as
 voice (VoIP), video calls, instant messaging (IM), presence information,

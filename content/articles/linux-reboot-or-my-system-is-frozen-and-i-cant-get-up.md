@@ -78,10 +78,12 @@ There are two commands for directly reading or manipulating the Linux rumlevels:
 </ul>
 The <a href="http://www.debian-administration.org/articles/212">topic of runlevels</a> is actually much richer than what is illustrated here.  It plays a key role in Linux background processes, called services or daemons.  For more, check out this <a href="http://pthree.org/2008/02/26/managing-services-in-ubuntu-part-i-an-introduction-to-runlevels/">Managing Services in Ubuntu, Part I: An Introduction to Runlevels</a> and <a href="http://pthree.org/2008/02/27/managing-services-in-ubuntu-part-ii-managing-runlevels/">Part II</a>.
 <h2>Getting a Login From a Frozen GUI Screen</h2>
-A not so common problem is when a frozen, full screen X application takes control over your mouse and keyboard and it seems that the only way to regain access to the system is to force a shutdown.  The fact is, if you could get to a some form of terminal session, you might be able to kill the offending process and get out of this frozen state.  This is where accessing a console screen by pressing CTRL + ALT + Fx (where Fx is a function key on the keyboard from F1 to F6) can be very handy.
+A not so common problem is when a frozen, full screen X application takes control over your mouse and keyboard and it seems that the only way to regain access to the system is to force a shutdown.  The fact is, if you could get to a some form of terminal session, you might be able to kill the offending process and get out of this frozen state.
+This is where accessing a console screen by pressing CTRL + ALT + Fx
+(where Fx is a function key on the keyboard from F1 to F6; and F7 brings you back to the desktop) can be very handy.
 
 The X Server can often be the source of these frozen screen situations, so restarting the X Server may be the solution.  This can be done via the key combination Ctrl+Alt+Backspace.  Keep in mind that you will loses any unsaved data in applications.  Also, this capability is turned off by default on may Linux systems (including Ubuntu).  This was done to avoid confusion by  people accustom to MS Windows.  An alternative key combination is as follows:
-<p style="padding-left:30px;">Press AltGR + SysRQ + K instead (AltGR is the RIGHT ALT button and SysRQ is labelled "Print Screen" most of the times, and remember to press and hold the keys in the in the right sequence, e.g. starting with ALtGR, and ending with the K(ill) key).</p>
+<p style="padding-left:30px;">Press [AltGR][01] + [SysRQ][02] + K instead (AltGR is the RIGHT ALT button and SysRQ is often labelled "Print Screen", and remember to press and hold the keys in the in the right sequence, e.g. starting with ALtGR, and ending with the K(ill) key).</p>
 You can turn back on the Ctrl+Alt+Backspace by following the instructions <a href="https://wiki.ubuntu.com/XorgCtrlAltBackspace">here</a>.
 <h2>Magic SysRq Key</h2>
 If the system is completely locks up, or <a href="http://www.linuxjournal.com/content/rebooting-magic-way">your filesystem fails</a>, there are still alternatives. The "<a href="http://en.wikipedia.org/wiki/Magic_SysRq_key">magic SysRq key</a>" provides a way to send commands directly to the kernel through the <a href="http://www.linuxjournal.com/article/8381"><code>/proc</code> filesystem</a>. It is enabled via a kernel compile time option, CONFIG_MAGIC_SYSRQ, which seems to be standard on most distributions.The magic SysRq key (or PrintScrn or Print Screen on some keyboards) is a key combination understood by the Linux kernel, which allows the user to perform various low-level commands regardless of the system's state. This is a surprising feature of the kernel but is commonly used to perform a safe reboot of a locked-up Linux computer.  See this post for some <a href="http://royal.pingdom.com/2012/06/26/sysadmin-needs-sysrq-magic/">historical perspective of the SysReq key</a>.
@@ -92,7 +94,7 @@ If your get "<code>CONFIG_MAGIC_SYSRQ=y"</code>, then its enabled on your kern
 
 When running a kernel with SysRq compiled in, <code>/proc/sys/kernel/sysrq</code> controls the functions allowed to be invoked via the SysRq key.  If the file contains "<code>1</code>", that means that every possible SysRq request is allowed. See <a href="http://lxr.linux.no/linux/Documentation/sysrq.txt">here</a> for more on the <code>/proc/sys/kernel/sysrq</code>.
 
-To actually reboot the machine there is a well know key sequence to follow: REISUB (or REISUO if you want to turn off the system instead of reboot).  Basically, if you keep pressed ALT + SysRq + R and then while you keep pressed ALT + SysRq you press E, I, S, U, B with about 1 second between each letter (do not type it fast). Your system will reboot. This  is a safer alternative to just cold rebooting the computer.
+To actually reboot the machine there is a well know key sequence to follow: REISUB (or REISUO if you want to turn off the system instead of reboot).  Basically, if you keep pressed AltGR + SysRq + R and then while you keep pressed AltGR + SysRq you press E, I, S, U, B with about 1 second between each letter (do not type it fast). Your system will reboot. This  is a safer alternative to just cold rebooting the computer.
 
 Mnemonic for REISUB is <strong>R</strong>eboot <strong>E</strong>ven <strong>I</strong>f  <strong>S</strong>ystem <strong>U</strong>tterly <strong>B</strong>roken, and the keys pressed do the following:
 <p style="padding-left:60px;">
@@ -107,3 +109,8 @@ Mnemonic for REISUB is <strong>R</strong>eboot <strong>E</strong>ven <strong>I<
 </ul>
 </ul>
 The magic SysRq key supports more then just the REISUB keys.  To see the larger range of thing you can do via Magic SysRq Key's direct communications with the kernel, <a href="http://www.isotton.com/devel/docs/sysrq-cheatsheet/">check out here</a>.
+
+
+
+[01]:http://en.wikipedia.org/wiki/AltGr_key
+[02]:http://en.wikipedia.org/wiki/System_request

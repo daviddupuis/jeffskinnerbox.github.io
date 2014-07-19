@@ -14,6 +14,17 @@ Summary: bla bla bla
 * [C1100](http://www.ti.com/lit/ds/symlink/cc1100.pdf)
 * [433Mhz RF Module WT-4432G Transceiver](http://www.seeedstudio.com/depot/433Mhz-RF-Module-WT4432G-ISM-transceiver-module-p-1809.html?utm_source=newsletter20140501&utm_medium=newsletter20140501&utm_campaign=newsletter20140501)
 * [BC417 / BlueCore4-Ext](http://hackaday.com/2014/05/18/firmware-for-cheap-bluetooth-modules/)
+* [Picking The Right WiFi Module](http://blog.upverter.com/picking-the-right-wifi-module)
+* [Picking The Right Bluetooth Module](http://blog.upverter.com/picking-the-right-bluetooth-module)
+* []()
+* []()
+* []()
+
+
+* [Pinoccio - Mesh networked, web-connected](https://pinocc.io/)
+* []()
+* []()
+* []()
 
 Checkout LowPowerLab for some nice microcontroller + radio combinations (the [Moteino][01]).
 

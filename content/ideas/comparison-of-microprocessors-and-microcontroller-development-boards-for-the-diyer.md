@@ -33,9 +33,14 @@ Parameters include processor type and speed; number of analog and digital inputs
 * [CubieTruck](http://www.cubietruck.com/)
 * [BeagleBone]()
 * [ Tiva C Series Connected LaunchPad](http://www.automationworld.com/control/prototype-internet-things-apps-20)
+* []()
+* []()
+* []()
 
 Wireless Enabled
 * [RFduino](http://www.rfduino.com/)
+* [Blend Micro - an Arduino Development Board with BLE](http://www.seeedstudio.com/depot/Blend-Micro-an-Arduino-Development-Board-with-BLE-p-1834.html?utm_source=EDM20140520&utm_medium=EDM20140520&utm_campaign=EDM20140520)
+* [VoCore: A coin-sized Linux computer with wifi](https://www.indiegogo.com/projects/vocore-a-coin-sized-linux-computer-with-wifi#home)
 * []()
 * []()
 

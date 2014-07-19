@@ -1,14 +1,19 @@
 Title: Home Intercom System for the Minimalists
 Date: 2100-01-01 00:00
 Category: Electronics
-Tags: VoIP, Intercom 
+Tags: VoIP, SIP, Intercom 
 Slug: home-intercom-system-for-the-minimalists
 Author: Jeff Irland
 Image: DRAFT_stamp.png
 Summary: bla bla bla
 
+Search on "android as intercom" and you'll get some good ideas. 
 
-[)IHU is a Voice over IP (VoIP) application for Linux (using Qt), that creates an audio stream between two computers easily and with the minimal traffic on the network.](http://ihu.sourceforge.net/)
+[TP-LINK TL-PA2010KIT AV200 Nano Powerline Adapter Starter Kit,](http://www.amazon.com/TP-LINK-TL-PA2010KIT-Powerline-Adapter-Starter/dp/B00AWRUIY4/ref=sr_1_1?ie=UTF8&qid=1401505516&sr=8-1&keywords=TL-PA2010KIT)
+
+[IHU is a Voice over IP (VoIP) application for Linux (using Qt), that creates an audio stream between two computers easily and with the minimal traffic on the network.](http://ihu.sourceforge.net/)
+
+[HOWTO: GSM Base Station with the BeagleBone Black, Debian GNU/Linux and a USRP](http://discourse.criticalengineering.org/t/howto-gsm-base-station-with-the-beaglebone-black-debian-gnu-linux-and-a-usrp/56)
 
 A [search of eBay for "VoIP Intercom"][ebay] gets you device that range from $150 to $500.
 [ebay]:http://www.ebay.com/sch/i.html?_trksid=p2057253.m570.l1311.R1.TR1.TRC0.A0.H0.Xvoip+inter&_nkw=voip+intercom&_sacat=0&_from=R40
