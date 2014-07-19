@@ -1,0 +1,1132 @@
+<!DOCTYPE html>         <!-- This is the HTML5 doctype -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+    <title>Repurposing a Vintage Laptop to Create a X Terminal - Jeff's Skinner Box</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="http://jeffskinnerbox.me/favicon.ico" rel="icon">
+
+    <!-- Open Graph tags -->
+            <meta property="og:type" content="article"/>
+            <meta property="og:title" content="Repurposing a Vintage Laptop to Create a X Terminal"/>
+            <meta property="og:url" content="http://jeffskinnerbox.me/posts/2100/Jan/01/repurposing-a-vintage-laptop-to-create-a-x-terminal/"/>
+            <meta property="og:description" content="bla bla bla This project proved more challenging than originally anticipated since I had to master Tiny Core Linux, X Windows, Ubuntu Unity, and even wireless LAN security all in the context of an ancient piece of hardware."/>
+
+        <meta content='4b4ba976784eb9a97125d9e26149a667' name='RepostUsAPIKey' />
+        <script src='http://1.rp-api.com/rjs/repostus.js' type='text/javascript'></script>
+
+    <!-- Bootstrap -->
+        <link href="http://jeffskinnerbox.me/theme/css/bootstrap.flatly.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Font Awesome and Google Fonts -->
+    <link href="http://jeffskinnerbox.me/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Knewave' rel='stylesheet' type='text/css'>
+
+    <link href="http://jeffskinnerbox.me/theme/css/pygments/default.css" rel="stylesheet">
+    <link href="http://jeffskinnerbox.me/theme/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="http://jeffskinnerbox.me/static/custom.css" rel="stylesheet">
+
+        <link href="http://jeffskinnerbox.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box ATOM Feed"/>
+        <link href="http://jeffskinnerbox.me/feeds/all.rss.xml" type="application/atom+xml" rel="alternate"
+              title="Jeff's Skinner Box RSS Feed"/>
+</head>
+
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation" style="box-shadow: 5px 5px 10px #888888;">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://jeffskinnerbox.me/" style="font-family: Knewave, cursive; font-size: 48px; color: #FFFFFF">
+Jeff's Skinner Box&nbsp;            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/pages/about-me.html">About Me</a></li>
+                    <li><a href="/index.html">Blog</a></li>
+                    <li><a href="/pages/open-notebook.html">Open Notebook</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li><a href="http://jeffskinnerbox.me/archives.html">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+  <!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+<!-- GitHub Ribbon - https://github.com/blog/273-github-ribbons -->
+    <a href="https://github.com/jeffskinnerbox/jeffskinnerbox.github.io/tree/source" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github-camo.global.ssl.fastly.net/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png">
+    </a>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://jeffskinnerbox.me/posts/2100/Jan/01/repurposing-a-vintage-laptop-to-create-a-x-terminal/"
+                       rel="bookmark"
+                       title="Permalink to Repurposing a Vintage Laptop to Create a X Terminal">
+                        Repurposing a Vintage Laptop to Create a X Terminal
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2100-01-01T00:00:00"> Friday&nbsp;&nbsp;&nbsp;&nbsp;January 01, 2100</time>
+    </span>
+
+
+
+&nbsp;&nbsp;&nbsp;
+<i class="fa fa-tags fa-lg"></i>
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/tiny-core-linux/">Tiny Core Linux</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/x-terminal/">X Terminal</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/unity/">Unity</a>
+    
+</footer><!-- /.post-info -->                    </div>
+<!-- Repost button -->
+<!-- For more information - http://www.repost.us/ -->
+<a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
+    <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
+</a>                </div>
+                <p><a href="http://television.cosmicbooknews.com/content/wayback-machine-wabac-machine">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="WABAC (pronounced “wayback”) machine of Peabody's Improbable History, an ongoing feature of the 1960s cartoon series The Rocky and Bullwinkle Show" alt="WABAC Pic" src="https://upload.wikimedia.org/wikipedia/en/3/3f/Waybackmachine3.png" width="200" height="200" />
+</a>
+On a whim, I visited a web auction site dealing in surplus government property. 
+I spotted two very old laptops, which claimed to be still operational,
+and I place a bid of $40.
+A few days later, I received an email saying I was the proud owner of two 
+<span class="caps">HP</span> Omni Book <span class="caps">XE3</span> loaded with a Celeron<sup id="fnref:A"><a class="footnote-ref" href="#fn:A" rel="footnote">1</a></sup> 32bit&nbsp;processor!</p>
+<p>By todays standards, the <span class="caps">HP</span> Omni Book <span class="caps">XE3</span> isn&#8217;t exactly a race horse with its
+1066 MHz clock, 128M of <span class="caps">RAM</span> running at 100 MHz, and 10/100 Ethernet <span class="caps">LAN</span> communications.
+These laptops<sup id="fnref:I"><a class="footnote-ref" href="#fn:I" rel="footnote">2</a></sup> date back to 2000, the early days of the Internet,
+and are unashamedly equipped with a built in phone jack / modem, <a href="http://en.wikipedia.org/wiki/PC_Card"><span class="caps">PCMCIA</span> card slots</a>,
+a 1.44-<span class="caps">MB</span> floppy disk drive, and proudly hosting Microsoft Windows 98 Second&nbsp;Edition!</p>
+<p>The installed 10G drive was wiped clean but the laptops did come with the ordinal recovery disk.
+Using the recovery disk, I quickly got the Microsoft Windows 98 operating system installed.
+There was no login prompt / password required &#8230; wow, not much security&nbsp;here.</p>
+<p>I activated the browser, that being Microsoft Internet Explorer 6.0.
+During the activation, it asked if I wished to access the Internet via a modem &#8230; Ahhhh, nooo! 
+It&#8217;s the ghost of Internet past!
+Initially, this old browser only partly worked.
+I then set it to accept all cookies and it behave much better and was usable,
+but it would hang sometime and it wasn&#8217;t at all&nbsp;pretty.</p>
+<p>With the browser and the slow Internet connection,
+I figured that I could then down load the Linux distribution that I needed, and boot it from the disk.
+My plan is to get a light-weight Linux distro installed and use it as X Server with my desktop
+Linux system as its X Client, that is, turn the laptop into a X Terminal<sup id="fnref:B"><a class="footnote-ref" href="#fn:B" rel="footnote">3</a></sup>.
+I was hoping to use <a href="http://lubuntu.net/">Lubuntu</a> as my Linux distro.
+This <a href="https://help.ubuntu.com/community/Lubuntu/Alternate_ISO">alternate version of Ubuntu</a> is for computers with less than 700 <span class="caps">MB</span> of <span class="caps">RAM</span>,
+so I&#8217;m hoping it will do the&nbsp;job.</p>
+<p>What I shortly discovered is that the antique hardware and <span class="caps">OS</span> (Microsoft Windows 98)
+got in the way.
+All the method I tried to install Lubuntu ran into walls.
+First, the <a href="http://en.wikipedia.org/wiki/ISO_image"><span class="caps">ISO</span> image</a> was to large to burn to a <span class="caps">CD</span>-<span class="caps">ROM</span>, it required a <span class="caps">DVD</span>,
+but this old laptop isn&#8217;t <span class="caps">DVD</span> equipped.
+Booting the <span class="caps">ISO</span> from a <span class="caps">USB</span> thumb drive wasn&#8217;t possible with the old laptop <span class="caps">BIOS</span>.
+When I attempted to load the <span class="caps">ISO</span> image from the hard disk using methods found at
+<a href="https://help.ubuntu.com/community/Lubuntu/GetLubuntu">Downloading Lubuntu 13.10</a>, <a href="https://help.ubuntu.com/community/Lubuntu/InstallingLubuntu">Installing Lubuntu</a>, and <a href="https://help.ubuntu.com/community/Installation/FromWindows">Installation/FromWindows</a>,
+I found that these tools and methods wouldn&#8217;t work within Windows&nbsp;98.</p>
+<h1>Testing Light-Weight Linux&nbsp;Distributions</h1>
+<p>I concluded that it would be best to burn the Linux distro onto a <span class="caps">CD</span>-<span class="caps">ROM</span> using
+my current desktop computer and boot the laptop with the <span class="caps">CD</span>-<span class="caps">ROM</span> as a <a href="http://en.wikipedia.org/wiki/Live_CD">live system</a>.
+It was still my desire is to use Lubuntu, but give the limitations of this laptop,
+I&#8217;ll also try out Damn Small Linux (<span class="caps">DSL</span>), Puppy Linux, and Tiny Core&nbsp;Linux.</p>
+<h3>Damn Small Linux (<span class="caps">DSL</span>)</h3>
+<p>For my first trial, I choose to install <a href="http://www.damnsmalllinux.org/">Damn Small Linux (<span class="caps">DSL</span>)</a>.
+<span class="caps">DSL</span> (based on the Debian distro)<sup id="fnref:C"><a class="footnote-ref" href="#fn:C" rel="footnote">4</a></sup> was released in 2003 to specifically create a
+Linux operating system for <a href="http://www.osnews.com/story/24936/Damn_Small_Linux_Still_Damn_Fun">older hardware</a>.
+<span class="caps">DSL</span> supports older machines with minimal memory by disabling all unnecessary daemons or services.
+<span class="caps">DSL</span> gives you a tool to individually load and manage daemons,
+and you can load bundled applications designed with stingy resource use.
+<span class="caps">DSL</span> was designed, tested, and runs on old computers by retains support for many old&nbsp;devices. </p>
+<p>The installation of <span class="caps">DSL</span> on the laptop happened without any difficulties.
+I followed the excellent instructions give in the article
+<a href="http://voices.yahoo.com/how-download-install-dsl-linux-5947706.html?cat=15">How to Download and Install <span class="caps">DSL</span> Linux</a>.
+Every thing came up&nbsp;nicely.</p>
+<p>But there are problems.
+A major short coming of this distro is that
+<span class="caps">DSL</span> development seemed to be at a <a href="http://en.wikipedia.org/wiki/Damn_Small_Linux">standstill for a long time</a>.
+This, and the fact that I can&#8217;t find much documentation on how to support WiFi with <span class="caps">DSL</span>,
+gives me major concerns about using it.
+Never the less, the good news is that
+I now know I can get some version of Linux operational on this old&nbsp;laptop.</p>
+<h3>Lubuntu</h3>
+<p>My next test install was <a href="http://lubuntu.net/">Lubuntu</a>.
+The article &#8220;<a href="http://www.osnews.com/story/24476/Lubuntu_Finally_a_Lightweight_Ubuntu_">Lubuntu: Finally, a Lightweight Ubuntu</a>&#8221;
+claims that Lubuntu has snappy responsiveness on older computers.
+This seems to be dependent on having a Pentium <span class="caps">III</span> processor
+and 128M or more of memory.
+This laptop seems to just meet this criteria and so I pushed&nbsp;forward.</p>
+<p>I down loaded the Alternate version of Lubuntu from the site
+<a href="https://help.ubuntu.com/community/Lubuntu/Alternate_ISO">Lubuntu Alternate ISOs for low-<span class="caps">RAM</span> PCs</a>, created the <span class="caps">CD</span>-<span class="caps">ROM</span>, and booted the laptop with the <span class="caps">CD</span>-<span class="caps">ROM</span>.
+The install started smoothly but slowed down and took several hours &#8230; bad sign.
+Once installed, it hung during boot up.
+Looks like Lubuntu is out of the running.
+It appears the 128M of <span class="caps">RAM</span> is just too small for&nbsp;Lubuntu.</p>
+<h3>Puppy&nbsp;Linux</h3>
+<p><a href="http://puppylinux.org/main/Overview%20and%20Getting%20Started.htm">Puppy Linux</a> is a popular light-weight Linux distro.
+I successfully installed Puppy Linux, but once installed,
+it performed badly when I fired up applications like a browser.
+A closer reading of the Puppy Linux documentation informed me that
+the Linux Kernel is going to require 100M of <span class="caps">RAM</span>.
+So any reasonable size application will cause performance&nbsp;problems.</p>
+<h3>Tiny Core Linux (<span class="caps">TCL</span>)</h3>
+<p>My final attempt was <a href="http://tinycorelinux.net/">Tiny Core Linux (<span class="caps">TCL</span>)</a>, which comes in three <span class="caps">ISO</span> images,
+include CorePlus which is the installation image I required.
+I download the CorePlus, image, burned it to a <span class="caps">CD</span>-<span class="caps">ROM</span>, booted it,
+and selected &#8220;<code>Boot Core with X/GUI (TineCore) + Installation Extentions</code>&#8221; from the boot menu. 
+This will enable you to perform a hard drive install of <span class="caps">TCL</span>.
+See the <a href="http://tinycorelinux.net/install.html">Tiny Core Linux installation documentation for procedures</a>.
+(You can also do a <a href="http://tinycorelinux.net/install_manual.html">manual install</a>,
+with a reformating of the disk, if you boot directory is screwed up form previous&nbsp;installs.)</p>
+<p><span class="caps">TCL</span> install without a hitch and ran very nicely.
+It has a very smaller <span class="caps">RAM</span> footprint like <span class="caps">DSL</span> but is actively supported,
+well documented, including a book call <a href="http://www.tinycorelinux.net/corebook.pdf">Into the Core: A look at Tiny Core Linux</a>.
+Given all this, <span class="caps">TCL</span> seems like a good choose for my X Terminal&nbsp;plans.</p>
+<h1>Getting to Know Your X&nbsp;Environment</h1>
+<p><a href="http://en.wikipedia.org/wiki/X_Window_System">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="The X Window System (X11, X, and sometimes informally X-Windows) is a windowing system for bitmap displays, common on UNIX-like operating systems. X provides the basic framework for a GUI environment: drawing and moving windows on the display device and interacting with a mouse and keyboard. X does not mandate the user interface, this is handled by individual programs." alt="X Logo" src="/images/x-logo.png" width="100" height="100" />
+</a>
+As stated earlier, my objective is to use the <span class="caps">TCL</span> laptop as a
+<a href="http://en.wikipedia.org/wiki/X_terminal">X Terminal</a> with my desktop Linux as the remote system.
+To do this successfully, you need to understand the X Window System as it will operate
+on the X Terminal and the remote system.
+The beauty of X is the flexibility it gives you in creating a graphics applications
+and distribute them across a network.
+On the other hand, this flexibility creates its own complexity
+and makes it challenging to understand how X&nbsp;operates.</p>
+<p>To clarify this, a typical X Window System consists of the following components:
+<a href="http://en.wikipedia.org/wiki/X_Window_System_protocols_and_architecture">
+    <img class="img-rounded" style="margin: 0px 8px; float: right" title="X Window Client Server Architecture" alt="X Architecture" src="/images/x-windows-client-server-architecture.png" width="210" height="356" />
+</a></p>
+<ul>
+<li><strong>X Window System (aka X, X11, X-Windows)</strong> - <a href="http://en.wikipedia.org/wiki/X11">X Window System</a> provides the basic <a href="http://en.wikipedia.org/wiki/X_Window_System_protocols_and_architecture">framework, primitives, and protocals</a> for a graphical user interface (<span class="caps">GUI</span>) environment.  X does not mandate the user interface — this is handled by individual programs.  As such, the visual styling of X-based environments varies greatly; different programs may present radically different interfaces.  There are several implementation of X, including <a href="http://www.x.org/wiki/">X.Org</a>, <a href="http://xfree86.sourceforge.net/">XFree86</a>, <a href="http://x.cygwin.com/"> Cygwin/X</a>, and many&nbsp;more.</li>
+<li><strong>X Server (aka X Display Server)</strong> - This creates the graphical environment on a graphical display device using the X Display Protocol.  An X Server program runs on a computer with a graphical display and communicates with various X client programs, along with peripherals like the keyboard and mice. Examples of X servers are <a href="http://www.straightrunning.com/XmingNotes/">Xming</a> and <a href="http://www.x.org/wiki/XServer/">XServer</a>.</li>
+<li><strong>X Client (aka X Application)</strong> - An X client is an application program that displays on an X Server but which is otherwise independent of that server.  X Clients are built using software libraries that support the X Window System&nbsp;framework.</li>
+<li><strong>X Window Manager</strong> - The window manager takes care of deciding the position of windows, placing the decorative border around them, handling icons, handling mouse clicks outside windows (on the “background”), handling certain keystrokes, etc.  Examples are <a href="http://en.wikipedia.org/wiki/Window_Maker">WindowMaker</a>, <a href="http://en.wikipedia.org/wiki/Sawfish_(window_manager)">sawfish</a>, and <a href="http://en.wikipedia.org/wiki/FVWM">fvwm</a>.</li>
+<li><strong>X Session Manager</strong> - The session Manager automatically starts a set of applications, setting up, and restoring a working desktop environment.  More precisely, it is the set of applications managing these windows and the information that allow these applications to restore the condition of their managed windows if required.  The X session manager saves and restores the state of&nbsp;sessions.</li>
+<li><strong>X Display Manager (aka Login Manager)</strong> - This program shows the graphical login prompt in the X Window System.  This is the first X program run by the system if the system (not the user) is starting X and allows you to log on to the local system, or network systems.  More generally, a Display Manager runs one or more X Servers on the local computer and accepts incoming connections from X Servers running on remote computers.  The local servers are started by the Display Manager, which then connects to them to present the user the login&nbsp;screen.</li>
+<li><strong>Desktop Environment</strong> - A desktop environment such as <a href="http://lxde.org/"><span class="caps">LXDE</span></a>, <a href="http://www.xfce.org/"><span class="caps">XFCE</span></a>, <a href="http://www.kde.org/"><span class="caps">KDE</span></a>, <a href="http://www.gnome.org/"><span class="caps">GNOME</span></a>, or Ubuntu&#8217;s <a href="https://unity.ubuntu.com/about/">Unity</a> are a suite of applications, fonts, icons, configuration files, and design patterns used to integrate all the above X Window System components to provide a consistent user&nbsp;experience.</li>
+</ul>
+<p>Given all this, starting an X session is typically done in one of two&nbsp;ways:</p>
+<ol>
+<li>The X session is started via a <a href="http://en.wikipedia.org/wiki/X_display_manager_(program_type)">X Display Manager</a>, which provides the user login prompts on a <span class="caps">GUI</span> screen. In this case, the <a href="http://www.x.org/wiki/">Xorg</a> process is started at boot time along with the X Display&nbsp;Manager.</li>
+<li>If Xorg wasn&#8217;t started at boot time, the user starts X manually after logging in to a text console. This is typically done with the <a href="http://www.xfree86.org/current/startx.1.html"><code>startx</code></a>command, which is a simple shell script wrapper for <a href="http://www.x.org/archive/X11R6.8.1/doc/xinit.1.html"><code>xinit</code></a>.</li>
+</ol>
+<p><a href="http://en.wikipedia.org/wiki/X_display_manager_(program_type)">
+    <img class="img-rounded" style="margin: 0px 8px; float: right" title="In the X Window System, the X server runs on the computer in front of the user. The X server may connect to a display manager running on another computer, starting a session which may comprise a variety of programs running on that other computer." alt="X Display Manager Pic" src="http://upload.wikimedia.org/wikipedia/commons/1/16/Xserver_and_display_manager.svg" width=25% height=25% />
+</a>
+In either case, X runs with root privileges since it needs raw access to hardware devices.
+In the X Window System,
+the X Display Manager runs as a program that allows the starting of a session
+on an X Server from the same or another computer.
+A Display Manager presents the user with a login screen which prompts for a username and password.
+A session starts when the user successfully enters a valid combination of username and password.
+The X Display Manager function was established, in part, to support standalone X&nbsp;Terminals.</p>
+<p>A Display Manager can run on the local computer where the user sits or on a remote one.
+When local, the Display Manager starts one or more X Servers,
+displaying the login screen.
+When the Display Manager is remote, the Display Manager works according to the
+<a href="http://www.x.org/releases/X11R7.7/doc/libXdmcp/xdmcp.html">X Display Manager Control Protocol (<span class="caps">XDMCP</span>)</a><sup id="fnref:E"><a class="footnote-ref" href="#fn:E" rel="footnote">5</a></sup>.</p>
+<p>The <span class="caps">XDMCP</span> protocol mandates that the X Server starts autonomously and connects to the Display Manager.
+You configure an <span class="caps">XDMCP</span> Chooser program running on the local computer (or X Terminal)
+to connect to a specific remote X Display Manager
+or to display a list of suitable hosts (if configured to do so) that the user can choose from. 
+When the user selects a host from the list,
+the <span class="caps">XDMCP</span> Chooser running on the local machine will send a message
+to the selected remote computer&#8217;s Display Manager
+and instruct it to connect the X Server on the local computer or&nbsp;terminal.</p>
+<p>Note that unlike <a href="http://blog.worldlabel.com/2009/turn-your-old-laptop-into-a-powerful-linux-workhorse.html">vncviewer</a>, which just duplicates a hosts current screen on a remote system,
+<span class="caps">XDMCP</span> allows several different users to login and run different X sessions at the same time.
+Your not sharing a desktop screen image, your starting seperate X Window session on the remote&nbsp;machine.</p>
+<p>If your Linux box boots into a graphical login screen, like my Ubuntu desktop system,
+you are already running a Display Manager. 
+Specifically, my desktop Linux box is using <a href="http://www.freedesktop.org/wiki/Software/LightDM/"><code>lightdm</code></a> as its X Display Manager.
+You can determine this by running <code>cat /etc/X11/default-display-manager</code>
+or <code>ps -A | grep dm</code>.
+On the other hand, when I install <span class="caps">TCL</span> on the vintage laptop, you see no graphical login screen.
+So you know that <span class="caps">TCL</span> isn&#8217;t using a X Display&nbsp;Manager.</p>
+<p>For my <a href="http://en.wikipedia.org/wiki/Desktop_environment">desktop Linux environment</a>, I&#8217;m using Ubuntu&#8217;s default environment.
+That is the <a href="http://lxde.org/">Unity Lightweight X11 Desktop Environment (<span class="caps">LXDE</span>)</a>.
+It consists&nbsp;of:</p>
+<ul>
+<li><strong>Window Manager</strong> - <a href="http://openbox.org/">Openbox</a>, the default window manager of <span class="caps">LXDE</span></li>
+<li><strong>Display Manager</strong> - <a href="http://wiki.lxde.org/en/LXDM"><span class="caps">LXDM</span></a> is the Display Manager for <span class="caps">LXDE</span></li>
+<li><strong>Session Manager</strong> - <a href="http://wiki.lxde.org/en/LXSession">LXSession</a> is the standard session manager used by <span class="caps">LXDE</span> and it&#8217;s desktop-independent and can be used with any Window&nbsp;Manager.</li>
+</ul>
+<p>What is happening when you start up Unity on the desktop system and <a href="http://www.tldp.org/HOWTO/XWindow-User-HOWTO/runningx.html">run X</a>?
+The following is an abbreviated <a href="http://askubuntu.com/questions/150487/what-happens-under-the-covers-to-log-me-in-and-start-up-the-unity-graphics-user?r">summary of startup activites</a>.</p>
+<ol>
+<li>The kernel starts the <code>init</code> process as process number 1, and it is responsible for starting all other&nbsp;processes.</li>
+<li><code>init</code> starts the <span class="caps">LXDE</span> Display Manager <code>/usr/sbin/lightdm</code> fairly late in the init process (the system dbus, filesystem and the graphics display system all must be&nbsp;ready).</li>
+<li><code>lightdm</code> creates an xauthority file and then starts X, starting it on virtual terminal&nbsp;7</li>
+<li>The <code>unity-greeter</code> get&#8217;s the names of potential Window Managers, and in my case that would be <code>ubnutu</code> and so it uses  <code>/usr/share/xsessions/ubuntu.desktop</code>.</li>
+<li>Once logged in, the files from <code>/usr/share/xsessions/ubunutu.desktop</code> now determine the rest of the startup&nbsp;sequence.</li>
+<li>The <code>/usr/sbin/lightdm-session</code> shell script is run with the arguments <code>gnome-session --session=ubuntu</code></li>
+<li><code>/usr/sbin/lightdm-session</code> then runs <code>$HOME/.profile</code>, loads <code>$HOME/.Xresources</code>, <code>$HOME/.Xmodmap</code>, runs scripts in <code>/etc/X11/xinit/xinitrc.d</code>, runs the Xsession scripts in <code>/etc/X11/Xsession.d/*</code>, using the options in <code>/etc/X11/Xsession</code>.options.</li>
+<li><code>lightdm-session</code> starts a Window Manager, or for Unity, starts the <code>gnome-session</code> Session Manager. The Window Manager uses the Unity <code>/usr/share/xsessions/ubuntu.desktop</code> configuration&nbsp;file.</li>
+<li><code>gnome-session</code> starts the specified program from <code>/usr/share/gnome-session/sessions/</code> and starts applications from <code>~/.config/autostart/</code> and <code>/etc/xdg/autostart</code>.</li>
+</ol>
+<p>So now you have some small insight into what the X Window System is doing,
+but what are the important things one should take away from all&nbsp;this?</p>
+<ul>
+<li>The remote, that is my Linux desktop system, must use a Display Manager and it needs to be configured to accept logins from network terminals. This means configuration files must be set to accept the login request and the <span class="caps">XDMCP</span> protocol must be operational. That is, <a href="http://zweije.home.xs4all.nl/xauth-9.html">configuring X Display Manager as an <span class="caps">XDMCP</span> Server</a>.</li>
+<li>The X Server on the local system, that is the vintage <span class="caps">PC</span>, must be configured to use the <span class="caps">XDMCP</span> protocol, be directed to log into the remote system, and not establish its own local desktop environment. That is, <a href="http://zweije.home.xs4all.nl/xauth-9.html">configuring X Server as an <span class="caps">XDMCP</span> Client</a>.</li>
+</ul>
+<p>As to the mechanics of making this happen, the following articles do a good job of explaining what needs to be done
+(and I&#8217;ll provide the detail steps&nbsp;later):</p>
+<ul>
+<li><a href="http://www.tldp.org/HOWTO/XDMCP-HOWTO/">Linux <span class="caps">XDMCP</span> <span class="caps">HOWTO</span></a></li>
+<li><a href="http://www.linuxdoc.org/HOWTO/XDM-Xterm/index.html"><span class="caps">XDM</span> and X Terminal mini-<span class="caps">HOWTO</span></a></li>
+<li><a href="http://blog.joseluisperezdiaz.com/linux-based-x-terminals-with-xdmcp/">Linux-Based X Terminals with <span class="caps">XDMCP</span></a></li>
+</ul>
+<h1>Getting to Know Ubuntu&nbsp;Unity</h1>
+<p><a href="https://unity.ubuntu.com/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="Unity is the Desktop Environment that is shippped as the default Ubuntu installation, and claims it's focus is on simplicity and consistency across multiple devices (e.g. across TV, mobile, tablet, and desktop)" alt="Ubuntu Unity Logo" src="/images/ubuntu-unity-logo.png" width="100" height="100" />
+</a>
+<a href="https://unity.ubuntu.com/">Unity</a> is the Desktop Environment that is shipped as the default Ubuntu installation,
+and claims it&#8217;s focus is on simplicity and consistency across multiple devices
+(e.g. across <span class="caps">TV</span>, mobile, tablet, and desktop).
+Several years ago, Ubuntu moved from <a href="http://www.gnome.org/"><span class="caps">GNOME</span></a> to Unity, never the less,
+the Unity interface should run all <span class="caps">GNOME</span>-based applications without modification.
+I guess that is why Unity is often introduced as a desktop shell for <span class="caps">GNOME</span>.
+This is not the same as a totally new desktop environment.
+A desktop shell is the interface that you use.
+Unity will still use the same <span class="caps">GNOME</span> apps and libraries that the any <span class="caps">GNOME</span> desktop does.
+In this way, <span class="caps">GNOME</span> can be thought as an example of another shell for <span class="caps">GNOME</span>.
+The <a href="https://www.youtube.com/watch?v=SZU9XzJBgVc">debate concerning <span class="caps">GNOME</span> vs Unity</a> inciting a lot of reactions from&nbsp;users.</p>
+<p>Although Unity is a single graphical experience, you can think of it in three broad&nbsp;buckets:</p>
+<ul>
+<li><strong>Design –</strong> the visual design and interaction&nbsp;experience</li>
+<li><strong>Platform –</strong> the core Unity platform&nbsp;software</li>
+<li><strong>Services –</strong> a set of functions that Unity makes available to applications for integration and for content to be&nbsp;viewed.</li>
+</ul>
+<p>The <a href="http://www.howtoforge.com/introduction-to-the-ubuntu-unity-desktop">Unity user interface consists of several components</a>:</p>
+<ul>
+<li><strong>Top Menu Bar –</strong> is a global application menus not located in the application’s windows, they’re located on the top menu bar. You see the application’s menu when you mouse over the top  of a&nbsp;window.</li>
+<li><strong>Launcher –</strong> is at the left side of the screen is where you’ll launch frequently used applications and switch between running&nbsp;applications.</li>
+<li><strong>Dash –</strong> an overlay that allows the user to search quickly for information both locally (installed applications, recent files, bookmarks, etc.) and remotely (Twitter, Google Docs, etc.) and displays previews of results. Open the Dash by clicking the Ubuntu icon at the top left corner of the screen. You can also press the Super key to open the launcher (the Super key is also known as the Windows&nbsp;key).</li>
+<li><strong>Quicklist –</strong> the accessible menu of launcher&nbsp;items</li>
+<li><strong>Head-Up Display (<span class="caps">HUD</span>) –</strong> allows hotkey searching for top menu bar items from the keyboard, without the need for using the mouse, by pressing and releasing the Alt&nbsp;key.</li>
+<li><strong>Indicators –</strong> a notification area containing displays for the clock, network and battery status, sound volume,&nbsp;etc.</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># Just notes</span>
+
+<span style="color: #0099FF; font-style: italic"># make sure the last entry of the .xsessionrc file is run in the background</span>
+
+<span style="color: #0099FF; font-style: italic"># to restart Unity</span>
+setsid unity
+<span style="color: #0099FF; font-style: italic"># or should you use</span>
+setsid unity --replace
+
+<span style="color: #0099FF; font-style: italic"># to logout via the terminal</span>
+gnome-session-quit
+
+<span style="color: #0099FF; font-style: italic"># restart X without rebooting</span>
+/etc/init.d/gdm restart         <span style="color: #0099FF; font-style: italic"># kill your graphical interface using</span>
+sudo service lightdm restart    <span style="color: #0099FF; font-style: italic"># restart your session manager</span>
+
+<span style="color: #0099FF; font-style: italic"># see this </span>
+http://manpages.ubuntu.com/manpages/lucid/en/man1/gnome-wm.1.html
+</pre></div>
+
+
+<p>Like many desktop envirnments, Ubuntu Unity can change its look <span class="amp">&amp;</span> feel by changing the <a href="http://itsfoss.com/best-themes-ubuntu-1310/">themes</a>.
+These alternative theme files are extracted to <code>~/.themes</code> or <code>/user/share/themes</code> directores. 
+Once a theme is established, it can udergo additional tuning via the
+<a href="http://www.techrepublic.com/blog/linux-and-open-source/six-must-have-ubuntu-unity-tweaks/">Unity Tweak Tool</a>, which is a settings manager for the Unity desktop. 
+This configuration tool provides users access to features and configuration options,
+and brings them all together in a polished <span class="amp">&amp;</span> easy-to-use interface.
+To install this tool,&nbsp;use</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get install unity-tweak-tool
+</pre></div>
+
+
+<p>The most transparent and precise way to configure the Unity envirnment is to modify the file
+<code>/etc/lightdm/lightdm.conf</code>.
+The post &#8220;<a href="http://www.mattfischer.com/blog/?p=343">Understanding lightdm.conf</a>&#8221; is a good read to better understand <code>lightdm.conf</code>
+but keep in mind that some utilities it suggest are no more. 
+As of Ubuntu Trusy 14.04,
+the command line utility <code>lightdm-set-defaults</code> is <a href="http://askubuntu.com/questions/251041/how-to-install-lightdm-set-defaults">no longer available</a>.
+This is because <code>lightdm</code> now using a configuration directory <code>/etc/lightdm/lightdm.conf.d/</code>
+rather than a single configuration file.
+The files in this directory can be edited by hand, new files can be added, or files can be removed. 
+There is no manpage for <code>lighdm.conf</code>, but there is an example that lists all the options
+and a bit about what they do, just look in <code>/usr/share/doc/lightdm/lightdm.conf.gz</code>
+(If you use vim, you can just edit the file and it will be automagically ungzipped for&nbsp;you).</p>
+<p>While there are many things you can set within <code>lightdm.conf</code>,
+running a command When X starts, when the greeter starts, or when the user session starts
+may be the more useful for our purposes.
+For example, when <code>lightdm</code> starts X you can run a command or script, like <code>xset</code> perhaps.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">display-setup-script=[script|command]
+</pre></div>
+
+
+<p>You can do something similar when the greeter&nbsp;starts:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">greeter-setup-script=[script|command]
+</pre></div>
+
+
+<p>or when the user session&nbsp;starts:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">session-setup-script=[script|command]
+</pre></div>
+
+
+<p>A potentially even more granular way to configure the Unity envirnment is via
+minimpulating the <a href="https://developer.gnome.org/gio/2.39/GSettings.html"><code>GSettings</code></a> classes, which is a <span class="caps">API</span> for application settings.
+To support this, there is <a href="https://developer.gnome.org/gio/2.39/gsettings-tool.html"><code>gsettings</code></a> which offers a simple commandline interface to <code>GSettings</code>.
+<code>GSettings</code> is a GLib implementation of the <a href="http://en.wikipedia.org/wiki/Dconf">DConf spec</a>, which stores its data in a binary database.
+The <code>gsettings</code> command line tool is simply a tool to access or modify settings via the <code>GSettings</code> <span class="caps">API</span>.</p>
+<p>Applications using <code>GSettings</code>/DConf install allication configuration data or schemas. 
+A schema is basically is a list of the available settings for that application.
+There are two types of schemas, standard and relocatable schemas.
+Important to understand that for relocatable schemas we need to provide a
+path on top of the normal schema name like <code>org.gnome.login-screen</code>.
+An application does not need to know where or how the data is stored,
+just how to access that data and recieve a notification if and when the data&nbsp;changes.</p>
+<p>To list all the available schemas<sup id="fnref:H"><a class="footnote-ref" href="#fn:H" rel="footnote">6</a></sup>,&nbsp;enter</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings list-schemas
+</pre></div>
+
+
+<p>Now that we have a list of the schemas we can look at what keys they provide.
+Keys are the actual settings we manipulate.
+We can list them with <code>gsettings list-keys &lt;schema name&gt;</code>.
+For&nbsp;example,</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings list-keys org.gnome.login-screen
+</pre></div>
+
+
+<p>You can also list both the keys and their current values by running <code>gsettings list-recursively &lt;schema&gt;</code>.
+For&nbsp;example,</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings list-recursively org.gnome.login-screen
+</pre></div>
+
+
+<p>As mentioned before relocatable schemas need an aditional path before we can list and manipulate the keys.
+Other than the path we treat the the two types of schemas the same way from the command line.
+The location of the relocatable schemas are within the path and not in the default location.
+For example we added a colon followed by the&nbsp;path:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings list-recursively org.gnome.login-screen:/org/mate/panel/objects/object_0/
+</pre></div>
+
+
+<p>You&#8217;ll find other uses for <code>gsettings</code> on <a href="http://manpages.ubuntu.com/manpages/trusty/en/man1/gsettings.1.html">its manual page</a>.
+For example,
+Unity desktop comes with overlay scrollbars enabled by default. 
+You can disable overlay scroll-bars, if you don&#8217;t like them.
+Enter the following command in a terminal to disable overlay&nbsp;scrollbar:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings set com.canonical.desktop.interface scrollbar-mode normal
+</pre></div>
+
+
+<p>If you want to get back overlay bars, enter following&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">gsettings reset com.canonical.desktop.interface scrollbar-mode
+</pre></div>
+
+
+<p>With all these oppertunities to reconfigure Unity, the possibilities of screwing thing up are very high.
+In case some settings are messed up and you want to <a href="http://www.webupd8.org/2012/10/how-to-reset-compiz-and-unity-in-ubuntu.html">reset Unity and Compiz</a> to their default settings,
+the standard way is to&nbsp;use</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># Careful ... this will reset all Unity &amp; Compiz to their default options</span>
+unity-reset
+</pre></div>
+
+
+<p>To restart Unity after running the above command (or restart it any time), use the&nbsp;command</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">setsid unity
+</pre></div>
+
+
+<p>You can find more examples of configuring Unity via <code>gsettings</code> and othr tools in the&nbsp;postings:</p>
+<ul>
+<li><a href="http://www.noobslab.com/2013/10/tweaksthings-to-do-after-install-of.html">Tweaks/Things to do after install of Ubuntu 13.10 Saucy&nbsp;Salamander</a></li>
+<li><a href="http://www.noobslab.com/2014/04/thingstweaks-to-do-after-install-of.html">Things/Tweaks To Do After Install Of Ubuntu 14.04 Trusty&nbsp;Tahr</a></li>
+</ul>
+<h1>Getting to Know the <span class="caps">TCL</span> Operating&nbsp;System</h1>
+<p><a href="http://tinycorelinux.net/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="Tiny Core Linux is a 12 MB graphical Linux desktop. It is based on a recent Linux kernel, BusyBox, Tiny X, Fltk, and Flwm." alt="Tiny Core Linux Logo" src="/images/tiny-core-linux.jpg" width="118" height="45" />
+</a>
+As stated earlier, it appears that Tiny Core Linux (<span class="caps">TCL</span>) will be my best choose
+for this vintage laptop conversion into a X Terminal.
+Like Damn Small Linux, <a href="http://tinycorelinux.net/">Tiny Core Linux (<span class="caps">TCL</span>)</a> is a minimal Linux operating system
+initially using <a href="http://www.busybox.net/">BusyBox</a> as its core system,
+but latter replace with <a href="http://en.wikipedia.org/wiki/GNU_Core_Utilities"><span class="caps">GNU</span>&#8217;s Coreutils</a>.
+Tiny Core is exactly what the name suggests,
+a tiny core of an operating system which boots to a fully functional graphics desktop
+called <a href="http://www.fltk.org/index.php">Fast Light Toolkit (<span class="caps">FLTK</span>)</a>, pronounced &#8220;fulltick&#8221;,
+which includes the <a href="http://flwm.sourceforge.net/">Fast Light Window Manager (flwm)</a>.</p>
+<p>Tiny core can be run on new, high performance computers.
+It can also be run on older, slower computers.
+Minimum performance requirements depend on which programs you install in Tiny Core.
+Most programs will run on a computer with 256 mb of ram.
+Tiny core can be run on a computer with 128 mb of ram, with selected programs.
+It may not be worthwhile for most people to run Tiny Core on a computer with less than 128 mb of ram,
+as even less programs will run.
+The absolute minimum to run Tiny Core is 48 mb of&nbsp;ram.</p>
+<p>Tiny Core is designed to run entirely from a <span class="caps">RAM</span> copy created at boot time.
+While you can do a traditional hard drvie install,
+Tiny Core is designed to
+run from a <span class="caps">RAM</span> copy created at boot time. Besides being fast, this
+protects system files from changes and ensures a pristine system on
+every reboot.
+Easy, fast, and simple renew-ability and stability is a principle goal of Tiny Core. 
+The core system provides most of what you need for a working environment,
+which they can then tweak from there via loadable&nbsp;applications.</p>
+<p><a href="http://tinycorelinux.net/install_manual.html">Frugal</a> is the typical installation method for Tiny Core.
+That is, it is not a traditional hard drive installation,
+which we call &#8220;scatter mode&#8221;,
+because all the files of the system are scattered all about the disk.
+With frugal, you basically have the system in two files,
+vmlinuz and core.gz, whose location is specified by the boot loader.
+Therefore, the <span class="caps">TCL</span> Live <span class="caps">CD</span> <span class="caps">ISO</span> image consists of four&nbsp;components:</p>
+<ol>
+<li>Bootloader (<code>/boot/extlinux</code>)</li>
+<li>Linux Kernel (<code>/boot/vmlinuz</code>)</li>
+<li>Core initrd (<code>/boot/core.gz</code>)</li>
+<li>Extensions (<code>/tce/onboot.lst</code>, <code>/tce/optional</code>)</li>
+</ol>
+<p>The default bootloader used by <span class="caps">TCL</span> is <a href="http://www.syslinux.org/wiki/index.php/EXTLINUX"><code>extlinux</code></a> but others can be installed (such as grub).
+You find extlinux&#8217;s configuration file in <code>/mnt/sda1/tce/boot/extlinux/extlinux.conf</code>.</p>
+<p>Tiny Core consists of a small kernel and initial <span class="caps">RAM</span> disk,
+which ultimately boots into a basic <span class="caps">FLTK</span> graphical environment.
+The computer’s hardware is configured on boot and should mostly work out of the box.
+<span class="caps">TCL</span> is <span class="caps">RAM</span> based - the &#8220;core&#8221; utilities are packed into the <code>core.gz</code> file
+which is then unpacked into <span class="caps">RAM</span> when the system boots and forms our primary filing system.
+After that <span class="caps">TCL</span> searches any attached storage for the directory <code>tce</code>.
+This directory holds optional extensions to the operating system such as the graphical desktop
+and anything else we care to add.
+The extension files are actually compressed filing systems,
+read-only <code>tgz</code> files,
+and Tiny Core mounts these individually under <code>/tmp/tcloop/&lt;application_name&gt;</code>
+and then merges them with the main filing&nbsp;system.</p>
+<p>Given that applications are load freash on each boot,
+how do we handle application&#8217;s configuration file that need to be preserved?
+This is where Tiny Core&#8217;s user editable <code>/opt/.filetool.lst</code> file comes into play.
+This contains a list of all (potentially changed) <span class="caps">RAM</span>-based files
+or directories that we want to persist across reboots (which logically has to include itself).
+Tiny Core handles this with the <code>filetool.sh</code> script.
+When run with the <code>-b</code> option this packages up all these files into a single compressed file (<code>mydata.tgz</code>)
+that it saves in the <code>tce</code> directory.
+When the script is run with the <code>-r</code> option it does the reverse and restores the saved files.
+The restore happens automatically as the system boots. 
+By default the <code>/opt/filetool.lst</code> file includes the <code>/home</code> and <code>/opt</code> directories.
+Remove this entries if you wish (e.g. when backup take a long&nbsp;time).</p>
+<p><strong><span class="caps">NOTE</span>: You can do backups from <span class="caps">GUI</span> or on command line via <code>filetool.sh -b</code>.</strong></p>
+<p>Many options, such as a choice of either an <span class="caps">ALSA</span> or <span class="caps">OSS</span> sound server, are left up to the user.
+Once inside the environment, the user is then able to connect to the online repositories
+in order to install the applications they desire and configure their system. 
+<span class="caps">TCL</span> has a very simple package manager that provides a list of available packages to install.
+The user need only select a package and the manager will download it with all
+required dependencies and install them to the&nbsp;system.</p>
+<p><span class="caps">TLC</span>&#8217;s package manager, the <code>Apps</code> tool, has several methods of installing applications
+(For my purposes of creating a X Terminal, I see no for any of these options other than&nbsp;OnBoot).</p>
+<ul>
+<li><strong>OnBoot -</strong> This is the default method. This extension will be installed, and added to the onboot list, to be mounted on the following&nbsp;boots. </li>
+<li><strong>OnDemand -</strong> A loading script will be generated for this extension.  Instead of being loaded on boot, the icon/menu entry for this extension will load the extension when you first need it.  This option speeds up your boot time, at the cost of making the first start of the application&nbsp;slower.</li>
+<li><strong>Download + Load -</strong> The extension will be downloaded and installed for this session only.  It will reside within the directory sytem, but since it is not added to the onboot list, it will not be loaded after a&nbsp;reboot.</li>
+<li><strong>Download Only -</strong> The extension will only be downloaded, nothing more will be&nbsp;done.</li>
+</ul>
+<p>In the default configuration of <span class="caps">TCL</span>, anything written to <code>/opt</code> and <code>/home</code>
+directory trees will be written to the hard disk and so are persistent.
+Any files created elsewhere are volatile and need to be added to the file <code>/opt/.filetool.lst</code>
+if we want them to persist across&nbsp;reboots.</p>
+<p>Tiny Core doesn’t actually install anything onto the system in a traditional way.
+Instead it stores the binary packages in memory which are then laid over the top of the existing system.
+These packages are actually called extensions and when the system boots each and every time it will load these extensions from a location you&nbsp;specify.</p>
+<p>Tiny Core provides two different types of extensions – <span class="caps">TCE</span> and <span class="caps">TCZ</span>.
+The former is a compressed tarball which is extracted into <span class="caps">RAM</span> over the booted system environment.
+The disadvantage of this method is that it uses up more <span class="caps">RAM</span> the more programs you have installed.
+The latter is more efficient as it actually <a href="http://en.wikipedia.org/wiki/Loop_device">loop mounts</a> the packages onto the system,
+rather than extracting them into <span class="caps">RAM</span>.
+This means that they are only loaded into memory when you actually use them,
+similar to that of a more traditional install where they sit on a hard drive.
+If you’re going to have many applications installed, this is the better&nbsp;option.</p>
+<p><span class="caps">TCL</span> has the ability to save your data and restore it on boot.
+You can also change system files and on boot these will also be restored,
+just after the extensions are loaded.
+So if you do want to customise a package, you can do so and have it stay that way each time you boot.
+The system also takes mount point arguments at boot time,
+so users can specify a partition to use as their <code>/home</code> directory, for&nbsp;instance.</p>
+<p>To investigate futher on the interworkings of <span class="caps">TCL</span>,
+the article &#8220;<a href="http://www.linux-mag.com/id/7457/">Tiny Core: The Little Distro That Could</a>&#8221;
+gives a good, quick introduction to Tiny Core,
+and this <a href="https://www.youtube.com/watch?v=lFxXeDKgymM">video</a> provides an excellent introduction to
+<a href="https://www.youtube.com/watch?v=lFxXeDKgymM">Tiny Core Linux File Architecture and Boot Process</a>.
+The <a href="http://www.parkytowers.me.uk/thin/Linux/Tinycore.shtml">Thin Client</a> website has a section on Tiny Core Linux.
+And of course, if your really ambitious, you can read the book &#8220;<a href="http://www.tinycorelinux.net/corebook.pdf">Into the Core: A look at Tiny Core Linux</a>&#8220;.</p>
+<h1>Getting to Know Your Network Security&nbsp;Options</h1>
+<p><a href="http://www.wi-fi.org/discover-wi-fi/security">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="It is common networking knowledge that there really is no excuse to not use any encryption method other than WPA2. In all but the oldest wireless devices, just about all modern wireless clients support it." alt="Wireless Security Logo" src="/images/wifi-security.png" width="100" height="100" />
+</a>
+As stated earlier, the <span class="caps">XDMCP</span> protocol used to support the X Terminal isn&#8217;t encrypted<sup id="fnref:F"><a class="footnote-ref" href="#fn:F" rel="footnote">7</a></sup>.
+So using the X Terminal outside of ones secure <span class="caps">LAN</span> or <span class="caps">WAN</span>, saw across the internet, is risky business.
+Any passwords or credit cards will be passed as plan text.
+But in my case, I&#8217;ll be using this only on my home network.
+So the key here is making sure you have good firewall protection on your router and
+strong encryption on you wireless network.
+I&#8217;m using a route supplied by my internet provider,
+and by default, <a href="http://www.howtogeek.com/howto/38858/how-to-make-your-verizon-fios-router-1000-more-secure/">its configured for old encryption standards</a> and not the more secure <span class="caps">WPA2</span>.</p>
+<p>I have to admit that, up until this project,
+I haven&#8217;t been thinking much about the latest <span class="caps">WAN</span> encryption recommendations.
+My concern was, amid the alphabet soup of what security standards,
+how do you merge support for a mix of client devices that support the range of WiFi security protocols?
+The solution was to get myself the strongest available security by using a
+wireless access point (<span class="caps">AP</span>) equipment that supports all the <a href="http://www.howtogeek.com/167783/htg-explains-the-difference-between-wep-wpa-and-wpa2-wireless-encryption-and-why-it-matters/">802.11i-standards</a>:
+Wired Equivalent Privacy (<span class="caps">WEP</span>), Wireless Protected Access (<span class="caps">WPA</span>), and Wireless Protected Access-2 (<span class="caps">WPA2</span>).
+Like many people, I have some devices that don’t yet support <span class="caps">WPA2</span> or <span class="caps">WPA</span> and,
+at best, might support <span class="caps">WEP</span>.
+<span class="caps">WPA2</span>, the strongest security, is not backward-compatible with <span class="caps">WPA</span> or <span class="caps">WEP</span>,
+but you can support all three security mechanisms on a single physical Wi-Fi network.
+However, client devices must find a protocol match on the APs to which they associate.
+In other words, <span class="caps">WEP</span> has to talk to <span class="caps">WEP</span>; it can’t talk to <span class="caps">WPA</span> or <span class="caps">WPA2</span>.</p>
+<p>The way you accommodate this is by divvying up the network into separate logical “security networks.”
+Most of the enterprise-class access point makers support all three protocols at the high end,
+as well as the ability to create separate service set identifiers (<span class="caps">SSID</span>)
+associated with corresponding virtual LANs (VLANs) to accommodate each protocol.
+So, in other words, on one physical WiFi network,
+you could have three logical security networks: a <span class="caps">WEP</span> network, a <span class="caps">WPA</span> network, and a <span class="caps">WPA2</span> network<sup id="fnref:G"><a class="footnote-ref" href="#fn:G" rel="footnote">8</a></sup>.</p>
+<ul>
+<li><a href="http://www.splashofstyle.com/archives/2010/12/03/how-to-change-verizon-fios-router-from-wep-to-wpa2-plus-other-security-adjustments/">How to Change Verizon Fios Router from <span class="caps">WEP</span> to <span class="caps">WPA2</span>, Plus Other Security&nbsp;Adjustments</a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+<li><a href=""></a></li>
+</ul>
+<h1>Installing Tiny Core Linux With&nbsp;WiFi</h1>
+<p><a href="https://www.youtube.com/channel/UCZuZ4D4WGmyCLlWkgXvqqEg">JoeNobody010101</a> (your going to love this guy)
+provide a series of videos titled &#8220;How to install and configure TinyCore Linux -
+<a href="https://www.youtube.com/watch?v=Hgn7QBYrtA4">Part 1</a>,
+<a href="https://www.youtube.com/watch?v=McyN2WPMswk">Part 2</a>,
+<a href="https://www.youtube.com/watch?v=PAkOsF7mKW0">Part 3</a>,
+<a href="https://www.youtube.com/watch?v=jnSYw7bh3Gw">Part 4</a>,
+<a href="https://www.youtube.com/watch?v=Ev7g846RiCw">Part 5</a>&#8220;.</p>
+<ul>
+<li>Go to the <a href="http://tinycorelinux.net/">Tiny Core Linux (<span class="caps">TCL</span>) website</a> and find the <span class="caps">IOS</span> image that includes CorePlus.  I download the CorePlus, image, burned it to a <span class="caps">CD</span>-<span class="caps">ROM</span>, booted&nbsp;it.</li>
+<li>When it boots up, selected “Boot Core with X/<span class="caps">GUI</span> (TineCore) + Installation Extentions” from the boot menu. This will atomatically install the TC_Install program for installing&nbsp;apps. </li>
+<li>Select &#8220;Apps&#8221; icon on the bottom and install the following application packages to &#8220;OnBoot&#8221;<ul>
+<li>cfdisk.tcz</li>
+</ul>
+</li>
+<li>Now open a terminal and enter &#8220;cfdisk&#8221;.  This will be used to format and partition the hard drive. I created a <code>sda1</code> bootable drive with 9500Mb and a <code>sda2</code> swap drive with 555.94Mb. Write to the disk and&nbsp;quit.</li>
+<li>Now run TC_Install. Select Frugal, Whole Disk, Install boot loader, and high-light <code>sda</code>.</li>
+<li>Still in TC_Install, click the next arrow at the bottom and then select <code>ext4</code> file&nbsp;format.</li>
+<li>Still in TC_Install, click the next arrow at the bottom and the boot options list will appear.  You&#8217;ll select from this list by writing what you want on entry line.  Enter the following: <code>tce=sda1 swapfile=sda2 restore=sda1 home=sda1 opt=sda1 local=sda1 vga=792 host=XT xvera=1024x768x32</code>. (<span class="caps">NOTE</span>: These parameters are placed within the file <code>/mnt/sda1/tce/boot/extlinux/extlinux.conf</code> if you wish to exit them&nbsp;later.)</li>
+<li>Still in TC_Install, click the next arrow at the bottom and select<ul>
+<li>Core and X/<span class="caps">GUI</span>&nbsp;Desktop</li>
+<li>WiFi&nbsp;Support</li>
+<li>Wireless&nbsp;Firmware</li>
+</ul>
+</li>
+<li>Still in TC_Install, click the next arrow at the bottom and select Proceed.  The disk will now be formated, partitioned, and software loaded as&nbsp;specified.</li>
+<li>Now its time to reboot the system, making sure to remove the <span class="caps">CD</span>.  To do this, go to a terminal&nbsp;window</li>
+</ul>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">umount /mnt/hdc
+eject /dev/hdc
+reboot
+</pre></div>
+
+
+<ul>
+<li>Once you booted up from the disk, click on Apps and install (note: threashing with firefox.tcz)<ul>
+<li>fluff.tcz</li>
+<li>iptables.tcz</li>
+<li>alsa.tcz <strong>-&nbsp;not</strong></li>
+<li>firefox.tcz <strong>-&nbsp;not</strong></li>
+</ul>
+</li>
+<li>Activate the firewall (now and on all subsequent reboots) and sound by running the following commands in a terminal<ul>
+<li><code>sudo /usr/local/sbin/basic-firewall</code></li>
+<li>Using fluff file manager, open <code>/opt/bootlocal.sh</code> and place in it<ul>
+<li><code>/usr/local/sbin/basic-firewall noprompt</code>.</li>
+</ul>
+</li>
+<li>Using fluff file manager, open <code>/opt/bootlocal.sh</code> and place in it<ul>
+<li><code>opt/alas</code></li>
+<li><code>etc/modprobe.conf</code></li>
+<li><code>usr/local/etc/asound.state</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Install the following extensions via <span class="caps">TCL</span> <code>Apps</code> application&nbsp;(OnBoot):</p>
+<ul>
+<li>usb-utils.tcz</li>
+</ul>
+<p>Now lets detect the type of WiFi <span class="caps">USB</span> Adapter that is plugged into the Laptop.
+In my case, this WiFi Adapter is detected via <code>lsusb</code> as</p>
+<ul>
+<li><strong><span class="caps">USB</span> <span class="caps">ID</span></strong> =&nbsp;0bda:8176</li>
+<li><strong>Description</strong> = Realtek Semiconductor <span class="caps">RTL8188CUS</span> 802.11n <span class="caps">WLAN</span>&nbsp;Adapter</li>
+</ul>
+<p>The <span class="caps">USB</span> <span class="caps">ID</span> is listed as one of the <a href="http://wiki.tinycorelinux.net/wiki:list_of_supported_wifi_devices">Tiny Core Linux supported WiFi chips</a>.
+Knowing this, we can install the suite of applications and firmware required to get the WiFi Adapter operational.
+I install the following extensions via <span class="caps">TCL</span> <code>Apps</code> application&nbsp;(OnBoot):</p>
+<ul>
+<li>firmware.tcz</li>
+<li>firmware-rtlwifi.tcz</li>
+<li>wl-r8192cu-3.8.13-tinycore.tcz</li>
+<li>wifi.tcz</li>
+</ul>
+<p>Now pull the Ethernet connection, reboot, and try out the&nbsp;WiFi.</p>
+<p>wifi.db in home&nbsp;directory</p>
+<ul>
+<li>openssh.tcz
+configure files in&nbsp;/usr/local/etc/ssh</li>
+</ul>
+<p><a href="http://forum.tinycorelinux.net/index.php?topic=15535.0">no wireless extensions using usb-wlan adapter with chipset&nbsp;rtl8192cu </a></p>
+<p><a href="http://wiki.tinycorelinux.net/wiki:list_of_supported_wifi_devices">List of Supported Wifi Devices</a>
+<a href="http://wiki.tinycorelinux.net/wiki:setting_up_wifi">Setting Up WiFi</a>
+<a href="http://tinycorelinux.net/4.x/armv7/README/README-wifi.txt">How to get wireless working when no other network access is&nbsp;available</a></p>
+<h1>Establishing the X Terminal&nbsp;Environment</h1>
+<p>There are a few ways to run X windows applications remotely
+(i.e. running an X Windows application on a remote computer and having the graphical part show up on your local computer).
+For something quick, use the <a href="https://help.ubuntu.com/community/SSH/OpenSSH/Configuring"><span class="caps">SSH</span> method</a> in an <code>xterm</code> window:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">ssh -X login@remote-computer
+</pre></div>
+
+
+<p>This will give a terminal session within the <code>xterm</code> window on the remote computer.
+The <code>-X</code> switch says to export graphics from the remote computer (remote-computer)
+to the computer you at actually sitting on (i.e. the local-computer).
+For many uses, this works fine, but it doesn&#8217;t give you the full login experience on the remote computer.
+Specifically, the desktop is still the local computer,
+so picking any desktop icon or menu will result in a local X client.
+This isn&#8217;t what I want &#8230; I want access to the remote&nbsp;desktop.</p>
+<p>To do this, you could leverage the <a href="http://www.ltsp.org/">Linux Terminal Server Project (<span class="caps">LTSP</span>)</a>
+<a href="http://www.spencerstirling.com/computergeek/xterminal.html">Sterminal</a>, or even consider <a href="http://blog.worldlabel.com/2009/turn-your-old-laptop-into-a-powerful-linux-workhorse.html">Virtual Network Computing (<span class="caps">VNC</span>)</a>,
+but these have too heavy a memory footprint for the vintage laptop I&#8217;m using.
+And in the case of <span class="caps">VNC</span>, your really sharing an existing screen, not creating a new session.
+I&#8217;ll need to use the less secure classical method of using <span class="caps">XDMCP</span>.
+Basically, on the remote computer (remote-computer)
+I need to be running a special daemon that answers requests to login from a X Server.
+To establish this, I&#8217;ll need to do the&nbsp;following:</p>
+<dl>
+<dt><strong>On the remote&nbsp;computer</strong></dt>
+<dd>Configure the Display Manager to accept logins from a remote X&nbsp;Server</dd>
+<dt><strong>On the local&nbsp;computer</strong></dt>
+<dd>Configure the local Display Manager to use the remote Display Manager. This amounts to configuring the Display Manager to run &#8220;<span class="caps">XDMCP</span> Chooser&#8221;. 
+An alternative is to establish a X session and then log into the remote via <a href="http://en.wikipedia.org/wiki/Xnest"><code>Xnest</code></a>. Xnest can be used to locally display the desktop of a remote&nbsp;computer.</dd>
+</dl>
+<h3>Configuring Remote Computer (Ubuntu&nbsp;Desktop)</h3>
+<p>On the remote-computer (in my case, a Ubuntu desktop runing <code>lightdm</code> Display Manager),
+you need to tell the Display Manager to accept logins from a remote X Server.
+This is easily done by configuring the file <code>/etc/lightdm/lightdm.conf</code> so it&nbsp;contains </p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">[SeatDefaults]
+user-session=ubuntu
+autologin-user=false
+xserver-allow-tcp=true
+greeter-session=unity-greeter
+
+[xdmcp]
+Enable=true
+</pre></div>
+
+
+<p>The key parameter to be added is <code>xserver-allow-tcp</code>.
+There is no manpage for <code>lighdm.conf</code>, but there is an example that lists all the options
+and a bit about what they do, just look in <code>/usr/share/doc/lightdm/lightdm.conf.gz</code>
+For a more complete list of configuration parameters for lightDM Display Manager,
+see the article &#8220;<a href="http://hmontoliu.blogspot.com/2011/10/disable-guest-sesson-in-ubuntu-1110.html">Disable guest session in Ubuntu 11.10</a>&#8221; and
+<a href="http://www.mattfischer.com/blog/?p=343">Understanding lightdm.conf</a>.</p>
+<h3>Configuring Local Computer (<span class="caps">TCL</span> Vintage&nbsp;Laptop)</h3>
+<p>If you log into <span class="caps">TCL</span> in text mode then start a X Window <span class="caps">GUI</span> session with
+<code>xinit</code> or with the wrapper script <code>startx</code>, then <code>xinit</code> does the following things:
+Start an X Server,
+usually run some scripts (typically /etc/X11/xinit/xinitrc),
+run <code>~/.xinitrc</code>,
+and when <code>~/.xinitrc</code> terminates, kill the X Server.
+If you log in in using a X Display Manager, what is executed after you log in is some scripts in <code>~/.xsession</code>.
+It&#8217;s supposed to perform the initial startup of your session (e.g. define environment variables),
+then launch programs specific to the <span class="caps">GUI</span> (usually at least window&nbsp;manager).</p>
+<p>I install the following extensions via <span class="caps">TCL</span> <code>Apps</code> application&nbsp;(OnBoot):</p>
+<ul>
+<li>openssl-1.0.0.tcz</li>
+</ul>
+<h3>Tiny Core Linux Boot&nbsp;Sequence</h3>
+<p>init -&gt; tc-config -&gt; init -&gt; /root/.profile -&gt; /home/tc/.profile -&gt; /home/tc/.xsession
+<a href="http://forum.tinycorelinux.net/index.php?topic=1924.0"> Boot sequence - what starts xvesa&nbsp;xserver?</a></p>
+<p><a href="http://antoine.ginies.free.fr/xnest/#id2477891"><span class="caps">HOWTO</span> Xnest, secure Xnest</a>
+<a href="https://www.youtube.com/watch?v=BSYmajttVDw">Xnest - Create a new Display in a Window -&nbsp;Linux</a></p>
+<p><a href="https://wiki.ubuntu.com/xdmcp">xdmcp</a>
+<a href="http://www.omgubuntu.co.uk/2012/09/ubuntu-12-10-login-screen-adds-remote-desktop-access">Ubuntu 12.10 Login Screen Adds Remote Desktop Access</a>
+<a href="http://danilodellaquila.com/blog/how-to-remote-login-via-xdmcp-in-ubuntu">How to Remote Login via <span class="caps">XDMCP</span> in Ubuntu</a>
+<a href="http://pzuk.wordpress.com/2011/10/21/how-to-enable-remote-access-to-xserver-on-ubuntu-11-04-and-ubuntu-11-10/">How to enable remote access to Xserver on Ubuntu 11.04 and Ubuntu 11.10</a>
+<a href="http://www.faqs.org/docs/Linux-mini/XDM-Xterm.html"><span class="caps">XDM</span> and X Terminal mini-<span class="caps">HOWTO</span></a>
+<a href="http://development.gbdirect.co.uk/xterminal.html">Building X terminals with Linux</a>
+<a href="https://groups.google.com/forum/#!topic/linux.debian.user/nUguTStjRkU">setting up x terminal workstation</a>
+<a href="http://linuxtutorial.info/modules.php?name=MContent&amp;pageid=45">Remote&nbsp;Access</a></p>
+<p><a href="http://www.spencerstirling.com/computergeek/xterminal.html">X terminals in Linux (Running X programs remotely using <span class="caps">SSH</span>, <span class="caps">XDMCP</span>, or&nbsp;Sterminal)</a></p>
+<p><a href="http://blog.linuxacademy.com/linux/ubuntu-secure-remote-desktop-connectivity/">Ubuntu – Secure Remote Desktop Connectivity</a>
+<a href="http://www.linuxjournal.com/article/6713">Linux-Based X Terminals with <span class="caps">XDMCP</span></a>
+<a href="http://zweije.home.xs4all.nl/xauth-9.html">Setting Up an X&nbsp;Terminal</a></p>
+<p><a href="http://www.phoronix.com/scan.php?page=news_item&amp;px=MTU2NzA">The Tiny X Server Fork Is Still Being&nbsp;Maintained</a></p>
+<p><a href="http://askubuntu.com/questions/60364/can-i-run-a-remote-x-session-in-windowed-mode">Can I run a remote X session in windowed&nbsp;mode?</a></p>
+<p><a href="http://www.answeredubuntu.com/175902/remote_x_server_with_ssh_x#sthash.ifsk3uxx.dpbs">Remote x-server with ssh -X</a>
+<a href="http://ptspts.blogspot.com/2010/02/how-to-try-gdm-login-screen-in-many.html">How to try the <span class="caps">GDM</span> login screen in many resolutions</a>
+<a href="http://x.cygwin.com/docs/ug/using-remote-session.html">Remote sessions via <span class="caps">XDMCP</span></a>
+<a href="http://wiki.gentoo.org/wiki/X_without_Display_Manager">X without Display&nbsp;Manager</a></p>
+<p><a href="https://www.centos.org/docs/5/html/5.2/Installation_Guide/s2-trouble-remotex.html">Remote Graphical Desktops and <span class="caps">XDMCP</span></a>
+<a href="http://forums.opensuse.org/showthread.php/466709-Starting-a-Remote-X-session-using-XDMCP">Starting a Remote X session using <span class="caps">XDMCP</span></a>
+<a href="http://support.attachmate.com/techdocs/1818.html">Starting a <span class="caps">UNIX</span>/Linux Desktop Using <span class="caps">SSH</span></a></p>
+<p><a href="http://askubuntu.com/questions/11189/how-to-use-xdmcpgdm-and-xnest">How to use <span class="caps">XDMCP</span>+<span class="caps">GDM</span> and Xnest?</a>
+<a href="https://wiki.ubuntu.com/xdmcp">xdmcp</a>
+<a href="http://unix.stackexchange.com/questions/20385/windows-managers-vs-login-managers-vs-display-managers-vs-desktop-environment">Windows Managers vs Login Managers Vs Display Managers Vs Session Manager Vs Desktop Environment</a>
+<a href="http://en.wikibooks.org/wiki/Multiseat_Configuration/Xnest">Multiseat&nbsp;Configuration/Xnest</a></p>
+<h2>Xvesa X&nbsp;Server</h2>
+<p>Xvesa X Server is <span class="caps">NOT</span> a normal <a href="http://www.xfree86.org/">XFree86</a> X Server.
+It is part of the <a href="http://www.xfree86.org/current/TinyX.1.html">TinyX series of X Servers</a>.
+Xvesa accepts all the <a href="http://www.xfree86.org/current/Xserver.1.html">standard options accepted by all X Servers</a>,
+along with some specail options.
+They are part of the XFree86 package, but they are very different.
+They are designed for low memory use.
+It also turns out that they work better for some video chips than the normal
+<span class="caps">XF86</span>&nbsp;xservers.</p>
+<p>But one very important thing is they do <span class="caps">NOT</span> use the XF86Config
+file, like their bigger&nbsp;brothers.</p>
+<p>Xvesa -query desktop -br -screen 1024x768x32&nbsp;-shadow</p>
+<ul>
+<li><strong>-nolisten trans-type</strong> disables a transport type. For example, <span class="caps">TCP</span>/<span class="caps">IP</span> connections can be disabled with -nolisten tcp. This option may be issued multiple times to disable listening to different transport&nbsp;types.</li>
+<li><strong>-br</strong> sets the default root window to solid black instead of the standard root weave&nbsp;pattern.</li>
+<li><strong>-shadow</strong> use a shadow framebuffer even if it is not strictly necessary. This may dramatically improve performance on some&nbsp;hardware.</li>
+<li><strong>-I</strong> ignore all remaining&nbsp;arguments</li>
+</ul>
+<p>To make this persistent, put <code>tc/.xsession</code> in the <code>/opt/.filetool.lst</code>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:A">
+<p>Celeron is a brand name given by Intel Corp. to a number of different microprocessor models
+targeted at budget personal computers.
+<a href="http://en.wikipedia.org/wiki/Celeron">Introduced in April 1998</a>, the first Celeron branded <span class="caps">CPU</span> was based on the Pentium <span class="caps">II</span> branded core.
+Subsequent Celeron branded CPUs were based on the Pentium <span class="caps">III</span>, Pentium 4, Pentium M,
+and Intel Core branded processors. 
+With Damn Small Linux loaded and running <code>cat /proc/cpuinfo</code>,
+it shows the processor is of Intel <span class="caps">CPU</span> family 6 and model 11.
+This maps to Intel product code 80530, which <a href="http://en.wikipedia.org/wiki/List_of_Intel_microprocessors">makes it a Pentium <span class="caps">III</span> (codename Tualatin)</a>.&#160;<a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:I">
+<table>
+<thead>
+<tr>
+<th align="center">Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><span class="caps">CPU</span></td>
+<td>1066-MHz Intel Mobile Celeron processor</td>
+</tr>
+<tr>
+<td align="center">Cache</td>
+<td><span class="caps">128KB</span> internal L2 cache, <span class="caps">32KB</span> internal L1 cache</td>
+</tr>
+<tr>
+<td align="center">Memory</td>
+<td><span class="caps">128MB</span> of 100MHz <span class="caps">SDRAM</span> standard (<span class="caps">PC100</span>), <span class="caps">512MB</span> maximum system memory (two slots available only for memory modules)(144-pin/3.3V; 1.25-in slots)</td>
+</tr>
+<tr>
+<td align="center">Mass Storage</td>
+<td><span class="caps">10GB</span> Enhanced-<span class="caps">IDE</span> hard drive, Built-in 3.5-inch 1.44-<span class="caps">MB</span> floppy disk drive, Built-in 24X maximum-speed <span class="caps">CD</span>-<span class="caps">ROM</span> drive</td>
+</tr>
+<tr>
+<td align="center">Display</td>
+<td>13.3-inch diagonal 1024 × 768 <span class="caps">XGA</span> <span class="caps">TFT</span> display with 16 million colors</td>
+</tr>
+<tr>
+<td align="center">Video</td>
+<td>S3 Savage/1X graphics controller, 2X <span class="caps">AGP</span> graphics, 128-bit single-cycle 3D architecture video graphics controller, <span class="caps">8MB</span> of embedded video <span class="caps">SGRAM</span>, external video resolutions/maximum colors/refresh rates: 800 × 600/16M colors/85Hz, 1024 × 768/16M colors/85Hz, 1280 × 1024/16M colors/85Hz, 1600 × 1200/64K colors/85Hz</td>
+</tr>
+<tr>
+<td align="center">Audio</td>
+<td>16-bit Sound Blaster Pro–compatible stereo sound (<span class="caps">ESS</span> Allegra), Stereo sound via headphone-out, microphone-in port, Polk Audio speakers, 3D-enhanced <span class="caps">PCI</span> bus audio, Supports <span class="caps">CD</span>-play while system is off, Built-in microphone</td>
+</tr>
+<tr>
+<td align="center">Ports</td>
+<td>Two Universal Serial Bus (<span class="caps">USB</span>) ports, Serial port: 9-pin, 115,200 bps, Parallel port: 25-pin bi-directional <span class="caps">ECP</span> and <span class="caps">EPP</span>, 4-Mbps IrDA-compliant infrared port, <span class="caps">PS</span>/2 keyboard/mouse port, <span class="caps">VGA</span>: 15-pin, Composite <span class="caps">TV</span>-out, <span class="caps">RJ</span>-11 modem jack, <span class="caps">RJ</span>-45 jack, Headphone-out, microphone-in ports</td>
+</tr>
+<tr>
+<td align="center">Communications</td>
+<td>Integrated 56Kbps, v.90-compatible, worldwide capable modem + 10/100 <span class="caps">LAN</span> combo</td>
+</tr>
+<tr>
+<td align="center">Power</td>
+<td>Universal <span class="caps">AC</span> adapter: 100 to 240 Vac input; 19-Vdc, 3.16-A output, Built-in rechargeable 9-cell Lithium-Ion battery (with up to 4-hour run time)</td>
+</tr>
+<tr>
+<td align="center"><span class="caps">PC</span> Card Slots</td>
+<td>One Type <span class="caps">III</span> or two Type <span class="caps">II</span> <span class="caps">PC</span> Card slots, CardBus-enabled (<span class="caps">TI</span> 1420)</td>
+</tr>
+<tr>
+<td align="center">Weight</td>
+<td>7.2lb with 13.3-in display</td>
+</tr>
+<tr>
+<td align="center">Dimensions</td>
+<td>13.03 × 10.76 × 1.59in</td>
+</tr>
+<tr>
+<td align="center">Operating System</td>
+<td>Microsoft Windows 98, Second Edition</td>
+</tr>
+</tbody>
+</table>
+<p><a class="footnote-backref" href="#fnref:I" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:B">
+<p>Generally, a <a href="http://en.wikipedia.org/wiki/X_terminal">X Terminal</a>, a predecessor to todays <a href="http://en.wikipedia.org/wiki/Thin_client">thin client</a>, is a low-powered,
+diskless, quieter, and more reliable than desktop computers
+because they do not have any moving parts.
+I can&#8217;t say this about this vintage laptop.&#160;<a class="footnote-backref" href="#fnref:B" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:C">
+<p>Damn Small Linux also uses by default <a href="http://www.busybox.net/">Busybox</a>.
+BusyBox provides several stripped-down Unix tools in a single executable file. 
+Its originally aim was to provide a complete bootable system on a single floppy
+that would serve both as a rescue disk and as an installer for the Debian distribution.
+Busybox&#8217;s use now is more focused on embedded operating systems with very limited resources.&#160;<a class="footnote-backref" href="#fnref:C" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:E">
+<p><span class="caps">XDMCP</span> is inherently insecure as it does not encrypt your traffic.
+Therefore, only use <span class="caps">XDMCP</span> on a wired network that you you trust or a solidly secure wireless network.
+Also, consider using alternatives that feature security (and often compression) such as <a href="https://help.ubuntu.com/community/FreeNX">FreeNX</a>.
+<span class="caps">XDMCP</span> also uses a large amount of bandwidth because it uses no compression.
+A 100Mb network may be necessary.
+However, the lack of compression can make <span class="caps">XDMCP</span> provide very fast graphics when the bandwidth is available.&#160;<a class="footnote-backref" href="#fnref:E" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:H">
+<p>An alternative is to use the graphics configuration editor <code>dconf-editor</code>.&#160;<a class="footnote-backref" href="#fnref:H" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:F">
+<p>There appears to be some efforts to create a secure solution using a tool call <a href="http://ayesha.phys.virginia.edu/~bryan/projects/knoppix/sterminal/">S-Terminal</a>,
+but since this would need to be supported on Tiny Core Linux (which it is not),
+this will not help me.&#160;<a class="footnote-backref" href="#fnref:F" rev="footnote" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:G">
+<p>You can add more logical networks for other security reasons.
+For example, you may wish to further segregate the network logically based on other criteria,
+such as putting all voice on one logical network, guest user access on another, and so forth. &#160;<a class="footnote-backref" href="#fnref:G" rev="footnote" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+            var disqus_identifier = 'repurposing-a-vintage-laptop-to-create-a-x-terminal';
+            var disqus_url = 'http://jeffskinnerbox.me/posts/2100/Jan/01/repurposing-a-vintage-laptop-to-create-a-x-terminal/';
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar" style="box-shadow: 5px 5px 10px #888888;">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <div style="text-align: center;">
+                    <h3><a href="http://jeffskinnerbox.me/pages/about-me.html" style="font-family: Knewave, cursive; font-size: 18;">My Electronics Projects And Other Diversions</a>
+                    <img class="img-rounded" src="http://jeffskinnerbox.me/extra/frustrated-engineer.jpg" alt="Side Bar Picture" height="100%" width="100%">
+                </div>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/categories.html"><h4><i class="fa fa-folder-open fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+            </li>    
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/index.html"><h4><i class="fa fa-file-text fa-lg"></i><span class="icon-label">Recent Posts</span></h4></a>
+            </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/open-notebook.html"><h4><i class="fa fa-book fa-lg"></i><span class="icon-label">Open Notebook</span></h4></a>
+
+            <li class="list-group-item"><h4><i class="fa fa-link fa-lg"></i><span class="icon-label">Links</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="/pages/scratch-pad.html" target="_blank">
+                            Scratch Pad
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/linux-and-python-packages-for-my-raspberry-pi.html" target="_blank">
+                            RPi Packages
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/reference-page.html" target="_blank">
+                            Reference Page
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/pages/vim-cheat-sheet.html" target="_blank">
+                            Vim Cheat Sheet
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="list-group-item"><h4><i class="fa fa-group fa-lg"></i><span class="icon-label">Social Media</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-github-square fa-lg"></i> Github
+                    </a></li>
+                    <li class="list-group-item"><a href="https://twitter.com/jeffskinnerbox" target="_blank">
+                        <i class="fa fa-twitter-square fa-lg"></i> Twitter
+                    </a></li>
+                    <li class="list-group-item"><a href="https://linkedin.com/in/jeffreyirland" target="_blank">
+                        <i class="fa fa-linkedin-square fa-lg"></i> Linkedin
+                    </a></li>
+                  </ul>
+            </li>
+
+            <li class="list-group-item"><h4><i class="fa fa-rss fa-lg"></i><span class="icon-label">Feeds</span></h4>
+                <ul class="list-group" id="links">
+                    <li class="list-group-item">
+                        <a href="feeds/all.atom.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> ATOM - All Posts
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="feeds/all.rss.xml" target="_blank">
+                           <i class="fa fa-rss-square fa-lg"></i> RSS - All Posts
+                        </a>
+                    </li>
+                </ul>
+                </li>
+
+            <li class="list-group-item"><a href="http://jeffskinnerbox.me/pages/this-blog-is-powered-by.html"><h4><i class="fa fa-rocket fa-lg"></i><span class="icon-label">This Blog Powered By</span></h4></a>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">This Blog Powered By 
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>, And
+            <a href="/pages/this-blog-is-powered-by.html" target="_blank">Other Things</a>.
+            <p>
+            <a href="http://opensource.org/">
+                <img src="/images/logos/open_source_logo.png" alt="Open Source Logo" title="The Open Source Initiative (OSI) is a non-profit corporation with global scope formed to educate about and advocate for the benefits of open source, and to build bridges among different constituencies in the open source community. The OSI maintains the Open Source Definition and the list of Open Source Initiative-approved licenses." height="40px" width="40px">
+            </a>
+            <a href="http://www.oshwa.org/">
+                <img src="/images/logos/open-soruce-hardware-logo-800-px.png" alt="Open Source Hardware Logo" title="The Open Source Hardware Association aims to be the voice of the open hardware community, ensuring that technological knowledge is accessible to everyone, and encouraging the collaborative development of technology that serves education, environmental sustainability, and human welfare." height="40px" width="40px">
+            </a>
+            <small>
+                All my work on this blog is
+                <a href="http://opensource.org/licenses/MIT/" target="_blank">MIT Licensed, open, and free</a>,
+                except where indicated otherwise.
+            </small>
+            </p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://jeffskinnerbox.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://jeffskinnerbox.me/theme/js/respond.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://jeffskinnerbox.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'jeffskinnerbox',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://jeffskinnerbox.me/theme/js/github.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jeffskinnerbox'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43272292-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</body>
+</html>

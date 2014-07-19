@@ -97,6 +97,8 @@ Jeff's Skinner Box&nbsp;            </a>
 &nbsp;&nbsp;&nbsp;
 <i class="fa fa-tags fa-lg"></i>
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/internet-of-things/">Internet of Things</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/rest-api/">REST API</a>
     
 </footer><!-- /.post-info -->                    </div>
 <!-- Repost button -->
@@ -104,17 +106,28 @@ Jeff's Skinner Box&nbsp;            </a>
 <a class='rpuRepostUsButton' href='https://secure.repost.us/syndicate/create'>
     <img alt='Repost This' title='Repost this article to your website' src='http://static.1.rp-api.com/buttons/repostus_bttn_shrt_embed.png'/>
 </a>                </div>
-                <p>The broadest definition for the <a href="http://www.itu.int/osg/spu/publications/internetofthings/">Internet of Things (IoT)</a> that I have come accross is as&nbsp;follows:</p>
+                <p><a href="http://blog.arduino.cc/2014/06/05/a-rest-api-for-arduino-and-cc3000/?utm_content=bufferc97c1&amp;utm_medium=social&amp;utm_source=twitter.com&amp;utm_campaign=buffer">A <span class="caps">REST</span> <span class="caps">API</span> <span class="caps">FOR</span> <span class="caps">ARDUINO</span> <span class="caps">AND</span> <span class="caps">THE</span> <span class="caps">CC3000</span> <span class="caps">WIFI</span> <span class="caps">CHIP</span></a></p>
+<p><a href="https://www.keylemon.com/">Face Recognition <span class="caps">API</span> to integrate facial recognition into any web&nbsp;service</a></p>
+<p>Read more: http://www.programmableweb.com/api/keylemon#ixzz37atW6GGC 
+Follow us: @ProgrammableWeb on Twitter | ProgrammableWeb on&nbsp;Facebook</p>
+<p>Device Cloud Platform to be explored:
+Pushover
+Bug Labs dweet.io and Freeboard
+<a href="http://www.infoq.com/news/2014/05/ibm-node-red-qconlondon">Node-<span class="caps">RED</span></a></p>
+<p>The broadest definition for the <a href="http://www.itu.int/osg/spu/publications/internetofthings/">Internet of Things (IoT)</a> that I have come accross is as&nbsp;follows:</p>
 <blockquote>
 <p><em>IoT is an umbrella term used to describe a next step in the <a href="http://www.pewinternet.org/2014/03/11/world-wide-web-timeline/">evolution of the Internet</a>.
 We are all familiar with the web as a network of hyper-text documents and applications
 (think blogs, online email, social sites, e-commerce sites etc.).
 It is widely believed that the next step for the Internet is ‘smart’ objects (or ‘things’)
 being accessible to human beings, and the things to each other, over the Internet.
-This is the Internet of Things</em>
+This is the Internet of Things.</em>
 <footer><a href="http://internetofthingsphilosophy.com/">Internet of Things: Philosophy</a></footer></p>
 </blockquote>
-<p>There are more elaborate definition, such as <a href="http://en.wikipedia.org/wiki/Mark_Weiser">Mark Weiser&#8217;s concept of Ubiquitous Computing</a>,
+<p><a href="http://en.wikipedia.org/wiki/Internet_of_Things">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="" alt="IoT Picture" src="http://www.techweekeurope.co.uk/wp-content/uploads/2013/10/InternetofThings2.png" width="200" height="200" />
+</a>
+There are more elaborate definition, such as <a href="http://en.wikipedia.org/wiki/Mark_Weiser">Mark Weiser&#8217;s concept of Ubiquitous Computing</a>,
 which I find too lofty and not sufficiently discriptive. 
 On the other hand, the definition given in the post
 &#8220;<a href="http://features.techworld.com/networking/3516134/the-abcs-of-the-internet-of-things/?pn=1">The ABCs of the Internet of Things</a>&#8221; I find this too prescriptive.
@@ -128,10 +141,19 @@ In time, our lives will undergo a multitude of minuscule changes but collectivel
 will likely have a significant changes on how we work, play, and stay informed.
 Some say that the new rule for the future is going to be
 “anything that can be connected, will be&nbsp;connected.”</p>
+<p>The IoT is the natural outcome of cheap,
+embedded electronics and a maturing global network that allows devices to exchange data.
+Some of these devices connect directly to the Internet, while others connect via gateways.
+Under this vision, the typical <span class="caps">RFID</span> reader is merely an IoT gateway,
+with <span class="caps">RFID</span> just one of many &#8220;last-meter&#8221;&nbsp;sensors.</p>
+<p>Developing applications for the “Internet of Things” (IoT) is far too complicated.
+In most cases it requires very specialized (i.e. expensive) skills sets,
+in both hardware and software, to get even the most rudimentary prototypes up and&nbsp;running.</p>
 <p>The Internet of Things is supposed to escort in a world where connected devices improve our lives.
-While very inviting, this vision is proving slow in coming,
-in part because of the <a href="http://www.eetimes.com/author.asp?section_id=36&amp;doc_id=1319611&amp;page_number=2">sub-optimal embedded technology chooses, connectivity challenges, and configuration complexity</a>.
-Also it very difficult to put a boundary around IoT; so that you know when you have arrived.
+While very inviting, this vision is proving slow in coming, in part because of the
+<a href="http://www.eetimes.com/author.asp?section_id=36&amp;doc_id=1319611&amp;page_number=2">sub-optimal embedded technology chooses, connectivity challenges, and configuration complexity</a>.
+Also it very difficult to put a boundary around IoT;
+so that you know when you have arrived.
 It is a vast garden of technologies, both old and new, simple and complex, hardware and software.
 What I want to do here is simple touch on some of the more elementary IoT implementations.
 In subsequent articles,
@@ -145,14 +167,6 @@ APIs that enforce this constraint are referred to as <span class="caps">HATEOAS<
 More generally, APIs that adopt the characteristics of <span class="caps">HATEOAS</span> are called “Hypermedia APIs.”
 <span class="caps">HATEOAS</span> is a good vision, and is the <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">most mature form of <span class="caps">REST</span></a> and <a href="http://www.slideshare.net/trilancer/why-hateoas-1547275">solves some real challenges</a>,
 but it isn&#8217;t applied often, but there are increasingly <a href="http://apievangelist.com/2014/04/15/what-are-some-good-examples-of-hypermedia-apis/">examples <span class="caps">HATOAS</span> implementations</a>.</p>
-<h2>Security</h2>
-<p>Security is big issues that is oftentimes brought up.
-With billions of devices being connect together what can people to do make sure that their information stays secure?
-Then we have the issue of privacy and data sharing.
-This is a hot button topic even today so one can only imagine how the conversation and concerns will escalate when we are talking about many billions of devices being&nbsp;connected.</p>
-<h2>Data&nbsp;Volumes</h2>
-<p>Another issue that many companies specifically are going to be faced with is around the massive amounts data that all of these devices are going to produce.
-Companies need to figure out a way to store, track, analyze, and make sense of the vast amounts of data that will be&nbsp;generated.</p>
 <h1>Pushover</h1>
 <p><a href="https://pushover.net/">
     <img class="img-rounded" style="margin: 0px 8px; float: left" title="Pushover Logo" alt="Pushover Logo" src="/images/pushover-logo.png" width="75" height="75" />
@@ -192,7 +206,7 @@ You could add some automation or logic by leveraging the services of<a href="htt
 I can use SendEmail, which is a lightweight, completely command line based, <span class="caps">SMTP</span> email agent.
 It is written in Perl and designed to be used on the command line, in bash scripts,
 Perl programs, within web sites,&nbsp;etc.</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sendEmail -f jeff@desktop -t &lt;my_user_key&gt;@api.pushover.net -u &quot;Test Email from Desktop&quot; -m &quot;A simple test message sent via SMPT mail relay on Google Mail.&quot; -s smtp.gmail.com:587 -o tls=yes -xu jeff.irland -xp &lt;my_password&gt;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sendEmail -f jeff@desktop -t &lt;my_user_key&gt;@api.pushover.net -u <span style="color: #CC3300">&quot;Test Email from Desktop&quot;</span> -m <span style="color: #CC3300">&quot;A simple test message sent via SMPT mail relay on Google Mail.&quot;</span> -s smtp.gmail.com:587 -o <span style="color: #003333">tls</span><span style="color: #555555">=</span>yes -xu jeff.irland -xp &lt;my_password&gt;
 </pre></div>
 
 
@@ -202,63 +216,63 @@ I did that with a shell script I created that can be used to send notification m
 my Linux desktop to Pushover.
 That script, called <code>apprise</code>, could be used to provide filesystem backup status.
 It should have a title and message and could look like&nbsp;this:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">apprise -t &quot;Backup Status&quot; -m &quot;Filesystem backup completed successfully on `date`.&quot;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">apprise -t <span style="color: #CC3300">&quot;Backup Status&quot;</span> -m <span style="color: #CC3300">&quot;Filesystem backup completed successfully on `date`.&quot;</span>
 </pre></div>
 
 
 <p>Using the <a href="https://pushover.net/api">Pushover <span class="caps">API</span></a> within <a href="http://curl.haxx.se/">cURL</a>, the <code>apprise</code> script is listed&nbsp;below:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">#!/bin/bash
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">#!/bin/bash</span>
 
-APPTOKEN=&quot;&lt;my_app_token&gt;&quot;
-USERKEY=&quot;&lt;my_user_key&gt;&quot;
+<span style="color: #003333">APPTOKEN</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;&lt;my_app_token&gt;&quot;</span>
+<span style="color: #003333">USERKEY</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;&lt;my_user_key&gt;&quot;</span>
 
-USAGE=&quot;Usage: `basename $0` [-h] -t title -m message&quot;
+<span style="color: #003333">USAGE</span><span style="color: #555555">=</span><span style="color: #CC3300">&quot;Usage: `basename $0` [-h] -t title -m message&quot;</span>
 
-# Parse command line options
-while getopts ht:m: OPT; do
-    case &quot;$OPT&quot; in
-        h)
-            echo $USAGE
-            exit 0
+<span style="color: #0099FF; font-style: italic"># Parse command line options</span>
+<span style="color: #006699; font-weight: bold">while </span><span style="color: #336666">getopts </span>ht:m: OPT; <span style="color: #006699; font-weight: bold">do</span>
+<span style="color: #006699; font-weight: bold">    case</span> <span style="color: #CC3300">&quot;$OPT&quot;</span> in
+        h<span style="color: #555555">)</span>
+            <span style="color: #336666">echo</span> <span style="color: #003333">$USAGE</span>
+            <span style="color: #336666">exit </span>0
             ;;
-        t)
-            TITLE=$OPTARG
+        t<span style="color: #555555">)</span>
+            <span style="color: #003333">TITLE</span><span style="color: #555555">=</span><span style="color: #003333">$OPTARG</span>
             ;;
-        m)
-            MESSAGE=$OPTARG
+        m<span style="color: #555555">)</span>
+            <span style="color: #003333">MESSAGE</span><span style="color: #555555">=</span><span style="color: #003333">$OPTARG</span>
             ;;
-        \?)
-            # getopts issues an error message
-            echo $USAGE &gt;&amp;2
-            exit 1
+        <span style="color: #CC3300; font-weight: bold">\?</span><span style="color: #555555">)</span>
+            <span style="color: #0099FF; font-style: italic"># getopts issues an error message</span>
+            <span style="color: #336666">echo</span> <span style="color: #003333">$USAGE</span> &gt;&amp;2
+            <span style="color: #336666">exit </span>1
             ;;
-    esac
-done
+    <span style="color: #006699; font-weight: bold">esac</span>
+<span style="color: #006699; font-weight: bold">done</span>
 
-# Send message to Pushover to create notification
-curl --silent \
-    -F &quot;token=$APPTOKEN&quot; \
-    -F &quot;user=$USERKEY&quot; \
-    -F &quot;message=$MESSAGE&quot; \
-    -F &quot;device=desktop&quot; \
-    -F &quot;title=$TITLE&quot; \
-    -F &quot;sound=spacealarm&quot; \
-    https://api.pushover.net/1/messages.json | grep &#39;&quot;status&quot;:1&#39; &gt; /dev/null
+<span style="color: #0099FF; font-style: italic"># Send message to Pushover to create notification</span>
+curl --silent <span style="color: #CC3300; font-weight: bold">\</span>
+    -F <span style="color: #CC3300">&quot;token=$APPTOKEN&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
+    -F <span style="color: #CC3300">&quot;user=$USERKEY&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
+    -F <span style="color: #CC3300">&quot;message=$MESSAGE&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
+    -F <span style="color: #CC3300">&quot;device=desktop&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
+    -F <span style="color: #CC3300">&quot;title=$TITLE&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
+    -F <span style="color: #CC3300">&quot;sound=spacealarm&quot;</span> <span style="color: #CC3300; font-weight: bold">\</span>
+    https://api.pushover.net/1/messages.json | grep <span style="color: #CC3300">&#39;&quot;status&quot;:1&#39;</span> &gt; /dev/null
 
-# Check the exit code to identify an error
-if [ $? -eq 0 ];
-    then
-        exit 0
-    else
-        echo &quot;apprise failed&quot;
-        exit 1
-fi
+<span style="color: #0099FF; font-style: italic"># Check the exit code to identify an error</span>
+<span style="color: #006699; font-weight: bold">if</span> <span style="color: #555555">[</span> <span style="color: #003333">$?</span> -eq 0 <span style="color: #555555">]</span>;
+    <span style="color: #006699; font-weight: bold">then</span>
+<span style="color: #006699; font-weight: bold">        </span><span style="color: #336666">exit </span>0
+    <span style="color: #006699; font-weight: bold">else</span>
+<span style="color: #006699; font-weight: bold">        </span><span style="color: #336666">echo</span> <span style="color: #CC3300">&quot;apprise failed&quot;</span>
+        <span style="color: #336666">exit </span>1
+<span style="color: #006699; font-weight: bold">fi</span>
 </pre></div>
 
 
 <p>Note that the <code>curl</code> command in the script above, when successful,
 does return a <a href="http://www.w3schools.com/json/"><span class="caps">JSON</span></a> object that looks something&nbsp;like</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{ &quot;status&quot;:1, &quot;request&quot;:&quot;e9bfdc05dbed57f9465f1528bcd746fd&quot; }
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{ <span style="color: #330099; font-weight: bold">&quot;status&quot;</span>:<span style="color: #FF6600">1</span>, <span style="color: #330099; font-weight: bold">&quot;request&quot;</span>:<span style="color: #CC3300">&quot;e9bfdc05dbed57f9465f1528bcd746fd&quot;</span> }
 </pre></div>
 
 
@@ -289,14 +303,96 @@ and this is done by using a simple <a href="https://github.com/jheising/HAPI"><s
 You can play with dweet.io and learn its operation by using using the <a href="https://dweet.io/play/">dweet.io <span class="caps">API</span> console</a>.
 Note that dweet.io only holds on to the last 500 dweets over a 24 hour period.
 If the thing hasn&#8217;t dweeted in the last 24 hours, its history will be&nbsp;removed.</p>
+<p>Unlike Pushover, there isn&#8217;t any signing up, keys, or any configuration necessary.
+For example, if you want to send a message to Bug Labs message board (aka dweet a message)
+like the one performed for&nbsp;Pushover</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">curl --silent <span style="color: #CC3300">&#39;https://dweet.io/dweet/for/jeffskinnerbox?title=Backup%20Status&amp;message=Filesystem%20backup%20completed%20successfully&#39;</span>
+</pre></div>
+
+
+<p>This cURL command will require a <span class="caps">JSON</span> string like this<sup id="fnref:A"><a class="footnote-ref" href="#fn:A" rel="footnote">1</a></sup></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{
+    <span style="color: #330099; font-weight: bold">&quot;by&quot;</span>: <span style="color: #CC3300">&quot;dweeting&quot;</span>,
+    <span style="color: #330099; font-weight: bold">&quot;the&quot;</span>: <span style="color: #CC3300">&quot;dweet&quot;</span>,
+    <span style="color: #330099; font-weight: bold">&quot;this&quot;</span>: <span style="color: #CC3300">&quot;succeeded&quot;</span>,
+    <span style="color: #330099; font-weight: bold">&quot;with&quot;</span>: {
+        <span style="color: #330099; font-weight: bold">&quot;content&quot;</span>: {
+            <span style="color: #330099; font-weight: bold">&quot;message&quot;</span>: <span style="color: #CC3300">&quot;Filesystem backup completed successfully&quot;</span>,
+            <span style="color: #330099; font-weight: bold">&quot;title&quot;</span>: <span style="color: #CC3300">&quot;Backup Status&quot;</span>
+        },
+        <span style="color: #330099; font-weight: bold">&quot;created&quot;</span>: <span style="color: #CC3300">&quot;2014-06-01T21:51:49.239Z&quot;</span>,
+        <span style="color: #330099; font-weight: bold">&quot;thing&quot;</span>: <span style="color: #CC3300">&quot;jeffskinnerbox&quot;</span>
+    }
+}
+</pre></div>
+
+
+<p>To read the latest dweet for the dweeter &#8220;jeffskinnerbox&#8221;, you can&nbsp;call</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">curl --silent <span style="color: #CC3300">&#39;https://dweet.io/get/latest/dweet/for/jeffskinnerbox&#39;</span>
+</pre></div>
+
+
+<p>and this returns the <span class="caps">JSON</span>&nbsp;string</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">{
+    <span style="color: #330099; font-weight: bold">&quot;by&quot;</span>: <span style="color: #CC3300">&quot;getting&quot;</span>,
+    <span style="color: #330099; font-weight: bold">&quot;the&quot;</span>: <span style="color: #CC3300">&quot;dweets&quot;</span>,
+    <span style="color: #330099; font-weight: bold">&quot;this&quot;</span>: <span style="color: #CC3300">&quot;succeeded&quot;</span>,
+    <span style="color: #330099; font-weight: bold">&quot;with&quot;</span>: [
+        {
+            <span style="color: #330099; font-weight: bold">&quot;content&quot;</span>: {
+                <span style="color: #330099; font-weight: bold">&quot;message&quot;</span>: <span style="color: #CC3300">&quot;Filesystem backup completed successfully&quot;</span>,
+                <span style="color: #330099; font-weight: bold">&quot;title&quot;</span>: <span style="color: #CC3300">&quot;Backup Status&quot;</span>
+            },
+            <span style="color: #330099; font-weight: bold">&quot;created&quot;</span>: <span style="color: #CC3300">&quot;2014-06-01T21:51:49.239Z&quot;</span>,
+            <span style="color: #330099; font-weight: bold">&quot;thing&quot;</span>: <span style="color: #CC3300">&quot;jeffskinnerbox&quot;</span>
+        }
+    ]
+}
+</pre></div>
+
+
+<p>You can also create a real-time subscription to dweets using
+<span class="caps">HTTP</span> 1.1&#8217;s <a href="http://en.wikipedia.org/wiki/Chunked_transfer_encoding">chunked transfer encoding</a>.
+The server will keep the connection alive and send you dweets as they arrive.
+You can simple listen to the connection an process the <span class="caps">JSON</span> messages as they arrive.
+This can be done with the following&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">curl --silent <span style="color: #CC3300">&#39;https://dweet.io/listen/for/dweets/from/jeffskinnerbox&#39;</span>
+</pre></div>
+
+
 <p>Bug Labs also offer a web-based tool called <a href="http://buglabs.net/products/freeboard">Freeboard</a> that allows you to build
 interactive user-interfaces for connected devices.
 Bug Labs claims combining dweet.io + Freeboard,
 give you everything you need to put together an IoT application quickly and easily.
 Never the less, they can be used individually or in conjunction with other platforms. 
 It&#8217;s interesting that Bug Labs positions Freeboard as an open source alternative to <a href="http://www.geckoboard.com/">Geckoboard</a>.</p>
-<p>https://dweet.io/
-https://freeboard.io/&nbsp;https://github.com/Freeboard/freeboard</p>
+<ul>
+<li><a href="https://dweet.io/">dweet.io</a></li>
+<li><a href="https://freeboard.io/">Freeboard</a></li>
+<li><a href="https://github.com/Freeboard/freeboard">Freeboard&#8217;s&nbsp;GitHub</a></li>
+</ul>
+<h1><span class="caps">AT</span>&amp;T Speech <span class="caps">API</span></h1>
+<p><a href="https://developer.att.com/">
+    <img class="img-rounded" style="margin: 0px 8px; float: left" title="AT&T Developer Web Site" alt="AT&T Developer Logo" src="/images/att-developer-logo.png" width="100" height="100" />
+</a>
+This code was inspired by the <a href="http://jasperproject.github.io/">Jasper Project</a>.
+Jasper, an open-source, crowd developed, <a href="http://www.apple.com/ios/siri/">Siri-like</a> virtual assistant for Raspberry Pi.
+The concept is to have an always-on system constantly waiting for
+voice commands that you can hack together to use in your home.
+The Jasper Project anticipates contribution form carry out
+any kind of automated task you can think of using voice commands,
+such as reading you news headlines, sending commands for home automation,&nbsp;etc.</p>
+<p>In it&#8217;s current implementation, Jasper uses a Linux based text-to-speech and speech-to-text package.
+It has been <a href="http://changingjasper.blogspot.com/2014/06/making-jasper-use-at-speech-api.html">recommended to use a web-based <span class="caps">API</span> instead</a>,
+specifically the <a href="http://developer.att.com/apis/speech"><span class="caps">AT</span>&amp;T Speech <span class="caps">API</span></a>.
+This <span class="caps">API</span> is being used by <a href="http://jibbigo.com/">Jibbigo</a>, a smart phone language translation app.
+The <span class="caps">API</span> is well documented, requires your registration for an <span class="caps">API</span> key, but free for limited use.
+The main limitation with this free Speech <span class="caps">API</span> is its rate limit,
+but it&#8217;s very difficult to run up to the limit for most applications.
+You&#8217;re limited to 1 request per second and your audio file must be less than a minute in&nbsp;length.</p>
+<p>Here I&#8217;m going to exercise the <span class="caps">AT</span>&amp;T Speech <span class="caps">API</span> outside of Jasper just to demonstrate its use.
+With a little imagination, you should see how it can turn a Raspberry Pi into an
+interesting Internet-enabled speech application using this <span class="caps">API</span>.</p>
 <h1>Where to&nbsp;Begin</h1>
 <ul>
 <li>Stating Points and Foundational Knowledge<ul>
@@ -345,6 +441,16 @@ https://freeboard.io/&nbsp;https://github.com/Freeboard/freeboard</p>
 </ul>
 </li>
 </ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:A">
+<p>The format below was produced by piping the curl output through
+the command <code>python -mjson.tool | pygmentize -l javascript</code>.
+This will colorize and pretty print the <span class="caps">JSON</span> script.&#160;<a class="footnote-backref" href="#fnref:A" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
             </div>
             <!-- /.entry-content -->
     <hr />

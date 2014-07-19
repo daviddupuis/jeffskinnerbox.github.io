@@ -124,8 +124,8 @@ Jeff's Skinner Box&nbsp;            </a>
 In an earlier post, I outlined <a href="http://jeffskinnerbox.me/posts/2013/Apr/28/building-my-linux-box-the-plan/">my plan for building a Linux Box</a>.  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
 <ul>
 <ul>
-    <li>After ordering all the hardware, it came to me that it was dumb to attempt to reuse my old semi-reliable, slow <span class="caps">CD</span> drive.  So I purchase the <span class="caps">HP</span> 24X Multiformat <span class="caps">DVD</span>/<span class="caps">CD</span> Writer (dvd1260i) at Best Buy for <mathjax>$40.</li>
-    <li>I discovered that the my old PC had <a href="http://www.webopedia.com/TERM/A/ATA.html">ATA</a> hard drives (commonly called an IDE drive) and my new Mobo only supports <a href="http://www.webopedia.com/TERM/S/Serial_ATA.html">SATA</a> (SATA 3Gb/s &amp; 6GB/s and it includes an external eSATA port).   This blows my plan to reuse my existing hard drives ... stupid me, I should have checked.  I did a quick scan for ATA controller cards and found a few (not many) for $</mathjax>15 to <mathjax>$30.  I could buy the card and make this work but it doesn't seem like a good investment.  The drives are 400G drives and has a maximum data transfer rate of about 133MB/s (i.e. ATA/66).  The maximum data transfer rates of SATA II and SATA III are 300 MB/s and 600 MB/s, respectively.  I can buy a Seagate - Barracuda 500GB SATA II Internal Hard Drive for $</mathjax>70.  Given my objective to increase the performance of my computing experience, buying a new <span class="caps">SATA</span> <span class="caps">III</span> hard drive should have been part of&nbsp;the original plan.</li>
+    <li>After ordering all the hardware, it came to me that it was dumb to attempt to reuse my old semi-reliable, slow <span class="caps">CD</span> drive.  So I purchase the <span class="caps">HP</span> 24X Multiformat <span class="caps">DVD</span>/<span class="caps">CD</span> Writer (dvd1260i) at Best Buy for 40&nbsp;dollars.</li>
+    <li>I discovered that the my old <span class="caps">PC</span> had <a href="http://www.webopedia.com/TERM/A/ATA.html"><span class="caps">ATA</span></a> hard drives (commonly called an <span class="caps">IDE</span> drive) and my new Mobo only supports <a href="http://www.webopedia.com/TERM/S/Serial_ATA.html"><span class="caps">SATA</span></a> (<span class="caps">SATA</span> 3Gb/s <span class="amp">&amp;</span> <span class="caps">6GB</span>/s and it includes an external eSATA port).   This blows my plan to reuse my existing hard drives &#8230; stupid me, I should have checked.  I did a quick scan for <span class="caps">ATA</span> controller cards and found a few (not many) for 15 to 30 dollars.  I could buy the card and make this work but it doesn&#8217;t seem like a good investment.  The drives are 400G drives and has a maximum data transfer rate of about <span class="caps">133MB</span>/s (i.e. <span class="caps">ATA</span>/66).  The maximum data transfer rates of <span class="caps">SATA</span> <span class="caps">II</span> and <span class="caps">SATA</span> <span class="caps">III</span> are 300 <span class="caps">MB</span>/s and 600 <span class="caps">MB</span>/s, respectively.  I can buy a Seagate - Barracuda <span class="caps">500GB</span> <span class="caps">SATA</span> <span class="caps">II</span> Internal Hard Drive for $70.  Given my objective to increase the performance of my computing experience, buying a new <span class="caps">SATA</span> <span class="caps">III</span> hard drive should have been part of&nbsp;the original plan.</li>
     <li>After <a href="http://www.cyberciti.biz/tips/raid-hardware-vs-raid-software.html">reading up on <span class="caps">RAID</span></a> and the Intel Rapid Storage Technology (<span class="caps">RST</span>), I concluded that it would be best to do a Software Raid and not use <span class="caps">RST</span>.</li>
     <li>While I assumed in my original plan that I would dual boot the box with Linux and <span class="caps">MS</span> Windows, the <a href="http://jeffskinnerbox.wordpress.com/2013/04/28/building-my-linux-box-the-plan/">comment from armahillo@gmail.com </a>convinced me of what I suspected I should do; and that was to make <a href="http://www.winehq.org/">wine</a>, <a href="http://www.mono-project.com/Main_Page">mono</a>, and <a href="http://www.playonlinux.com/">PlayOnLinux</a> work for me.  While I haven&#8217;t stressed them, so far so good.  I have not installed VirtualBox and I suspect I will not &#8230; unless I get&nbsp;desperate.</li>
     <li>I was planning to reuse my old keyboard and mouse, but you know, I hated that keyboard and the mouse was already acting badly and about to die on me.  So I ended up replacing them with sometime worthy of my new&nbsp;system.</li>
@@ -146,13 +146,13 @@ Like may, over the years I have made a large time investment in tuning my <code>
 Chromium is a fully open-source version of Google&#8217;s Chrome, and for licensing reasons, it doesn&#8217;t come packaged with the integrated Flash or a native <span class="caps">PDF</span> reader.  Lucky, there is a work around and that is documented here: <a href="http://www.omgubuntu.co.uk/2010/07/use-google-chrome%E2%80%99s-native-pdf-reader-in-chromium">Use Google Chrome’s Native <span class="caps">PDF</span> reader in Chromium</a>.
 <h2>Installing My Squeeze&nbsp;Box</h2>
 I have a <a href="http://www.mysqueezebox.com/index/Home">SqueezeBox</a> device in my workshop for playing music.  On my old <span class="caps">PC</span>, I had installed the SlimServer which would provide the music stream.  I want to now reestablish that capability on the Linux box. The post <a href="http://www.ehow.com/how_7314755_use-squeezebox-ubuntu.html">How to Use Squeezebox With Ubuntu</a> and the <a href="http://wiki.slimdevices.com/index.php/DebianPackage">Logitech SqueezeBox Wiki</a> gives you all the information you should&nbsp;need.</p>
-<p>The Ubuntu (Debian) software for the <a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server">SqueezeCenter</a> or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via <code>get-apt</code>.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the <a href="http://linux.die.net/man/5/sources.list"><code>sources.list</code></a> file.  To do this, do the&nbsp;following:</p>
+<p>The Ubuntu (Debian) software for the <a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server">SqueezeCenter</a> or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via <code>get-apt</code>.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the <a href="http://linux.die.net/man/5/sources.list"><code>/etc/apt/sources.list</code></a> file.  To do this, do the&nbsp;following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo vim /etc/apt/sources.list
 </pre></div>
 
 
 <p>Scroll to the bottom of the file and enter the following information and then&nbsp;save:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).</span>
 deb http://debian.slimdevices.com stable main
 </pre></div>
 
@@ -320,9 +320,9 @@ These devices use the <a href="http://www.logitech.com/en-us/promotions/6072">L
 </a>
 I was a bit concerned about the ability of the receiver to support multiple device (i.e. the keyboard) simultaneously under Linux.
 Doing a quick search I found a post discussing how to do the <a href="http://askubuntu.com/questions/113984/is-logitechs-unifying-receiver-supported">device pairing under Linux</a>.  <a href="https://lekensteyn.nl/logitech-unifying.html#ltunify">To install</a> the <a href="https://git.lekensteyn.nl/ltunify/"><code>ltunify</code></a> pairing software, and do the pairing, do the&nbsp;following:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">cd ~/src
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #336666">cd</span> ~/src
 git clone https://git.lekensteyn.nl/ltunify.git
-cd ltunify
+<span style="color: #336666">cd </span>ltunify
 make install-home
 </pre></div>
 
@@ -361,19 +361,19 @@ Now we need a mechanism to re-map mouse (or keyboard) button inputs.  <a href="
 
 
 <p>To create your initial xbindkeys configuration file, just run the following&nbsp;command:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">xbindkeys --defaults &amp;gt; $HOME/.xbindkeysrc
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">xbindkeys --defaults &amp;gt; <span style="color: #003333">$HOME</span>/.xbindkeysrc
 </pre></div>
 
 
 <p>The syntax of the contents of .xbindskesrc is simple and is illustrated&nbsp;below:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># short comment
-    &quot;command to start&quot;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># short comment</span>
+    <span style="color: #CC3300">&quot;command to start&quot;</span>
         associated key
 </pre></div>
 
 
 <p>The <code>"command to start"</code> is simply a shell command (that you can run from a terminal),  and <code>"associated key"</code> is the key or&nbsp;button.</p>
-<p>Now, using an editor, update the .xbindkeysrc file to include the&nbsp;following:</p>
+<p>Now, using an editor, update the <code>.xbindkeysrc</code> file to include the&nbsp;following:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># Do a Page Down when mouse left-side down button is pressed
 &quot;xte &#39;key Page_Down&#39;&quot;
     b:8
@@ -392,7 +392,7 @@ Now we need a mechanism to re-map mouse (or keyboard) button inputs.  <a href="
 </pre></div>
 
 
-<p>To activate any modification of the .xbindkeysrc configuration file, your have to restart xbindkeys.   This can be done&nbsp;via:</p>
+<p>To activate any modification of the <code>.xbindkeysrc</code> configuration file, your have to restart xbindkeys.   This can be done&nbsp;via:</p>
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">pkill xbindkeys
 xbindkeys
 </pre></div>
@@ -569,37 +569,7 @@ sudo mount /dev/md0 /mnt/raid1&lt;/code&gt;&lt;/p&gt;
 
 <div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo cp /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf_backup
 sudo mdadm --detail --scan &gt;&gt; /etc/mdadm/mdadm.conf
-</pre></div><script type= "text/javascript">
-    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-        var mathjaxscript = document.createElement('script');
-        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-        mathjaxscript.type = 'text/javascript';
-        mathjaxscript.src = 'https:' == document.location.protocol
-		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
-		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-            "MathJax.Hub.Config({" +
-            "    config: ['MMLorHTML.js']," +
-            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-            "    displayAlign: 'center'," +
-            "    displayIndent: '0em'," +
-            "    showMathMenu: true," +
-            "    tex2jax: { " +
-            "        inlineMath: [ ['$','$'] ], " +
-            "        displayMath: [ ['$$','$$'] ]," +
-            "        processEscapes: true," +
-            "        preview: 'TeX'," +
-            "    }, " +
-            "    'HTML-CSS': { " +
-            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
-            "    } " +
-            "}); ";
-        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-    }
-</script>
-
+</pre></div>
             </div>
             <!-- /.entry-content -->
     <hr />

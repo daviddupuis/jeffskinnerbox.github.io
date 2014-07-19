@@ -42,6 +42,7 @@ table, th, td {
 
 table {
     box-shadow: 5px 5px 10px #888888;
+    margin-bottom: 10px;
 }
 
 th {
@@ -50,6 +51,7 @@ th {
     padding-right: 15px;
     padding-left: 15px;
     background-color: #B8B8B8;
+    text-align: center;
     color: black;
 }
 

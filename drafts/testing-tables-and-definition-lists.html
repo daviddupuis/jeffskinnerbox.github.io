@@ -106,7 +106,42 @@ Jeff's Skinner Box&nbsp;            </a>
 It has no borders, no header formating, no padding in cells, etc.
 This can be fixed with a little custom <span class="caps">CSS</span>.
 My fix is in <code>content/extra/custom.css</code> and is listed&nbsp;blow:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">/* This will provide some visual improvements to Markdown&#39;s formating of tables */</span>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic">/* This allows for a wider range of font sizes for the Tag Cloud.</span>
+<span style="color: #0099FF; font-style: italic"> * Make sure to change the TAG_CLOUD_STEPS value in pelicanconf.py</span>
+<span style="color: #0099FF; font-style: italic"> * to to the number of tags here (i.e. 8) */</span>
+<span style="color: #00AA88; font-weight: bold">.tag-1</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">20pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-2</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">18pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-3</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">16pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-4</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">14pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-5</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">12pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-6</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">10pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-7</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">8pt</span>;
+}
+
+<span style="color: #00AA88; font-weight: bold">.tag-8</span> {
+    <span style="color: #006699; font-weight: bold">font-size</span><span style="color: #555555">:</span> <span style="color: #FF6600">6pt</span>;
+}
+
+<span style="color: #0099FF; font-style: italic">/* This will provide some visual improvements to Markdown&#39;s formating of tables */</span>
 <span style="color: #330099; font-weight: bold">table</span><span style="color: #555555">,</span> <span style="color: #330099; font-weight: bold">th</span><span style="color: #555555">,</span> <span style="color: #330099; font-weight: bold">td</span> {
     <span style="color: #006699; font-weight: bold">margin-left</span><span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">auto</span>; 
     <span style="color: #006699; font-weight: bold">margin-right</span><span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">auto</span>;
@@ -133,6 +168,18 @@ My fix is in <code>content/extra/custom.css</code> and is listed&nbsp;blow:</p>
     <span style="color: #006699; font-weight: bold">padding-left</span><span style="color: #555555">:</span> <span style="color: #FF6600">15px</span>;
     <span style="color: #006699; font-weight: bold">background-color</span><span style="color: #555555">:</span> <span style="color: #FF6600">#FFFFFF</span>;
     <span style="color: #006699; font-weight: bold">color</span><span style="color: #555555">:</span> <span style="color: #336666">black</span>;
+}
+
+<span style="color: #0099FF; font-style: italic">/* This will make the in-text code more aesthetically appealing */</span>
+<span style="color: #330099; font-weight: bold">code</span> {
+    <span style="color: #006699; font-weight: bold">font-family</span><span style="color: #555555">:</span> <span style="color: #006699; font-weight: bold">monospace</span><span style="color: #555555">,</span> <span style="color: #006699; font-weight: bold">monospace</span>;
+    <span style="color: #006699; font-weight: bold">color</span><span style="color: #555555">:</span> <span style="color: #336666">black</span>;
+}
+
+<span style="color: #0099FF; font-style: italic">/* This will make the code blocks more aesthetically appealing */</span>
+<span style="color: #00AA88; font-weight: bold">.codehilite</span> {
+    <span style="color: #006699; font-weight: bold">border</span><span style="color: #555555">-</span>radius<span style="color: #555555">:</span> <span style="color: #FF6600">5px</span>;
+    box<span style="color: #555555">-</span>shadow<span style="color: #555555">:</span> <span style="color: #FF6600">5px</span> <span style="color: #FF6600">5px</span> <span style="color: #FF6600">10px</span> <span style="color: #FF6600">#888888</span>;
 }
 </pre></div>
 

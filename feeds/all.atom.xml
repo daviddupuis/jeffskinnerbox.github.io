@@ -3,165 +3,165 @@
 I final got around to tailoring it for my desktop Linux box.
 You find both version on &lt;a href="https://github.com/jeffskinnerbox/dotconky"&gt;GitHub&lt;/a&gt;.
 Screen shot is at the&amp;nbsp;bottom.&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# --------------------------------------------------------------------- #
-#
-# .conkyrc - derived from various examples across the &amp;#39;net
-#   Designed to support a 4 core processer running Ubunutu
-#
-# You can restart conky by running
-#       killall -SIGUSR1 conky
-#
-# --------------------------------------------------------------------- #
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# --------------------------------------------------------------------- #&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;#&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# .conkyrc - derived from various examples across the &amp;#39;net&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;#   Designed to support a 4 core processer running Ubunutu&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;#&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# You can restart conky by running&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;#       killall -SIGUSR1 conky&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;#&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;# --------------------------------------------------------------------- #&lt;/span&gt;
 
 
-# -------------------- Conky&amp;#39;s Run Time Parameters -------------------- #
+&lt;span style="color: #0099FF; font-style: italic"&gt;# -------------------- Conky&amp;#39;s Run Time Parameters -------------------- #&lt;/span&gt;
 
-update_interval 2.0         # Conky update interval in seconds
-total_run_times 0           # Number of updates before quitting.  Set to zero to run forever.
-no_buffers yes              # Subtract file system buffers from used memory?
-cpu_avg_samples 2           # Number of cpu samples to average. Set to 1 to disable averaging
-net_avg_samples 2           # Number of net samples to average. Set to 1 to disable averaging
+update_interval 2.0         &lt;span style="color: #0099FF; font-style: italic"&gt;# Conky update interval in seconds&lt;/span&gt;
+total_run_times 0           &lt;span style="color: #0099FF; font-style: italic"&gt;# Number of updates before quitting.  Set to zero to run forever.&lt;/span&gt;
+no_buffers yes              &lt;span style="color: #0099FF; font-style: italic"&gt;# Subtract file system buffers from used memory?&lt;/span&gt;
+cpu_avg_samples 2           &lt;span style="color: #0099FF; font-style: italic"&gt;# Number of cpu samples to average. Set to 1 to disable averaging&lt;/span&gt;
+net_avg_samples 2           &lt;span style="color: #0099FF; font-style: italic"&gt;# Number of net samples to average. Set to 1 to disable averaging&lt;/span&gt;
 
 
-# -------------------- Conky&amp;#39;s General Look &amp;amp; Feel -------------------- #
+&lt;span style="color: #0099FF; font-style: italic"&gt;# -------------------- Conky&amp;#39;s General Look &amp;amp; Feel -------------------- #&lt;/span&gt;
 
-# --- defualt values --- #
-default_color grey          # Default color and border color
-default_bar_size 0 6        # Specify a default width and height for bars.
-default_gauge_size 25 25    # Specify a default width and height for gauges.
-default_graph_size 0 25     # Specify a default width and height for graphs.
-default_outline_color green # Default border and text outline color
-default_shade_color yellow  # Default border and text shading color
+&lt;span style="color: #0099FF; font-style: italic"&gt;# --- defualt values --- #&lt;/span&gt;
+default_color grey          &lt;span style="color: #0099FF; font-style: italic"&gt;# Default color and border color&lt;/span&gt;
+default_bar_size 0 6        &lt;span style="color: #0099FF; font-style: italic"&gt;# Specify a default width and height for bars.&lt;/span&gt;
+default_gauge_size 25 25    &lt;span style="color: #0099FF; font-style: italic"&gt;# Specify a default width and height for gauges.&lt;/span&gt;
+default_graph_size 0 25     &lt;span style="color: #0099FF; font-style: italic"&gt;# Specify a default width and height for graphs.&lt;/span&gt;
+default_outline_color green &lt;span style="color: #0099FF; font-style: italic"&gt;# Default border and text outline color&lt;/span&gt;
+default_shade_color yellow  &lt;span style="color: #0099FF; font-style: italic"&gt;# Default border and text shading color&lt;/span&gt;
 
-# --- predefined colors - http://www.kgym.jp/freesoft/xrgb.html --- #
-color0 FFFFFF               # white
-color1 FFA500               # orange
-color2 B22222               # firebrick
-color3 696969               # dim gray
-color4 D3D3D3               # light gray
-color5 2F4F4F               # dark slate gray
-color6 FFEC8B               # light golden rod
-color7 54FF9F               # sea green
-color8 FF8C69               # salmon
-color9 FFE7BA               # wheat
+&lt;span style="color: #0099FF; font-style: italic"&gt;# --- predefined colors - http://www.kgym.jp/freesoft/xrgb.html --- #&lt;/span&gt;
+color0 FFFFFF               &lt;span style="color: #0099FF; font-style: italic"&gt;# white&lt;/span&gt;
+color1 FFA500               &lt;span style="color: #0099FF; font-style: italic"&gt;# orange&lt;/span&gt;
+color2 B22222               &lt;span style="color: #0099FF; font-style: italic"&gt;# firebrick&lt;/span&gt;
+color3 696969               &lt;span style="color: #0099FF; font-style: italic"&gt;# dim gray&lt;/span&gt;
+color4 D3D3D3               &lt;span style="color: #0099FF; font-style: italic"&gt;# light gray&lt;/span&gt;
+color5 2F4F4F               &lt;span style="color: #0099FF; font-style: italic"&gt;# dark slate gray&lt;/span&gt;
+color6 FFEC8B               &lt;span style="color: #0099FF; font-style: italic"&gt;# light golden rod&lt;/span&gt;
+color7 54FF9F               &lt;span style="color: #0099FF; font-style: italic"&gt;# sea green&lt;/span&gt;
+color8 FF8C69               &lt;span style="color: #0099FF; font-style: italic"&gt;# salmon&lt;/span&gt;
+color9 FFE7BA               &lt;span style="color: #0099FF; font-style: italic"&gt;# wheat&lt;/span&gt;
 
-# --- window layout &amp;amp; options --- #
-own_window yes              # Conky creates its own window instead of using desktop
-own_window_type normal      # If own_window is yes, use type normal, desktop, or override   
-own_window_transparent yes  # Use pseudo transparency with own_window?
-own_window_colour blue      # If own_window_transparent is no, set the background colour
-double_buffer yes           # Use double buffering (reduces flicker)
-use_spacer right            # Adds spaces to stop object from moving
-maximum_width 600           # Maximum width of window in pixels
+&lt;span style="color: #0099FF; font-style: italic"&gt;# --- window layout &amp;amp; options --- #&lt;/span&gt;
+own_window yes              &lt;span style="color: #0099FF; font-style: italic"&gt;# Conky creates its own window instead of using desktop&lt;/span&gt;
+own_window_type normal      &lt;span style="color: #0099FF; font-style: italic"&gt;# If own_window is yes, use type normal, desktop, or override   &lt;/span&gt;
+own_window_transparent yes  &lt;span style="color: #0099FF; font-style: italic"&gt;# Use pseudo transparency with own_window?&lt;/span&gt;
+own_window_colour blue      &lt;span style="color: #0099FF; font-style: italic"&gt;# If own_window_transparent is no, set the background colour&lt;/span&gt;
+double_buffer yes           &lt;span style="color: #0099FF; font-style: italic"&gt;# Use double buffering (reduces flicker)&lt;/span&gt;
+use_spacer right            &lt;span style="color: #0099FF; font-style: italic"&gt;# Adds spaces to stop object from moving&lt;/span&gt;
+maximum_width 600           &lt;span style="color: #0099FF; font-style: italic"&gt;# Maximum width of window in pixels&lt;/span&gt;
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 
-# --- window placment --- #
-alignment top_right         # window placement can be top_right, top_left, bottom_left, bottom_right
+&lt;span style="color: #0099FF; font-style: italic"&gt;# --- window placment --- #&lt;/span&gt;
+alignment top_right         &lt;span style="color: #0099FF; font-style: italic"&gt;# window placement can be top_right, top_left, bottom_left, bottom_right&lt;/span&gt;
 
-# --- borders, margins, and outlines --- #
-draw_graph_borders yes      # Do you want to draw borders around graphs
-border_inner_margin 9       # Window&amp;#39;s inner border margin (in pixels)
-border_outer_margin 5       # Window&amp;#39;s outer border margin (in pixels)
-gap_x 10                    # Gap between borders of screen and text (on x-axis)
-gap_y 40                    # Gap between borders of screen and text (on y-axis)
-border_width 10             # Window&amp;#39;s border width (in pixels)
+&lt;span style="color: #0099FF; font-style: italic"&gt;# --- borders, margins, and outlines --- #&lt;/span&gt;
+draw_graph_borders yes      &lt;span style="color: #0099FF; font-style: italic"&gt;# Do you want to draw borders around graphs&lt;/span&gt;
+border_inner_margin 9       &lt;span style="color: #0099FF; font-style: italic"&gt;# Window&amp;#39;s inner border margin (in pixels)&lt;/span&gt;
+border_outer_margin 5       &lt;span style="color: #0099FF; font-style: italic"&gt;# Window&amp;#39;s outer border margin (in pixels)&lt;/span&gt;
+gap_x 10                    &lt;span style="color: #0099FF; font-style: italic"&gt;# Gap between borders of screen and text (on x-axis)&lt;/span&gt;
+gap_y 40                    &lt;span style="color: #0099FF; font-style: italic"&gt;# Gap between borders of screen and text (on y-axis)&lt;/span&gt;
+border_width 10             &lt;span style="color: #0099FF; font-style: italic"&gt;# Window&amp;#39;s border width (in pixels)&lt;/span&gt;
 
-# --- Text --- #
-draw_outline no             # Do you want ot draw outlines
-draw_shades no              # Do you want to draw shades
-draw_borders no             # Do you want to draw borders around text
-uppercase no                # set to yes if you want all text to be in uppercase
-use_xft yes                 # use the X FreeType interface library (anti-aliased font)
-xftfont Monospace:size=8:weight=bold    # Xft font to be used
+&lt;span style="color: #0099FF; font-style: italic"&gt;# --- Text --- #&lt;/span&gt;
+draw_outline no             &lt;span style="color: #0099FF; font-style: italic"&gt;# Do you want ot draw outlines&lt;/span&gt;
+draw_shades no              &lt;span style="color: #0099FF; font-style: italic"&gt;# Do you want to draw shades&lt;/span&gt;
+draw_borders no             &lt;span style="color: #0099FF; font-style: italic"&gt;# Do you want to draw borders around text&lt;/span&gt;
+uppercase no                &lt;span style="color: #0099FF; font-style: italic"&gt;# set to yes if you want all text to be in uppercase&lt;/span&gt;
+use_xft yes                 &lt;span style="color: #0099FF; font-style: italic"&gt;# use the X FreeType interface library (anti-aliased font)&lt;/span&gt;
+xftfont Monospace:size&lt;span style="color: #555555"&gt;=&lt;/span&gt;8:weight&lt;span style="color: #555555"&gt;=&lt;/span&gt;bold    &lt;span style="color: #0099FF; font-style: italic"&gt;# Xft font to be used&lt;/span&gt;
 
 
-# -------------------- Conky&amp;#39;s Displayed System Monitoring Parameters -------------------- #
+&lt;span style="color: #0099FF; font-style: italic"&gt;# -------------------- Conky&amp;#39;s Displayed System Monitoring Parameters -------------------- #&lt;/span&gt;
 TEXT
-# General system information
-${color1}SYSTEM INFORMATION ${hr 2}$color
-${color0}System: $color$nodename ${alignr}${color0}Uptime: $color$uptime
-${color0}Kernel: $color$kernel${alignr}${color0}Arch: $color$machine
-${color0}Distribution: $color${execi 99999 lsb_release --description | awk &amp;#39;{ print $2&amp;quot; &amp;quot;$3 }&amp;#39;}
-${color0}CPU Type: $color${execi 99999 grep &amp;#39;model name&amp;#39; /proc/cpuinfo | awk &amp;#39;{ print $6 }&amp;#39; | sed &amp;#39;2,$d&amp;#39;} / ${execi 99999 grep &amp;#39;model name&amp;#39; /proc/cpuinfo | wc -l} Cores
-${color0}CPU Speed: $color${freq 0} MHz Current / ${execi 99999 grep &amp;#39;model name&amp;#39; /proc/cpuinfo | awk &amp;#39;{ print $9 }&amp;#39; | sed &amp;#39;2,$d&amp;#39;} Max
-${color0}Processor Temperature: $color${acpitemp}°C
-#${color0}MAC Address (eth0): $color${execi 99999 cat /sys/class/net/eth0/address }
-#${color0}MAC Address (eth1): $color${execi 99999 cat /sys/class/net/eth1/address }
-#${color0}MAC Address (wlan0): $color${execi 99999 cat /sys/class/net/wlan0/address }
+&lt;span style="color: #0099FF; font-style: italic"&gt;# General system information&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;SYSTEM INFORMATION &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;System: &lt;span style="color: #003333"&gt;$color$nodename&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Uptime: &lt;span style="color: #003333"&gt;$color$uptime&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Kernel: &lt;span style="color: #003333"&gt;$color$kernel&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Arch: &lt;span style="color: #003333"&gt;$color$machine&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Distribution: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 99999 lsb_release --description | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $2&amp;quot; &amp;quot;$3 }&amp;#39;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;CPU Type: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 99999 grep &lt;span style="color: #CC3300"&gt;&amp;#39;model name&amp;#39;&lt;/span&gt; /proc/cpuinfo | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $6 }&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;2,$d&amp;#39;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; / &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 99999 grep &lt;span style="color: #CC3300"&gt;&amp;#39;model name&amp;#39;&lt;/span&gt; /proc/cpuinfo | wc -l&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; Cores
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;CPU Speed: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; MHz Current / &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 99999 grep &lt;span style="color: #CC3300"&gt;&amp;#39;model name&amp;#39;&lt;/span&gt; /proc/cpuinfo | awk &lt;span style="color: #CC3300"&gt;&amp;#39;{ print $9 }&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;2,$d&amp;#39;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; Max
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Processor Temperature: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;acpitemp&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;°C
+&lt;span style="color: #0099FF; font-style: italic"&gt;#${color0}MAC Address (eth0): $color${execi 99999 cat /sys/class/net/eth0/address }&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;#${color0}MAC Address (eth1): $color${execi 99999 cat /sys/class/net/eth1/address }&lt;/span&gt;
+&lt;span style="color: #0099FF; font-style: italic"&gt;#${color0}MAC Address (wlan0): $color${execi 99999 cat /sys/class/net/wlan0/address }&lt;/span&gt;
 
-# CPU information
-${color1}CPU ${hr 2}$color
-${color0}CPU Usage:$color ${cpu cpu0}% ${color7}${cpubar cpu0}
-${cpugraph cpu0 0000ff 00ff00}$color
-${color0}Core 1:$color ${freq 1} MHz ${cpu cpu1}% ${color5}${cpubar cpu1}$color
-${color0}Core 2:$color ${freq 2} MHz ${cpu cpu2}% ${color5}${cpubar cpu2}$color
-${color0}Core 3:$color ${freq 3} MHz ${cpu cpu3}% ${color5}${cpubar cpu3}$color
-${color0}Core 4:$color ${freq 4} MHz ${cpu cpu4}% ${color5}${cpubar cpu4}$color
+&lt;span style="color: #0099FF; font-style: italic"&gt;# CPU information&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;CPU &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;CPU Usage:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color7&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpugraph&lt;/span&gt; cpu0 0000ff 00ff00&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Core 1:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; MHz &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color5&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Core 2:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; MHz &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color5&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Core 3:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; MHz &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color5&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Core 4:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;freq&lt;/span&gt; 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; MHz &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpu&lt;/span&gt; cpu4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color5&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;cpubar&lt;/span&gt; cpu4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
 
-# Top running processes
-${color1}TOP 5 PROCESSES ${hr 2}$color
-${color0}Processes:$color $processes  ${color0}Running:$color $running_processes
-${color0}Threads:$color $threads  ${color0}Running:$color $running_threads
-${stippled_hr 2}
-${color0}CPU Usage$color
-${color3} NAME              PID    CPU %   MEM$color
-${color2} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}$color
- ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
- ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
- ${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
- ${top name 5} ${top pid 5} ${top cpu 5} ${top mem 5}
-${stippled_hr 2}
-${color0}Mem Usage$color
-${color3} NAME              PID    CPU %   MEM$color
-${color2} ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}$color
- ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
- ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
- ${top_mem name 4} ${top_mem pid 4} ${top_mem cpu 4} ${top_mem mem 4}
- ${top_mem name 5} ${top_mem pid 5} ${top_mem cpu 5} ${top_mem mem 5}
+&lt;span style="color: #0099FF; font-style: italic"&gt;# Top running processes&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;TOP 5 PROCESSES &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Processes:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #003333"&gt;$processes&lt;/span&gt;  &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Running:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #003333"&gt;$running_processes&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Threads:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #003333"&gt;$threads&lt;/span&gt;  &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Running:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #003333"&gt;$running_threads&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;stippled_hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;CPU Usage&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color3&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; NAME              PID    CPU %   MEM&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color2&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; name 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; pid 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; cpu 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top&lt;/span&gt; mem 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;stippled_hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Mem Usage&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color3&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; NAME              PID    CPU %   MEM&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color2&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 1&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 3&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 4&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+ &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; name 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; pid 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; cpu 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;top_mem&lt;/span&gt; mem 5&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
 
-# Memory and swap space untilization
-${color1}MEMORY &amp;amp; SWAP ${hr 2}$color
-${color0}RAM Usage: ${color}$mem / $memmax
-$memperc% ${color6}${membar}$color
-${color0}Swap Usage: ${color}$swap / $swapmax
-$swapperc% ${color6}${swapbar}$color
+&lt;span style="color: #0099FF; font-style: italic"&gt;# Memory and swap space untilization&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;MEMORY &amp;amp; SWAP &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;RAM Usage: &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$mem&lt;/span&gt; / &lt;span style="color: #003333"&gt;$memmax&lt;/span&gt;
+&lt;span style="color: #003333"&gt;$memperc&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color6&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;membar&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Swap Usage: &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$swap&lt;/span&gt; / &lt;span style="color: #003333"&gt;$swapmax&lt;/span&gt;
+&lt;span style="color: #003333"&gt;$swapperc&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color6&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;swapbar&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
 
-# File System utilization
-${color1}FILE SYSTEM ${hr 2}$color
-${color0}root:$color ${fs_used /} / ${fs_size /}
-${fs_used_perc /}% ${color8}${fs_bar /}$color
-${color0}boot:$color ${fs_used /boot} / ${fs_size /boot}
-${fs_used_perc /boot}% ${color8}${fs_bar /boot}$color
-${color0}home:$color ${fs_used /home} / ${fs_size /home}
-${fs_used_perc /home}% ${color8}${fs_bar /home}$color
-${color0}backup:$color ${fs_used /mnt/backup} / ${fs_size /mnt/backup}
-${fs_used_perc /mnt/backup}% ${color8}${fs_bar /mnt/backup}$color
+&lt;span style="color: #0099FF; font-style: italic"&gt;# File System utilization&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;FILE SYSTEM &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;root:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used&lt;/span&gt; /&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; / &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_size&lt;/span&gt; /&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used_perc&lt;/span&gt; /&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_bar&lt;/span&gt; /&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;boot:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used&lt;/span&gt; /boot&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; / &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_size&lt;/span&gt; /boot&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used_perc&lt;/span&gt; /boot&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_bar&lt;/span&gt; /boot&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;home:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used&lt;/span&gt; /home&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; / &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_size&lt;/span&gt; /home&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used_perc&lt;/span&gt; /home&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_bar&lt;/span&gt; /home&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;backup:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used&lt;/span&gt; /mnt/backup&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; / &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_size&lt;/span&gt; /mnt/backup&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_used_perc&lt;/span&gt; /mnt/backup&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;% &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;fs_bar&lt;/span&gt; /mnt/backup&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
 
-# Hard Drive Utilization
-${color1}HARD DRIVE I/O ${hr 2}$color
-${color0}Device:$color /dev/sda
-${color0}Reads: $color${diskio_read /dev/sda}/s${alignr}${color0}Writes: $color${diskio_write /dev/sda}/s
-${color8}${diskiograph_read /dev/sda 20,100 33FF00 FF3333 scale -t}$color${alignr}${color8}${diskiograph_write /dev/sda 20,100 33FF00 FF3333 scale -t}$color
-${color0}Device:$color /dev/md0
-${color0}Reads: $color${diskio_read /dev/md0}/s${alignr}${color0}Writes: $color${diskio_write /dev/md0}/s
-${color8}${diskiograph_read /dev/md0 20,100 33FF00 FF3333 scale -t}$color${alignr}${color8}${diskiograph_write /dev/md0 20,100 33FF00 FF3333 scale -t}$color
+&lt;span style="color: #0099FF; font-style: italic"&gt;# Hard Drive Utilization&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;HARD DRIVE I/O &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Device:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; /dev/sda
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Reads: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskio_read&lt;/span&gt; /dev/sda&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Writes: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskio_write&lt;/span&gt; /dev/sda&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskiograph_read&lt;/span&gt; /dev/sda 20,100 33FF00 FF3333 scale -t&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskiograph_write&lt;/span&gt; /dev/sda 20,100 33FF00 FF3333 scale -t&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Device:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; /dev/md0
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Reads: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskio_read&lt;/span&gt; /dev/md0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Writes: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskio_write&lt;/span&gt; /dev/md0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskiograph_read&lt;/span&gt; /dev/md0 20,100 33FF00 FF3333 scale -t&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color8&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;diskiograph_write&lt;/span&gt; /dev/md0 20,100 33FF00 FF3333 scale -t&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
 
-# Ethernet utilization
-${color1}NETWORKING ${hr 2}$color
-${color0}Wired (${addr eth0})
-${color0}Down:$color ${downspeed eth0}/s ${alignr}${color0}Up:$color ${upspeed eth0}/s
-${color0}Total:$color ${totaldown eth0} ${alignr}${color0}Total: $color${totalup eth0}
-${color0}${downspeedgraph eth0 25,120 000000 00ff00} ${alignr}${upspeedgraph eth0 25,120 000000 ff0000}$color
-${stippled_hr 2}
-${color0}Wireless (${addr wlan0})
-${color0}Down:$color ${downspeed wlan0}/s ${alignr}${color0}Up:$color ${upspeed wlan0}/s
-${color0}Total:$color ${totaldown wlan0} ${alignr}${color0}Total: $color${totalup wlan0}
-${color0}${downspeedgraph wlan0 25,120 000000 00ff00} ${alignr}${upspeedgraph wlan0 25,120 000000 ff0000}$color
+&lt;span style="color: #0099FF; font-style: italic"&gt;# Ethernet utilization&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;NETWORKING &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Wired &lt;span style="color: #555555"&gt;(&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;addr&lt;/span&gt; eth0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #555555"&gt;)&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Down:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;downspeed&lt;/span&gt; eth0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Up:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;upspeed&lt;/span&gt; eth0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Total:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;totaldown&lt;/span&gt; eth0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Total: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;totalup&lt;/span&gt; eth0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;downspeedgraph&lt;/span&gt; eth0 25,120 000000 00ff00&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;upspeedgraph&lt;/span&gt; eth0 25,120 000000 ff0000&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;stippled_hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Wireless &lt;span style="color: #555555"&gt;(&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;addr&lt;/span&gt; wlan0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #555555"&gt;)&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Down:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;downspeed&lt;/span&gt; wlan0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Up:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;upspeed&lt;/span&gt; wlan0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;/s
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Total:&lt;span style="color: #003333"&gt;$color&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;totaldown&lt;/span&gt; wlan0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;Total: &lt;span style="color: #003333"&gt;$color&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;totalup&lt;/span&gt; wlan0&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;downspeedgraph&lt;/span&gt; wlan0 25,120 000000 00ff00&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt; &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;alignr&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;upspeedgraph&lt;/span&gt; wlan0 25,120 000000 ff0000&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
 
-# Print the tail of the Linux system log
-${color1}LOG FILES ${hr 2}$color
-${color0}SysLog Messages$color
-${color4}${font Arial:size=7}${execi 30 tail -n3 /var/log/syslog | fold -w50}$color$font
+&lt;span style="color: #0099FF; font-style: italic"&gt;# Print the tail of the Linux system log&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color1&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;LOG FILES &lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;hr&lt;/span&gt; 2&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color0&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;SysLog Messages&lt;span style="color: #003333"&gt;$color&lt;/span&gt;
+&lt;span style="color: #006699; font-weight: bold"&gt;${&lt;/span&gt;&lt;span style="color: #003333"&gt;color4&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;font&lt;/span&gt; Arial:&lt;span style="color: #003333"&gt;size&lt;/span&gt;=7&lt;span style="color: #006699; font-weight: bold"&gt;}${&lt;/span&gt;&lt;span style="color: #003333"&gt;execi&lt;/span&gt; 30 tail -n3 /var/log/syslog | fold -w50&lt;span style="color: #006699; font-weight: bold"&gt;}&lt;/span&gt;&lt;span style="color: #003333"&gt;$color$font&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -335,42 +335,53 @@ Appears &lt;code&gt;Xephyr&lt;/code&gt; is the way to&amp;nbsp;go.&lt;/p&gt;
 Defrag the drive, clean your registry, update antivirus, etc. just like you need to in Windows?
 None of this is needed in Linux but there is some recommend filesystem hygiene you should be&amp;nbsp;doing.&lt;/p&gt;
 &lt;h2&gt;Gather&amp;nbsp;Information&lt;/h2&gt;
-&lt;p&gt;For some of the maintenance activities listed here, you&amp;#8217;re going to need some basic information.
+&lt;p&gt;For starters, lets gather some information.
+Some of the maintenance activities listed here, you&amp;#8217;re going to need some basic information.
 This next section shows you how to get that&amp;nbsp;information. &lt;/p&gt;
 &lt;h4&gt;Distribution Name and&amp;nbsp;Version&lt;/h4&gt;
 &lt;p&gt;To determine which Linux version / build / release / distribution you are&amp;nbsp;running:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# kernel name and release
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# kernel name and release&lt;/span&gt;
 uname -sr
 
-# kernel version
+&lt;span style="color: #0099FF; font-style: italic"&gt;# kernel version&lt;/span&gt;
 uname -v
 
-# Linux distribution
+&lt;span style="color: #0099FF; font-style: italic"&gt;# Linux distribution&lt;/span&gt;
 cat /etc/*-release
 lsb_release -a
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Use the following command to get a listing of all the physical hard drives
+&lt;p&gt;Use one of the following command to get a listing of all the physical hard drives
 (and virutal drives) on the&amp;nbsp;system:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;hwinfo --disk --short
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# terminal commandline utilities to list disk drives&lt;/span&gt;
+hwinfo --disk --short
+sudo lshw -class disk -class storage -short
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# GTK+ graphical user interface version of lshw&lt;/span&gt;
+sudo lshw-gtk &amp;amp;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;For the Raspberry Pi, you can list the installed firmware version&amp;nbsp;via:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;/opt/vc/bin/vcgencmd version
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# list the Raspberry Pi&amp;#39;s firmware version&lt;/span&gt;
+/opt/vc/bin/vcgencmd version
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To get a broader, and potentially more detailed look at your system,
-consider the commands &lt;code&gt;[lshw][11]&lt;/code&gt;
-and the graphical tools &lt;code&gt;[lshw-gtk][12]&lt;/code&gt; and &lt;code&gt;[sysinfo][12]&lt;/code&gt;.&lt;/p&gt;
+consider the commands &lt;a href="http://www.thegeekstuff.com/2008/12/how-to-get-hardware-specs-of-your-system-using-lshw-hardware-lister/"&gt;&lt;code&gt;lshw&lt;/code&gt;&lt;/a&gt;
+and the graphical tools &lt;a href="http://www.webupd8.org/2011/07/how-to-get-hardware-information-in.html"&gt;&lt;code&gt;lshw-gtk&lt;/code&gt;&lt;/a&gt; and &lt;a href="http://www.webupd8.org/2011/07/how-to-get-hardware-information-in.html"&gt;&lt;code&gt;sysinfo&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;&lt;span class="caps"&gt;OS&lt;/span&gt; and Application&amp;nbsp;Maintenance&lt;/h2&gt;
 &lt;p&gt;You should periodically update your Linux operating system (&lt;span class="caps"&gt;OS&lt;/span&gt;)
 and its&amp;nbsp;applications.&lt;/p&gt;
 &lt;h4&gt;Install Operating System and Application&amp;nbsp;Patches/Updates&lt;/h4&gt;
 &lt;p&gt;This will patch the Linux operating system and all its &lt;span class="caps"&gt;GPL&lt;/span&gt;&amp;nbsp;applications &lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get update; sudo apt-get dist-upgrade
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# commandline utility for applications upgrade&lt;/span&gt;
+sudo apt-get update; sudo apt-get dist-upgrade
+
+&lt;span style="color: #0099FF; font-style: italic"&gt;# graphics utility for applications upgrade&lt;/span&gt;
+update-manager -c
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -382,13 +393,15 @@ Never the less, tools for updating the firmware are included in the Raspbian dis
 That tool is &lt;code&gt;sudo apt-get install rpi-update&lt;/code&gt;.
 I&amp;#8217;m using the &lt;a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview"&gt;Adafruit&amp;#8217;s Occidentalis distribution&lt;/a&gt;, so this requires a
 &lt;a href="https://github.com/Hexxeh/rpi-update"&gt;slightly different update tool&lt;/a&gt; (&lt;code&gt;git&lt;/code&gt; needs to be&amp;nbsp;installed):&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# install tools to upgrade Raspberry Pi&amp;#39;s firmware&lt;/span&gt;
+sudo wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
 sudo chmod +x /usr/bin/rpi-update
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Once the tool has been installed, periodically you can update the firmware via these&amp;nbsp;commands:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo BRANCH=next rpi-update
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# check for and install any required Raspberry Pi firmware upgrades&lt;/span&gt;
+sudo &lt;span style="color: #003333"&gt;BRANCH&lt;/span&gt;&lt;span style="color: #555555"&gt;=&lt;/span&gt;next rpi-update
 sudo reboot
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -471,8 +484,10 @@ After successful booting, &lt;code&gt;/forcefsck&lt;/code&gt; will automatically
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTE&lt;/span&gt;:&lt;/strong&gt; A filesystem check can run for many minutes, if not hours,
-depending on the size of the&amp;nbsp;filesystem.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTE&lt;/span&gt;:&lt;/strong&gt; A filesystem check can run for many minutes, if not hours,
+depending on the size of the&amp;nbsp;filesystem.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2&gt;Clean-Up&lt;/h2&gt;
 &lt;p&gt;Linux will leave some clutter around in the filesystem.
 While generally not a problem, it can eat-up disk space,
@@ -510,7 +525,8 @@ Assuming you aren&amp;#8217;t saving them for debugging, you can do this to get 
 
 &lt;h4&gt;Clean-Up Installation&amp;nbsp;Packages&lt;/h4&gt;
 &lt;p&gt;To remove partial packages, clean the cache, remove unused dependencies&amp;nbsp;use:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get autoclean
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# For software packages remove partial packages, clean the cache, remove unused dependencies&lt;/span&gt;
+sudo apt-get autoclean
 sudo apt-get clean
 sudo apt-get autoremove
 &lt;/pre&gt;&lt;/div&gt;
@@ -531,12 +547,14 @@ can be identified&amp;nbsp;via:&lt;/p&gt;
 
 
 &lt;p&gt;Run the following command to list all packages that you no longer&amp;nbsp;need:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;dpkg -l &amp;#39;linux-*&amp;#39; | sed &amp;#39;/^ii/!d;/&amp;#39;&amp;quot;$(uname -r | sed &amp;quot;s/\(.*\)-\([^0-9]\+\)/\1/&amp;quot;)&amp;quot;&amp;#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&amp;#39;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# list all the kernel packages currently loaded&lt;/span&gt;
+dpkg -l &lt;span style="color: #CC3300"&gt;&amp;#39;linux-*&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;/^ii/!d;/&amp;#39;&amp;quot;$(uname -r | sed &amp;quot;&lt;/span&gt;s/&lt;span style="color: #CC3300; font-weight: bold"&gt;\(&lt;/span&gt;.*&lt;span style="color: #CC3300; font-weight: bold"&gt;\)&lt;/span&gt;-&lt;span style="color: #CC3300; font-weight: bold"&gt;\(&lt;/span&gt;&lt;span style="color: #555555"&gt;[&lt;/span&gt;^0-9&lt;span style="color: #555555"&gt;]&lt;/span&gt;&lt;span style="color: #CC3300; font-weight: bold"&gt;\+\)&lt;/span&gt;/&lt;span style="color: #CC3300; font-weight: bold"&gt;\1&lt;/span&gt;/&lt;span style="color: #CC3300"&gt;&amp;quot;)&amp;quot;&amp;#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You can use the above command to permanently delete &lt;strong&gt;&lt;span class="caps"&gt;ALL&lt;/span&gt;&lt;/strong&gt; older&amp;nbsp;kernels:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo apt-get remove --purge $(dpkg -l &amp;#39;linux-*&amp;#39; | sed &amp;#39;/^ii/!d;/&amp;#39;&amp;quot;$(uname -r | sed &amp;quot;s/\(.*\)-\([^0-9]\+\)/\1/&amp;quot;)&amp;quot;&amp;#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&amp;#39;)
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# USE WITH CAUTION: perminately delete old kernel packages&lt;/span&gt;
+sudo apt-get remove --purge &lt;span style="color: #006699; font-weight: bold"&gt;$(&lt;/span&gt;dpkg -l &lt;span style="color: #CC3300"&gt;&amp;#39;linux-*&amp;#39;&lt;/span&gt; | sed &lt;span style="color: #CC3300"&gt;&amp;#39;/^ii/!d;/&amp;#39;&amp;quot;$(uname -r | sed &amp;quot;&lt;/span&gt;s/&lt;span style="color: #CC3300; font-weight: bold"&gt;\(&lt;/span&gt;.*&lt;span style="color: #CC3300; font-weight: bold"&gt;\)&lt;/span&gt;-&lt;span style="color: #CC3300; font-weight: bold"&gt;\(&lt;/span&gt;&lt;span style="color: #555555"&gt;[&lt;/span&gt;^0-9&lt;span style="color: #555555"&gt;]&lt;/span&gt;&lt;span style="color: #CC3300; font-weight: bold"&gt;\+\)&lt;/span&gt;/&lt;span style="color: #CC3300; font-weight: bold"&gt;\1&lt;/span&gt;/&lt;span style="color: #CC3300"&gt;&amp;quot;)&amp;quot;&amp;#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&amp;#39;&lt;/span&gt;&lt;span style="color: #006699; font-weight: bold"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -564,8 +582,181 @@ Confirm fixing disk errors by pressing &amp;#8220;y&amp;#8221; and &amp;#8220;En
 &lt;p&gt;If this fails, read these articles &amp;#8220;&lt;a href="http://www.linuxjournal.com/article/193?page=0,0"&gt;Disk Maintenance under Linux (Disk Recovery&lt;/a&gt;&amp;#8220;,
 &lt;a href="http://www.dedoimedo.com/computers/linux-data-recovery.html"&gt;How to recover partitions and data using Linux - Tutorial&lt;/a&gt;,
 and then follow the instructions&amp;nbsp;carefully!&lt;/p&gt;
+&lt;h2&gt;Cleaning Up After a System&amp;nbsp;Crash&lt;/h2&gt;
+&lt;p&gt;At some point your system will crash and
+you&amp;#8217;ll need to perform a manual repair of your filesystem.
+When this happens, you&amp;#8217;ll reboot, the system stops, and
+then indicates you must perform a manual repair of the&amp;nbsp;filesystem.&lt;/p&gt;
+&lt;h3&gt;Check &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; Repair&amp;nbsp;Filesystem&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;fsck&lt;/code&gt; (filesystem consistency check) is a command used to check filesystem
+for consistency errors and repair them on Linux filesystems.
+This tool is important for maintaining data integrity.
+It should be run regularly,
+especially after an unforeseen reboot (e.g. crash,&amp;nbsp;power-outage).&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTE&lt;/span&gt;:&lt;/strong&gt; You need to be &amp;#8220;root&amp;#8221; to use &lt;code&gt;fsck&lt;/code&gt; and
+it is very important to unmount the filesystem before running&amp;nbsp;it.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;First take the system to &lt;a href="http://www.cyberciti.biz/tips/linux-changing-run-levels.html"&gt;runlevel one (single user mode)&lt;/a&gt;.
+Unmount the filesystem, and then run &lt;code&gt;fsck&lt;/code&gt;.
+For example, if the filesystem in question is &lt;code&gt;/home&lt;/code&gt; (or its device named &lt;code&gt;/dev/sdh&lt;/code&gt;) then type&amp;nbsp;command:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;umount /home
+# or
+umount /dev/sdh
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Once &lt;code&gt;fsck&lt;/code&gt; finished, remount the&amp;nbsp;filesystem:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;mount /home
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now start the check/repair via the&amp;nbsp;command&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;fsck -y /dev/sdh
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;fsck&lt;/code&gt; will check the filesystem and ask which problems should be
+fixed or corrected you don not use the &lt;code&gt;-y&lt;/code&gt; option.
+Any files that are recovered are placed in
+the &lt;code&gt;/home/lost+found&lt;/code&gt; directory by &lt;code&gt;fsck&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;Once fsck finished, remount the&amp;nbsp;filesystem:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;mount /home
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Superblock&amp;nbsp;Corruption&lt;/h3&gt;
+&lt;p&gt;It is possible that &lt;code&gt;fsck&lt;/code&gt; will fail with a message telling you that
+your filesystem has a bad &lt;a href="http://www.cyberciti.biz/tips/understanding-unixlinux-filesystem-superblock.html"&gt;superblock&lt;/a&gt;.
+The filesystem&amp;#8217;s superblock contains information about the filesystems type, size, structure, etc.
+This very important information, and if totally lost, its catastrophic.
+Luckily, redundant superblock information is maintained,
+and therefore, &lt;a href="http://linuxexpresso.wordpress.com/2010/03/31/repair-a-broken-ext4-superblock-in-ubuntu/"&gt;this too can be repaired&lt;/a&gt;.
+You can find the location of the superblocks&amp;nbsp;via&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# find the location of superblocks&lt;/span&gt;
+sudo umount /dev/sdh
+sudo dumpe2fs /dev/sdh | grep -i superblock
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The superblock labeled as &amp;#8220;Primary&amp;#8221; is the culprit, so you choose another to take its place.
+Pick another superblock number and use it as the &lt;code&gt;-b&lt;/code&gt; options&amp;nbsp;parameter.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo e2fsck -y -b 32768 /dev/sdh
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Effectively, your running a filesystem check but using an alternate superblock.
+This could run for a very long time (like hours).
+After it completes, corruption should be removed and the primary superblock&amp;nbsp;restored.&lt;/p&gt;
+&lt;h3&gt;When the Filesystem is&amp;nbsp;Full&lt;/h3&gt;
+&lt;p&gt;Sometimes after a system crash,
+you&amp;#8217;ll get a message like &amp;#8220;The volume filesystem root has only 0 bytes disk space remaining&amp;#8221;.
+If you run the &lt;code&gt;df -h&lt;/code&gt; command, you will in fact see it.
+This is almost certainly due to being actually out of space on the root filesystem,
+and not some erroneous message by Linux, so you must dig to find the source of the&amp;nbsp;problem.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;span class="caps"&gt;NOTE&lt;/span&gt;:&lt;/strong&gt; A deceptive source of filling your root filesystem
+is when there is a failure/corruption of a disk drive mount on &lt;a href="http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/mnt.html"&gt;&lt;code&gt;/mnt&lt;/code&gt;&lt;/a&gt;.
+The disk maybe unmounted, but never the less,
+programs can still successfully write to &lt;code&gt;/mnt&lt;/code&gt; directory structure.
+In my case, I had my backup system using &lt;code&gt;/mnt/backup&lt;/code&gt; and it appear everything was find,
+but in reality, data wasn&amp;#8217;t going to the external drive
+but instead to the root filesystem under &lt;code&gt;/mnt&lt;/code&gt;, filling up the root&amp;nbsp;filesystem.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A useful command for finding what&amp;#8217;s eating up all the space is the &lt;a href="http://linoxide.com/linux-command/linux-du-command/"&gt;&amp;#8220;disk usage&amp;#8221; command, &lt;code&gt;du&lt;/code&gt;&lt;/a&gt;.
+Running the following&amp;nbsp;command:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo du -s -h -x /*
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will give you the total amount of space used (&lt;code&gt;-s&lt;/code&gt;) by each file
+or directory at the top of your root filesystem (&lt;code&gt;/*&lt;/code&gt;),
+without looking at other filesystems (&lt;code&gt;-x&lt;/code&gt;),
+in human-readable numbers like &amp;#8220;124M&amp;#8221; (&lt;code&gt;-h&lt;/code&gt;).
+Don&amp;#8217;t worry if it takes a while to complete, it could take on the order of&amp;nbsp;minutes.&lt;/p&gt;
+&lt;p&gt;Don&amp;#8217;t delete files without first knowing what they are, of course.
+But, in general, you won&amp;#8217;t break your system if you delete files in the following&amp;nbsp;directories:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/tmp&lt;/code&gt; (user temp data &amp;#8212; these are commonly all deleted every reboot&amp;nbsp;anyway)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/var/tmp&lt;/code&gt; (print spools, and other system temporary&amp;nbsp;data)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/var/cache/*&lt;/code&gt; (this one can be dangerous, research&amp;nbsp;first!)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/root&lt;/code&gt; (the root user&amp;#8217;s home&amp;nbsp;directory)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In addition to the locations above, the following locations are common&amp;nbsp;culprits:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/opt&lt;/code&gt; (many third-party apps install here, and don&amp;#8217;t clean up after&amp;nbsp;themselves)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/var/log&lt;/code&gt; (log files can eat up a lot of space if there are repetitive&amp;nbsp;errors)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Deleted But Open&amp;nbsp;Files&lt;/h4&gt;
+&lt;p&gt;Another potential source of a full filesystem are large
+&lt;a href="http://dustymabe.com/2012/01/22/recover-space-by-finding-deleted-files-that-are-still-held-open/"&gt;files left open but have been deleted&lt;/a&gt;.
+On Linux, a file may be deleted (removed/unlinked) while a process has it open.
+When this happens, the file is essentially invisible to other processes,
+but it still takes on physical space on the drive.
+Tools like &lt;code&gt;du&lt;/code&gt; will not see&amp;nbsp;it.&lt;/p&gt;
+&lt;p&gt;To find these deleted but open files, run the utility &lt;a href="http://www.thegeekstuff.com/2012/08/lsof-command-examples/"&gt;lsof&lt;/a&gt;&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo lsof -nP | grep &amp;#39;(deleted)&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To find out how much space is taken up by these deleted but open files,&amp;nbsp;run:&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo lsof -nP | awk &amp;#39;/deleted/ { sum+=$8 } END { print sum }&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;lsof&lt;/code&gt; will list all open files,
+&lt;code&gt;awk&lt;/code&gt; then searches for the deleted files, and sums up the file sizes (in&amp;nbsp;bytes).&lt;/p&gt;
+&lt;p&gt;To get a list of process &lt;span class="caps"&gt;ID&lt;/span&gt; (&lt;span class="caps"&gt;PID&lt;/span&gt;) that own these file that are not redundant,&amp;nbsp;use&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo lsof -nP | grep &amp;#39;(deleted)&amp;#39; | awk &amp;#39;{ print $2 }&amp;#39; | sort | uniq
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It&amp;#8217;s up to the filesystem driver to actually free the allocated space,
+and that will usually happen only once all file descriptors referring to that file are released.
+So you can&amp;#8217;t really reclaim the space, unless you make the application close the file. 
+The challenge is that the responsible applications are long gone due to the system crash.
+How does one &amp;#8220;delete&amp;#8221; a file that the operating system believes has already been&amp;nbsp;deleted?&lt;/p&gt;
+&lt;p&gt;Actually we cannot remove the file as long as the file is still in use by a process.
+But what we can do is: Getting the size down to 0 via Linux&amp;#8217; &lt;a href="http://www.linuxjournal.com/article/8381"&gt;&lt;code&gt;/proc&lt;/code&gt;&lt;/a&gt; filesystem.
+&lt;code&gt;/proc&lt;/code&gt; is very special in that it is also a virtual filesystem.
+It&amp;#8217;s sometimes referred to as a process information pseudo-file system.
+It doesn&amp;#8217;t contain &amp;#8216;real&amp;#8217; files but runtime system information
+(e.g. system memory, devices mounted, hardware configuration, etc).
+&lt;a href="http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html"&gt;Within &lt;code&gt;/proc&lt;/code&gt;, each of the numbered directories corresponds to an actual process &lt;span class="caps"&gt;ID&lt;/span&gt;&lt;/a&gt;.
+Looking at the process table, you can match running processes with the associated process &lt;span class="caps"&gt;ID&lt;/span&gt;.
+Or at least that what should be happening absent a system crash.
+When the system crashed, the process is gone but the deleted but open file&amp;nbsp;remains.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.unixwerk.eu/linux/deleted_files.html"&gt;To fix this problem&lt;/a&gt;, our strategy is to &lt;a href="http://www.cyberciti.biz/faq/truncate-large-text-file-in-unix-linux/"&gt;truncate&lt;/a&gt; these deleted but open files.
+Your can truncate text file and make the size to zero using &lt;a href="http://bash.cyberciti.biz/guide/Redirection_of_standard_output"&gt;redirection&lt;/a&gt;:
+For example, if &lt;code&gt;2746&lt;/code&gt; is the process &lt;span class="caps"&gt;ID&lt;/span&gt; with in &lt;code&gt;/proc&lt;/code&gt; with a deleted but open file,
+the coresponding file must be truncate zero bytes.
+This can be done by switching to full root mode, find the effected files, and truncate them.
+For an example with a &lt;span class="caps"&gt;PID&lt;/span&gt; of &lt;code&gt;2746&lt;/code&gt; &lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo -s
+cd /proc/2746/fd
+ls -l | grep &amp;#39;(deleted)&amp;#39; | awk &amp;#39;{ print $9 }&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The numbers produced by the last command is the file to be truncate.
+For example, if one of the numbers produce is &lt;code&gt;12&lt;/code&gt;, then use this operation
+to truncate the file to zero&amp;nbsp;bytes&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;:&amp;gt; /proc/2746/fd/12
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You could automate all of the above with this command&amp;nbsp;line&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;ls -l | grep &amp;#39;(deleted)&amp;#39; | awk &amp;#39;{ print $9 }&amp;#39; | while read file; do :&amp;gt; /proc/2746/fd/$file; done
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Finally, it&amp;#8217;s a good idea to do a &lt;a href="http://www.cyberciti.biz/faq/linux-force-fsck-on-the-next-reboot-or-boot-sequence/"&gt;forced full file system check&lt;/a&gt; on the next&amp;nbsp;reboot.&lt;/p&gt;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo touch /forcefsck
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;Sources&lt;/h2&gt;
-&lt;p&gt;I consulted the following sources to create this&amp;nbsp;posting:&lt;/p&gt;
+&lt;p&gt;I primarily consulted the following sources to create this&amp;nbsp;posting:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://askubuntu.com/questions/194651/why-use-apt-get-upgrade-instead-of-apt-get-dist-upgrade"&gt;Why use apt-get upgrade instead of apt-get&amp;nbsp;dist-upgrade?&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://lifehacker.com/5817282/what-kind-of-maintenance-do-i-need-to-do-on-my-linux-pc"&gt;What Kind of Maintenance Do I Need to Do On My Linux &lt;span class="caps"&gt;PC&lt;/span&gt;?&lt;/a&gt;&lt;/li&gt;
@@ -575,7 +766,8 @@ and then follow the instructions&amp;nbsp;carefully!&lt;/p&gt;
 &lt;li&gt;&lt;a href="https://wiki.archlinux.org/index.php/S.M.A.R.T."&gt;&lt;span class="caps"&gt;S.M.A.R.T.&lt;/span&gt;(Self-Monitoring, Analysis, and Reporting&amp;nbsp;Technology)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://blog.shadypixel.com/monitoring-hard-drive-health-on-linux-with-smartmontools/"&gt;Monitoring Hard Drive Health on Linux with&amp;nbsp;smartmontools&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://askubuntu.com/questions/2793/how-do-i-remove-or-hide-old-kernel-versions-to-clean-up-the-boot-menu-or-free-sp"&gt;How do I remove or hide old kernel versions to clean up the boot menu or free&amp;nbsp;space?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Linux"></category><category term="Raspberry Pi"></category></entry><entry><title>Network Backups via Rsync and Rsnapshot</title><link href="http://jeffskinnerbox.me/posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/" rel="alternate"></link><updated>2014-02-08T00:01:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2014-02-08:posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/</id><summary type="html">&lt;h3&gt;Rsync and&amp;nbsp;Rsnapshot&lt;/h3&gt;
+&lt;li&gt;&lt;a href="http://www.unixwerk.eu/linux/deleted_files.html"&gt;How to Get Rid of Deleted Open&amp;nbsp;Files&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="Linux"></category><category term="Raspberry Pi"></category><category term="Filesystem"></category></entry><entry><title>Network Backups via Rsync and Rsnapshot</title><link href="http://jeffskinnerbox.me/posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/" rel="alternate"></link><updated>2014-02-08T00:01:00-05:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2014-02-08:posts/2014/Feb/08/network-backups-via-rsync-and-rsnapshot/</id><summary type="html">&lt;h3&gt;Rsync and&amp;nbsp;Rsnapshot&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/"&gt;
 &lt;img class="img-rounded floatLeft" style="margin: 0px 8px; float: left" title="Seagate Backup Plus" alt="{{ site.author.name }}" src="http://www.hotcouponworld.com/wp-content/uploads/2013/03/4tb.jpg" width="30%" height="30%" /&gt;&lt;/a&gt;
 I got a 4 Terabyte &lt;a href="http://www.seagate.com/external-hard-drives/desktop-hard-drives/backup-plus-desk/"&gt;Seagate Backup Plus&lt;/a&gt; hard drive as a Christmas present and
@@ -1667,8 +1859,8 @@ I doubt I would ever want to look&amp;nbsp;back! &lt;/p&gt;</summary><category t
 In an earlier post, I outlined &lt;a href="http://jeffskinnerbox.me/posts/2013/Apr/28/building-my-linux-box-the-plan/"&gt;my plan for building a Linux Box&lt;/a&gt;.  Here I will post how that plan was ultimately implemented. Life has taught me that all good planning is ultimately undone, and at some point, you must improvise.  That has also proven true for this quest to up grade my computation.  Specifically:
 &lt;ul&gt;
 &lt;ul&gt;
-    &lt;li&gt;After ordering all the hardware, it came to me that it was dumb to attempt to reuse my old semi-reliable, slow &lt;span class="caps"&gt;CD&lt;/span&gt; drive.  So I purchase the &lt;span class="caps"&gt;HP&lt;/span&gt; 24X Multiformat &lt;span class="caps"&gt;DVD&lt;/span&gt;/&lt;span class="caps"&gt;CD&lt;/span&gt; Writer (dvd1260i) at Best Buy for &lt;mathjax&gt;$40.&lt;/li&gt;
-    &lt;li&gt;I discovered that the my old PC had &lt;a href="http://www.webopedia.com/TERM/A/ATA.html"&gt;ATA&lt;/a&gt; hard drives (commonly called an IDE drive) and my new Mobo only supports &lt;a href="http://www.webopedia.com/TERM/S/Serial_ATA.html"&gt;SATA&lt;/a&gt; (SATA 3Gb/s &amp;amp; 6GB/s and it includes an external eSATA port).   This blows my plan to reuse my existing hard drives ... stupid me, I should have checked.  I did a quick scan for ATA controller cards and found a few (not many) for $&lt;/mathjax&gt;15 to &lt;mathjax&gt;$30.  I could buy the card and make this work but it doesn't seem like a good investment.  The drives are 400G drives and has a maximum data transfer rate of about 133MB/s (i.e. ATA/66).  The maximum data transfer rates of SATA II and SATA III are 300 MB/s and 600 MB/s, respectively.  I can buy a Seagate - Barracuda 500GB SATA II Internal Hard Drive for $&lt;/mathjax&gt;70.  Given my objective to increase the performance of my computing experience, buying a new &lt;span class="caps"&gt;SATA&lt;/span&gt; &lt;span class="caps"&gt;III&lt;/span&gt; hard drive should have been part of&amp;nbsp;the original plan.&lt;/li&gt;
+    &lt;li&gt;After ordering all the hardware, it came to me that it was dumb to attempt to reuse my old semi-reliable, slow &lt;span class="caps"&gt;CD&lt;/span&gt; drive.  So I purchase the &lt;span class="caps"&gt;HP&lt;/span&gt; 24X Multiformat &lt;span class="caps"&gt;DVD&lt;/span&gt;/&lt;span class="caps"&gt;CD&lt;/span&gt; Writer (dvd1260i) at Best Buy for 40&amp;nbsp;dollars.&lt;/li&gt;
+    &lt;li&gt;I discovered that the my old &lt;span class="caps"&gt;PC&lt;/span&gt; had &lt;a href="http://www.webopedia.com/TERM/A/ATA.html"&gt;&lt;span class="caps"&gt;ATA&lt;/span&gt;&lt;/a&gt; hard drives (commonly called an &lt;span class="caps"&gt;IDE&lt;/span&gt; drive) and my new Mobo only supports &lt;a href="http://www.webopedia.com/TERM/S/Serial_ATA.html"&gt;&lt;span class="caps"&gt;SATA&lt;/span&gt;&lt;/a&gt; (&lt;span class="caps"&gt;SATA&lt;/span&gt; 3Gb/s &lt;span class="amp"&gt;&amp;amp;&lt;/span&gt; &lt;span class="caps"&gt;6GB&lt;/span&gt;/s and it includes an external eSATA port).   This blows my plan to reuse my existing hard drives &amp;#8230; stupid me, I should have checked.  I did a quick scan for &lt;span class="caps"&gt;ATA&lt;/span&gt; controller cards and found a few (not many) for 15 to 30 dollars.  I could buy the card and make this work but it doesn&amp;#8217;t seem like a good investment.  The drives are 400G drives and has a maximum data transfer rate of about &lt;span class="caps"&gt;133MB&lt;/span&gt;/s (i.e. &lt;span class="caps"&gt;ATA&lt;/span&gt;/66).  The maximum data transfer rates of &lt;span class="caps"&gt;SATA&lt;/span&gt; &lt;span class="caps"&gt;II&lt;/span&gt; and &lt;span class="caps"&gt;SATA&lt;/span&gt; &lt;span class="caps"&gt;III&lt;/span&gt; are 300 &lt;span class="caps"&gt;MB&lt;/span&gt;/s and 600 &lt;span class="caps"&gt;MB&lt;/span&gt;/s, respectively.  I can buy a Seagate - Barracuda &lt;span class="caps"&gt;500GB&lt;/span&gt; &lt;span class="caps"&gt;SATA&lt;/span&gt; &lt;span class="caps"&gt;II&lt;/span&gt; Internal Hard Drive for $70.  Given my objective to increase the performance of my computing experience, buying a new &lt;span class="caps"&gt;SATA&lt;/span&gt; &lt;span class="caps"&gt;III&lt;/span&gt; hard drive should have been part of&amp;nbsp;the original plan.&lt;/li&gt;
     &lt;li&gt;After &lt;a href="http://www.cyberciti.biz/tips/raid-hardware-vs-raid-software.html"&gt;reading up on &lt;span class="caps"&gt;RAID&lt;/span&gt;&lt;/a&gt; and the Intel Rapid Storage Technology (&lt;span class="caps"&gt;RST&lt;/span&gt;), I concluded that it would be best to do a Software Raid and not use &lt;span class="caps"&gt;RST&lt;/span&gt;.&lt;/li&gt;
     &lt;li&gt;While I assumed in my original plan that I would dual boot the box with Linux and &lt;span class="caps"&gt;MS&lt;/span&gt; Windows, the &lt;a href="http://jeffskinnerbox.wordpress.com/2013/04/28/building-my-linux-box-the-plan/"&gt;comment from armahillo@gmail.com &lt;/a&gt;convinced me of what I suspected I should do; and that was to make &lt;a href="http://www.winehq.org/"&gt;wine&lt;/a&gt;, &lt;a href="http://www.mono-project.com/Main_Page"&gt;mono&lt;/a&gt;, and &lt;a href="http://www.playonlinux.com/"&gt;PlayOnLinux&lt;/a&gt; work for me.  While I haven&amp;#8217;t stressed them, so far so good.  I have not installed VirtualBox and I suspect I will not &amp;#8230; unless I get&amp;nbsp;desperate.&lt;/li&gt;
     &lt;li&gt;I was planning to reuse my old keyboard and mouse, but you know, I hated that keyboard and the mouse was already acting badly and about to die on me.  So I ended up replacing them with sometime worthy of my new&amp;nbsp;system.&lt;/li&gt;
@@ -1689,13 +1881,13 @@ Like may, over the years I have made a large time investment in tuning my &lt;co
 Chromium is a fully open-source version of Google&amp;#8217;s Chrome, and for licensing reasons, it doesn&amp;#8217;t come packaged with the integrated Flash or a native &lt;span class="caps"&gt;PDF&lt;/span&gt; reader.  Lucky, there is a work around and that is documented here: &lt;a href="http://www.omgubuntu.co.uk/2010/07/use-google-chrome%E2%80%99s-native-pdf-reader-in-chromium"&gt;Use Google Chrome’s Native &lt;span class="caps"&gt;PDF&lt;/span&gt; reader in Chromium&lt;/a&gt;.
 &lt;h2&gt;Installing My Squeeze&amp;nbsp;Box&lt;/h2&gt;
 I have a &lt;a href="http://www.mysqueezebox.com/index/Home"&gt;SqueezeBox&lt;/a&gt; device in my workshop for playing music.  On my old &lt;span class="caps"&gt;PC&lt;/span&gt;, I had installed the SlimServer which would provide the music stream.  I want to now reestablish that capability on the Linux box. The post &lt;a href="http://www.ehow.com/how_7314755_use-squeezebox-ubuntu.html"&gt;How to Use Squeezebox With Ubuntu&lt;/a&gt; and the &lt;a href="http://wiki.slimdevices.com/index.php/DebianPackage"&gt;Logitech SqueezeBox Wiki&lt;/a&gt; gives you all the information you should&amp;nbsp;need.&lt;/p&gt;
-&lt;p&gt;The Ubuntu (Debian) software for the &lt;a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server"&gt;SqueezeCenter&lt;/a&gt; or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via &lt;code&gt;get-apt&lt;/code&gt;.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the &lt;a href="http://linux.die.net/man/5/sources.list"&gt;&lt;code&gt;sources.list&lt;/code&gt;&lt;/a&gt; file.  To do this, do the&amp;nbsp;following:&lt;/p&gt;
+&lt;p&gt;The Ubuntu (Debian) software for the &lt;a href="http://wiki.slimdevices.com/index.php/Logitech_Media_Server"&gt;SqueezeCenter&lt;/a&gt; or now called the Logitech Media Server (formerly known as SlimServer) is maintained by Logitech, and therefore, will not be installed via &lt;code&gt;get-apt&lt;/code&gt;.  To make it part of the package resource list (used to locate archives of the package distribution system in use on the system), you need to update the &lt;a href="http://linux.die.net/man/5/sources.list"&gt;&lt;code&gt;/etc/apt/sources.list&lt;/code&gt;&lt;/a&gt; file.  To do this, do the&amp;nbsp;following:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo vim /etc/apt/sources.list
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Scroll to the bottom of the file and enter the following information and then&amp;nbsp;save:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;## This software is not part of Ubuntu, but is offered by Logitech for the Logitech Media Server (formerly known as SqueezeCenter or SlimServer).&lt;/span&gt;
 deb http://debian.slimdevices.com stable main
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1863,9 +2055,9 @@ These devices use the &lt;a href="http://www.logitech.com/en-us/promotions/6072
 &lt;/a&gt;
 I was a bit concerned about the ability of the receiver to support multiple device (i.e. the keyboard) simultaneously under Linux.
 Doing a quick search I found a post discussing how to do the &lt;a href="http://askubuntu.com/questions/113984/is-logitechs-unifying-receiver-supported"&gt;device pairing under Linux&lt;/a&gt;.  &lt;a href="https://lekensteyn.nl/logitech-unifying.html#ltunify"&gt;To install&lt;/a&gt; the &lt;a href="https://git.lekensteyn.nl/ltunify/"&gt;&lt;code&gt;ltunify&lt;/code&gt;&lt;/a&gt; pairing software, and do the pairing, do the&amp;nbsp;following:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;cd ~/src
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #336666"&gt;cd&lt;/span&gt; ~/src
 git clone https://git.lekensteyn.nl/ltunify.git
-cd ltunify
+&lt;span style="color: #336666"&gt;cd &lt;/span&gt;ltunify
 make install-home
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1904,19 +2096,19 @@ Now we need a mechanism to re-map mouse (or keyboard) button inputs.  &lt;a hre
 
 
 &lt;p&gt;To create your initial xbindkeys configuration file, just run the following&amp;nbsp;command:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;xbindkeys --defaults &amp;amp;gt; $HOME/.xbindkeysrc
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;xbindkeys --defaults &amp;amp;gt; &lt;span style="color: #003333"&gt;$HOME&lt;/span&gt;/.xbindkeysrc
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The syntax of the contents of .xbindskesrc is simple and is illustrated&amp;nbsp;below:&lt;/p&gt;
-&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# short comment
-    &amp;quot;command to start&amp;quot;
+&lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;&lt;span style="color: #0099FF; font-style: italic"&gt;# short comment&lt;/span&gt;
+    &lt;span style="color: #CC3300"&gt;&amp;quot;command to start&amp;quot;&lt;/span&gt;
         associated key
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The &lt;code&gt;"command to start"&lt;/code&gt; is simply a shell command (that you can run from a terminal),  and &lt;code&gt;"associated key"&lt;/code&gt; is the key or&amp;nbsp;button.&lt;/p&gt;
-&lt;p&gt;Now, using an editor, update the .xbindkeysrc file to include the&amp;nbsp;following:&lt;/p&gt;
+&lt;p&gt;Now, using an editor, update the &lt;code&gt;.xbindkeysrc&lt;/code&gt; file to include the&amp;nbsp;following:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;# Do a Page Down when mouse left-side down button is pressed
 &amp;quot;xte &amp;#39;key Page_Down&amp;#39;&amp;quot;
     b:8
@@ -1935,7 +2127,7 @@ Now we need a mechanism to re-map mouse (or keyboard) button inputs.  &lt;a hre
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;To activate any modification of the .xbindkeysrc configuration file, your have to restart xbindkeys.   This can be done&amp;nbsp;via:&lt;/p&gt;
+&lt;p&gt;To activate any modification of the &lt;code&gt;.xbindkeysrc&lt;/code&gt; configuration file, your have to restart xbindkeys.   This can be done&amp;nbsp;via:&lt;/p&gt;
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;pkill xbindkeys
 xbindkeys
 &lt;/pre&gt;&lt;/div&gt;
@@ -2112,37 +2304,7 @@ sudo mount /dev/md0 /mnt/raid1&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
 
 &lt;div class="codehilite" style="background: #f0f3f3"&gt;&lt;pre style="line-height: 125%"&gt;sudo cp /etc/mdadm/mdadm.conf /etc/mdadm/mdadm.conf_backup
 sudo mdadm --detail --scan &amp;gt;&amp;gt; /etc/mdadm/mdadm.conf
-&lt;/pre&gt;&lt;/div&gt;&lt;script type= "text/javascript"&gt;
-    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-        var mathjaxscript = document.createElement('script');
-        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-        mathjaxscript.type = 'text/javascript';
-        mathjaxscript.src = 'https:' == document.location.protocol
-		? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js'
-		: 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-            "MathJax.Hub.Config({" +
-            "    config: ['MMLorHTML.js']," +
-            "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-            "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-            "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-            "    displayAlign: 'center'," +
-            "    displayIndent: '0em'," +
-            "    showMathMenu: true," +
-            "    tex2jax: { " +
-            "        inlineMath: [ ['$','$'] ], " +
-            "        displayMath: [ ['$$','$$'] ]," +
-            "        processEscapes: true," +
-            "        preview: 'TeX'," +
-            "    }, " +
-            "    'HTML-CSS': { " +
-            "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
-            "    } " +
-            "}); ";
-        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-    }
-&lt;/script&gt;
-</summary><category term="Linux"></category><category term="Ubuntu"></category><category term="Squeeze Box"></category><category term="Harmony Remote"></category><category term="Chrome"></category><category term="Xbindkeys"></category><category term="KeePass"></category><category term="Wine"></category><category term="RAID"></category></entry><entry><title>GNU Radio and Gqrx SDR Receiver</title><link href="http://jeffskinnerbox.me/posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/" rel="alternate"></link><updated>2013-07-08T00:01:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2013-07-08:posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/</id><summary type="html">&lt;p&gt;&lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/GNURadioCompanion"&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="Linux"></category><category term="Ubuntu"></category><category term="Squeeze Box"></category><category term="Harmony Remote"></category><category term="Chrome"></category><category term="Xbindkeys"></category><category term="KeePass"></category><category term="Wine"></category><category term="RAID"></category></entry><entry><title>GNU Radio and Gqrx SDR Receiver</title><link href="http://jeffskinnerbox.me/posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/" rel="alternate"></link><updated>2013-07-08T00:01:00-04:00</updated><author><name>Jeff Irland</name></author><id>tag:jeffskinnerbox.me,2013-07-08:posts/2013/Jul/08/gnu-radio-and-gqrx-srd-receiver/</id><summary type="html">&lt;p&gt;&lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/GNURadioCompanion"&gt;
     &lt;img class="img-rounded" style="margin: 0px 8px; float: left" alt="grc logo" src="/images/gnu_radio_logo.png" width="256" height="256" /&gt;
 &lt;/a&gt;
 In &lt;a href="http://jeffskinnerbox.wordpress.com/2013/05/26/rtl-sdr-software-defined-radio-sdr-for-20/"&gt;my last post&lt;/a&gt;, I was using the &lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/Hardware"&gt;&lt;span class="caps"&gt;RTL2832&lt;/span&gt; &lt;span class="caps"&gt;TV&lt;/span&gt; tuner&lt;/a&gt; dongle to get a simple &lt;a href="http://en.wikipedia.org/wiki/Software-defined_radio"&gt;Software Defined Radio (&lt;span class="caps"&gt;SDR&lt;/span&gt;)&lt;/a&gt; operational.  I wanted to use the &lt;a href="http://sdrsharp.com/"&gt;&lt;span class="caps"&gt;SDR&lt;/span&gt;#&lt;/a&gt; program as my receiver but found that the &lt;span class="caps"&gt;MS&lt;/span&gt; Windows tool would not work and so I targeted &lt;a href="http://www.oz9aec.net/index.php/gnu-radio/gqrx-sdr"&gt;Gqrx&lt;/a&gt; as an alternative. Gqrx is dependent on the &lt;a href="http://gnuradio.org/redmine/projects/gnuradio/wiki"&gt;&lt;span class="caps"&gt;GNU&lt;/span&gt; Radio&lt;/a&gt;.  So in this post, I plan to get Gqrx and &lt;span class="caps"&gt;GNU&lt;/span&gt; Radio up and operational with the &lt;a href="http://rtlsdr.org/"&gt;&lt;span class="caps"&gt;RTL&lt;/span&gt;-&lt;span class="caps"&gt;SDR&lt;/span&gt; dongle&lt;/a&gt;.  I spend some time with other tools to help further verify (with mixed success) that &lt;span class="caps"&gt;GNU&lt;/span&gt; Radio is&amp;nbsp;working.&lt;/p&gt;
@@ -2437,9 +2599,11 @@ In the interests of completeness, there is also a runlevel &amp;#8216;S&amp;#821
 &lt;/ul&gt;
 The &lt;a href="http://www.debian-administration.org/articles/212"&gt;topic of runlevels&lt;/a&gt; is actually much richer than what is illustrated here.  It plays a key role in Linux background processes, called services or daemons.  For more, check out this &lt;a href="http://pthree.org/2008/02/26/managing-services-in-ubuntu-part-i-an-introduction-to-runlevels/"&gt;Managing Services in Ubuntu, Part I: An Introduction to Runlevels&lt;/a&gt; and &lt;a href="http://pthree.org/2008/02/27/managing-services-in-ubuntu-part-ii-managing-runlevels/"&gt;Part &lt;span class="caps"&gt;II&lt;/span&gt;&lt;/a&gt;.
 &lt;h2&gt;Getting a Login From a Frozen &lt;span class="caps"&gt;GUI&lt;/span&gt;&amp;nbsp;Screen&lt;/h2&gt;
-A not so common problem is when a frozen, full screen X application takes control over your mouse and keyboard and it seems that the only way to regain access to the system is to force a shutdown.  The fact is, if you could get to a some form of terminal session, you might be able to kill the offending process and get out of this frozen state.  This is where accessing a console screen by pressing &lt;span class="caps"&gt;CTRL&lt;/span&gt; + &lt;span class="caps"&gt;ALT&lt;/span&gt; + Fx (where Fx is a function key on the keyboard from F1 to F6) can be very&amp;nbsp;handy.&lt;/p&gt;
+A not so common problem is when a frozen, full screen X application takes control over your mouse and keyboard and it seems that the only way to regain access to the system is to force a shutdown.  The fact is, if you could get to a some form of terminal session, you might be able to kill the offending process and get out of this frozen state.
+This is where accessing a console screen by pressing &lt;span class="caps"&gt;CTRL&lt;/span&gt; + &lt;span class="caps"&gt;ALT&lt;/span&gt; + Fx
+(where Fx is a function key on the keyboard from F1 to F6; and F7 brings you back to the desktop) can be very&amp;nbsp;handy.&lt;/p&gt;
 &lt;p&gt;The X Server can often be the source of these frozen screen situations, so restarting the X Server may be the solution.  This can be done via the key combination Ctrl+Alt+Backspace.  Keep in mind that you will loses any unsaved data in applications.  Also, this capability is turned off by default on may Linux systems (including Ubuntu).  This was done to avoid confusion by  people accustom to &lt;span class="caps"&gt;MS&lt;/span&gt; Windows.  An alternative key combination is as follows:
-&lt;p style="padding-left:30px;"&gt;Press AltGR + SysRQ + K instead (AltGR is the &lt;span class="caps"&gt;RIGHT&lt;/span&gt; &lt;span class="caps"&gt;ALT&lt;/span&gt; button and SysRQ is labelled &amp;#8220;Print Screen&amp;#8221; most of the times, and remember to press and hold the keys in the in the right sequence, e.g. starting with ALtGR, and ending with the K(ill)&amp;nbsp;key).&lt;/p&gt;
+&lt;p style="padding-left:30px;"&gt;Press &lt;a href="http://en.wikipedia.org/wiki/AltGr_key"&gt;AltGR&lt;/a&gt; + &lt;a href="http://en.wikipedia.org/wiki/System_request"&gt;SysRQ&lt;/a&gt; + K instead (AltGR is the &lt;span class="caps"&gt;RIGHT&lt;/span&gt; &lt;span class="caps"&gt;ALT&lt;/span&gt; button and SysRQ is often labelled &amp;#8220;Print Screen&amp;#8221;, and remember to press and hold the keys in the in the right sequence, e.g. starting with ALtGR, and ending with the K(ill)&amp;nbsp;key).&lt;/p&gt;
 You can turn back on the Ctrl+Alt+Backspace by following the instructions &lt;a href="https://wiki.ubuntu.com/XorgCtrlAltBackspace"&gt;here&lt;/a&gt;.
 &lt;h2&gt;Magic SysRq&amp;nbsp;Key&lt;/h2&gt;
 If the system is completely locks up, or &lt;a href="http://www.linuxjournal.com/content/rebooting-magic-way"&gt;your filesystem fails&lt;/a&gt;, there are still alternatives. The &amp;#8220;&lt;a href="http://en.wikipedia.org/wiki/Magic_SysRq_key"&gt;magic SysRq key&lt;/a&gt;&amp;#8221; provides a way to send commands directly to the kernel through the &lt;a href="http://www.linuxjournal.com/article/8381"&gt;&lt;code&gt;/proc&lt;/code&gt; filesystem&lt;/a&gt;. It is enabled via a kernel compile time option, CONFIG_MAGIC_SYSRQ, which seems to be standard on most distributions.The magic SysRq key (or PrintScrn or Print Screen on some keyboards) is a key combination understood by the Linux kernel, which allows the user to perform various low-level commands regardless of the system&amp;#8217;s state. This is a surprising feature of the kernel but is commonly used to perform a safe reboot of a locked-up Linux computer.  See this post for some &lt;a href="http://royal.pingdom.com/2012/06/26/sysadmin-needs-sysrq-magic/"&gt;historical perspective of the SysReq key&lt;/a&gt;.&lt;/p&gt;
@@ -2447,7 +2611,7 @@ If the system is completely locks up, or &lt;a href="http://www.linuxjournal.com
 &lt;p style="padding-left:30px;"&gt;&lt;code&gt;cat /boot/config-$(uname -r) | grep CONFIG_MAGIC_SYSRQ&lt;/code&gt;&lt;/p&gt;
 If your get &amp;#8220;&lt;code&gt;CONFIG_MAGIC_SYSRQ=y"&lt;/code&gt;, then its enabled on&amp;nbsp;your kernel.&lt;/p&gt;
 &lt;p&gt;When running a kernel with SysRq compiled in, &lt;code&gt;/proc/sys/kernel/sysrq&lt;/code&gt; controls the functions allowed to be invoked via the SysRq key.  If the file contains &amp;#8220;&lt;code&gt;1&lt;/code&gt;&lt;span class="dquo"&gt;&amp;#8220;&lt;/span&gt;, that means that every possible SysRq request is allowed. See &lt;a href="http://lxr.linux.no/linux/Documentation/sysrq.txt"&gt;here&lt;/a&gt; for more on the &lt;code&gt;/proc/sys/kernel/sysrq&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;To actually reboot the machine there is a well know key sequence to follow: &lt;span class="caps"&gt;REISUB&lt;/span&gt; (or &lt;span class="caps"&gt;REISUO&lt;/span&gt; if you want to turn off the system instead of reboot).  Basically, if you keep pressed &lt;span class="caps"&gt;ALT&lt;/span&gt; + SysRq + R and then while you keep pressed &lt;span class="caps"&gt;ALT&lt;/span&gt; + SysRq you press E, I, S, U, B with about 1 second between each letter (do not type it fast). Your system will reboot. This  is a safer alternative to just cold rebooting the&amp;nbsp;computer.&lt;/p&gt;
+&lt;p&gt;To actually reboot the machine there is a well know key sequence to follow: &lt;span class="caps"&gt;REISUB&lt;/span&gt; (or &lt;span class="caps"&gt;REISUO&lt;/span&gt; if you want to turn off the system instead of reboot).  Basically, if you keep pressed AltGR + SysRq + R and then while you keep pressed AltGR + SysRq you press E, I, S, U, B with about 1 second between each letter (do not type it fast). Your system will reboot. This  is a safer alternative to just cold rebooting the&amp;nbsp;computer.&lt;/p&gt;
 &lt;p&gt;Mnemonic for &lt;span class="caps"&gt;REISUB&lt;/span&gt; is &lt;strong&gt;R&lt;/strong&gt;eboot &lt;strong&gt;E&lt;/strong&gt;ven &lt;strong&gt;I&lt;/strong&gt;f  &lt;strong&gt;S&lt;/strong&gt;ystem &lt;strong&gt;U&lt;/strong&gt;tterly &lt;strong&gt;B&lt;/strong&gt;roken, and the keys pressed do the following:
 &lt;p style="padding-left:60px;"&gt;
 &lt;ul&gt;

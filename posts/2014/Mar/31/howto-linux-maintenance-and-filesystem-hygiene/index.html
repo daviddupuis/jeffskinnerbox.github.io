@@ -99,6 +99,8 @@ Jeff's Skinner Box&nbsp;            </a>
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/linux/">Linux</a>
         &nbsp;
     <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/raspberry-pi/">Raspberry Pi</a>
+        &nbsp;
+    <a class="btn btn-default btn-xs" href="http://jeffskinnerbox.me/tag/filesystem/">Filesystem</a>
     
 </footer><!-- /.post-info -->                    </div>
 <!-- Repost button -->
@@ -110,42 +112,53 @@ Jeff's Skinner Box&nbsp;            </a>
 Defrag the drive, clean your registry, update antivirus, etc. just like you need to in Windows?
 None of this is needed in Linux but there is some recommend filesystem hygiene you should be&nbsp;doing.</p>
 <h2>Gather&nbsp;Information</h2>
-<p>For some of the maintenance activities listed here, you&#8217;re going to need some basic information.
+<p>For starters, lets gather some information.
+Some of the maintenance activities listed here, you&#8217;re going to need some basic information.
 This next section shows you how to get that&nbsp;information. </p>
 <h4>Distribution Name and&nbsp;Version</h4>
 <p>To determine which Linux version / build / release / distribution you are&nbsp;running:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"># kernel name and release
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># kernel name and release</span>
 uname -sr
 
-# kernel version
+<span style="color: #0099FF; font-style: italic"># kernel version</span>
 uname -v
 
-# Linux distribution
+<span style="color: #0099FF; font-style: italic"># Linux distribution</span>
 cat /etc/*-release
 lsb_release -a
 </pre></div>
 
 
-<p>Use the following command to get a listing of all the physical hard drives
+<p>Use one of the following command to get a listing of all the physical hard drives
 (and virutal drives) on the&nbsp;system:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">hwinfo --disk --short
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># terminal commandline utilities to list disk drives</span>
+hwinfo --disk --short
+sudo lshw -class disk -class storage -short
+
+<span style="color: #0099FF; font-style: italic"># GTK+ graphical user interface version of lshw</span>
+sudo lshw-gtk &amp;
 </pre></div>
 
 
 <p>For the Raspberry Pi, you can list the installed firmware version&nbsp;via:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">/opt/vc/bin/vcgencmd version
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># list the Raspberry Pi&#39;s firmware version</span>
+/opt/vc/bin/vcgencmd version
 </pre></div>
 
 
 <p>To get a broader, and potentially more detailed look at your system,
-consider the commands <code>[lshw][11]</code>
-and the graphical tools <code>[lshw-gtk][12]</code> and <code>[sysinfo][12]</code>.</p>
+consider the commands <a href="http://www.thegeekstuff.com/2008/12/how-to-get-hardware-specs-of-your-system-using-lshw-hardware-lister/"><code>lshw</code></a>
+and the graphical tools <a href="http://www.webupd8.org/2011/07/how-to-get-hardware-information-in.html"><code>lshw-gtk</code></a> and <a href="http://www.webupd8.org/2011/07/how-to-get-hardware-information-in.html"><code>sysinfo</code></a>.</p>
 <h2><span class="caps">OS</span> and Application&nbsp;Maintenance</h2>
 <p>You should periodically update your Linux operating system (<span class="caps">OS</span>)
 and its&nbsp;applications.</p>
 <h4>Install Operating System and Application&nbsp;Patches/Updates</h4>
 <p>This will patch the Linux operating system and all its <span class="caps">GPL</span>&nbsp;applications </p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get update; sudo apt-get dist-upgrade
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># commandline utility for applications upgrade</span>
+sudo apt-get update; sudo apt-get dist-upgrade
+
+<span style="color: #0099FF; font-style: italic"># graphics utility for applications upgrade</span>
+update-manager -c
 </pre></div>
 
 
@@ -157,13 +170,15 @@ Never the less, tools for updating the firmware are included in the Raspbian dis
 That tool is <code>sudo apt-get install rpi-update</code>.
 I&#8217;m using the <a href="http://learn.adafruit.com/adafruit-raspberry-pi-educational-linux-distro/overview">Adafruit&#8217;s Occidentalis distribution</a>, so this requires a
 <a href="https://github.com/Hexxeh/rpi-update">slightly different update tool</a> (<code>git</code> needs to be&nbsp;installed):</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># install tools to upgrade Raspberry Pi&#39;s firmware</span>
+sudo wget https://raw.github.com/Hexxeh/rpi-update/master/rpi-update -O /usr/bin/rpi-update
 sudo chmod +x /usr/bin/rpi-update
 </pre></div>
 
 
 <p>Once the tool has been installed, periodically you can update the firmware via these&nbsp;commands:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo BRANCH=next rpi-update
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># check for and install any required Raspberry Pi firmware upgrades</span>
+sudo <span style="color: #003333">BRANCH</span><span style="color: #555555">=</span>next rpi-update
 sudo reboot
 </pre></div>
 
@@ -246,8 +261,10 @@ After successful booting, <code>/forcefsck</code> will automatically be&nbsp;rem
 </pre></div>
 
 
-<p><strong><span class="caps">NOTE</span>:</strong> A filesystem check can run for many minutes, if not hours,
-depending on the size of the&nbsp;filesystem.</p>
+<blockquote>
+<p><em><strong><span class="caps">NOTE</span>:</strong> A filesystem check can run for many minutes, if not hours,
+depending on the size of the&nbsp;filesystem.</em></p>
+</blockquote>
 <h2>Clean-Up</h2>
 <p>Linux will leave some clutter around in the filesystem.
 While generally not a problem, it can eat-up disk space,
@@ -285,7 +302,8 @@ Assuming you aren&#8217;t saving them for debugging, you can do this to get a&nb
 
 <h4>Clean-Up Installation&nbsp;Packages</h4>
 <p>To remove partial packages, clean the cache, remove unused dependencies&nbsp;use:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get autoclean
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># For software packages remove partial packages, clean the cache, remove unused dependencies</span>
+sudo apt-get autoclean
 sudo apt-get clean
 sudo apt-get autoremove
 </pre></div>
@@ -306,12 +324,14 @@ can be identified&nbsp;via:</p>
 
 
 <p>Run the following command to list all packages that you no longer&nbsp;need:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">dpkg -l &#39;linux-*&#39; | sed &#39;/^ii/!d;/&#39;&quot;$(uname -r | sed &quot;s/\(.*\)-\([^0-9]\+\)/\1/&quot;)&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># list all the kernel packages currently loaded</span>
+dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;$(uname -r | sed &quot;</span>s/<span style="color: #CC3300; font-weight: bold">\(</span>.*<span style="color: #CC3300; font-weight: bold">\)</span>-<span style="color: #CC3300; font-weight: bold">\(</span><span style="color: #555555">[</span>^0-9<span style="color: #555555">]</span><span style="color: #CC3300; font-weight: bold">\+\)</span>/<span style="color: #CC3300; font-weight: bold">\1</span>/<span style="color: #CC3300">&quot;)&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span>
 </pre></div>
 
 
 <p>You can use the above command to permanently delete <strong><span class="caps">ALL</span></strong> older&nbsp;kernels:</p>
-<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo apt-get remove --purge $(dpkg -l &#39;linux-*&#39; | sed &#39;/^ii/!d;/&#39;&quot;$(uname -r | sed &quot;s/\(.*\)-\([^0-9]\+\)/\1/&quot;)&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;)
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># USE WITH CAUTION: perminately delete old kernel packages</span>
+sudo apt-get remove --purge <span style="color: #006699; font-weight: bold">$(</span>dpkg -l <span style="color: #CC3300">&#39;linux-*&#39;</span> | sed <span style="color: #CC3300">&#39;/^ii/!d;/&#39;&quot;$(uname -r | sed &quot;</span>s/<span style="color: #CC3300; font-weight: bold">\(</span>.*<span style="color: #CC3300; font-weight: bold">\)</span>-<span style="color: #CC3300; font-weight: bold">\(</span><span style="color: #555555">[</span>^0-9<span style="color: #555555">]</span><span style="color: #CC3300; font-weight: bold">\+\)</span>/<span style="color: #CC3300; font-weight: bold">\1</span>/<span style="color: #CC3300">&quot;)&quot;&#39;/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d&#39;</span><span style="color: #006699; font-weight: bold">)</span>
 </pre></div>
 
 
@@ -339,8 +359,181 @@ Confirm fixing disk errors by pressing &#8220;y&#8221; and &#8220;Enter&#8221; i
 <p>If this fails, read these articles &#8220;<a href="http://www.linuxjournal.com/article/193?page=0,0">Disk Maintenance under Linux (Disk Recovery</a>&#8220;,
 <a href="http://www.dedoimedo.com/computers/linux-data-recovery.html">How to recover partitions and data using Linux - Tutorial</a>,
 and then follow the instructions&nbsp;carefully!</p>
+<h2>Cleaning Up After a System&nbsp;Crash</h2>
+<p>At some point your system will crash and
+you&#8217;ll need to perform a manual repair of your filesystem.
+When this happens, you&#8217;ll reboot, the system stops, and
+then indicates you must perform a manual repair of the&nbsp;filesystem.</p>
+<h3>Check <span class="amp">&amp;</span> Repair&nbsp;Filesystem</h3>
+<p><code>fsck</code> (filesystem consistency check) is a command used to check filesystem
+for consistency errors and repair them on Linux filesystems.
+This tool is important for maintaining data integrity.
+It should be run regularly,
+especially after an unforeseen reboot (e.g. crash,&nbsp;power-outage).</p>
+<blockquote>
+<p><em><strong><span class="caps">NOTE</span>:</strong> You need to be &#8220;root&#8221; to use <code>fsck</code> and
+it is very important to unmount the filesystem before running&nbsp;it.</em></p>
+</blockquote>
+<p>First take the system to <a href="http://www.cyberciti.biz/tips/linux-changing-run-levels.html">runlevel one (single user mode)</a>.
+Unmount the filesystem, and then run <code>fsck</code>.
+For example, if the filesystem in question is <code>/home</code> (or its device named <code>/dev/sdh</code>) then type&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">umount /home
+# or
+umount /dev/sdh
+</pre></div>
+
+
+<p>Once <code>fsck</code> finished, remount the&nbsp;filesystem:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mount /home
+</pre></div>
+
+
+<p>Now start the check/repair via the&nbsp;command</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">fsck -y /dev/sdh
+</pre></div>
+
+
+<p><code>fsck</code> will check the filesystem and ask which problems should be
+fixed or corrected you don not use the <code>-y</code> option.
+Any files that are recovered are placed in
+the <code>/home/lost+found</code> directory by <code>fsck</code> command.</p>
+<p>Once fsck finished, remount the&nbsp;filesystem:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">mount /home
+</pre></div>
+
+
+<h3>Superblock&nbsp;Corruption</h3>
+<p>It is possible that <code>fsck</code> will fail with a message telling you that
+your filesystem has a bad <a href="http://www.cyberciti.biz/tips/understanding-unixlinux-filesystem-superblock.html">superblock</a>.
+The filesystem&#8217;s superblock contains information about the filesystems type, size, structure, etc.
+This very important information, and if totally lost, its catastrophic.
+Luckily, redundant superblock information is maintained,
+and therefore, <a href="http://linuxexpresso.wordpress.com/2010/03/31/repair-a-broken-ext4-superblock-in-ubuntu/">this too can be repaired</a>.
+You can find the location of the superblocks&nbsp;via</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%"><span style="color: #0099FF; font-style: italic"># find the location of superblocks</span>
+sudo umount /dev/sdh
+sudo dumpe2fs /dev/sdh | grep -i superblock
+</pre></div>
+
+
+<p>The superblock labeled as &#8220;Primary&#8221; is the culprit, so you choose another to take its place.
+Pick another superblock number and use it as the <code>-b</code> options&nbsp;parameter.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo e2fsck -y -b 32768 /dev/sdh
+</pre></div>
+
+
+<p>Effectively, your running a filesystem check but using an alternate superblock.
+This could run for a very long time (like hours).
+After it completes, corruption should be removed and the primary superblock&nbsp;restored.</p>
+<h3>When the Filesystem is&nbsp;Full</h3>
+<p>Sometimes after a system crash,
+you&#8217;ll get a message like &#8220;The volume filesystem root has only 0 bytes disk space remaining&#8221;.
+If you run the <code>df -h</code> command, you will in fact see it.
+This is almost certainly due to being actually out of space on the root filesystem,
+and not some erroneous message by Linux, so you must dig to find the source of the&nbsp;problem.</p>
+<blockquote>
+<p><em><strong><span class="caps">NOTE</span>:</strong> A deceptive source of filling your root filesystem
+is when there is a failure/corruption of a disk drive mount on <a href="http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/mnt.html"><code>/mnt</code></a>.
+The disk maybe unmounted, but never the less,
+programs can still successfully write to <code>/mnt</code> directory structure.
+In my case, I had my backup system using <code>/mnt/backup</code> and it appear everything was find,
+but in reality, data wasn&#8217;t going to the external drive
+but instead to the root filesystem under <code>/mnt</code>, filling up the root&nbsp;filesystem.</em></p>
+</blockquote>
+<p>A useful command for finding what&#8217;s eating up all the space is the <a href="http://linoxide.com/linux-command/linux-du-command/">&#8220;disk usage&#8221; command, <code>du</code></a>.
+Running the following&nbsp;command:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo du -s -h -x /*
+</pre></div>
+
+
+<p>This will give you the total amount of space used (<code>-s</code>) by each file
+or directory at the top of your root filesystem (<code>/*</code>),
+without looking at other filesystems (<code>-x</code>),
+in human-readable numbers like &#8220;124M&#8221; (<code>-h</code>).
+Don&#8217;t worry if it takes a while to complete, it could take on the order of&nbsp;minutes.</p>
+<p>Don&#8217;t delete files without first knowing what they are, of course.
+But, in general, you won&#8217;t break your system if you delete files in the following&nbsp;directories:</p>
+<ul>
+<li><code>/tmp</code> (user temp data &#8212; these are commonly all deleted every reboot&nbsp;anyway)</li>
+<li><code>/var/tmp</code> (print spools, and other system temporary&nbsp;data)</li>
+<li><code>/var/cache/*</code> (this one can be dangerous, research&nbsp;first!)</li>
+<li><code>/root</code> (the root user&#8217;s home&nbsp;directory)</li>
+</ul>
+<p>In addition to the locations above, the following locations are common&nbsp;culprits:</p>
+<ul>
+<li><code>/opt</code> (many third-party apps install here, and don&#8217;t clean up after&nbsp;themselves)</li>
+<li><code>/var/log</code> (log files can eat up a lot of space if there are repetitive&nbsp;errors)</li>
+</ul>
+<h4>Deleted But Open&nbsp;Files</h4>
+<p>Another potential source of a full filesystem are large
+<a href="http://dustymabe.com/2012/01/22/recover-space-by-finding-deleted-files-that-are-still-held-open/">files left open but have been deleted</a>.
+On Linux, a file may be deleted (removed/unlinked) while a process has it open.
+When this happens, the file is essentially invisible to other processes,
+but it still takes on physical space on the drive.
+Tools like <code>du</code> will not see&nbsp;it.</p>
+<p>To find these deleted but open files, run the utility <a href="http://www.thegeekstuff.com/2012/08/lsof-command-examples/">lsof</a></p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo lsof -nP | grep &#39;(deleted)&#39;
+</pre></div>
+
+
+<p>To find out how much space is taken up by these deleted but open files,&nbsp;run:</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo lsof -nP | awk &#39;/deleted/ { sum+=$8 } END { print sum }&#39;
+</pre></div>
+
+
+<p><code>lsof</code> will list all open files,
+<code>awk</code> then searches for the deleted files, and sums up the file sizes (in&nbsp;bytes).</p>
+<p>To get a list of process <span class="caps">ID</span> (<span class="caps">PID</span>) that own these file that are not redundant,&nbsp;use</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo lsof -nP | grep &#39;(deleted)&#39; | awk &#39;{ print $2 }&#39; | sort | uniq
+</pre></div>
+
+
+<p>It&#8217;s up to the filesystem driver to actually free the allocated space,
+and that will usually happen only once all file descriptors referring to that file are released.
+So you can&#8217;t really reclaim the space, unless you make the application close the file. 
+The challenge is that the responsible applications are long gone due to the system crash.
+How does one &#8220;delete&#8221; a file that the operating system believes has already been&nbsp;deleted?</p>
+<p>Actually we cannot remove the file as long as the file is still in use by a process.
+But what we can do is: Getting the size down to 0 via Linux&#8217; <a href="http://www.linuxjournal.com/article/8381"><code>/proc</code></a> filesystem.
+<code>/proc</code> is very special in that it is also a virtual filesystem.
+It&#8217;s sometimes referred to as a process information pseudo-file system.
+It doesn&#8217;t contain &#8216;real&#8217; files but runtime system information
+(e.g. system memory, devices mounted, hardware configuration, etc).
+<a href="http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/proc.html">Within <code>/proc</code>, each of the numbered directories corresponds to an actual process <span class="caps">ID</span></a>.
+Looking at the process table, you can match running processes with the associated process <span class="caps">ID</span>.
+Or at least that what should be happening absent a system crash.
+When the system crashed, the process is gone but the deleted but open file&nbsp;remains.</p>
+<p><a href="http://www.unixwerk.eu/linux/deleted_files.html">To fix this problem</a>, our strategy is to <a href="http://www.cyberciti.biz/faq/truncate-large-text-file-in-unix-linux/">truncate</a> these deleted but open files.
+Your can truncate text file and make the size to zero using <a href="http://bash.cyberciti.biz/guide/Redirection_of_standard_output">redirection</a>:
+For example, if <code>2746</code> is the process <span class="caps">ID</span> with in <code>/proc</code> with a deleted but open file,
+the coresponding file must be truncate zero bytes.
+This can be done by switching to full root mode, find the effected files, and truncate them.
+For an example with a <span class="caps">PID</span> of <code>2746</code> </p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo -s
+cd /proc/2746/fd
+ls -l | grep &#39;(deleted)&#39; | awk &#39;{ print $9 }&#39;
+</pre></div>
+
+
+<p>The numbers produced by the last command is the file to be truncate.
+For example, if one of the numbers produce is <code>12</code>, then use this operation
+to truncate the file to zero&nbsp;bytes</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">:&gt; /proc/2746/fd/12
+</pre></div>
+
+
+<p>You could automate all of the above with this command&nbsp;line</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">ls -l | grep &#39;(deleted)&#39; | awk &#39;{ print $9 }&#39; | while read file; do :&gt; /proc/2746/fd/$file; done
+</pre></div>
+
+
+<p>Finally, it&#8217;s a good idea to do a <a href="http://www.cyberciti.biz/faq/linux-force-fsck-on-the-next-reboot-or-boot-sequence/">forced full file system check</a> on the next&nbsp;reboot.</p>
+<div class="codehilite" style="background: #f0f3f3"><pre style="line-height: 125%">sudo touch /forcefsck
+</pre></div>
+
+
 <h2>Sources</h2>
-<p>I consulted the following sources to create this&nbsp;posting:</p>
+<p>I primarily consulted the following sources to create this&nbsp;posting:</p>
 <ul>
 <li><a href="http://askubuntu.com/questions/194651/why-use-apt-get-upgrade-instead-of-apt-get-dist-upgrade">Why use apt-get upgrade instead of apt-get&nbsp;dist-upgrade?</a></li>
 <li><a href="http://lifehacker.com/5817282/what-kind-of-maintenance-do-i-need-to-do-on-my-linux-pc">What Kind of Maintenance Do I Need to Do On My Linux <span class="caps">PC</span>?</a></li>
@@ -350,6 +543,7 @@ and then follow the instructions&nbsp;carefully!</p>
 <li><a href="https://wiki.archlinux.org/index.php/S.M.A.R.T."><span class="caps">S.M.A.R.T.</span>(Self-Monitoring, Analysis, and Reporting&nbsp;Technology)</a></li>
 <li><a href="http://blog.shadypixel.com/monitoring-hard-drive-health-on-linux-with-smartmontools/">Monitoring Hard Drive Health on Linux with&nbsp;smartmontools</a></li>
 <li><a href="http://askubuntu.com/questions/2793/how-do-i-remove-or-hide-old-kernel-versions-to-clean-up-the-boot-menu-or-free-sp">How do I remove or hide old kernel versions to clean up the boot menu or free&nbsp;space?</a></li>
+<li><a href="http://www.unixwerk.eu/linux/deleted_files.html">How to Get Rid of Deleted Open&nbsp;Files</a></li>
 </ul>
             </div>
             <!-- /.entry-content -->
